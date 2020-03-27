@@ -1,9 +1,11 @@
 package com.sample;
 
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -19,6 +21,7 @@ public class App extends Application {
     public void start(Stage stage) throws IOException {
         scene = new Scene(loadFXML("mainview.fxml"), 500, 450);
         stage.setScene(scene);
+        stage.setResizable(false);
         stage.show();
     }
 
@@ -30,6 +33,7 @@ public class App extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml));
         return fxmlLoader.load();
     }
+
 
     public static void main(String[] args) {
         launch();

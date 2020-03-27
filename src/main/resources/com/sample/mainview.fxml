@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
@@ -8,24 +10,35 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="444.0" prefWidth="493.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sample.controllers.MainController">
+<AnchorPane fx:id="ap" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#signIn" prefHeight="450.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sample.controllers.MainController">
    <children>
-      <TextField fx:id="txtMail" layoutX="176.0" layoutY="175.0" prefHeight="25.0" prefWidth="231.0" promptText="Your email here ..." />
-      <PasswordField fx:id="txtPassword" layoutX="176.0" layoutY="227.0" prefHeight="25.0" prefWidth="231.0" promptText="Password ..." />
-      <Label layoutX="43.0" layoutY="175.0" text="Email adress">
+      <TextField fx:id="txtEmail" layoutX="135.0" layoutY="169.0" prefHeight="25.0" prefWidth="231.0" promptText="Your email here ..." />
+      <PasswordField fx:id="txtPassword" layoutX="135.0" layoutY="236.0" prefHeight="25.0" prefWidth="231.0" promptText="Password ..." />
+      <Label layoutX="135.0" layoutY="138.0" text="Email adress">
          <font>
             <Font size="16.0" />
          </font></Label>
-      <Label layoutX="43.0" layoutY="224.0" text="Password">
+      <Label layoutX="135.0" layoutY="204.0" text="Password">
          <font>
             <Font size="16.0" />
          </font></Label>
-      <Button layoutX="182.0" layoutY="326.0" mnemonicParsing="false" onAction="#onBtnSignIn" prefHeight="44.0" prefWidth="109.0" style="-fx-background-color: green;" text="Sign in" textFill="WHITE">
+      <Hyperlink fx:id="signUpLink" layoutX="131.0" layoutY="380.0" onAction="#changeView" prefHeight="28.0" prefWidth="240.0" text="Don't have an account? Sign up here" textFill="#1b3c90">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Hyperlink>
+      <Button layoutX="196.0" layoutY="323.0" mnemonicParsing="false" onAction="#signIn" prefHeight="44.0" prefWidth="109.0" style="-fx-background-color: green;" text="Sign in" textFill="WHITE">
          <font>
             <Font size="20.0" />
-         </font></Button>
-      <Label fx:id="lblFailedSignIn" layoutX="237.0" layoutY="219.0" />
-      <Text layoutX="171.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sign in">
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Label fx:id="lblFailedSignIn" layoutX="135.0" layoutY="276.0" prefHeight="25.0" prefWidth="231.0" style="-fx-alignment: center;" textFill="#c61717" wrapText="true">
+         <font>
+            <Font size="16.0" />
+         </font></Label>
+      <Text layoutX="175.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sign in">
          <font>
             <Font size="50.0" />
          </font>

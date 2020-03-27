@@ -16,11 +16,13 @@ import com.sample.App;
 import com.sample.BLL.Repository;
 import com.sample.Models.User;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.AnchorPane;
 import kong.unirest.GetRequest;
 import kong.unirest.HttpResponse;
 import kong.unirest.JsonNode;
@@ -28,26 +30,40 @@ import kong.unirest.Unirest;
 import org.apache.commons.codec.digest.DigestUtils;
 
 public class MainController {
-
+    @FXML
+    private AnchorPane ap;
     @FXML
     private Button mainButton;
 
     @FXML
-    private void changeToSecondaryView() throws IOException {
-
-        //testApi();
+    public void changeView(Event event) throws IOException {
+        String elementClicked = ((Control) event.getSource()).getId();
+        if (elementClicked.equals("signUpLink")) {
+            App.changeView("signUpForm.fxml");
+        }
+        if (elementClicked.equals("btnSignIn")) {
+            App.changeView("mainview.fxml");
+        }
     }
     @FXML
     private TextField txtEmail;
 
     @FXML
     private PasswordField txtPassword;
+
     @FXML
     private Label lblFailedSignIn;
 
-    @FXML
-    void onBtnSignIn(ActionEvent event) throws IOException {
-        String mail = txtEmail.getText().toLowerCase();
+    public void signIn(Event event) throws IOException {
+        // makes it so you can log in by pressing enter on your keyboard
+        if (event instanceof KeyEvent) {
+            if (((KeyEvent) event).getCode() != KeyCode.ENTER) {
+                return;
+            }
+        }
+
+
+       /* String mail = txtEmail.getText().toLowerCase();
         String password = txtPassword.getText();
         User userTryingToLogIn = new User(mail, password);
         System.out.println(mail+", "+password);
@@ -55,9 +71,8 @@ public class MainController {
             App.changeView("secondaryview.fxml");
         } else {
             lblFailedSignIn.setText("Email or Password is incorrect");
-        }
+        }*/
     }
-
     /*public void testApi() throws MalformedURLException, UnsupportedEncodingException {
         *//*HttpResponse <String> httpResponse = Unirest.get("<https://comppartsapi.herokuapp.com/>")
                 .asString();

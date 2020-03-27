@@ -7,10 +7,10 @@ public class User {
     private String password;
     private boolean adminUser;
 
-    public User(String mail, String password) {
-        this.mail = mail;
-        this.password = hashPassword(password);
-    }
+    /*public User(String mail, String password) {
+        this.mail = mail.toLowerCase();
+        this.password = password;
+    }*/
     public String hashPassword(String password) {
         String sha256 = DigestUtils.shaHex(password);
         return sha256;
@@ -22,5 +22,24 @@ public class User {
 
     public String getPassword() {
         return password;
+    }
+
+    public boolean validateUser(String mail, String password, String confirmPassword) {
+        boolean invalidMail = mail.isBlank() || mail.isEmpty();
+        boolean invalidPassword = password.isBlank() || password.isEmpty();
+        boolean invalidConfirmPassword = confirmPassword.isBlank() || confirmPassword.isEmpty();
+        if (invalidMail || invalidPassword || invalidConfirmPassword) {
+            return false;
+        } else if(invalidMail && invalidMail && invalidConfirmPassword) {
+            return false;
+        } else {
+            if (password.equals(confirmPassword)) {
+                this.mail = mail.toLowerCase();
+                this.password = hashPassword(password);
+                return true;
+            } else {
+                return false;
+            }
+        }
     }
 }
