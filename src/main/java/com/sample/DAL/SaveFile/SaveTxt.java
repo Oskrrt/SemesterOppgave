@@ -17,14 +17,13 @@ public class SaveTxt extends FileSaver {
 
     @Override
     protected Boolean call() throws Exception {
+        // lager to byte arrays av samme fil, en før og en etter skrivingen. Dersom de er like betyr det at skrivingen feilet og brukeren blir ikke registrert.
         byte[] fileBeforeWriting = Files.readAllBytes(Paths.get(path));
         System.out.println("Inne i call metoden");
         String contentToWrite = userToRegister.getMail()+":"+userToRegister.getPassword()+"\n";
         Files.write(Paths.get(path), contentToWrite.getBytes(), StandardOpenOption.APPEND);
         byte[] fileAfterWriting = Files.readAllBytes(Paths.get(path));
-        boolean sle = Arrays.equals(fileBeforeWriting, fileAfterWriting);
-        System.out.println(sle);
-        return sle;
+        return Arrays.equals(fileBeforeWriting, fileAfterWriting);
     }
 
     public void hei() throws IOException {

@@ -22,11 +22,6 @@
          <font>
             <Font size="16.0" />
          </font></Label>
-      <Hyperlink fx:id="signUpLink" layoutX="131.0" layoutY="380.0" onAction="#changeView" prefHeight="28.0" prefWidth="240.0" text="Don't have an account? Sign up here" textFill="#1b3c90">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Hyperlink>
       <Button layoutX="196.0" layoutY="323.0" mnemonicParsing="false" onAction="#signIn" prefHeight="44.0" prefWidth="109.0" style="-fx-background-color: green;" text="Sign in" textFill="WHITE">
          <font>
             <Font size="20.0" />
@@ -34,6 +29,11 @@
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
+      <Hyperlink fx:id="signUpLink" layoutX="131.0" layoutY="380.0" onAction="#changeView" prefHeight="28.0" prefWidth="240.0" text="Don't have an account? Sign up here" textFill="#1b3c90">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Hyperlink>
       <Label fx:id="lblFailedSignIn" layoutX="135.0" layoutY="276.0" prefHeight="25.0" prefWidth="231.0" style="-fx-alignment: center;" textFill="#c61717" wrapText="true">
          <font>
             <Font size="16.0" />

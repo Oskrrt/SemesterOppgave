@@ -1,7 +1,9 @@
 package com.sample.controllers;
 
 import com.sample.BLL.Repository;
+import com.sample.DAL.SaveFile.SaveTxt;
 import com.sample.Models.User;
+import javafx.concurrent.WorkerStateEvent;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.event.EventHandler;
@@ -30,6 +32,7 @@ public class SignUpFormController {
     private PasswordField txtConfirmPassword;
     private MainController mainController = new MainController();
     private Repository repo = new Repository();
+    private SaveTxt saver;
 
     @FXML
     void signUp(ActionEvent event) throws IOException {
@@ -41,9 +44,20 @@ public class SignUpFormController {
             lblNotifyIfSignUpSucceeded.setText("Failed to sign up");
             return;
         }
-        boolean he = repo.validateSignUp(userToRegister);
+
+        saver = new SaveTxt("src/main/java/com/sample/DAL/SavedFiles/Users.txt", userToRegister);
+        Thread tr = new Thread(saver);
+        saver.setOnSucceeded(this::succeed);
+        tr.setDaemon(true);
+        tr.start();
+        //boolean he = repo.validateSignUp(userToRegister);
         //repo.testFil();
-        if (!he) {
+
+        //mainController.changeView(event);
+    }
+
+    private void succeed(WorkerStateEvent e) {
+        if (!saver.getValue()) {
             lblNotifyIfSignUpSucceeded.setText("Successfully registered your account");
             btnSignIn.setVisible(true);
             btnSignIn.setOnMouseClicked(new EventHandler<MouseEvent>() {
@@ -54,11 +68,11 @@ public class SignUpFormController {
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
-
                 }
             });
+        } else {
+            //Kommer bare hit dersom det ikke gikk å skrive brukerinformasjonen til fil.
+            lblNotifyIfSignUpSucceeded.setText("Could not register the account");
         }
-        //mainController.changeView(event);
     }
-
 }
