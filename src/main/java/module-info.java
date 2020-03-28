@@ -9,3 +9,4 @@ module com.sample {
     opens com.sample.controllers to javafx.fxml;
     exports com.sample;
 }
+

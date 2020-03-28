@@ -8,10 +8,12 @@ package com.sample.DAL.OpenFile;
 
 import javafx.concurrent.Task;
 
-abstract class FileOpener extends Task<Void> {
-    private String path;
+import java.nio.file.Path;
 
-    public FileOpener(String path) {
+abstract class FileOpener extends Task<Void> {
+    public Path path;
+
+    public FileOpener(Path path) {
         this.path = path;
     }
 

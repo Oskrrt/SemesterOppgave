@@ -24,6 +24,14 @@ public class User {
         return password;
     }
 
+    public void setMail(String mail) {
+        this.mail = mail;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     public boolean validateUser(String mail, String password, String confirmPassword) {
         boolean invalidMail = mail.isBlank() || mail.isEmpty();
         boolean invalidPassword = password.isBlank() || password.isEmpty();

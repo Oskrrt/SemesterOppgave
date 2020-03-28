@@ -39,10 +39,10 @@ public class MainController {
     public void changeView(Event event) throws IOException {
         String elementClicked = ((Control) event.getSource()).getId();
         if (elementClicked.equals("signUpLink")) {
-            App.changeView("signUpForm.fxml");
+            App.changeView("signUpForm.fxml", 0, 0);
         }
         if (elementClicked.equals("btnSignIn")) {
-            App.changeView("mainview.fxml");
+            App.changeView("signIn.fxml", 0, 0);
         }
     }
     @FXML
@@ -61,18 +61,15 @@ public class MainController {
                 return;
             }
         }
-
-
-       /* String mail = txtEmail.getText().toLowerCase();
+        String mail = txtEmail.getText().toLowerCase();
         String password = txtPassword.getText();
-        User userTryingToLogIn = new User(mail, password);
-        System.out.println(mail+", "+password);
-        if (Repository.validateSignIn(userTryingToLogIn)) {
-            App.changeView("secondaryview.fxml");
+        if (Repository.validateSignIn(mail, password)) {
+            App.changeView("secondaryview.fxml", 1200, 900);
         } else {
             lblFailedSignIn.setText("Email or Password is incorrect");
-        }*/
+        }
     }
+
     /*public void testApi() throws MalformedURLException, UnsupportedEncodingException {
         *//*HttpResponse <String> httpResponse = Unirest.get("<https://comppartsapi.herokuapp.com/>")
                 .asString();

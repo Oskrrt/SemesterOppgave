@@ -1,42 +1,31 @@
 package com.sample.BLL;
 
+import com.sample.DAL.OpenFile.OpenTxt;
 import com.sample.DAL.SaveFile.SaveTxt;
 import com.sample.Models.User;
 import javafx.concurrent.WorkerStateEvent;
 import javafx.event.EventHandler;
+import org.apache.commons.codec.digest.DigestUtils;
 
 import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 public class Repository {
-    SaveTxt saver;
-    public static boolean validateSignIn(User userTryingToLogIn) {
-        if (userTryingToLogIn.getMail().equals("oskar_ruyter@hotmail.com") && userTryingToLogIn.getPassword().equals("1234")) {
-            return true;
+    private static final Path pathToUserFile = Paths.get("src/main/java/com/sample/DAL/SavedFiles/Users.txt");
+
+    public static boolean validateSignIn(String mail, String password) throws IOException {
+        OpenTxt opener = new OpenTxt(pathToUserFile);
+        String hashedPassword = DigestUtils.shaHex(password);
+        User userFromFile = opener.getUserTryingToLogIn(mail);
+        if (userFromFile == null) {
+            return false;
         }
-        return false;
+        if (userFromFile.getMail().equals(mail) && userFromFile.getPassword().equals(hashedPassword)) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
-   /* public boolean validateSignUp(User userToRegister) {
-        System.out.println("Inne i repository");
-        saver = new SaveTxt("src/main/java/com/sample/DAL/SavedFiles/Users.txt", userToRegister);
-        Thread tr = new Thread(saver);
-        saver.setOnSucceeded(this::succeed);
-        tr.setDaemon(true);
-        tr.start();
-        System.out.println("den som faktisk betyr noe "+saver.getValue());
-        return true;
-    }*/
-
-
-
-   /* private boolean succeed(WorkerStateEvent e) {
-        System.out.println("ferdig med tråd");
-        System.out.println(saver.getValue());
-        return saver.getValue();
-}
-*/
-    /*public void testFil() throws IOException {
-        SaveTxt saver = new SaveTxt("src/main/java/com/sample/DAL/SavedFiles/Users.txt");
-         saver.hei();
-    }*/
 }

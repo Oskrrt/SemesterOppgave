@@ -12,8 +12,8 @@
 
 <AnchorPane fx:id="ap" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#signIn" prefHeight="450.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sample.controllers.MainController">
    <children>
-      <TextField fx:id="txtEmail" layoutX="135.0" layoutY="169.0" prefHeight="25.0" prefWidth="231.0" promptText="Your email here ..." />
-      <PasswordField fx:id="txtPassword" layoutX="135.0" layoutY="236.0" prefHeight="25.0" prefWidth="231.0" promptText="Password ..." />
+      <TextField fx:id="txtEmail" layoutX="135.0" layoutY="169.0" prefHeight="36.0" prefWidth="231.0" promptText="Your email here ..." />
+      <PasswordField fx:id="txtPassword" layoutX="135.0" layoutY="236.0" prefHeight="36.0" prefWidth="231.0" promptText="Password ..." />
       <Label layoutX="135.0" layoutY="138.0" text="Email adress">
          <font>
             <Font size="16.0" />

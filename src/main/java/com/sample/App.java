@@ -19,13 +19,21 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("mainview.fxml"), 500, 450);
+        scene = new Scene(loadFXML("signIn.fxml"), 500, 450);
         stage.setScene(scene);
         stage.setResizable(false);
         stage.show();
     }
 
-    public static void changeView(String fxml) throws IOException {
+    public static void changeView(String fxml, double width, double height) throws IOException {
+        Stage stage = (Stage)scene.getWindow();
+
+        // this checks if any width and height values were given in the calling of the method and resizes the window accordingly
+        if (width > 1 && height > 1) {
+            stage.setWidth(width);
+            stage.setHeight(height);
+        }
+        stage.centerOnScreen();
         scene.setRoot(loadFXML(fxml));
     }
 

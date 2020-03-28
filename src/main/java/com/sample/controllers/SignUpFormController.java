@@ -37,7 +37,6 @@ public class SignUpFormController {
     @FXML
     void signUp(ActionEvent event) throws IOException {
         lblNotifyIfSignUpSucceeded.setText("");
-        //User userToRegister = new User(txtEmail.getText(), txtPassword.getText());
         User userToRegister = new User();
         if (!userToRegister.validateUser(txtEmail.getText(), txtPassword.getText(), txtConfirmPassword.getText())) {
             lblNotifyIfSignUpSucceeded.setStyle("-fx-text-fill: red");
@@ -50,14 +49,12 @@ public class SignUpFormController {
         saver.setOnSucceeded(this::succeed);
         tr.setDaemon(true);
         tr.start();
-        //boolean he = repo.validateSignUp(userToRegister);
-        //repo.testFil();
-
-        //mainController.changeView(event);
     }
 
     private void succeed(WorkerStateEvent e) {
+        // if the two arrays in SaveTxt.java were not identical(false), that means the user was successfully registered
         if (!saver.getValue()) {
+            lblNotifyIfSignUpSucceeded.setStyle("-fx-text-fill: green");
             lblNotifyIfSignUpSucceeded.setText("Successfully registered your account");
             btnSignIn.setVisible(true);
             btnSignIn.setOnMouseClicked(new EventHandler<MouseEvent>() {
@@ -72,6 +69,7 @@ public class SignUpFormController {
             });
         } else {
             //Kommer bare hit dersom det ikke gikk å skrive brukerinformasjonen til fil.
+            lblNotifyIfSignUpSucceeded.setStyle("-fx-text-fill: red");
             lblNotifyIfSignUpSucceeded.setText("Could not register the account");
         }
     }
