@@ -2,10 +2,9 @@ package com.sample.controllers;
 
 import com.sample.BLL.Repository;
 import com.sample.DAL.SaveFile.SaveTxt;
-import com.sample.Models.User;
+import com.sample.Models.Users.User;
 import javafx.concurrent.WorkerStateEvent;
 import javafx.event.ActionEvent;
-import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;

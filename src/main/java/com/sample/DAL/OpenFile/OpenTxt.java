@@ -1,12 +1,11 @@
 package com.sample.DAL.OpenFile;
 
-import com.sample.Models.User;
+import com.sample.Models.Users.User;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 
 public class OpenTxt extends FileOpener {
 

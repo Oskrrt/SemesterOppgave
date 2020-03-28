@@ -1,19 +1,17 @@
-package com.sample.Models;
+package com.sample.Models.Users;
 
 import org.apache.commons.codec.digest.DigestUtils;
 
 public class User {
     private String mail;
     private String password;
-    private boolean adminUser;
 
     /*public User(String mail, String password) {
         this.mail = mail.toLowerCase();
         this.password = password;
     }*/
     public String hashPassword(String password) {
-        String sha256 = DigestUtils.shaHex(password);
-        return sha256;
+        return DigestUtils.shaHex(password);
     }
 
     public String getMail() {

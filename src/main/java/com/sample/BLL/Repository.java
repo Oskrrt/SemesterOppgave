@@ -1,10 +1,7 @@
 package com.sample.BLL;
 
 import com.sample.DAL.OpenFile.OpenTxt;
-import com.sample.DAL.SaveFile.SaveTxt;
-import com.sample.Models.User;
-import javafx.concurrent.WorkerStateEvent;
-import javafx.event.EventHandler;
+import com.sample.Models.Users.User;
 import org.apache.commons.codec.digest.DigestUtils;
 
 import java.io.IOException;
