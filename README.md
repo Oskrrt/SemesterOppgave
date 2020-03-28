@@ -1,4 +1,4 @@
 # SemesterOppgave
-Semester oppgave for DATA1600 Programutvikling. 
-Java version: 13. 
-JavaFX runtime version: 13  
+Semester oppgave for DATA1600 Programutvikling. <br />
+Java version: 13. <br />
+JavaFX runtime version: 13. <br />
