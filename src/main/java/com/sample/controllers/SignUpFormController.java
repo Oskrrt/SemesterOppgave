@@ -52,7 +52,7 @@ public class SignUpFormController {
 
     private void succeed(WorkerStateEvent e) {
         // if the two arrays in SaveTxt.java were not identical(false), that means the user was successfully registered
-        if (!saver.getValue()) {
+        if (saver.getValue()) {
             lblNotifyIfSignUpSucceeded.setStyle("-fx-text-fill: green");
             lblNotifyIfSignUpSucceeded.setText("Successfully registered your account");
             btnSignIn.setVisible(true);
