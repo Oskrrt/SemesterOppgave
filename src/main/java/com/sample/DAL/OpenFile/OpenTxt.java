@@ -50,6 +50,8 @@ public class OpenTxt extends FileOpener {
             userTryingToLogIn.setPassword(userFromFile[1]);
         } catch(IOException e) {
             e.printStackTrace();
+        } catch (NullPointerException NPE) {
+            return null;
         }
         if (userFromFile != null) {
             return userTryingToLogIn;
