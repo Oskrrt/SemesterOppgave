@@ -1,11 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.shape.Polyline?>
+<?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="900.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sample.controllers.regularUserController">
+<AnchorPane prefHeight="900.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sample.controllers.buildComputerController">
    <children>
-      <ImageView fx:id="computerImageView" fitHeight="434.0" fitWidth="407.0" layoutX="728.0" layoutY="233.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="computerImageView" fitHeight="500.0" fitWidth="750.0" layoutX="550.0" layoutY="248.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image backgroundLoading="true" url="@Images/pc.png" />
+         </image>
+      </ImageView>
+      <HBox alignment="CENTER_RIGHT" layoutY="14.0" prefHeight="100.0" prefWidth="1200.0" spacing="30.0" style="-fx-border-color: black; -fx-border-width: 0 0 1 0;">
+         <children>
+            <Button fx:id="homeBtn" onAction="#onClickHome" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: white; -fx-border-color: black;" text="Home">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="myComputersbtn" onAction="#onClickMyComputers" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: white; -fx-border-color: black;" text="My computers">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="logOutBtn" alignment="CENTER" onAction="#logOut" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: white; -fx-border-color: black;" text="Log out">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <padding>
+            <Insets right="50.0" />
+         </padding>
+      </HBox>
+      <Polyline fill="#2527c2" layoutX="497.0" layoutY="467.0" points="-21.0, -40.0, 179.0, -40.0, 179.0, -40.0, 295.0, 41.0" stroke="#eb8c34" strokeMiterLimit="40.0" strokeType="INSIDE" strokeWidth="2.0" style="-fx-fill: none;" />
+      <Label alignment="CENTER" layoutX="476.0" layoutY="395.0" prefHeight="32.0" prefWidth="189.0" text="Graphics card (GPU)">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Polyline fill="#2527c2" layoutX="507.0" layoutY="477.0" points="74.0, -221.0, 253.0, -221.0, 253.0, -221.0, 342.0, -71.0" stroke="#eb8c34" strokeMiterLimit="40.0" strokeType="INSIDE" strokeWidth="2.0" style="-fx-fill: none;" />
+      <Label alignment="CENTER" layoutX="571.0" layoutY="224.0" prefHeight="32.0" prefWidth="189.0" text="Processor (CPU)">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

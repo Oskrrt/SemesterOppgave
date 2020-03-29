@@ -32,5 +32,30 @@
             <Insets left="100.0" right="100.0" />
          </padding>
       </HBox>
+      <HBox alignment="CENTER_RIGHT" layoutY="14.0" prefHeight="100.0" prefWidth="1200.0" spacing="30.0" style="-fx-border-color: black; -fx-border-width: 0 0 1 0;">
+         <children>
+            <Button fx:id="homeBtn" onAction="#onClickHome" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: white; -fx-border-color: black;" text="Home">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="myComputersbtn" onAction="#onClickMyComputers" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: white; -fx-border-color: black;" text="My computers">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="logOutBtn" alignment="CENTER" onAction="#logOut" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: white; -fx-border-color: black;" text="Log out">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <padding>
+            <Insets right="50.0" />
+         </padding>
+      </HBox>
    </children>
 </AnchorPane>

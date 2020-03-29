@@ -25,12 +25,13 @@ public class regularUserController {
     private User loggedInUser = signInController.getLoggedInUser();
     @FXML
     void initialize() throws IOException {
-        loggedInUser = signInController.getLoggedInUser();
-        container.getChildren().add(Repository.renderNavBar());
+        //loggedInUser = signInController.getLoggedInUser();
+        //container.getChildren().add(Repository.renderNavBar());
     }
+    @FXML
+     void logOut() throws IOException {
+        //loggedInUser = signInController.getLoggedInUser();
 
-    public void logOut() throws IOException {
-        loggedInUser = signInController.getLoggedInUser();
         loggedInUser.setLoggedIn(false);
         System.out.println(loggedInUser.getLoggedIn());
         App.changeView("signIn.fxml", 500, 450);
@@ -39,18 +40,17 @@ public class regularUserController {
     @FXML
     void onClickBuildComputer(ActionEvent event) throws IOException {
         App.changeView("buildComputer.fxml", 0, 0);
-        Image computerImage = new Image("file:src/main/java/com/sample/Images/pc.png");
-        System.out.println(computerImage.getUrl());
 
     }
 
-
-    public void onClickHome() throws IOException {
+    @FXML
+    void onClickHome() throws IOException {
+        System.out.println("Du trykka home");
         App.changeView("homeScreenRegularUser.fxml",0, 0);
     }
 
     @FXML
-    public void onClickMyComputers() {
+    void onClickMyComputers() {
         System.out.println("du trykka my computers");
     }
 

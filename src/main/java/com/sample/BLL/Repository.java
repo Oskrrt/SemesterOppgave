@@ -37,7 +37,7 @@ public class Repository {
         }
     }
 
-    public static HBox renderNavBar() throws IOException {
+    /*public static HBox renderNavBar() throws IOException {
         HBox navBar = new HBox();
         Button btnHome = new Button("Home");
         Button btnMyComputers = new Button("My computers");
@@ -69,7 +69,7 @@ public class Repository {
         navBar.setSpacing(30);
         navBar.setPadding(new Insets(0, 50, 0, 0));
         return navBar;
-    }
+    }*/
 
     private static Button[] styleButtons(Button... buttons) {
         for (Button btn : buttons) {
