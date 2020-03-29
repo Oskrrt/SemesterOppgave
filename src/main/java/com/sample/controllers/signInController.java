@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import com.sample.App;
 import com.sample.BLL.Repository;
+import com.sample.Models.Users.User;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -11,7 +12,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 
-public class MainController {
+public class signInController {
     @FXML
     private AnchorPane ap;
     @FXML
@@ -35,6 +36,11 @@ public class MainController {
 
     @FXML
     private Label lblFailedSignIn;
+    private static User loggedInUser;
+
+    public static User getLoggedInUser() {
+        return loggedInUser;
+    }
 
     public void signIn(Event event) throws IOException {
         // makes it so you can log in by pressing enter on your keyboard
@@ -45,8 +51,10 @@ public class MainController {
         }
         String mail = txtEmail.getText().toLowerCase();
         String password = txtPassword.getText();
-        if (Repository.validateSignIn(mail, password)) {
-            App.changeView("secondaryview.fxml", 1200, 900);
+        User userTryingToLogIn = Repository.validateSignIn(mail, password);
+        if (userTryingToLogIn != null && userTryingToLogIn.getLoggedIn()) {
+            loggedInUser = userTryingToLogIn;
+            App.changeView("homeScreenRegularUser.fxml", 1200, 900);
         } else {
             lblFailedSignIn.setText("Email or Password is incorrect");
         }

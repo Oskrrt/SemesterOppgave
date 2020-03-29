@@ -54,7 +54,7 @@ public class OpenTxt extends FileOpener {
         if (userFromFile != null) {
             return userTryingToLogIn;
         } else {
-            // Dersom fil lesingen ikke fungerte vil userFromFile fremdeles være == null.
+            // If the file reading did not work the userFromFile array will still be == null
             return null;
         }
     }

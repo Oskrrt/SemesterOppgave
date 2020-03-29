@@ -29,7 +29,7 @@ public class SignUpFormController {
 
     @FXML
     private PasswordField txtConfirmPassword;
-    private MainController mainController = new MainController();
+    private signInController signInController = new signInController();
     private Repository repo = new Repository();
     private SaveTxt saver;
 
@@ -60,7 +60,7 @@ public class SignUpFormController {
                 @Override
                 public void handle(MouseEvent mouseEvent) {
                     try {
-                        mainController.changeView(mouseEvent);
+                        signInController.changeView(mouseEvent);
                     } catch (IOException e) {
                         e.printStackTrace();
                     }

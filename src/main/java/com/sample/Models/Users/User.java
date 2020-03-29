@@ -5,6 +5,7 @@ import org.apache.commons.codec.digest.DigestUtils;
 public class User {
     private String mail;
     private String password;
+    private boolean isLoggedIn;
 
     /*public User(String mail, String password) {
         this.mail = mail.toLowerCase();
@@ -22,6 +23,8 @@ public class User {
         return password;
     }
 
+    public boolean getLoggedIn() {return isLoggedIn;}
+
     public void setMail(String mail) {
         this.mail = mail;
     }
@@ -29,6 +32,8 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    public void setLoggedIn(boolean loggedIn) {this.isLoggedIn = loggedIn;}
 
     public boolean validateUser(String mail, String password, String confirmPassword) {
         boolean invalidMail = mail.isBlank() || mail.isEmpty();

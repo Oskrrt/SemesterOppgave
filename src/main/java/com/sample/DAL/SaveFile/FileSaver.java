@@ -18,7 +18,7 @@ abstract public class FileSaver extends Task<Boolean> {
     }
 
      boolean writeToFile() throws IOException {
-         // lager to byte arrays av samme fil, en før og en etter skrivingen. Dersom de er like betyr det at skrivingen feilet og brukeren blir ikke registrert.
+         // Declaring two long fileSize variables, one before writing and one after writing. If the size is changed after writing the writing went successfully
          long fileSize = Files.size(Paths.get(path));
          String contentToWrite = userToRegister.getMail()+":"+userToRegister.getPassword()+"\n";
          Files.write(Paths.get(path), contentToWrite.getBytes(), StandardOpenOption.APPEND);
