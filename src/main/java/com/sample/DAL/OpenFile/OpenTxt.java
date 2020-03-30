@@ -22,7 +22,7 @@ public class OpenTxt extends FileOpener {
         return null;
     }
 
-    public void readAll() throws IOException {
+   /* public void readAll() throws IOException {
         String halla = "";
         try(BufferedReader reader = Files.newBufferedReader(path)) {
             String line;
@@ -33,9 +33,9 @@ public class OpenTxt extends FileOpener {
             e.printStackTrace();
         }
         System.out.println(halla);
-    }
+    }*/
 
-    public User getUserTryingToLogIn(String mail) throws IOException {
+    public User getUserTryingToLogIn(String mail) {
         User userTryingToLogIn = new User();
         String[] userFromFile = null;
         try (BufferedReader reader = Files.newBufferedReader(path)) {

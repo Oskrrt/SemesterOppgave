@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import com.sample.App;
 import com.sample.BLL.Repository;
+import com.sample.Models.Users.Admin;
 import com.sample.Models.Users.User;
 import javafx.event.Event;
 import javafx.fxml.FXML;
@@ -54,7 +55,12 @@ public class signInController {
         User userTryingToLogIn = Repository.validateSignIn(mail, password);
         if (userTryingToLogIn != null && userTryingToLogIn.getLoggedIn()) {
             loggedInUser = userTryingToLogIn;
-            App.changeView("homeScreenRegularUser.fxml", 1200, 900);
+            System.out.println(userTryingToLogIn.getClass());
+            if (loggedInUser instanceof Admin) {
+                App.changeView("homeScreenAdmin.fxml", 1200, 900);
+            } else {
+                App.changeView("homeScreenRegularUser.fxml", 1200, 900);
+            }
         } else {
             lblFailedSignIn.setText("Email or Password is incorrect");
         }

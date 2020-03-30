@@ -1,6 +1,8 @@
 package com.sample.BLL;
 
 import com.sample.DAL.OpenFile.OpenTxt;
+import com.sample.DAL.SaveFile.SaveTxt;
+import com.sample.Models.Users.Admin;
 import com.sample.Models.Users.User;
 import com.sample.controllers.regularUserController;
 import com.sample.controllers.signInController;
@@ -31,6 +33,13 @@ public class Repository {
         }
         if (userFromFile.getMail().equals(mail) && userFromFile.getPassword().equals(hashedPassword)) {
             userFromFile.setLoggedIn(true);
+            /*Admin admin = new Admin(userFromFile);
+            System.out.println(admin.getClass());
+            SaveTxt saver = new SaveTxt(admin);
+            Thread tr = new Thread(saver);
+            tr.setDaemon(true);
+            tr.start();*/
+            System.out.println(userFromFile.getClass());
             return userFromFile;
         } else {
             return null;

@@ -43,7 +43,7 @@ public class SignUpFormController {
             return;
         }
 
-        saver = new SaveTxt("src/main/java/com/sample/DAL/SavedFiles/Users.txt", userToRegister);
+        saver = new SaveTxt(userToRegister);
         Thread tr = new Thread(saver);
         saver.setOnSucceeded(this::succeed);
         tr.setDaemon(true);
