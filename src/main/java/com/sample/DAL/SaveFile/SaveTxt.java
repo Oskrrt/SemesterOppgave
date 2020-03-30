@@ -12,6 +12,4 @@ public class SaveTxt extends FileSaver {
         System.out.println("Inne i call metoden");
         return super.writeToFile();
     }
-
-
 }

@@ -6,6 +6,7 @@ public class User {
     private String mail;
     private String password;
     private boolean isLoggedIn;
+    private boolean isAdmin;
 
     /*public User(String mail, String password) {
         this.mail = mail.toLowerCase();
@@ -25,6 +26,8 @@ public class User {
 
     public boolean getLoggedIn() {return isLoggedIn;}
 
+    public boolean getAdmin() {return isAdmin;}
+
     public void setMail(String mail) {
         this.mail = mail;
     }
@@ -34,6 +37,8 @@ public class User {
     }
 
     public void setLoggedIn(boolean loggedIn) {this.isLoggedIn = loggedIn;}
+
+    public void setAdmin(boolean isAdmin) {this.isAdmin = isAdmin;}
 
     public boolean validateUser(String mail, String password, String confirmPassword) {
         boolean invalidMail = mail.isBlank() || mail.isEmpty();
@@ -47,6 +52,7 @@ public class User {
             if (password.equals(confirmPassword)) {
                 this.mail = mail.toLowerCase();
                 this.password = hashPassword(password);
+                this.isAdmin = false;
                 return true;
             } else {
                 return false;

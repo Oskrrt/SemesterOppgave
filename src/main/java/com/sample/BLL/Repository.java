@@ -33,13 +33,17 @@ public class Repository {
         }
         if (userFromFile.getMail().equals(mail) && userFromFile.getPassword().equals(hashedPassword)) {
             userFromFile.setLoggedIn(true);
-            /*Admin admin = new Admin(userFromFile);
+            //TODO Fjerne den komenterte kode blokken før vi leverer
+            // den oppretter et admin objekt
+           /* userFromFile.setAdmin("true");
+            Admin admin = new Admin(userFromFile);
+            admin.setAdmin("true");
+            System.out.println("admin:: "+admin.getAdmin());
             System.out.println(admin.getClass());
             SaveTxt saver = new SaveTxt(admin);
             Thread tr = new Thread(saver);
             tr.setDaemon(true);
             tr.start();*/
-            System.out.println(userFromFile.getClass());
             return userFromFile;
         } else {
             return null;

@@ -1,5 +1,6 @@
 package com.sample.DAL.OpenFile;
 
+import com.sample.Models.Users.Admin;
 import com.sample.Models.Users.User;
 
 import java.io.BufferedReader;
@@ -37,6 +38,7 @@ public class OpenTxt extends FileOpener {
 
     public User getUserTryingToLogIn(String mail) {
         User userTryingToLogIn = new User();
+
         String[] userFromFile = null;
         try (BufferedReader reader = Files.newBufferedReader(path)) {
             String line;
@@ -48,16 +50,17 @@ public class OpenTxt extends FileOpener {
             }
             userTryingToLogIn.setMail(userFromFile[0]);
             userTryingToLogIn.setPassword(userFromFile[1]);
+            userTryingToLogIn.setAdmin(Boolean.parseBoolean(userFromFile[2]));
+            // determines wether the user trying to log in is an admin user or a regular user using the decorator design pattern
+            if (userTryingToLogIn.getAdmin()) {
+                Admin admin = new Admin(userTryingToLogIn);
+                return admin;
+            }
         } catch(IOException e) {
             e.printStackTrace();
         } catch (NullPointerException NPE) {
             return null;
         }
-        if (userFromFile != null) {
-            return userTryingToLogIn;
-        } else {
-            // If the file reading did not work the userFromFile array will still be == null
-            return null;
-        }
+        return userTryingToLogIn;
     }
 }

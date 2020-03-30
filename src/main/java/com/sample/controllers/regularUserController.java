@@ -31,9 +31,7 @@ public class regularUserController {
     @FXML
      void logOut() throws IOException {
         //loggedInUser = signInController.getLoggedInUser();
-
         loggedInUser.setLoggedIn(false);
-        System.out.println(loggedInUser.getLoggedIn());
         App.changeView("signIn.fxml", 500, 450);
     }
 
