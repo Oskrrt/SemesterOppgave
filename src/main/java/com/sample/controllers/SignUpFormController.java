@@ -1,6 +1,6 @@
 package com.sample.controllers;
 
-import com.sample.BLL.Repository;
+import com.sample.BLL.LoginLogic;
 import com.sample.DAL.SaveFile.SaveTxt;
 import com.sample.Models.Users.User;
 import javafx.concurrent.WorkerStateEvent;
@@ -30,7 +30,7 @@ public class SignUpFormController {
     @FXML
     private PasswordField txtConfirmPassword;
     private signInController signInController = new signInController();
-    private Repository repo = new Repository();
+    private LoginLogic repo = new LoginLogic();
     private SaveTxt saver;
 
     @FXML

@@ -3,13 +3,10 @@ package com.sample.controllers;
 import java.io.IOException;
 
 import com.sample.App;
-import com.sample.BLL.Repository;
 import com.sample.Models.Users.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 
