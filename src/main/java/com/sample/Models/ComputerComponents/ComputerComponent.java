@@ -1,6 +1,8 @@
 package com.sample.Models.ComputerComponents;
 
-public class ComputerComponent {
+import java.io.Serializable;
+
+public class ComputerComponent implements Serializable {
     private double price;
     private String description;
     private String productName;

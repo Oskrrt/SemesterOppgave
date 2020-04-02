@@ -24,7 +24,7 @@ import java.nio.file.Paths;
 
 
 
-public class Repository {
+public class LoginLogic {
     private static regularUserController controller = new regularUserController();
     private static final Path pathToUserFile = Paths.get("src/main/java/com/sample/DAL/SavedFiles/Users.txt");
 
