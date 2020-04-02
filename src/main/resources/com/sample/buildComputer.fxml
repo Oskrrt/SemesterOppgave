@@ -11,13 +11,8 @@
 <?import javafx.scene.shape.Polyline?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="900.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sample.controllers.buildComputerController">
+<AnchorPane fx:id="container" prefHeight="900.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sample.controllers.buildComputerController">
    <children>
-      <ImageView fx:id="computerImageView" fitHeight="500.0" fitWidth="750.0" layoutX="550.0" layoutY="248.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image backgroundLoading="true" url="@Images/pc.png" />
-         </image>
-      </ImageView>
       <HBox alignment="CENTER_RIGHT" layoutY="14.0" prefHeight="100.0" prefWidth="1200.0" spacing="30.0" style="-fx-border-color: black; -fx-border-width: 0 0 1 0;">
          <children>
             <Button fx:id="homeBtn" onAction="#onClickHome" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: white; -fx-border-color: black;" text="Home">
@@ -43,17 +38,82 @@
             <Insets right="50.0" />
          </padding>
       </HBox>
-      <Polyline fill="#2527c2" layoutX="497.0" layoutY="467.0" points="-21.0, -40.0, 179.0, -40.0, 179.0, -40.0, 295.0, 41.0" stroke="#eb8c34" strokeMiterLimit="40.0" strokeType="INSIDE" strokeWidth="2.0" style="-fx-fill: none;" />
-      <Label alignment="CENTER" layoutX="476.0" layoutY="395.0" prefHeight="32.0" prefWidth="189.0" text="Graphics card (GPU)">
+      <ImageView fx:id="computerImageView" fitHeight="500.0" fitWidth="633.0" layoutX="568.0" layoutY="248.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image backgroundLoading="true" url="@Images/pc.png" />
+         </image>
+      </ImageView>
+      <Polyline fill="#2527c2" layoutX="497.0" layoutY="467.0" points="19.0, -40.0, 215.0, -40.0, 215.0, -40.0, 295.0, 41.0" stroke="#eb8c34" strokeMiterLimit="40.0" strokeType="INSIDE" strokeWidth="2.0" style="-fx-fill: none;" />
+      <Label fx:id="lblGpu" alignment="CENTER" layoutX="502.0" layoutY="396.0" onMouseClicked="#openChoiceWindow" onMouseEntered="#makeBigger" onMouseExited="#makeNormal" prefHeight="32.0" prefWidth="226.0" text="Graphics card (GPU)">
          <font>
             <Font size="20.0" />
          </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </Label>
       <Polyline fill="#2527c2" layoutX="507.0" layoutY="477.0" points="74.0, -221.0, 253.0, -221.0, 253.0, -221.0, 342.0, -71.0" stroke="#eb8c34" strokeMiterLimit="40.0" strokeType="INSIDE" strokeWidth="2.0" style="-fx-fill: none;" />
-      <Label alignment="CENTER" layoutX="571.0" layoutY="224.0" prefHeight="32.0" prefWidth="189.0" text="Processor (CPU)">
+      <Label fx:id="lblCpu" alignment="CENTER" layoutX="571.0" layoutY="224.0" onMouseClicked="#openChoiceWindow" onMouseEntered="#makeBigger" onMouseExited="#makeNormal" prefHeight="32.0" prefWidth="189.0" text="Processor (CPU)">
          <font>
             <Font size="20.0" />
          </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Label>
+      <Polyline fill="#2527c2" layoutX="517.0" layoutY="487.0" points="404.0, -94.0, 309.5, -285.0, 309.5, -285.0, 221.0, -285.0" stroke="#eb8c34" strokeMiterLimit="40.0" strokeType="INSIDE" strokeWidth="2.0" style="-fx-fill: none;" />
+      <Label fx:id="lblRam" alignment="CENTER" layoutX="726.0" layoutY="170.0" onMouseClicked="#openChoiceWindow" onMouseEntered="#makeBigger" onMouseExited="#makeNormal" prefHeight="32.0" prefWidth="117.0" text="RAM">
+         <font>
+            <Font size="20.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Label>
+      <Polyline fill="#2527c2" layoutX="527.0" layoutY="497.0" points="233.0, 114.0, 175.0, 61.0, 175.0, 61.0, -7.0, 61.0" stroke="#eb8c34" strokeMiterLimit="40.0" strokeType="INSIDE" strokeWidth="2.0" style="-fx-fill: none;" />
+      <Label fx:id="lblPower" alignment="CENTER" layoutX="520.0" layoutY="526.0" onMouseClicked="#openChoiceWindow" onMouseEntered="#makeBigger" onMouseExited="#makeNormal" prefHeight="32.0" prefWidth="189.0" text="Power supply">
+         <font>
+            <Font size="20.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Label>
+      <Polyline fill="#2527c2" layoutX="537.0" layoutY="507.0" points="31.0, -182.0, 151.0, -182.0, 151.0, -182.0, 215.0, -137.0" stroke="#eb8c34" strokeMiterLimit="40.0" strokeType="INSIDE" strokeWidth="2.0" style="-fx-fill: none;" />
+      <Label fx:id="lblFan" alignment="CENTER" layoutX="576.0" layoutY="292.0" onMouseClicked="#openChoiceWindow" onMouseEntered="#makeBigger" onMouseExited="#makeNormal" prefHeight="32.0" prefWidth="117.0" text="Fan">
+         <font>
+            <Font size="20.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Label>
+      <Polyline fill="#2527c2" layoutX="547.0" layoutY="517.0" points="-24.0, -140.0, 137.0, -140.0, 137.0, -140.0, 302.0, -70.0" stroke="#eb8c34" strokeMiterLimit="40.0" strokeType="INSIDE" strokeWidth="2.0" style="-fx-fill: none;" />
+      <Label fx:id="lblMotherboard" alignment="CENTER" layoutX="515.0" layoutY="348.0" onMouseClicked="#openChoiceWindow" onMouseEntered="#makeBigger" onMouseExited="#makeNormal" prefHeight="32.0" prefWidth="171.0" text="Motherboard">
+         <font>
+            <Font size="20.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Label>
+      <Polyline fill="#2527c2" layoutX="507.0" layoutY="477.0" points="292.0, -317.0, 386.0, -317.0, 386.0, -317.0, 446.0, -176.0" stroke="#eb8c34" strokeMiterLimit="40.0" strokeType="INSIDE" strokeWidth="2.0" style="-fx-fill: none;" />
+      <Label fx:id="Case" alignment="CENTER" layoutX="791.0" layoutY="128.0" onMouseClicked="#openChoiceWindow" onMouseEntered="#makeBigger" onMouseExited="#makeNormal" prefHeight="32.0" prefWidth="117.0" text="Case">
+         <font>
+            <Font size="20.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Label>
+      <Polyline fill="#2527c2" layoutX="517.0" layoutY="487.0" points="51.0, 13.0, 193.0, 13.0, 193.0, 13.0, 292.0, 82.0" stroke="#eb8c34" strokeMiterLimit="40.0" strokeType="INSIDE" strokeWidth="2.0" style="-fx-fill: none;" />
+      <Label fx:id="lblStorage" alignment="CENTER" layoutX="585.0" layoutY="469.0" onMouseClicked="#openChoiceWindow" onMouseEntered="#makeBigger" onMouseExited="#makeNormal" prefHeight="32.0" prefWidth="110.0" text="Storage">
+         <font>
+            <Font size="20.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </Label>
    </children>
 </AnchorPane>

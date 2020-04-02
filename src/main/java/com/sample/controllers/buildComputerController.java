@@ -1,11 +1,20 @@
 package com.sample.controllers;
 
+import com.sample.BLL.Repository;
 import javafx.beans.property.ReadOnlyDoubleProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Control;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.text.Font;
+import javafx.stage.Stage;
+import javafx.stage.Window;
 
 import java.io.IOException;
 
@@ -14,6 +23,9 @@ public class buildComputerController {
     private regularUserController mainControllerForRegularUsers = new regularUserController();
     @FXML
     private ImageView computerImageView;
+
+    @FXML
+    private AnchorPane container;
 
     @FXML
     private Button homeBtn;
@@ -47,4 +59,31 @@ public class buildComputerController {
         mainControllerForRegularUsers.onClickMyComputers();
     }
 
+    @FXML
+    void openChoiceWindow(MouseEvent event) {
+        System.out.println(((Control)event.getSource()).getId());
+        String idOfClickedLabel = ((Control)event.getSource()).getId();
+        AnchorPane ap = new AnchorPane();
+        ap.setId("ap");
+        ap.setPrefWidth(1000);
+        ap.setPrefHeight(750);
+        Stage choiceStage = new Stage();
+        Scene choiceScene = new Scene(ap);
+        choiceStage.setScene(choiceScene);
+        Repository.renderChoiceWindow(choiceStage, idOfClickedLabel);
+    }
+
+    @FXML
+    void makeBigger(MouseEvent event) {
+        String idOfHoveredLabel = "#"+((Control)event.getSource()).getId();
+        Label hoveredLabel = (Label)container.lookup(idOfHoveredLabel);
+        hoveredLabel.setFont(new Font("System", 25));
+    }
+
+    @FXML
+    void makeNormal(MouseEvent event) {
+        String idOfHoveredLabel = "#"+((Control)event.getSource()).getId();
+        Label hoveredLabel = (Label)container.lookup(idOfHoveredLabel);
+        hoveredLabel.setFont(new Font("System", 20));
+    }
 }
