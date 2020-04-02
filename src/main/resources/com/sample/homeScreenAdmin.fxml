@@ -7,5 +7,7 @@
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sample.controllers.adminUserController">
    <children>
       <Text layoutX="199.0" layoutY="129.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Du er admin" />
+      <Button fx:id="testButton" alignment="CENTER" mnemonicParsing="false" onAction="#swap" prefHeight="453.0" prefWidth="626.0" style="-fx-background-color: white; -fx-border-color: black;" text="Build a new computer" textAlignment="CENTER" textOverrun="CLIP" wrapText="true" />
+
    </children>
 </AnchorPane>

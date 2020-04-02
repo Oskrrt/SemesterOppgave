@@ -7,7 +7,6 @@ public class Case extends ComputerComponent {
     public String HDAudioJacks;//e.g 1
     public int widthCM;
     public int heightCM;
-    public ArrayList<Fan> compatibleFans;
 
     public Case(String numberOfUSBPorts, String HDAudioJacks, int widthCM, int heightCM, ArrayList<Fan> compatibleFans, double price, String description, String productName, String productionCompany, String serialNumber) {
         super(price, description, productName, productionCompany, serialNumber);
@@ -15,7 +14,6 @@ public class Case extends ComputerComponent {
         this.HDAudioJacks = HDAudioJacks;
         this.widthCM = widthCM;
         this.heightCM = heightCM;
-        this.compatibleFans = compatibleFans;
     }
 
 
@@ -33,9 +31,5 @@ public class Case extends ComputerComponent {
 
     public int getHeightCM() {
         return heightCM;
-    }
-
-    public ArrayList<Fan> getCompatibleFans() {
-        return compatibleFans;
     }
 }
