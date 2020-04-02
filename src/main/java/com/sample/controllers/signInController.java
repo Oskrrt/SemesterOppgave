@@ -1,9 +1,12 @@
 package com.sample.controllers;
 
 import java.io.IOException;
+import java.nio.file.Paths;
 
 import com.sample.App;
-import com.sample.BLL.Repository;
+import com.sample.BLL.AdminLogic;
+import com.sample.BLL.LoginLogic;
+import com.sample.Models.ComputerComponents.Fan;
 import com.sample.Models.Users.Admin;
 import com.sample.Models.Users.User;
 import javafx.event.Event;
@@ -52,7 +55,7 @@ public class signInController {
         }
         String mail = txtEmail.getText().toLowerCase();
         String password = txtPassword.getText();
-        User userTryingToLogIn = Repository.validateSignIn(mail, password);
+        User userTryingToLogIn = LoginLogic.validateSignIn(mail, password);
         if (userTryingToLogIn != null && userTryingToLogIn.getLoggedIn()) {
             loggedInUser = userTryingToLogIn;
             System.out.println(userTryingToLogIn.getClass());
