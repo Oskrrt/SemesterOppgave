@@ -1,5 +1,8 @@
 package com.sample.BLL;
 
+import com.sample.App;
+import com.sample.Models.ComputerComponents.ComputerComponent;
+
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.ObjectOutputStream;
@@ -9,7 +12,7 @@ import java.nio.file.Path;
 
 public class AdminLogic {
 
-    public static <T> Boolean saveComponent(T component, Path filePath) {
+    public static <T extends ComputerComponent> Boolean saveComponent(T component, Path filePath) {
         try(OutputStream os = Files.newOutputStream(filePath); ObjectOutputStream out = new ObjectOutputStream(os)) {
             out.writeObject(component);
             os.close();
@@ -20,6 +23,10 @@ public class AdminLogic {
         }
     }
 
+
+    public static void swapViewsBasedOnButtonPressed(String buttonPressed) throws IOException {
+        App.changeView(buttonPressed+"Form.fxml", 530, 610 );
+    }
 
 
 }
