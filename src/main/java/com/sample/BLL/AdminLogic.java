@@ -42,7 +42,16 @@ public class AdminLogic {
         String serialNumber = ((TextField)formData.get(4)).getText();
         switch(type){
             case "caseFormGrid":
-                return new Case(((TextField)formData.get(5)).getText(),((TextField)formData.get(6)).getText(), ((TextField)formData.get(7)).getText(), ((TextField)formData.get(8)).getText(),price,description,productName,manufacturer,serialNumber);
+                return new Case(
+                        ((TextField)formData.get(5)).getText(), //Number of USB ports
+                        ((TextField)formData.get(6)).getText(), //Number of HD Audio jacks
+                        ((TextField)formData.get(7)).getText(), //Width in cm
+                        ((TextField)formData.get(8)).getText(), //Height in cm
+                        price,
+                        description,
+                        productName,
+                        manufacturer,
+                        serialNumber);
             case "graphicsCardFormGrid":
                 return new GraphicsCard(
                         price,
