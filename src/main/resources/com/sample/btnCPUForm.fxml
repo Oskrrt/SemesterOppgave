@@ -19,7 +19,7 @@
             <Font size="26.0" />
          </font>
       </Label>
-      <GridPane fx:id="CPUFormGrid" layoutX="27.0" layoutY="110.0" prefHeight="415.0" prefWidth="323.0">
+      <GridPane fx:id="CPU" layoutX="27.0" layoutY="110.0" prefHeight="415.0" prefWidth="323.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />

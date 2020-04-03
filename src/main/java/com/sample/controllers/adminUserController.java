@@ -2,6 +2,7 @@ package com.sample.controllers;
 
 import com.sample.App;
 import com.sample.BLL.AdminLogic;
+import com.sample.BLL.ComponentFactory;
 import com.sample.Models.ComputerComponents.ComputerComponent;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
@@ -28,27 +29,29 @@ public class adminUserController {
     @FXML
     private GridPane buttonGrida;
     @FXML
-    private GridPane caseFormGrid;
+    private GridPane computerCase;
     @FXML
-    private GridPane graphicsCardFormGrid;
+    private GridPane graphicsCard;
     @FXML
-    private GridPane coolingFormGrid;
+    private GridPane coolingSystem;
     @FXML
-    private GridPane CPUFormGrid;
+    private GridPane CPU;
     @FXML
-    private GridPane keyboardFormGrid;
+    private GridPane keyboard;
     @FXML
-    private GridPane monitorFormGrid;
+    private GridPane monitor;
     @FXML
-    private GridPane motherBoardFormGrid;
+    private GridPane motherBoard;
     @FXML
-    private GridPane mouseFormGrid;
+    private GridPane mouse;
     @FXML
-    private GridPane powerSupplyFormGrid;
+    private GridPane powerSupply;
     @FXML
-    private GridPane RAMFormGrid;
+    private GridPane RAM;
     @FXML
-    private GridPane speakerFormGrid;
+    private GridPane speaker;
+    @FXML
+    private GridPane storageComponent;
 
 
 
@@ -72,7 +75,7 @@ public class adminUserController {
     }
 
     @FXML
-    private void swap(){
+    private void goToComponentCreationSelectionView(){
         try {
             App.changeView("selectComponentToAdd.fxml", 1200, 900);
         } catch (IOException e) {
@@ -85,9 +88,11 @@ public class adminUserController {
         String type = ((Control)event.getSource()).getParent().getId(); //gets the id of the form grid, so we know what component to create.
         Parent form = ((Node)event.getSource()).getParent(); //gets the entire form grid from fxml
         List<Node> formData = form.getChildrenUnmodifiable(); //gets the children (aka textfields) in the form grid
-
-        Path filePath = Paths.get("src/main/java/com/sample/DAL/SavedFiles/NewComponent.txt");
-        if (AdminLogic.saveComponent(AdminLogic.createComponent(formData, type), filePath)){
+        ComputerComponent componentToSave = ComponentFactory.createComponent(formData, type);
+        assert componentToSave != null;
+        System.out.println(componentToSave.getDescription());
+        System.out.println(componentToSave);
+        if (AdminLogic.saveComponent(componentToSave, type)){
             System.out.println("JA MANNNN");
         } else {
             //TODO: output error message to view
