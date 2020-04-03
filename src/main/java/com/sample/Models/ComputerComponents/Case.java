@@ -5,10 +5,10 @@ import java.util.ArrayList;
 public class Case extends ComputerComponent {
     public String numberOfUSBPorts; //e.g 4
     public String HDAudioJacks;//e.g 1
-    public int widthCM;
-    public int heightCM;
+    public String widthCM;
+    public String heightCM;
 
-    public Case(String numberOfUSBPorts, String HDAudioJacks, int widthCM, int heightCM, ArrayList<Fan> compatibleFans, double price, String description, String productName, String productionCompany, String serialNumber) {
+    public Case(String numberOfUSBPorts, String HDAudioJacks, String widthCM, String heightCM, double price, String description, String productName, String productionCompany, String serialNumber) {
         super(price, description, productName, productionCompany, serialNumber);
         this.numberOfUSBPorts = numberOfUSBPorts;
         this.HDAudioJacks = HDAudioJacks;
@@ -25,11 +25,11 @@ public class Case extends ComputerComponent {
         return HDAudioJacks;
     }
 
-    public int getWidthCM() {
+    public String getWidthCM() {
         return widthCM;
     }
 
-    public int getHeightCM() {
+    public String getHeightCM() {
         return heightCM;
     }
 }

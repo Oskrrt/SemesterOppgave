@@ -42,7 +42,7 @@
             <TextField GridPane.rowIndex="4" />
             <TextField GridPane.rowIndex="5" />
             <TextField GridPane.rowIndex="6" />
-            <Button mnemonicParsing="false" onAction="#saveNewComponentFromForm" text="Save" GridPane.rowIndex="7" />
+            <Button mnemonicParsing="false" onAction="#saveNewComponentFromForm" fx:id="saveGPU" text="Save" GridPane.rowIndex="7" />
             <Label text="Description" GridPane.columnIndex="1">
                <GridPane.margin>
                   <Insets left="10.0" />

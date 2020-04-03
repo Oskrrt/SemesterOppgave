@@ -85,7 +85,7 @@
                   <Insets left="10.0" />
                </padding>
             </Label>
-            <Button mnemonicParsing="false" onAction="#saveNewComponentFromForm" text="Save" GridPane.rowIndex="8" />
+            <Button mnemonicParsing="false" onAction="#saveNewComponentFromForm" fx:id="savePowerSupply" text="Save" GridPane.rowIndex="8" />
          </children>
       </GridPane>
    </children>

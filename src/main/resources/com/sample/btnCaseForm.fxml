@@ -31,8 +31,8 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <TextField GridPane.rowIndex="1" />
             <TextArea prefHeight="200.0" prefWidth="200.0" />
+            <TextField GridPane.rowIndex="1" />
             <TextField GridPane.rowIndex="2" />
             <TextField GridPane.rowIndex="3" />
             <TextField GridPane.rowIndex="4" />
@@ -40,7 +40,7 @@
             <TextField GridPane.rowIndex="6" />
             <TextField GridPane.rowIndex="7" />
             <TextField GridPane.rowIndex="8" />
-            <Button mnemonicParsing="false" onAction="#saveNewComponentFromForm" text="Save" GridPane.rowIndex="9" />
+            <Button fx:id="saveCase" mnemonicParsing="false" onAction="#saveNewComponentFromForm" text="Save" GridPane.rowIndex="9" />
             <Label text="Description" GridPane.columnIndex="1">
                <padding>
                   <Insets left="10.0" />

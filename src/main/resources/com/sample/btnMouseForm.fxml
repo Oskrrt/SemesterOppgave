@@ -41,7 +41,7 @@
             <TextField GridPane.rowIndex="3" />
             <TextField GridPane.rowIndex="4" />
             <RadioButton mnemonicParsing="false" text="Is wireless" GridPane.rowIndex="5" />
-            <Button mnemonicParsing="false" onAction="#saveNewComponentFromForm" text="Save" GridPane.rowIndex="6" />
+            <Button mnemonicParsing="false" onAction="#saveNewComponentFromForm" fx:id="saveMouse" text="Save" GridPane.rowIndex="6" />
             <Label text="Description" GridPane.columnIndex="1">
                <GridPane.margin>
                   <Insets left="10.0" />

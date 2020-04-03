@@ -71,7 +71,7 @@
                   <Insets left="10.0" />
                </GridPane.margin>
             </Label>
-            <Button mnemonicParsing="false" onAction="#saveNewComponentFromForm" text="Save" GridPane.rowIndex="6" />
+            <Button mnemonicParsing="false" onAction="#saveNewComponentFromForm" fx:id="saveStorage" text="Save" GridPane.rowIndex="6" />
          </children>
       </GridPane>
    </children>

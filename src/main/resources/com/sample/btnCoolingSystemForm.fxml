@@ -38,8 +38,8 @@
             <TextField GridPane.rowIndex="4" />
             <TextField GridPane.rowIndex="5" />
             <TextField GridPane.rowIndex="6" />
-            <Button mnemonicParsing="false" onAction="#saveNewComponentFromForm" text="Save" GridPane.rowIndex="8" />
             <ChoiceBox prefWidth="150.0" GridPane.rowIndex="7" />
+            <Button fx:id="saveCooling" mnemonicParsing="false" onAction="#saveNewComponentFromForm" text="Save" GridPane.rowIndex="8" />
             <Label text="Description" GridPane.columnIndex="1">
                <GridPane.margin>
                   <Insets left="10.0" />
