@@ -75,9 +75,20 @@ public class adminUserController {
     }
 
     @FXML
-    private void goToComponentCreationSelectionView(){
+    private void viewSwapper(Event event){
+        String buttonPressed = ((Control)event.getSource()).getId();
         try {
+            if (buttonPressed.equals("btnCreateBack"))
             App.changeView("selectComponentToAdd.fxml", 1200, 900);
+            else if(buttonPressed.equals("btnBackToHome")){
+                App.changeView("homeScreenAdmin.fxml", 1200, 900);
+            } else if (buttonPressed.equals("btnGoToCreation")){
+                App.changeView("selectComponentToAdd.fxml", 1200, 900);
+            } else if (buttonPressed.equals("btnGoToList")){
+                App.changeView("viewAddedComponents.fxml", 1200, 900);
+            } else if (buttonPressed.equals("btnLogOut")){
+                App.changeView("signIn.fxml", 500, 450);
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }

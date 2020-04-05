@@ -13,7 +13,7 @@
 
 <AnchorPane prefHeight="610.0" prefWidth="530.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sample.controllers.adminUserController">
    <children>
-      <Button layoutX="27.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleBackButton" text="Back" />
+      <Button layoutX="27.0" layoutY="14.0" mnemonicParsing="false" fx:id="btnCreateBack" onAction="#viewSwapper" text="Back" />
       <Label layoutX="27.0" layoutY="58.0" text="Add a new processor">
          <font>
             <Font size="26.0" />

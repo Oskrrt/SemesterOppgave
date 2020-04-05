@@ -6,9 +6,12 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 
 public class ComponentFactory {
+
     public static ComputerComponent createComponent(List<Node> formData, String type){
         String description = ((TextArea)formData.get(0)).getText();
         double price = Double.parseDouble(((TextField)formData.get(1)).getText());
@@ -138,5 +141,49 @@ public class ComponentFactory {
         }
 
         return null;
+    }
+
+
+    public static String createPath(String componentType){
+        String path = "";
+        switch(componentType){
+            case "computerCase":
+                path = "src/main/java/com/sample/DAL/SavedFiles/NewComponents/Cases/";
+                break;
+            case "graphicsCard":
+                path = "src/main/java/com/sample/DAL/SavedFiles/NewComponents/GraphicsCards/";
+                break;
+            case "coolingSystem":
+                path = "src/main/java/com/sample/DAL/SavedFiles/NewComponents/CoolingSystems/";
+                break;
+            case "CPU":
+                path = "src/main/java/com/sample/DAL/SavedFiles/NewComponents/CPUs/";
+                break;
+            case "keyboard":
+                path = "src/main/java/com/sample/DAL/SavedFiles/NewComponents/Keyboards/";
+                break;
+            case "monitor":
+                path = "src/main/java/com/sample/DAL/SavedFiles/NewComponents/Monitors/";
+                break;
+            case "motherBoard":
+                path = "src/main/java/com/sample/DAL/SavedFiles/NewComponents/MotherBoards/";
+                break;
+            case "mouse":
+                path = "src/main/java/com/sample/DAL/SavedFiles/NewComponents/Mice/";
+                break;
+            case "powerSupply":
+                path = "src/main/java/com/sample/DAL/SavedFiles/NewComponents/PowerSupplies/";
+                break;
+            case "RAM":
+                path = "src/main/java/com/sample/DAL/SavedFiles/NewComponents/RAMs/";
+                break;
+            case "speaker":
+                path = "src/main/java/com/sample/DAL/SavedFiles/NewComponents/Speakers/";
+                break;
+            case "storageComponent":
+                path = "src/main/java/com/sample/DAL/SavedFiles/NewComponents/StorageComponents/";
+                break;
+        }
+        return path;
     }
 }

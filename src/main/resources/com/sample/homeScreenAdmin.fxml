@@ -1,13 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Text?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sample.controllers.adminUserController">
+<AnchorPane prefHeight="900.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sample.controllers.adminUserController">
    <children>
-      <Text layoutX="199.0" layoutY="129.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Du er admin" />
-      <Button fx:id="testButton" alignment="CENTER" mnemonicParsing="false" onAction="#goToComponentCreationSelectionView" prefHeight="453.0" prefWidth="626.0" style="-fx-background-color: white; -fx-border-color: black;" text="Build a new computer" textAlignment="CENTER" textOverrun="CLIP" wrapText="true" />
+      <Text layoutX="66.0" layoutY="144.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Administrator homepage">
+         <font>
+            <Font size="68.0" />
+         </font></Text>
+      <Button fx:id="btnGoToCreation" alignment="CENTER" layoutX="67.0" layoutY="303.0" mnemonicParsing="false" onAction="#viewSwapper" prefHeight="372.0" prefWidth="504.0" style="-fx-background-color: white; -fx-border-color: black;" text="Add a new component" textAlignment="CENTER" textOverrun="CLIP" wrapText="true">
+         <font>
+            <Font size="49.0" />
+         </font></Button>
+      <Button fx:id="btnGoToList" alignment="CENTER" layoutX="617.0" layoutY="305.0" mnemonicParsing="false" onAction="#viewSwapper" prefHeight="372.0" prefWidth="504.0" style="-fx-background-color: white; -fx-border-color: black;" text="View previously added components" textAlignment="CENTER" textOverrun="CLIP" wrapText="true">
+         <font>
+            <Font size="49.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnLogOut" alignment="CENTER" layoutX="967.0" layoutY="92.0" mnemonicParsing="false" onAction="#viewSwapper" prefHeight="65.0" prefWidth="151.0" style="-fx-background-color: white; -fx-border-color: black;" text="Log out" textAlignment="CENTER" textOverrun="CLIP" wrapText="true">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Button>
 
    </children>
 </AnchorPane>

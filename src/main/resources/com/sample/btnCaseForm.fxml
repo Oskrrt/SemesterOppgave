@@ -88,7 +88,7 @@
             </Label>
          </children>
       </GridPane>
-      <Button fx:id="btnBack" layoutX="23.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#handleBackButton" text="Back" />
+      <Button fx:id="btnCreateBack" layoutX="23.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#viewSwapper" text="Back" />
       <Label layoutX="23.0" layoutY="57.0" text="Add a new computer case">
          <font>
             <Font size="26.0" />
