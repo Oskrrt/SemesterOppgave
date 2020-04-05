@@ -82,7 +82,7 @@
             </Label>
          </children>
       </GridPane>
-      <Button layoutX="22.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleBackButton" text="Back" />
+      <Button fx:id="btnCreateBack" layoutX="22.0" layoutY="14.0" mnemonicParsing="false" onAction="#viewSwapper" text="Back" />
       <Label layoutX="22.0" layoutY="66.0" text="Add a new cooling component">
          <font>
             <Font size="26.0" />

@@ -17,10 +17,12 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
 
+
 public class AdminLogic {
 
     public static <T extends ComputerComponent> Boolean saveComponent(T component, String type) {
-        Path filePath = Paths.get("src/main/java/com/sample/DAL/SavedFiles/NewComponents/New_"+type+"s.txt");
+        System.out.println(type);
+        Path filePath = Paths.get(ComponentFactory.createPath(type)+component.getProductName()+".jobj");
         try(OutputStream os = Files.newOutputStream(filePath); ObjectOutputStream out = new ObjectOutputStream(os)) {
             out.writeObject(component);
             os.close();
