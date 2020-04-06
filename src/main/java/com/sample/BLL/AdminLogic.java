@@ -1,6 +1,7 @@
 package com.sample.BLL;
 
 import com.sample.App;
+import com.sample.DAL.SaveFile.FileSaver;
 import com.sample.Models.ComputerComponents.*;
 import javafx.scene.Node;
 import javafx.scene.control.RadioButton;
@@ -21,21 +22,12 @@ import java.util.List;
 public class AdminLogic {
 
     public static <T extends ComputerComponent> Boolean saveComponent(T component, String type) {
-        System.out.println(type);
-        Path filePath = Paths.get(ComponentFactory.createPath(type)+component.getProductName()+".jobj");
-        try(OutputStream os = Files.newOutputStream(filePath); ObjectOutputStream out = new ObjectOutputStream(os)) {
-            out.writeObject(component);
-            os.close();
-            out.close();
-            return true;
-        } catch (IOException e) {
-            return false;
-        }
+        return FileSaver.saveComponent(component, type);
     }
 
 
     public static void swapViewsBasedOnButtonPressed(String buttonPressed) throws IOException {
-        App.changeView(buttonPressed+"Form.fxml", 530, 610 );
+        App.changeView(buttonPressed+"Form.fxml", 530, 610);
     }
 
 

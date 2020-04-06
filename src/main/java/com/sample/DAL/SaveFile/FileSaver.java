@@ -1,11 +1,11 @@
 package com.sample.DAL.SaveFile;
 
+import com.sample.BLL.ComponentFactory;
+import com.sample.Models.ComputerComponents.ComputerComponent;
 import com.sample.Models.Users.User;
 import javafx.concurrent.Task;
 
-import java.io.DataOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -30,4 +30,15 @@ abstract public class FileSaver extends Task<Boolean> {
          return fileSizeAfter>fileSize;
      }
 
+    public static <T extends ComputerComponent> Boolean saveComponent(T component, String type) {
+        Path filePath = Paths.get(ComponentFactory.createPath(type)+component.getProductName()+".jobj"); //saves in correct directory with components name as file name.
+        try(OutputStream os = Files.newOutputStream(filePath); ObjectOutputStream out = new ObjectOutputStream(os)) {
+            out.writeObject(component);
+            os.close();
+            out.close();
+            return true;
+        } catch (IOException e) {
+            return false;
+        }
+    }
 }
