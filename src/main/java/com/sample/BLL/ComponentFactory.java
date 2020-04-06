@@ -197,7 +197,7 @@ public class ComponentFactory {
         for (Path file : filePaths){
             try (FileInputStream fi = new FileInputStream(String.valueOf(file)); ObjectInputStream ois = new ObjectInputStream(fi)){
                 Case foundCase = (Case) ois.readObject();
-                System.out.println(foundCase.getDescription());
+                System.out.println(foundCase.getProductName());
                 allCases.add(foundCase);
             } catch (ClassNotFoundException e) {
                 e.printStackTrace();
@@ -212,7 +212,7 @@ public class ComponentFactory {
         for (Path file : filePaths){
             try (FileInputStream fi = new FileInputStream(String.valueOf(file)); ObjectInputStream ois = new ObjectInputStream(fi)){
                 CoolingSystem foundCoolingSystem = (CoolingSystem) ois.readObject();
-                System.out.println(foundCoolingSystem.getDescription());
+                System.out.println(foundCoolingSystem.getProductName());
                 allCoolingSystems.add(foundCoolingSystem);
             } catch (ClassNotFoundException e) {
                 e.printStackTrace();
@@ -226,7 +226,7 @@ public class ComponentFactory {
         for (Path file : filePaths){
             try (FileInputStream fi = new FileInputStream(String.valueOf(file)); ObjectInputStream ois = new ObjectInputStream(fi)){
                 GraphicsCard foundGPU = (GraphicsCard) ois.readObject();
-                System.out.println(foundGPU.getDescription());
+                System.out.println(foundGPU.getProductName());
                 allGPUs.add(foundGPU);
             } catch (ClassNotFoundException e) {
                 e.printStackTrace();
@@ -241,7 +241,7 @@ public class ComponentFactory {
         for (Path file : filePaths){
             try (FileInputStream fi = new FileInputStream(String.valueOf(file)); ObjectInputStream ois = new ObjectInputStream(fi)){
                 Keyboard foundKeyboard = (Keyboard) ois.readObject();
-                System.out.println(foundKeyboard.getDescription());
+                System.out.println(foundKeyboard.getProductName());
                 allKeyboards.add(foundKeyboard);
             } catch (ClassNotFoundException e) {
                 e.printStackTrace();
@@ -256,7 +256,7 @@ public class ComponentFactory {
         for (Path file : filePaths){
             try (FileInputStream fi = new FileInputStream(String.valueOf(file)); ObjectInputStream ois = new ObjectInputStream(fi)){
                 Mouse foundMouse = (Mouse) ois.readObject();
-                System.out.println(foundMouse.getDescription());
+                System.out.println(foundMouse.getProductName());
                 allMice.add(foundMouse);
             } catch (ClassNotFoundException e) {
                 e.printStackTrace();
@@ -271,7 +271,7 @@ public class ComponentFactory {
         for (Path file : filePaths){
             try (FileInputStream fi = new FileInputStream(String.valueOf(file)); ObjectInputStream ois = new ObjectInputStream(fi)){
                 Monitor foundMonitor = (Monitor) ois.readObject();
-                System.out.println(foundMonitor.getDescription());
+                System.out.println(foundMonitor.getProductName());
                 allMonitors.add(foundMonitor);
             } catch (ClassNotFoundException e) {
                 e.printStackTrace();
@@ -286,7 +286,7 @@ public class ComponentFactory {
         for (Path file : filePaths){
             try (FileInputStream fi = new FileInputStream(String.valueOf(file)); ObjectInputStream ois = new ObjectInputStream(fi)){
                 Motherboard foundMotherboard = (Motherboard) ois.readObject();
-                System.out.println(foundMotherboard.getDescription());
+                System.out.println(foundMotherboard.getProductName());
                 allMotherBoards.add(foundMotherboard);
             } catch (ClassNotFoundException e) {
                 e.printStackTrace();
@@ -301,7 +301,7 @@ public class ComponentFactory {
         for (Path file : filePaths){
             try (FileInputStream fi = new FileInputStream(String.valueOf(file)); ObjectInputStream ois = new ObjectInputStream(fi)){
                 PowerSupply foundPowerSupply = (PowerSupply) ois.readObject();
-                System.out.println(foundPowerSupply.getDescription());
+                System.out.println(foundPowerSupply.getProductName());
                 allPowerSupplies.add(foundPowerSupply);
             } catch (ClassNotFoundException e) {
                 e.printStackTrace();
@@ -316,7 +316,7 @@ public class ComponentFactory {
         for (Path file : filePaths){
             try (FileInputStream fi = new FileInputStream(String.valueOf(file)); ObjectInputStream ois = new ObjectInputStream(fi)){
                 Processor foundCPU = (Processor) ois.readObject();
-                System.out.println(foundCPU.getDescription());
+                System.out.println(foundCPU.getProductName());
                 allCPUs.add(foundCPU);
             } catch (ClassNotFoundException e) {
                 e.printStackTrace();
@@ -331,7 +331,7 @@ public class ComponentFactory {
         for (Path file : filePaths){
             try (FileInputStream fi = new FileInputStream(String.valueOf(file)); ObjectInputStream ois = new ObjectInputStream(fi)){
                 RAM foundRAM = (RAM) ois.readObject();
-                System.out.println(foundRAM.getDescription());
+                System.out.println(foundRAM.getProductName());
                 allRAMs.add(foundRAM);
             } catch (ClassNotFoundException e) {
                 e.printStackTrace();
@@ -346,7 +346,7 @@ public class ComponentFactory {
         for (Path file : filePaths){
             try (FileInputStream fi = new FileInputStream(String.valueOf(file)); ObjectInputStream ois = new ObjectInputStream(fi)){
                 Speaker foundSpeaker = (Speaker) ois.readObject();
-                System.out.println(foundSpeaker.getDescription());
+                System.out.println(foundSpeaker.getProductName());
                 allSpeakers.add(foundSpeaker);
             } catch (ClassNotFoundException e) {
                 e.printStackTrace();
@@ -361,7 +361,7 @@ public class ComponentFactory {
         for (Path file : filePaths){
             try (FileInputStream fi = new FileInputStream(String.valueOf(file)); ObjectInputStream ois = new ObjectInputStream(fi)){
                 StorageComponent foundStorageComponent = (StorageComponent) ois.readObject();
-                System.out.println(foundStorageComponent.getDescription());
+                System.out.println(foundStorageComponent.getProductName());
                 allStorageComponents.add(foundStorageComponent);
             } catch (ClassNotFoundException e) {
                 e.printStackTrace();

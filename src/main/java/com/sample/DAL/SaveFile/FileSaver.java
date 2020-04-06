@@ -39,12 +39,13 @@ abstract public class FileSaver extends Task<Boolean> {
 
     public static <T extends ComputerComponent> Boolean saveComponent(T component, String type) {
         Path filePath = Paths.get(ComponentFactory.createPath(type)+component.getProductName()+".jobj"); //saves in correct directory with components name as file name.
-        try(OutputStream os = Files.newOutputStream(filePath); ObjectOutputStream out = new ObjectOutputStream(os)) {
+        try(FileOutputStream os = new FileOutputStream(String.valueOf(filePath)); ObjectOutputStream out = new ObjectOutputStream(os)) {
             out.writeObject(component);
             os.close();
             out.close();
             return true;
         } catch (IOException e) {
+            e.printStackTrace();
             return false;
         }
     }

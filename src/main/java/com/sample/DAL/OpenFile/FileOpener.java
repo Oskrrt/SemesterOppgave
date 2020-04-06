@@ -31,32 +31,36 @@ public abstract class FileOpener extends Task<Void> {
         final File folderOfNewComponents = new File("src/main/java/com/sample/DAL/SavedFiles/NewComponents");
         List<File> allFolders = getComponentFolders(folderOfNewComponents);
 
-        allCases = ComponentFactory.createCasesFromFile(allFolders.get(0));
+        for (File file: allFolders) {
+            System.out.println(file.getPath());
+        }
+
+        allCPUs = ComponentFactory.createProcessorsFromFile(allFolders.get(0));
+        allComponents.add(allCPUs);
+
+        allCases = ComponentFactory.createCasesFromFile(allFolders.get(1));
         allComponents.add(allCases);
 
-        allCoolingSystems = ComponentFactory.createCoolingSystemFromFile(allFolders.get(1));
+        allCoolingSystems = ComponentFactory.createCoolingSystemFromFile(allFolders.get(2));
         allComponents.add(allCoolingSystems);
 
-        allGPUs = ComponentFactory.createGraphicsCardsFromFile(allFolders.get(2));
+        allGPUs = ComponentFactory.createGraphicsCardsFromFile(allFolders.get(3));
         allComponents.add(allGPUs);
 
-        allKeyboards = ComponentFactory.createKeyboardsFromFile(allFolders.get(3));
+        allKeyboards = ComponentFactory.createKeyboardsFromFile(allFolders.get(4));
         allComponents.add(allKeyboards);
 
-        allMice = ComponentFactory.createMiceFromFile(allFolders.get(4));
+        allMice = ComponentFactory.createMiceFromFile(allFolders.get(5));
         allComponents.add(allMice);
 
-        allMonitors = ComponentFactory.createMonitorsFromFile(allFolders.get(5));
+        allMonitors = ComponentFactory.createMonitorsFromFile(allFolders.get(6));
         allComponents.add(allMonitors);
 
-        allMotherBoards = ComponentFactory.createMotherboardsFromFile(allFolders.get(6));
+        allMotherBoards = ComponentFactory.createMotherboardsFromFile(allFolders.get(7));
         allComponents.add(allMotherBoards);
 
-        allPowerSupplies = ComponentFactory.createPowerSuppliesFromFile(allFolders.get(7));
+        allPowerSupplies = ComponentFactory.createPowerSuppliesFromFile(allFolders.get(8));
         allComponents.add(allPowerSupplies);
-        System.out.println(allFolders.get(8).getPath());
-        allCPUs = ComponentFactory.createProcessorsFromFile(allFolders.get(8));
-        allComponents.add(allCPUs);
 
         allRAMs = ComponentFactory.createRAMsFromFile(allFolders.get(9));
         allComponents.add(allRAMs);
