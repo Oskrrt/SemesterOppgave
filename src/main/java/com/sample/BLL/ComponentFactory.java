@@ -1,13 +1,16 @@
 package com.sample.BLL;
 
+import com.sample.DAL.OpenFile.FileOpener;
 import com.sample.Models.ComputerComponents.*;
 import javafx.scene.Node;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
+import java.io.*;
 import java.nio.file.Path;
-import java.nio.file.Paths;
+import java.security.Key;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ComponentFactory {
@@ -186,4 +189,185 @@ public class ComponentFactory {
         }
         return path;
     }
+
+
+    public static List<Case> createCasesFromFile(File caseFolder) throws IOException {
+        List<Case> allCases = new ArrayList<>();
+        List<Path> filePaths = FileOpener.getFilesFromFolder(caseFolder);
+        for (Path file : filePaths){
+            try (FileInputStream fi = new FileInputStream(String.valueOf(file)); ObjectInputStream ois = new ObjectInputStream(fi)){
+                Case foundCase = (Case) ois.readObject();
+                System.out.println(foundCase.getDescription());
+                allCases.add(foundCase);
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
+        return allCases;
+    }
+
+    public static List<CoolingSystem> createCoolingSystemFromFile(File coolingFolder) throws IOException {
+        List<CoolingSystem> allCoolingSystems = new ArrayList<>();
+        List<Path> filePaths = FileOpener.getFilesFromFolder(coolingFolder);
+        for (Path file : filePaths){
+            try (FileInputStream fi = new FileInputStream(String.valueOf(file)); ObjectInputStream ois = new ObjectInputStream(fi)){
+                CoolingSystem foundCoolingSystem = (CoolingSystem) ois.readObject();
+                System.out.println(foundCoolingSystem.getDescription());
+                allCoolingSystems.add(foundCoolingSystem);
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
+        return allCoolingSystems;
+    }
+    public static List<GraphicsCard> createGraphicsCardsFromFile(File GPUFolder) throws IOException {
+        List<GraphicsCard> allGPUs = new ArrayList<>();
+        List<Path> filePaths = FileOpener.getFilesFromFolder(GPUFolder);
+        for (Path file : filePaths){
+            try (FileInputStream fi = new FileInputStream(String.valueOf(file)); ObjectInputStream ois = new ObjectInputStream(fi)){
+                GraphicsCard foundGPU = (GraphicsCard) ois.readObject();
+                System.out.println(foundGPU.getDescription());
+                allGPUs.add(foundGPU);
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
+        return allGPUs;
+    }
+
+    public static List<Keyboard> createKeyboardsFromFile(File keyboardFolder) throws IOException {
+        List<Keyboard> allKeyboards = new ArrayList<>();
+        List<Path> filePaths = FileOpener.getFilesFromFolder(keyboardFolder);
+        for (Path file : filePaths){
+            try (FileInputStream fi = new FileInputStream(String.valueOf(file)); ObjectInputStream ois = new ObjectInputStream(fi)){
+                Keyboard foundKeyboard = (Keyboard) ois.readObject();
+                System.out.println(foundKeyboard.getDescription());
+                allKeyboards.add(foundKeyboard);
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
+        return allKeyboards;
+    }
+
+    public static List<Mouse> createMiceFromFile(File mouseFolder) throws IOException {
+        List<Mouse> allMice = new ArrayList<>();
+        List<Path> filePaths = FileOpener.getFilesFromFolder(mouseFolder);
+        for (Path file : filePaths){
+            try (FileInputStream fi = new FileInputStream(String.valueOf(file)); ObjectInputStream ois = new ObjectInputStream(fi)){
+                Mouse foundMouse = (Mouse) ois.readObject();
+                System.out.println(foundMouse.getDescription());
+                allMice.add(foundMouse);
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
+        return allMice;
+    }
+
+    public static List<Monitor> createMonitorsFromFile(File monitorFolder) throws IOException {
+        List<Monitor> allMonitors = new ArrayList<>();
+        List<Path> filePaths = FileOpener.getFilesFromFolder(monitorFolder);
+        for (Path file : filePaths){
+            try (FileInputStream fi = new FileInputStream(String.valueOf(file)); ObjectInputStream ois = new ObjectInputStream(fi)){
+                Monitor foundMonitor = (Monitor) ois.readObject();
+                System.out.println(foundMonitor.getDescription());
+                allMonitors.add(foundMonitor);
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
+        return allMonitors;
+    }
+
+    public static List<Motherboard> createMotherboardsFromFile(File motherboardFolder) throws IOException {
+        List<Motherboard> allMotherBoards = new ArrayList<>();
+        List<Path> filePaths = FileOpener.getFilesFromFolder(motherboardFolder);
+        for (Path file : filePaths){
+            try (FileInputStream fi = new FileInputStream(String.valueOf(file)); ObjectInputStream ois = new ObjectInputStream(fi)){
+                Motherboard foundMotherboard = (Motherboard) ois.readObject();
+                System.out.println(foundMotherboard.getDescription());
+                allMotherBoards.add(foundMotherboard);
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
+        return allMotherBoards;
+    }
+
+    public static List<PowerSupply> createPowerSuppliesFromFile(File powerSupplyFolder) throws IOException {
+        List<PowerSupply> allPowerSupplies = new ArrayList<>();
+        List<Path> filePaths = FileOpener.getFilesFromFolder(powerSupplyFolder);
+        for (Path file : filePaths){
+            try (FileInputStream fi = new FileInputStream(String.valueOf(file)); ObjectInputStream ois = new ObjectInputStream(fi)){
+                PowerSupply foundPowerSupply = (PowerSupply) ois.readObject();
+                System.out.println(foundPowerSupply.getDescription());
+                allPowerSupplies.add(foundPowerSupply);
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
+        return allPowerSupplies;
+    }
+
+    public static List<Processor> createProcessorsFromFile(File CPUFolder) throws IOException {
+        List<Processor> allCPUs = new ArrayList<>();
+        List<Path> filePaths = FileOpener.getFilesFromFolder(CPUFolder);
+        for (Path file : filePaths){
+            try (FileInputStream fi = new FileInputStream(String.valueOf(file)); ObjectInputStream ois = new ObjectInputStream(fi)){
+                Processor foundCPU = (Processor) ois.readObject();
+                System.out.println(foundCPU.getDescription());
+                allCPUs.add(foundCPU);
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
+        return allCPUs;
+    }
+
+    public static List<RAM> createRAMsFromFile(File RAMFolder) throws IOException {
+        List<RAM> allRAMs = new ArrayList<>();
+        List<Path> filePaths = FileOpener.getFilesFromFolder(RAMFolder);
+        for (Path file : filePaths){
+            try (FileInputStream fi = new FileInputStream(String.valueOf(file)); ObjectInputStream ois = new ObjectInputStream(fi)){
+                RAM foundRAM = (RAM) ois.readObject();
+                System.out.println(foundRAM.getDescription());
+                allRAMs.add(foundRAM);
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
+        return allRAMs;
+    }
+
+    public static List<Speaker> createSpeakersFromFile(File speakerFolder) throws IOException {
+        List<Speaker> allSpeakers = new ArrayList<>();
+        List<Path> filePaths = FileOpener.getFilesFromFolder(speakerFolder);
+        for (Path file : filePaths){
+            try (FileInputStream fi = new FileInputStream(String.valueOf(file)); ObjectInputStream ois = new ObjectInputStream(fi)){
+                Speaker foundSpeaker = (Speaker) ois.readObject();
+                System.out.println(foundSpeaker.getDescription());
+                allSpeakers.add(foundSpeaker);
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
+        return allSpeakers;
+    }
+
+    public static List<StorageComponent> createStorageComponentsFromFile(File storageComponentFolder) throws IOException {
+        List<StorageComponent> allStorageComponents = new ArrayList<>();
+        List<Path> filePaths = FileOpener.getFilesFromFolder(storageComponentFolder);
+        for (Path file : filePaths){
+            try (FileInputStream fi = new FileInputStream(String.valueOf(file)); ObjectInputStream ois = new ObjectInputStream(fi)){
+                StorageComponent foundStorageComponent = (StorageComponent) ois.readObject();
+                System.out.println(foundStorageComponent.getDescription());
+                allStorageComponents.add(foundStorageComponent);
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
+        return allStorageComponents;
+    }
+
 }

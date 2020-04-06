@@ -2,15 +2,22 @@ package com.sample.DAL.SaveFile;
 
 import com.sample.BLL.ComponentFactory;
 import com.sample.Models.ComputerComponents.ComputerComponent;
+import com.sample.Models.ComputerComponents.CoolingSystem;
 import com.sample.Models.Users.User;
 import javafx.concurrent.Task;
 
 import java.io.*;
+import java.lang.reflect.Array;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Stream;
+
+import static java.lang.Integer.MAX_VALUE;
 
 abstract public class FileSaver extends Task<Boolean> {
     protected final Path path = Paths.get("src/main/java/com/sample/DAL/SavedFiles/Users.txt");
@@ -41,4 +48,6 @@ abstract public class FileSaver extends Task<Boolean> {
             return false;
         }
     }
+
+
 }
