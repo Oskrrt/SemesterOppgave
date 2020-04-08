@@ -3,6 +3,7 @@ package com.sample.BLL;
 import com.sample.App;
 import com.sample.DAL.SaveFile.FileSaver;
 import com.sample.Models.ComputerComponents.*;
+import com.sample.controllers.adminUserController;
 import javafx.scene.Node;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextArea;
@@ -26,10 +27,17 @@ public class AdminLogic {
     }
 
 
-    public static void swapViewsBasedOnButtonPressed(String buttonPressed) throws IOException {
-        App.changeView(buttonPressed+"Form.fxml", 530, 610);
+    public static void swapViewsBasedOnButtonPressed_ADD_COMPONENTS(String buttonPressed) throws IOException {
+        App.changeView("ComponentForms/"+buttonPressed+"Form.fxml", 530, 610);
     }
 
-
+    public static void swapViewsBasedOnButtonPressed_VIEW_COMPONENTS(String buttonPressed) throws IOException {
+        switch(buttonPressed){
+            case "Cases":
+                App.changeView("AddedComponents/Added"+buttonPressed+".fxml", 1200,900);
+                adminUserController admin = new adminUserController();
+                admin.showAddedCases();
+        }
+    }
 
 }

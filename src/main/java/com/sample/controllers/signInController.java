@@ -46,6 +46,7 @@ public class signInController {
     }
 
     public void signIn(Event event) throws IOException {
+        //TODO slett denne:
         FileOpener.getAllComponents();
         // makes it so you can log in by pressing enter on your keyboard
         if (event instanceof KeyEvent) {

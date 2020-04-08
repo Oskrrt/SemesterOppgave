@@ -31,10 +31,6 @@ public abstract class FileOpener extends Task<Void> {
         final File folderOfNewComponents = new File("src/main/java/com/sample/DAL/SavedFiles/NewComponents");
         List<File> allFolders = getComponentFolders(folderOfNewComponents);
 
-        for (File file: allFolders) {
-            System.out.println(file.getPath());
-        }
-
         allCPUs = ComponentFactory.createProcessorsFromFile(allFolders.get(0));
         allComponents.add(allCPUs);
 
@@ -71,6 +67,10 @@ public abstract class FileOpener extends Task<Void> {
         allStorageComponents = ComponentFactory.createStorageComponentsFromFile(allFolders.get(11));
         allComponents.add(allStorageComponents);
 
+
+        for(List<? extends ComputerComponent> c : allComponents){
+            System.out.println();
+        }
         return allComponents;
 
     }
