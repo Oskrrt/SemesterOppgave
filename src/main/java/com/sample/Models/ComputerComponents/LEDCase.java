@@ -4,7 +4,7 @@ public class LEDCase extends Case {
     private Case baseCase;
     private boolean hasLED;
     public LEDCase(Case baseCase, boolean hasLED){
-        super("","",0,0,null,0.0,"","","","");
+        super("","","0","0", "0",0.0,"","","","");
         this.baseCase = baseCase;
         this.hasLED = hasLED;
     }

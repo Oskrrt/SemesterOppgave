@@ -1,6 +1,6 @@
 package com.sample.controllers;
 
-import com.sample.BLL.Repository;
+import com.sample.BLL.UserLogic;
 import javafx.beans.property.ReadOnlyDoubleProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -60,7 +60,7 @@ public class buildComputerController {
     }
 
     @FXML
-    void openChoiceWindow(MouseEvent event) {
+    void openChoiceWindow(MouseEvent event) throws ClassNotFoundException {
         System.out.println(((Control)event.getSource()).getId());
         String idOfClickedLabel = ((Control)event.getSource()).getId();
         AnchorPane ap = new AnchorPane();
@@ -70,7 +70,7 @@ public class buildComputerController {
         Stage choiceStage = new Stage();
         Scene choiceScene = new Scene(ap);
         choiceStage.setScene(choiceScene);
-        Repository.renderChoiceWindow(choiceStage, idOfClickedLabel);
+        UserLogic.renderChoiceWindow(choiceStage, idOfClickedLabel);
     }
 
     @FXML

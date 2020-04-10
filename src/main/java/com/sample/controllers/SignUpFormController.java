@@ -1,5 +1,6 @@
 package com.sample.controllers;
 
+import com.sample.App;
 import com.sample.BLL.LoginLogic;
 import com.sample.DAL.SaveFile.SaveTxt;
 import com.sample.Models.Users.User;
@@ -33,6 +34,10 @@ public class SignUpFormController {
     private LoginLogic repo = new LoginLogic();
     private SaveTxt saver;
 
+    @FXML
+    void backToStart() throws IOException {
+        App.changeView("signIn.fxml", 0, 0);
+    }
     @FXML
     void signUp(ActionEvent event) throws IOException {
         lblNotifyIfSignUpSucceeded.setText("");
