@@ -1,12 +1,11 @@
 package com.sample.controllers;
 
 import java.io.IOException;
-import java.nio.file.Paths;
 
 import com.sample.App;
-import com.sample.BLL.AdminLogic;
 import com.sample.BLL.LoginLogic;
-import com.sample.Models.ComputerComponents.Fan;
+import com.sample.DAL.OpenFile.FileOpener;
+import com.sample.DAL.SaveFile.FileSaver;
 import com.sample.Models.Users.Admin;
 import com.sample.Models.Users.User;
 import javafx.event.Event;
@@ -47,6 +46,8 @@ public class signInController {
     }
 
     public void signIn(Event event) throws IOException {
+        //TODO slett denne:
+        FileOpener.getAllComponents();
         // makes it so you can log in by pressing enter on your keyboard
         if (event instanceof KeyEvent) {
             if (((KeyEvent) event).getCode() != KeyCode.ENTER) {
