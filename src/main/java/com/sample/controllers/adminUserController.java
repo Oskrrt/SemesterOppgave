@@ -53,7 +53,6 @@ public class adminUserController {
     @FXML
     private void handleBackButton(){
         try {
-
             App.changeView("selectComponentToAdd.fxml", 1200, 900);
         } catch (IOException e) {
             e.printStackTrace();
@@ -123,6 +122,7 @@ public class adminUserController {
     @FXML
     //TODO figure out this null shit wtf
     public void showAddedCases(){
+        System.out.println(casePane);
         caseTable = (TableView<Case>)casePane.lookup("#caseTable");
         final File folderOfCases = new File("src/main/java/com/sample/DAL/SavedFiles/NewComponents/Cases");
 

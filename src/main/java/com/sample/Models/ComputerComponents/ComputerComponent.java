@@ -3,6 +3,7 @@ package com.sample.Models.ComputerComponents;
 import java.io.Serializable;
 
 public class ComputerComponent implements Serializable {
+    //private static final long serialVersionUID = 1;
     private double price;
     private String description;
     private String productName;
@@ -16,7 +17,6 @@ public class ComputerComponent implements Serializable {
         this.productionCompany = productionCompany;
         this.serialNumber = serialNumber;
     }
-
 
     public double getPrice() {
         return price;
@@ -38,5 +38,7 @@ public class ComputerComponent implements Serializable {
         return serialNumber;
     }
 
-
+    public String toString() {
+        return this.price+"\n"+ this.description+"\n"+this.productName+"\n"+this.productionCompany+"\n"+this.serialNumber;
+    }
 }

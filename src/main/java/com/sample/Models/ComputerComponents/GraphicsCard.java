@@ -17,4 +17,8 @@ public class GraphicsCard extends ComputerComponent {
     public String getMemoryType() {
         return memoryType;
     }
+
+    public String toString() {
+        return super.toString()+"\n"+this.memoryCapacity+"\n"+this.memoryType;
+    }
 }

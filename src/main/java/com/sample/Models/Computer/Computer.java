@@ -7,23 +7,18 @@ public class Computer {
     private CoolingSystem cooling;
     private GraphicsCard graphicsCard;
     private StorageComponent storageComponent;
-    private Keyboard keyboard;
-    private Monitor monitor;
     private Motherboard motherboard;
-    private Mouse mouse;
     private PowerSupply powerSupply;
     private Processor CPU;
     private RAM memory;
+    private double price;
 
-    public Computer(Case computerCase, CoolingSystem cooling, GraphicsCard graphicsCard, StorageComponent storageComponent, Keyboard keyboard, Monitor monitor, Motherboard motherboard, Mouse mouse, PowerSupply powerSupply, Processor CPU, RAM memory) {
+    public Computer(Case computerCase, CoolingSystem cooling, GraphicsCard graphicsCard, StorageComponent storageComponent,  Motherboard motherboard, PowerSupply powerSupply, Processor CPU, RAM memory) {
         this.computerCase = computerCase;
         this.cooling = cooling;
         this.graphicsCard = graphicsCard;
         this.storageComponent = storageComponent;
-        this.keyboard = keyboard;
-        this.monitor = monitor;
         this.motherboard = motherboard;
-        this.mouse = mouse;
         this.powerSupply = powerSupply;
         this.CPU = CPU;
         this.memory = memory;
@@ -45,20 +40,8 @@ public class Computer {
         return storageComponent;
     }
 
-    public Keyboard getKeyboard() {
-        return keyboard;
-    }
-
-    public Monitor getMonitor() {
-        return monitor;
-    }
-
     public Motherboard getMotherboard() {
         return motherboard;
-    }
-
-    public Mouse getMouse() {
-        return mouse;
     }
 
     public PowerSupply getPowerSupply() {

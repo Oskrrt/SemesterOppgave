@@ -60,7 +60,7 @@ public class buildComputerController {
     }
 
     @FXML
-    void openChoiceWindow(MouseEvent event) throws ClassNotFoundException {
+    void openChoiceWindow(MouseEvent event) throws ClassNotFoundException, IOException {
         System.out.println(((Control)event.getSource()).getId());
         String idOfClickedLabel = ((Control)event.getSource()).getId();
         AnchorPane ap = new AnchorPane();
