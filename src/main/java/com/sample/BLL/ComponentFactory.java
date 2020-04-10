@@ -30,6 +30,7 @@ public class ComponentFactory {
                         ((TextField)formData.get(6)).getText(), //Number of HD Audio jacks
                         ((TextField)formData.get(7)).getText(), //Width in cm
                         ((TextField)formData.get(8)).getText(), //Height in cm
+                        ((TextField)formData.get(9)).getText(), //Depth in cm
                         price,
                         description,
                         productName,
