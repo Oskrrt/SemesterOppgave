@@ -10,9 +10,6 @@ public class Case extends ComputerComponent {
     public String depthCM;
 
     public Case(String numberOfUSBPorts, String HDAudioJacks, String widthCM, String heightCM, String depthCM, double price, String description, String productName, String productionCompany, String serialNumber) {
-
-    public Case(String numberOfUSBPorts, String HDAudioJacks, String widthCM, String heightCM, double price, String description, String productName, String productionCompany, String serialNumber) {
-
         super(price, description, productName, productionCompany, serialNumber);
         this.numberOfUSBPorts = numberOfUSBPorts;
         this.HDAudioJacks = HDAudioJacks;
