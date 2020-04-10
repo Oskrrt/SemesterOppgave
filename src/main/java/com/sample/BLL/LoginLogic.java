@@ -2,6 +2,7 @@ package com.sample.BLL;
 
 import com.sample.DAL.OpenFile.OpenTxt;
 import com.sample.DAL.SaveFile.SaveTxt;
+import com.sample.Models.ComputerComponents.ComputerComponent;
 import com.sample.Models.Users.Admin;
 import com.sample.Models.Users.User;
 import com.sample.controllers.regularUserController;
@@ -10,14 +11,18 @@ import javafx.event.ActionEvent;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
+import javafx.stage.Stage;
 import org.apache.commons.codec.digest.DigestUtils;
 
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-import static javafx.geometry.Pos.CENTER_RIGHT;
+
+
 
 public class LoginLogic {
     private static regularUserController controller = new regularUserController();
@@ -49,6 +54,8 @@ public class LoginLogic {
             return null;
         }
     }
+
+
 
     /*public static HBox renderNavBar() throws IOException {
         HBox navBar = new HBox();
