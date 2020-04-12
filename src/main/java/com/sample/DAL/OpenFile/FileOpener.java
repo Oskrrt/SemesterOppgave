@@ -25,7 +25,7 @@ public abstract class FileOpener extends Task<Void> {
 
     public abstract String read();
 
-    public static List<List<? extends ComputerComponent>> getAllComponents() throws IOException {
+    /*public static List<List<? extends ComputerComponent>> getAllComponents() throws IOException {
         List<List<? extends ComputerComponent>> allComponents = new ArrayList<>();
         List<? extends ComputerComponent> allCases, allCoolingSystems, allGPUs, allKeyboards, allMonitors,  allMotherBoards, allMice, allPowerSupplies, allCPUs, allRAMs, allSpeakers, allStorageComponents = new ArrayList<>();
         final File folderOfNewComponents = new File("src/main/java/com/sample/DAL/SavedFiles/NewComponents");
@@ -73,7 +73,7 @@ public abstract class FileOpener extends Task<Void> {
         }
         return allComponents;
 
-    }
+    }*/
 
     public static List<Path> getFilesFromFolder(final File folder) throws IOException {
         List<Path> filePaths = new ArrayList<>();

@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane minHeight="0.0" fx:controller="com.sample.controllers.adminUserController" minWidth="0.0" prefHeight="900.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane minHeight="0.0" fx:controller="com.sample.controllers.addedComponentController" minWidth="0.0" prefHeight="900.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Button fx:id="btnBackToHome" layoutX="56.0" layoutY="41.0" mnemonicParsing="false" onAction="#viewSwapper" prefHeight="56.0" prefWidth="141.0" text="Button" />
       <GridPane layoutX="56.0" layoutY="224.0" prefHeight="623.0" prefWidth="1164.0">
@@ -24,7 +24,7 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <Button fx:id="Cases" mnemonicParsing="false" onAction="#selectComponentViews" prefHeight="100.0" prefWidth="300.0" text="Cases" GridPane.rowIndex="1">
+            <Button fx:id="Cases" mnemonicParsing="false" onAction="#showAddedCases" prefHeight="100.0" prefWidth="300.0" text="Cases" GridPane.rowIndex="1">
                <font>
                   <Font size="26.0" />
                </font>
@@ -54,32 +54,32 @@
                   <Font size="26.0" />
                </font>
             </Button>
-            <Button fx:id="Mice" mnemonicParsing="false" onAction="#handleSelectionButtonEvent" prefHeight="100.0" prefWidth="300.0" text="Mice" GridPane.columnIndex="1" GridPane.rowIndex="3">
+            <Button fx:id="Mice" mnemonicParsing="false" onAction="#selectComponentViews" prefHeight="100.0" prefWidth="300.0" text="Mice" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <font>
                   <Font size="26.0" />
                </font>
             </Button>
-            <Button fx:id="PowerSupplies" mnemonicParsing="false" onAction="#handleSelectionButtonEvent" prefHeight="100.0" prefWidth="300.0" text="Power supplies" GridPane.rowIndex="3">
+            <Button fx:id="PowerSupplies" mnemonicParsing="false" onAction="#selectComponentViews" prefHeight="100.0" prefWidth="300.0" text="Power supplies" GridPane.rowIndex="3">
                <font>
                   <Font size="26.0" />
                </font>
             </Button>
-            <Button fx:id="CPUs" mnemonicParsing="false" onAction="#handleSelectionButtonEvent" prefHeight="100.0" prefWidth="300.0" text="CPUs" GridPane.columnIndex="2" GridPane.rowIndex="3">
+            <Button fx:id="CPUs" mnemonicParsing="false" onAction="#selectComponentViews" prefHeight="100.0" prefWidth="300.0" text="CPUs" GridPane.columnIndex="2" GridPane.rowIndex="3">
                <font>
                   <Font size="26.0" />
                </font>
             </Button>
-            <Button fx:id="RAM" mnemonicParsing="false" onAction="#handleSelectionButtonEvent" prefHeight="100.0" prefWidth="300.0" text="RAM" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <Button fx:id="RAM" mnemonicParsing="false" onAction="#selectComponentViews" prefHeight="100.0" prefWidth="300.0" text="RAM" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <font>
                   <Font size="26.0" />
                </font>
             </Button>
-            <Button fx:id="StorageComponents" mnemonicParsing="false" onAction="#handleSelectionButtonEvent" prefHeight="100.0" prefWidth="300.0" text="Storage components" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <Button fx:id="StorageComponents" mnemonicParsing="false" onAction="#selectComponentViews" prefHeight="100.0" prefWidth="300.0" text="Storage components" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <font>
                   <Font size="26.0" />
                </font>
             </Button>
-            <Button fx:id="Speakers" mnemonicParsing="false" onAction="#handleSelectionButtonEvent" prefHeight="100.0" prefWidth="300.0" text="Speakers" GridPane.columnIndex="2" GridPane.rowIndex="2">
+            <Button fx:id="Speakers" mnemonicParsing="false" onAction="#selectComponentViews" prefHeight="100.0" prefWidth="300.0" text="Speakers" GridPane.columnIndex="2" GridPane.rowIndex="2">
                <font>
                   <Font size="26.0" />
                </font>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<AnchorPane fx:id="componentPane" prefHeight="900.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sample.controllers.addedComponentTableControllers.StorageComponentViewController">
+   <children>
+      <Button fx:id="backToAddedComponents" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#viewSwapper" prefHeight="65.0" prefWidth="125.0" text="Back" />
+      <Label layoutX="14.0" layoutY="112.0" text="All added storage components">
+         <font>
+            <Font size="37.0" />
+         </font>
+      </Label>
+      <TableView fx:id="table" layoutX="14.0" layoutY="216.0" prefHeight="618.0" prefWidth="1118.0">
+         <columns>
+            <TableColumn prefWidth="75.0" text="Description">
+               <cellValueFactory>
+                  <PropertyValueFactory property="description" />
+               </cellValueFactory>
+            </TableColumn>
+            <TableColumn prefWidth="75.0" text="Price">
+               <cellValueFactory>
+                  <PropertyValueFactory property="price" />
+               </cellValueFactory>
+            </TableColumn>
+            <TableColumn prefWidth="75.0" text="Name">
+               <cellValueFactory>
+                  <PropertyValueFactory property="productName" />
+               </cellValueFactory>
+            </TableColumn>
+            <TableColumn prefWidth="75.0" text="Manufacturer">
+               <cellValueFactory>
+                  <PropertyValueFactory property="productionCompany" />
+               </cellValueFactory>
+            </TableColumn>
+            <TableColumn prefWidth="75.0" text="Serial number">
+               <cellValueFactory>
+                  <PropertyValueFactory property="serialNumber" />
+               </cellValueFactory>
+            </TableColumn>
+            <TableColumn prefWidth="153.0" text="Size (GB)">
+               <cellValueFactory>
+                  <PropertyValueFactory property="size" />
+               </cellValueFactory>
+            </TableColumn>
+         </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
+   </children>
+</AnchorPane>

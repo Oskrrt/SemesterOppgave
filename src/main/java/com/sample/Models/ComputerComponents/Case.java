@@ -1,5 +1,7 @@
 package com.sample.Models.ComputerComponents;
 
+import com.sample.Models.ComputerComponents.ComputerComponent;
+
 import java.util.ArrayList;
 
 public class Case extends ComputerComponent {

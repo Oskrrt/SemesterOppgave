@@ -1,5 +1,6 @@
 package com.sample.Models.Computer;
 
+import com.sample.Models.ComputerComponents.Case;
 import com.sample.Models.ComputerComponents.*;
 
 public class Computer {

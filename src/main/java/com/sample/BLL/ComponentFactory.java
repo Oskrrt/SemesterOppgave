@@ -1,7 +1,10 @@
 package com.sample.BLL;
 
 import com.sample.DAL.OpenFile.FileOpener;
+import com.sample.Models.ComputerComponents.Case;
 import com.sample.Models.ComputerComponents.*;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.scene.Node;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextArea;
@@ -9,7 +12,6 @@ import javafx.scene.control.TextField;
 
 import java.io.*;
 import java.nio.file.Path;
-import java.security.Key;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -194,8 +196,9 @@ public class ComponentFactory {
     }
 
 
-    public static List<Case> createCasesFromFile(File caseFolder) throws IOException {
-        ArrayList<Case> allCases = new ArrayList<>();
+    public static ObservableList<Case> createCasesFromFile() throws IOException {
+        final File caseFolder = new File("src/main/java/com/sample/DAL/SavedFiles/NewComponents/Cases");
+        ObservableList<Case> allCases = FXCollections.observableArrayList();
         List<Path> filePaths = FileOpener.getFilesFromFolder(caseFolder);
         for (Path file : filePaths){
             try (FileInputStream fi = new FileInputStream(String.valueOf(file)); ObjectInputStream ois = new ObjectInputStream(fi)){
@@ -208,7 +211,8 @@ public class ComponentFactory {
         return allCases;
     }
 
-    public static List<CoolingSystem> createCoolingSystemFromFile(File coolingFolder) throws IOException {
+    public static List<CoolingSystem> createCoolingSystemFromFile() throws IOException {
+        final File coolingFolder = new File("src/main/java/com/sample/DAL/SavedFiles/NewComponents/CoolingSystems");
         List<CoolingSystem> allCoolingSystems = new ArrayList<>();
         List<Path> filePaths = FileOpener.getFilesFromFolder(coolingFolder);
         for (Path file : filePaths){
@@ -221,7 +225,8 @@ public class ComponentFactory {
         }
         return allCoolingSystems;
     }
-    public static List<GraphicsCard> createGraphicsCardsFromFile(File GPUFolder) throws IOException {
+    public static List<GraphicsCard> createGraphicsCardsFromFile() throws IOException {
+        final File GPUFolder = new File("src/main/java/com/sample/DAL/SavedFiles/NewComponents/GraphicsCards");
         List<GraphicsCard> allGPUs = new ArrayList<>();
         List<Path> filePaths = FileOpener.getFilesFromFolder(GPUFolder);
         for (Path file : filePaths){
@@ -235,7 +240,8 @@ public class ComponentFactory {
         return allGPUs;
     }
 
-    public static List<Keyboard> createKeyboardsFromFile(File keyboardFolder) throws IOException {
+    public static List<Keyboard> createKeyboardsFromFile() throws IOException {
+        final File keyboardFolder = new File("src/main/java/com/sample/DAL/SavedFiles/NewComponents/Keyboards");
         List<Keyboard> allKeyboards = new ArrayList<>();
         List<Path> filePaths = FileOpener.getFilesFromFolder(keyboardFolder);
         for (Path file : filePaths){
@@ -249,7 +255,8 @@ public class ComponentFactory {
         return allKeyboards;
     }
 
-    public static List<Mouse> createMiceFromFile(File mouseFolder) throws IOException {
+    public static List<Mouse> createMiceFromFile() throws IOException {
+        final File mouseFolder = new File("src/main/java/com/sample/DAL/SavedFiles/NewComponents/Mice");
         List<Mouse> allMice = new ArrayList<>();
         List<Path> filePaths = FileOpener.getFilesFromFolder(mouseFolder);
         for (Path file : filePaths){
@@ -263,7 +270,8 @@ public class ComponentFactory {
         return allMice;
     }
 
-    public static List<Monitor> createMonitorsFromFile(File monitorFolder) throws IOException {
+    public static List<Monitor> createMonitorsFromFile() throws IOException {
+        final File monitorFolder = new File("src/main/java/com/sample/DAL/SavedFiles/NewComponents/Monitors");
         List<Monitor> allMonitors = new ArrayList<>();
         List<Path> filePaths = FileOpener.getFilesFromFolder(monitorFolder);
         for (Path file : filePaths){
@@ -277,7 +285,8 @@ public class ComponentFactory {
         return allMonitors;
     }
 
-    public static List<Motherboard> createMotherboardsFromFile(File motherboardFolder) throws IOException {
+    public static List<Motherboard> createMotherboardsFromFile() throws IOException {
+        final File motherboardFolder = new File("src/main/java/com/sample/DAL/SavedFiles/NewComponents/MotherBoards");
         List<Motherboard> allMotherBoards = new ArrayList<>();
         List<Path> filePaths = FileOpener.getFilesFromFolder(motherboardFolder);
         for (Path file : filePaths){
@@ -291,7 +300,8 @@ public class ComponentFactory {
         return allMotherBoards;
     }
 
-    public static List<PowerSupply> createPowerSuppliesFromFile(File powerSupplyFolder) throws IOException {
+    public static List<PowerSupply> createPowerSuppliesFromFile() throws IOException {
+        final File powerSupplyFolder = new File("src/main/java/com/sample/DAL/SavedFiles/NewComponents/PowerSupplies");
         List<PowerSupply> allPowerSupplies = new ArrayList<>();
         List<Path> filePaths = FileOpener.getFilesFromFolder(powerSupplyFolder);
         for (Path file : filePaths){
@@ -305,7 +315,8 @@ public class ComponentFactory {
         return allPowerSupplies;
     }
 
-    public static List<Processor> createProcessorsFromFile(File CPUFolder) throws IOException {
+    public static List<Processor> createProcessorsFromFile() throws IOException {
+        final File CPUFolder = new File("src/main/java/com/sample/DAL/SavedFiles/NewComponents/CPUs");
         List<Processor> allCPUs = new ArrayList<>();
         List<Path> filePaths = FileOpener.getFilesFromFolder(CPUFolder);
         for (Path file : filePaths){
@@ -319,7 +330,8 @@ public class ComponentFactory {
         return allCPUs;
     }
 
-    public static List<RAM> createRAMsFromFile(File RAMFolder) throws IOException {
+    public static List<RAM> createRAMsFromFile() throws IOException {
+        final File RAMFolder = new File("src/main/java/com/sample/DAL/SavedFiles/NewComponents/RAMs");
         List<RAM> allRAMs = new ArrayList<>();
         List<Path> filePaths = FileOpener.getFilesFromFolder(RAMFolder);
         for (Path file : filePaths){
@@ -333,7 +345,8 @@ public class ComponentFactory {
         return allRAMs;
     }
 
-    public static List<Speaker> createSpeakersFromFile(File speakerFolder) throws IOException {
+    public static List<Speaker> createSpeakersFromFile() throws IOException {
+        final File speakerFolder = new File("src/main/java/com/sample/DAL/SavedFiles/NewComponents/Speakers");
         List<Speaker> allSpeakers = new ArrayList<>();
         List<Path> filePaths = FileOpener.getFilesFromFolder(speakerFolder);
         for (Path file : filePaths){
@@ -347,7 +360,8 @@ public class ComponentFactory {
         return allSpeakers;
     }
 
-    public static List<StorageComponent> createStorageComponentsFromFile(File storageComponentFolder) throws IOException {
+    public static List<StorageComponent> createStorageComponentsFromFile() throws IOException {
+        final File storageComponentFolder = new File("src/main/java/com/sample/DAL/SavedFiles/NewComponents/StorageComponents");
         List<StorageComponent> allStorageComponents = new ArrayList<>();
         List<Path> filePaths = FileOpener.getFilesFromFolder(storageComponentFolder);
         for (Path file : filePaths){

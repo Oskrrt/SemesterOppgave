@@ -46,8 +46,6 @@ public class signInController {
     }
 
     public void signIn(Event event) throws IOException {
-        //TODO slett denne:
-        //FileOpener.getAllComponents();
         // makes it so you can log in by pressing enter on your keyboard
         if (event instanceof KeyEvent) {
             if (((KeyEvent) event).getCode() != KeyCode.ENTER) {
@@ -61,9 +59,9 @@ public class signInController {
             loggedInUser = userTryingToLogIn;
             System.out.println(userTryingToLogIn.getClass());
             if (loggedInUser instanceof Admin) {
-                App.changeView("homeScreenAdmin.fxml", 1200, 900);
+                App.changeView("/fxml/homeScreenAdmin.fxml", 1200, 900);
             } else {
-                App.changeView("homeScreenRegularUser.fxml", 1200, 900);
+                App.changeView("/fxml/homeScreenRegularUser.fxml", 1200, 900);
             }
         } else {
             lblFailedSignIn.setText("Email or Password is incorrect");

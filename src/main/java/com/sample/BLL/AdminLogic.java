@@ -34,9 +34,7 @@ public class AdminLogic {
     public static void swapViewsBasedOnButtonPressed_VIEW_COMPONENTS(String buttonPressed) throws IOException {
         switch(buttonPressed){
             case "Cases":
-                App.changeView("AddedComponents/Added"+buttonPressed+".fxml", 1200,900);
-                adminUserController admin = new adminUserController();
-                admin.showAddedCases();
+
         }
     }
 
