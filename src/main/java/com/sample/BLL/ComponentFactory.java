@@ -1,10 +1,12 @@
 package com.sample.BLL;
 
 import com.sample.DAL.OpenFile.FileOpener;
+import com.sample.DAL.OpenFile.FileOpenerJobj;
 import com.sample.Models.ComputerComponents.Case;
 import com.sample.Models.ComputerComponents.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.concurrent.Task;
 import javafx.scene.Node;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextArea;
@@ -16,8 +18,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ComponentFactory {
-
-
 
     public static ComputerComponent createComponent(List<Node> formData, String type){
         String description = ((TextArea)formData.get(0)).getText();
@@ -196,10 +196,10 @@ public class ComponentFactory {
     }
 
 
-    public static ObservableList<Case> createCasesFromFile() throws IOException {
+    public static List<Case> createCasesFromFile() throws IOException {
         final File caseFolder = new File("src/main/java/com/sample/DAL/SavedFiles/NewComponents/Cases");
         ObservableList<Case> allCases = FXCollections.observableArrayList();
-        List<Path> filePaths = FileOpener.getFilesFromFolder(caseFolder);
+        List<Path> filePaths = FileOpenerJobj.getFilesFromFolder(caseFolder);
         for (Path file : filePaths){
             try (FileInputStream fi = new FileInputStream(String.valueOf(file)); ObjectInputStream ois = new ObjectInputStream(fi)){
                 Case foundCase = (Case) ois.readObject();
@@ -214,7 +214,7 @@ public class ComponentFactory {
     public static List<CoolingSystem> createCoolingSystemFromFile() throws IOException {
         final File coolingFolder = new File("src/main/java/com/sample/DAL/SavedFiles/NewComponents/CoolingSystems");
         List<CoolingSystem> allCoolingSystems = new ArrayList<>();
-        List<Path> filePaths = FileOpener.getFilesFromFolder(coolingFolder);
+        List<Path> filePaths = FileOpenerJobj.getFilesFromFolder(coolingFolder);
         for (Path file : filePaths){
             try (FileInputStream fi = new FileInputStream(String.valueOf(file)); ObjectInputStream ois = new ObjectInputStream(fi)){
                 CoolingSystem foundCoolingSystem = (CoolingSystem) ois.readObject();
@@ -228,7 +228,7 @@ public class ComponentFactory {
     public static List<GraphicsCard> createGraphicsCardsFromFile() throws IOException {
         final File GPUFolder = new File("src/main/java/com/sample/DAL/SavedFiles/NewComponents/GraphicsCards");
         List<GraphicsCard> allGPUs = new ArrayList<>();
-        List<Path> filePaths = FileOpener.getFilesFromFolder(GPUFolder);
+        List<Path> filePaths = FileOpenerJobj.getFilesFromFolder(GPUFolder);
         for (Path file : filePaths){
             try (FileInputStream fi = new FileInputStream(String.valueOf(file)); ObjectInputStream ois = new ObjectInputStream(fi)){
                 GraphicsCard foundGPU = (GraphicsCard) ois.readObject();
@@ -243,7 +243,7 @@ public class ComponentFactory {
     public static List<Keyboard> createKeyboardsFromFile() throws IOException {
         final File keyboardFolder = new File("src/main/java/com/sample/DAL/SavedFiles/NewComponents/Keyboards");
         List<Keyboard> allKeyboards = new ArrayList<>();
-        List<Path> filePaths = FileOpener.getFilesFromFolder(keyboardFolder);
+        List<Path> filePaths = FileOpenerJobj.getFilesFromFolder(keyboardFolder);
         for (Path file : filePaths){
             try (FileInputStream fi = new FileInputStream(String.valueOf(file)); ObjectInputStream ois = new ObjectInputStream(fi)){
                 Keyboard foundKeyboard = (Keyboard) ois.readObject();
@@ -258,7 +258,7 @@ public class ComponentFactory {
     public static List<Mouse> createMiceFromFile() throws IOException {
         final File mouseFolder = new File("src/main/java/com/sample/DAL/SavedFiles/NewComponents/Mice");
         List<Mouse> allMice = new ArrayList<>();
-        List<Path> filePaths = FileOpener.getFilesFromFolder(mouseFolder);
+        List<Path> filePaths = FileOpenerJobj.getFilesFromFolder(mouseFolder);
         for (Path file : filePaths){
             try (FileInputStream fi = new FileInputStream(String.valueOf(file)); ObjectInputStream ois = new ObjectInputStream(fi)){
                 Mouse foundMouse = (Mouse) ois.readObject();
@@ -273,7 +273,7 @@ public class ComponentFactory {
     public static List<Monitor> createMonitorsFromFile() throws IOException {
         final File monitorFolder = new File("src/main/java/com/sample/DAL/SavedFiles/NewComponents/Monitors");
         List<Monitor> allMonitors = new ArrayList<>();
-        List<Path> filePaths = FileOpener.getFilesFromFolder(monitorFolder);
+        List<Path> filePaths = FileOpenerJobj.getFilesFromFolder(monitorFolder);
         for (Path file : filePaths){
             try (FileInputStream fi = new FileInputStream(String.valueOf(file)); ObjectInputStream ois = new ObjectInputStream(fi)){
                 Monitor foundMonitor = (Monitor) ois.readObject();
@@ -288,7 +288,7 @@ public class ComponentFactory {
     public static List<Motherboard> createMotherboardsFromFile() throws IOException {
         final File motherboardFolder = new File("src/main/java/com/sample/DAL/SavedFiles/NewComponents/MotherBoards");
         List<Motherboard> allMotherBoards = new ArrayList<>();
-        List<Path> filePaths = FileOpener.getFilesFromFolder(motherboardFolder);
+        List<Path> filePaths = FileOpenerJobj.getFilesFromFolder(motherboardFolder);
         for (Path file : filePaths){
             try (FileInputStream fi = new FileInputStream(String.valueOf(file)); ObjectInputStream ois = new ObjectInputStream(fi)){
                 Motherboard foundMotherboard = (Motherboard) ois.readObject();
@@ -303,7 +303,7 @@ public class ComponentFactory {
     public static List<PowerSupply> createPowerSuppliesFromFile() throws IOException {
         final File powerSupplyFolder = new File("src/main/java/com/sample/DAL/SavedFiles/NewComponents/PowerSupplies");
         List<PowerSupply> allPowerSupplies = new ArrayList<>();
-        List<Path> filePaths = FileOpener.getFilesFromFolder(powerSupplyFolder);
+        List<Path> filePaths = FileOpenerJobj.getFilesFromFolder(powerSupplyFolder);
         for (Path file : filePaths){
             try (FileInputStream fi = new FileInputStream(String.valueOf(file)); ObjectInputStream ois = new ObjectInputStream(fi)){
                 PowerSupply foundPowerSupply = (PowerSupply) ois.readObject();
@@ -318,7 +318,7 @@ public class ComponentFactory {
     public static List<Processor> createProcessorsFromFile() throws IOException {
         final File CPUFolder = new File("src/main/java/com/sample/DAL/SavedFiles/NewComponents/CPUs");
         List<Processor> allCPUs = new ArrayList<>();
-        List<Path> filePaths = FileOpener.getFilesFromFolder(CPUFolder);
+        List<Path> filePaths = FileOpenerJobj.getFilesFromFolder(CPUFolder);
         for (Path file : filePaths){
             try (FileInputStream fi = new FileInputStream(String.valueOf(file)); ObjectInputStream ois = new ObjectInputStream(fi)){
                 Processor foundCPU = (Processor) ois.readObject();
@@ -333,7 +333,7 @@ public class ComponentFactory {
     public static List<RAM> createRAMsFromFile() throws IOException {
         final File RAMFolder = new File("src/main/java/com/sample/DAL/SavedFiles/NewComponents/RAMs");
         List<RAM> allRAMs = new ArrayList<>();
-        List<Path> filePaths = FileOpener.getFilesFromFolder(RAMFolder);
+        List<Path> filePaths = FileOpenerJobj.getFilesFromFolder(RAMFolder);
         for (Path file : filePaths){
             try (FileInputStream fi = new FileInputStream(String.valueOf(file)); ObjectInputStream ois = new ObjectInputStream(fi)){
                 RAM foundRAM = (RAM) ois.readObject();
@@ -348,7 +348,7 @@ public class ComponentFactory {
     public static List<Speaker> createSpeakersFromFile() throws IOException {
         final File speakerFolder = new File("src/main/java/com/sample/DAL/SavedFiles/NewComponents/Speakers");
         List<Speaker> allSpeakers = new ArrayList<>();
-        List<Path> filePaths = FileOpener.getFilesFromFolder(speakerFolder);
+        List<Path> filePaths = FileOpenerJobj.getFilesFromFolder(speakerFolder);
         for (Path file : filePaths){
             try (FileInputStream fi = new FileInputStream(String.valueOf(file)); ObjectInputStream ois = new ObjectInputStream(fi)){
                 Speaker foundSpeaker = (Speaker) ois.readObject();
@@ -363,7 +363,7 @@ public class ComponentFactory {
     public static List<StorageComponent> createStorageComponentsFromFile() throws IOException {
         final File storageComponentFolder = new File("src/main/java/com/sample/DAL/SavedFiles/NewComponents/StorageComponents");
         List<StorageComponent> allStorageComponents = new ArrayList<>();
-        List<Path> filePaths = FileOpener.getFilesFromFolder(storageComponentFolder);
+        List<Path> filePaths = FileOpenerJobj.getFilesFromFolder(storageComponentFolder);
         for (Path file : filePaths){
             try (FileInputStream fi = new FileInputStream(String.valueOf(file)); ObjectInputStream ois = new ObjectInputStream(fi)){
                 StorageComponent foundStorageComponent = (StorageComponent) ois.readObject();

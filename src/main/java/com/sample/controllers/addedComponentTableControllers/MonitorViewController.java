@@ -1,27 +1,44 @@
 package com.sample.controllers.addedComponentTableControllers;
 
 import com.sample.App;
-import com.sample.BLL.ComponentFactory;
+import com.sample.DAL.OpenFile.OpenAddedComponents.OpenMonitors;
 import com.sample.Models.ComputerComponents.Monitor;
+import javafx.concurrent.WorkerStateEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableView;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class MonitorViewController implements Initializable {
     @FXML
     private TableView<Monitor> table;
+    private OpenMonitors opener = new OpenMonitors();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
-            table.getItems().setAll(ComponentFactory.createMonitorsFromFile());
-        } catch (IOException e) {
+            Thread openMonitorsThread = new Thread(opener);
+            opener.setOnSucceeded(this::handleSucceed);
+            opener.setOnFailed(this::handleError);
+            openMonitorsThread.setDaemon(true);
+            openMonitorsThread.start();
+        } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    private void handleError(WorkerStateEvent workerStateEvent) {
+        Label errorPlaceholder = new Label("Could not retrieve saved cooling systems");
+        table.placeholderProperty().setValue(errorPlaceholder);
+    }
+
+    private void handleSucceed(WorkerStateEvent workerStateEvent) {
+        table.getItems().setAll((List<Monitor>) opener.getValue());
     }
 
     @FXML

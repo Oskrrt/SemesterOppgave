@@ -75,29 +75,6 @@ public abstract class FileOpener extends Task<Void> {
 
     }*/
 
-    public static List<Path> getFilesFromFolder(final File folder) throws IOException {
-        List<Path> filePaths = new ArrayList<>();
-        for (final File fileEntry: folder.listFiles()){
-            if (fileEntry.isDirectory()){
-                getFilesFromFolder(fileEntry);
-            } else {
-                filePaths.add(Paths.get(fileEntry.getPath()));
-            }
-        }
-        return filePaths;
-    }
 
-    private static List<File> getComponentFolders(final File folder){
-        List<File> allFolders = new ArrayList<>();
-        for (final File fileEntry : folder.listFiles()){
-            if (fileEntry.isFile()){
-                getComponentFolders(fileEntry);
-            } else {
-                allFolders.add(fileEntry);
-            }
-        }
-        Collections.sort(allFolders); //alphabetical for indexing
-        return allFolders;
-    }
 
 }
