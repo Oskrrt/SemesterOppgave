@@ -2,7 +2,6 @@ package com.sample.controllers.addedComponentTableControllers;
 
 import com.sample.App;
 import com.sample.BLL.ComponentFactory;
-import com.sample.Models.ComputerComponents.Case;
 import com.sample.Models.ComputerComponents.StorageComponent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;

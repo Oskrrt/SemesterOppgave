@@ -7,4 +7,8 @@ public class Speaker extends ComputerComponent{
         super(price, description, productName, productionCompany, serialNumber);
         this.inputType = inputType;
     }
+
+    public String getInputType(){
+        return inputType;
+    }
 }

@@ -3,7 +3,7 @@ package com.sample.Models.ComputerComponents;
 import java.io.Serializable;
 
 public class ComputerComponent implements Serializable {
-    //private static final long serialVersionUID = 1;
+    private static final long serialVersionUID = 3;
     private double price;
     private String description;
     private String productName;

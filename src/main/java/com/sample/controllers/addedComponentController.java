@@ -14,6 +14,8 @@ import javafx.scene.layout.AnchorPane;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import com.sample.DAL.init;
+
 
 public class addedComponentController extends adminUserController implements Initializable {
     @FXML private TableView<Case> caseTable;
@@ -32,7 +34,8 @@ public class addedComponentController extends adminUserController implements Ini
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        // remove comment if you need to initialize all components.
+        //init.initFiles();
     }
 
     @FXML
@@ -60,15 +63,7 @@ public class addedComponentController extends adminUserController implements Ini
         }
     }
 
-    @FXML
-    private void selectComponentViews(Event event){
-        String buttonPressed = ((Control)event.getSource()).getId();
-        try{
-            AdminLogic.swapViewsBasedOnButtonPressed_VIEW_COMPONENTS(buttonPressed);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+
 
     @FXML
     public void showAddedCases() throws IOException {
@@ -76,58 +71,58 @@ public class addedComponentController extends adminUserController implements Ini
     }
 
     @FXML
-    private void showAddedCoolingSystems(Event event){
-
+    private void showAddedCoolingSystems(Event event) throws IOException {
+        App.changeView("/fxml/AddedComponents/AddedCoolingSystems.fxml", 1200,900);
     }
 
     @FXML
-    private void showAddedCPUs(Event event){
-
+    private void showAddedCPUs(Event event) throws IOException {
+        App.changeView("/fxml/AddedComponents/AddedCPUs.fxml", 1200,900);
     }
 
     @FXML
-    private void showAddedGPUs(Event event){
-
+    private void showAddedGPUs(Event event) throws IOException {
+        App.changeView("/fxml/AddedComponents/AddedGraphicsCards.fxml", 1200,900);
     }
 
     @FXML
-    private void showAddedKeyboards(Event event){
-
+    private void showAddedKeyboards(Event event) throws IOException {
+        App.changeView("/fxml/AddedComponents/AddedKeyboards.fxml", 1200,900);
     }
 
     @FXML
-    private void showAddedMice(Event event){
-
+    private void showAddedMice(Event event) throws IOException {
+        App.changeView("/fxml/AddedComponents/AddedMice.fxml", 1200,900);
     }
 
     @FXML
-    private void showAddedMonitors(Event event){
-
+    private void showAddedMonitors(Event event) throws IOException {
+        App.changeView("/fxml/AddedComponents/AddedMonitors.fxml", 1200,900);
     }
 
     @FXML
-    private void showAddedMotherboards(Event event){
-
+    private void showAddedMotherboards(Event event) throws IOException {
+        App.changeView("/fxml/AddedComponents/AddedMotherboards.fxml", 1200,900);
     }
 
     @FXML
-    private void showAddedPowersupplies(Event event){
-
+    private void showAddedPowersupplies(Event event) throws IOException {
+        App.changeView("/fxml/AddedComponents/AddedPowerSupplies.fxml", 1200,900);
     }
 
     @FXML
-    private void showAddedRAM(Event event){
-
+    private void showAddedRAM(Event event) throws IOException {
+        App.changeView("/fxml/AddedComponents/AddedRAM.fxml", 1200,900);
     }
 
     @FXML
-    private void showAddedSpeakers(Event event){
-
+    private void showAddedSpeakers(Event event) throws IOException {
+        App.changeView("/fxml/AddedComponents/AddedSpeakers.fxml", 1200,900);
     }
 
     @FXML
-    private void showAddedStorageComponents(Event event){
-
+    private void showAddedStorageComponents(Event event) throws IOException {
+        App.changeView("/fxml/AddedComponents/AddedStorageComponents.fxml", 1200,900);
     }
 
 

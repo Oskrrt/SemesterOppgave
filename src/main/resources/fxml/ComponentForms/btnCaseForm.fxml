@@ -41,6 +41,7 @@
             <TextField GridPane.rowIndex="6" />
             <TextField GridPane.rowIndex="7" />
             <TextField GridPane.rowIndex="8" />
+            <TextField GridPane.rowIndex="9" />
             <Button fx:id="saveCase" mnemonicParsing="false" onAction="#saveNewComponentFromForm" text="Save" GridPane.rowIndex="10" />
             <Label text="Description" GridPane.columnIndex="1">
                <padding>
@@ -87,7 +88,6 @@
                   <Insets left="10.0" />
                </padding>
             </Label>
-            <TextField GridPane.rowIndex="9" />
             <Label prefHeight="17.0" prefWidth="128.0" text="Depth in centimeters" GridPane.columnIndex="1" GridPane.rowIndex="9">
                <padding>
                   <Insets left="10.0" />

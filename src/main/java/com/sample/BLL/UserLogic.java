@@ -25,48 +25,46 @@ public class UserLogic {
 
     private static List<ComputerComponent> getAllComponents(String type) throws IOException {
         List<? extends ComputerComponent> list = new ArrayList<>();
-        String filepath = "src/main/java/com/sample/DAL/SavedFiles/NewComponents/"+type+"s";
-        File folderOfComponents = new File(filepath);
         switch (type) {
             case "Case":
-                list = ComponentFactory.createCasesFromFile(folderOfComponents);
+                list = ComponentFactory.createCasesFromFile();
                 break;
             case "graphicsCard":
-                list = ComponentFactory.createGraphicsCardsFromFile(folderOfComponents);
+                list = ComponentFactory.createGraphicsCardsFromFile();
                 break;
             case "coolingSystem":
 
-                list = ComponentFactory.createCoolingSystemFromFile(folderOfComponents);
+                list = ComponentFactory.createCoolingSystemFromFile();
                 break;
             case "CPU":
 
-                list = ComponentFactory.createProcessorsFromFile(folderOfComponents);
+                list = ComponentFactory.createProcessorsFromFile();
                 break;
             case "keyboard":
 
-                list = ComponentFactory.createKeyboardsFromFile(folderOfComponents);
+                list = ComponentFactory.createKeyboardsFromFile();
                 break;
             case "monitor":
 
-                list = ComponentFactory.createMonitorsFromFile(folderOfComponents);
+                list = ComponentFactory.createMonitorsFromFile();
                 break;
             case "motherBoard":
-                list = ComponentFactory.createMotherboardsFromFile(folderOfComponents);
+                list = ComponentFactory.createMotherboardsFromFile();
                 break;
             case "mouse":
-                list = ComponentFactory.createMiceFromFile(folderOfComponents);
+                list = ComponentFactory.createMiceFromFile();
                 break;
             case "powerSupply":
-                list = ComponentFactory.createPowerSuppliesFromFile(folderOfComponents);
+                list = ComponentFactory.createPowerSuppliesFromFile();
                 break;
             case "RAM":
-                list = ComponentFactory.createRAMsFromFile(folderOfComponents);
+                list = ComponentFactory.createRAMsFromFile();
                 break;
             case "speaker":
-                list = ComponentFactory.createSpeakersFromFile(folderOfComponents);
+                list = ComponentFactory.createSpeakersFromFile();
                 break;
             case "storageComponent":
-                list = ComponentFactory.createStorageComponentsFromFile(folderOfComponents);
+                list = ComponentFactory.createStorageComponentsFromFile();
                 break;
         }
             return (List<ComputerComponent>) list;

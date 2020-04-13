@@ -29,57 +29,57 @@
                   <Font size="26.0" />
                </font>
             </Button>
-            <Button fx:id="CoolingSystems" mnemonicParsing="false" onAction="#selectComponentViews" prefHeight="100.0" prefWidth="300.0" text="Cooling systems" GridPane.rowIndex="2">
+            <Button fx:id="CoolingSystems" mnemonicParsing="false" onAction="#showAddedCoolingSystems" prefHeight="100.0" prefWidth="300.0" text="Cooling systems" GridPane.rowIndex="2">
                <font>
                   <Font size="26.0" />
                </font>
             </Button>
-            <Button fx:id="GraphicsCards" mnemonicParsing="false" onAction="#selectComponentViews" prefHeight="100.0" prefWidth="300.0" text="Graphics cards" GridPane.columnIndex="2" GridPane.rowIndex="1">
+            <Button fx:id="GraphicsCards" mnemonicParsing="false" onAction="#showAddedGPUs" prefHeight="100.0" prefWidth="300.0" text="Graphics cards" GridPane.columnIndex="2" GridPane.rowIndex="1">
                <font>
                   <Font size="26.0" />
                </font>
             </Button>
-            <Button fx:id="Keyboards" mnemonicParsing="false" onAction="#selectComponentViews" prefHeight="100.0" prefWidth="300.0" text="Keyboards" GridPane.columnIndex="2">
+            <Button fx:id="Keyboards" mnemonicParsing="false" onAction="#showAddedKeyboards" prefHeight="100.0" prefWidth="300.0" text="Keyboards" GridPane.columnIndex="2">
                <font>
                   <Font size="26.0" />
                </font>
             </Button>
-            <Button fx:id="Monitors" mnemonicParsing="false" onAction="#selectComponentViews" prefHeight="100.0" prefWidth="300.0" text="Monitors" GridPane.columnIndex="1">
+            <Button fx:id="Monitors" mnemonicParsing="false" onAction="#showAddedMonitors" prefHeight="100.0" prefWidth="300.0" text="Monitors" GridPane.columnIndex="1">
                <font>
                   <Font size="26.0" />
                </font>
             </Button>
-            <Button fx:id="Motherboards" mnemonicParsing="false" onAction="#selectComponentViews" prefHeight="100.0" prefWidth="300.0" text="Motherboards">
+            <Button fx:id="Motherboards" mnemonicParsing="false" onAction="#showAddedMotherboards" prefHeight="100.0" prefWidth="300.0" text="Motherboards">
                <font>
                   <Font size="26.0" />
                </font>
             </Button>
-            <Button fx:id="Mice" mnemonicParsing="false" onAction="#selectComponentViews" prefHeight="100.0" prefWidth="300.0" text="Mice" GridPane.columnIndex="1" GridPane.rowIndex="3">
+            <Button fx:id="Mice" mnemonicParsing="false" onAction="#showAddedMice" prefHeight="100.0" prefWidth="300.0" text="Mice" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <font>
                   <Font size="26.0" />
                </font>
             </Button>
-            <Button fx:id="PowerSupplies" mnemonicParsing="false" onAction="#selectComponentViews" prefHeight="100.0" prefWidth="300.0" text="Power supplies" GridPane.rowIndex="3">
+            <Button fx:id="PowerSupplies" mnemonicParsing="false" onAction="#showAddedPowersupplies" prefHeight="100.0" prefWidth="300.0" text="Power supplies" GridPane.rowIndex="3">
                <font>
                   <Font size="26.0" />
                </font>
             </Button>
-            <Button fx:id="CPUs" mnemonicParsing="false" onAction="#selectComponentViews" prefHeight="100.0" prefWidth="300.0" text="CPUs" GridPane.columnIndex="2" GridPane.rowIndex="3">
+            <Button fx:id="CPUs" mnemonicParsing="false" onAction="#showAddedCPUs" prefHeight="100.0" prefWidth="300.0" text="CPUs" GridPane.columnIndex="2" GridPane.rowIndex="3">
                <font>
                   <Font size="26.0" />
                </font>
             </Button>
-            <Button fx:id="RAM" mnemonicParsing="false" onAction="#selectComponentViews" prefHeight="100.0" prefWidth="300.0" text="RAM" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <Button fx:id="RAM" mnemonicParsing="false" onAction="#showAddedRAM" prefHeight="100.0" prefWidth="300.0" text="RAM" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <font>
                   <Font size="26.0" />
                </font>
             </Button>
-            <Button fx:id="StorageComponents" mnemonicParsing="false" onAction="#selectComponentViews" prefHeight="100.0" prefWidth="300.0" text="Storage components" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <Button fx:id="StorageComponents" mnemonicParsing="false" onAction="#showAddedStorageComponents" prefHeight="100.0" prefWidth="300.0" text="Storage components" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <font>
                   <Font size="26.0" />
                </font>
             </Button>
-            <Button fx:id="Speakers" mnemonicParsing="false" onAction="#selectComponentViews" prefHeight="100.0" prefWidth="300.0" text="Speakers" GridPane.columnIndex="2" GridPane.rowIndex="2">
+            <Button fx:id="Speakers" mnemonicParsing="false" onAction="#showAddedSpeakers" prefHeight="100.0" prefWidth="300.0" text="Speakers" GridPane.columnIndex="2" GridPane.rowIndex="2">
                <font>
                   <Font size="26.0" />
                </font>
