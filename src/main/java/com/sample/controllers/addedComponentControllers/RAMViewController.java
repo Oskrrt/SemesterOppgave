@@ -1,9 +1,9 @@
-package com.sample.controllers.addedComponentTableControllers;
+package com.sample.controllers.addedComponentControllers;
 
 import com.sample.App;
 import com.sample.DAL.OpenFile.Subtypes.OpenAddedComponents;
-import com.sample.DAL.OpenFile.Subtypes.OpenCoolingSystems;
-import com.sample.Models.ComputerComponents.CoolingSystem;
+import com.sample.DAL.OpenFile.Subtypes.OpenRAM;
+import com.sample.Models.ComputerComponents.RAM;
 import javafx.concurrent.WorkerStateEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -15,18 +15,19 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class CoolingSystemViewController implements Initializable {
-    @FXML private TableView<CoolingSystem> table;
-    private OpenAddedComponents opener = new OpenCoolingSystems();
+public class RAMViewController implements Initializable {
+    @FXML
+    private TableView<RAM> table;
+    private OpenAddedComponents opener = new OpenRAM();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
-            Thread openCoolingSystemsThread = new Thread(opener);
+            Thread openRAMThread = new Thread(opener);
             opener.setOnSucceeded(this::handleSucceed);
             opener.setOnFailed(this::handleError);
-            openCoolingSystemsThread.setDaemon(true);
-            openCoolingSystemsThread.start();
+            openRAMThread.setDaemon(true);
+            openRAMThread.start();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -38,8 +39,9 @@ public class CoolingSystemViewController implements Initializable {
     }
 
     private void handleSucceed(WorkerStateEvent workerStateEvent) {
-        table.getItems().setAll((List<CoolingSystem>) opener.getValue());
+        table.getItems().setAll((List<RAM>) opener.getValue());
     }
+
     @FXML
     private void viewSwapper(){
         try {

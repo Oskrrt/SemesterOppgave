@@ -1,9 +1,9 @@
-package com.sample.controllers.addedComponentTableControllers;
+package com.sample.controllers.addedComponentControllers;
 
 import com.sample.App;
 import com.sample.DAL.OpenFile.Subtypes.OpenAddedComponents;
-import com.sample.DAL.OpenFile.Subtypes.OpenStorageComponents;
-import com.sample.Models.ComputerComponents.StorageComponent;
+import com.sample.DAL.OpenFile.Subtypes.OpenPowerSupplies;
+import com.sample.Models.ComputerComponents.PowerSupply;
 import javafx.concurrent.WorkerStateEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -15,20 +15,19 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class StorageComponentViewController implements Initializable {
-
+public class PowerSupplyViewController implements Initializable {
     @FXML
-    public TableView<StorageComponent> table;
-    private OpenAddedComponents opener = new OpenStorageComponents();
+    private TableView<PowerSupply> table;
+    private OpenAddedComponents opener = new OpenPowerSupplies();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
-            Thread openStorageComponentsThread = new Thread(opener);
+            Thread openPowerSuppliesThread = new Thread(opener);
             opener.setOnSucceeded(this::handleSucceed);
             opener.setOnFailed(this::handleError);
-            openStorageComponentsThread.setDaemon(true);
-            openStorageComponentsThread.start();
+            openPowerSuppliesThread.setDaemon(true);
+            openPowerSuppliesThread.start();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -40,7 +39,7 @@ public class StorageComponentViewController implements Initializable {
     }
 
     private void handleSucceed(WorkerStateEvent workerStateEvent) {
-        table.getItems().setAll((List<StorageComponent>) opener.getValue());
+        table.getItems().setAll((List<PowerSupply>) opener.getValue());
     }
 
     @FXML
@@ -51,5 +50,4 @@ public class StorageComponentViewController implements Initializable {
             e.printStackTrace();
         }
     }
-
 }

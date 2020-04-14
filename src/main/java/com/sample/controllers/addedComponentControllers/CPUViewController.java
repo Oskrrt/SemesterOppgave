@@ -1,9 +1,9 @@
-package com.sample.controllers.addedComponentTableControllers;
+package com.sample.controllers.addedComponentControllers;
 
 import com.sample.App;
 import com.sample.DAL.OpenFile.Subtypes.OpenAddedComponents;
-import com.sample.DAL.OpenFile.Subtypes.OpenMice;
-import com.sample.Models.ComputerComponents.Mouse;
+import com.sample.DAL.OpenFile.Subtypes.OpenCPUs;
+import com.sample.Models.ComputerComponents.Processor;
 import javafx.concurrent.WorkerStateEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -15,19 +15,19 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class MouseViewController implements Initializable {
+public class CPUViewController implements Initializable {
     @FXML
-    private TableView<Mouse> table;
-    private OpenAddedComponents opener = new OpenMice();
+    private TableView<Processor> table;
+    private OpenAddedComponents opener = new OpenCPUs();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
-            Thread openMiceThread = new Thread(opener);
+            Thread openCPUsThread = new Thread(opener);
             opener.setOnSucceeded(this::handleSucceed);
             opener.setOnFailed(this::handleError);
-            openMiceThread.setDaemon(true);
-            openMiceThread.start();
+            openCPUsThread.setDaemon(true);
+            openCPUsThread.start();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -39,7 +39,7 @@ public class MouseViewController implements Initializable {
     }
 
     private void handleSucceed(WorkerStateEvent workerStateEvent) {
-        table.getItems().setAll((List<Mouse>) opener.getValue());
+        table.getItems().setAll((List<Processor>) opener.getValue());
     }
 
     @FXML

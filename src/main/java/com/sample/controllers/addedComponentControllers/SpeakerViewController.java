@@ -1,9 +1,9 @@
-package com.sample.controllers.addedComponentTableControllers;
+package com.sample.controllers.addedComponentControllers;
 
 import com.sample.App;
 import com.sample.DAL.OpenFile.Subtypes.OpenAddedComponents;
-import com.sample.DAL.OpenFile.Subtypes.OpenRAM;
-import com.sample.Models.ComputerComponents.RAM;
+import com.sample.DAL.OpenFile.Subtypes.OpenSpeakers;
+import com.sample.Models.ComputerComponents.Speaker;
 import javafx.concurrent.WorkerStateEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -15,19 +15,20 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class RAMViewController implements Initializable {
+public class SpeakerViewController implements Initializable {
+
     @FXML
-    private TableView<RAM> table;
-    private OpenAddedComponents opener = new OpenRAM();
+    public TableView<Speaker> table;
+    private OpenAddedComponents opener = new OpenSpeakers();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
-            Thread openRAMThread = new Thread(opener);
+            Thread openSpeakersThread = new Thread(opener);
             opener.setOnSucceeded(this::handleSucceed);
             opener.setOnFailed(this::handleError);
-            openRAMThread.setDaemon(true);
-            openRAMThread.start();
+            openSpeakersThread.setDaemon(true);
+            openSpeakersThread.start();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -39,7 +40,7 @@ public class RAMViewController implements Initializable {
     }
 
     private void handleSucceed(WorkerStateEvent workerStateEvent) {
-        table.getItems().setAll((List<RAM>) opener.getValue());
+        table.getItems().setAll((List<Speaker>) opener.getValue());
     }
 
     @FXML

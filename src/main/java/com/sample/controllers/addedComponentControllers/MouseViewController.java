@@ -1,9 +1,9 @@
-package com.sample.controllers.addedComponentTableControllers;
+package com.sample.controllers.addedComponentControllers;
 
 import com.sample.App;
 import com.sample.DAL.OpenFile.Subtypes.OpenAddedComponents;
-import com.sample.DAL.OpenFile.Subtypes.OpenGPUs;
-import com.sample.Models.ComputerComponents.GraphicsCard;
+import com.sample.DAL.OpenFile.Subtypes.OpenMice;
+import com.sample.Models.ComputerComponents.Mouse;
 import javafx.concurrent.WorkerStateEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -15,32 +15,33 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class GPUViewController implements Initializable {
+public class MouseViewController implements Initializable {
     @FXML
-    private TableView<GraphicsCard> table;
-    private OpenAddedComponents opener = new OpenGPUs();
+    private TableView<Mouse> table;
+    private OpenAddedComponents opener = new OpenMice();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
-            Thread openGPUsThread = new Thread(opener);
+            Thread openMiceThread = new Thread(opener);
             opener.setOnSucceeded(this::handleSucceed);
             opener.setOnFailed(this::handleError);
-            openGPUsThread.setDaemon(true);
-            openGPUsThread.start();
+            openMiceThread.setDaemon(true);
+            openMiceThread.start();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     private void handleError(WorkerStateEvent workerStateEvent) {
-        Label errorPlaceholder = new Label("Could not retrieve saved GPUs");
+        Label errorPlaceholder = new Label("Could not retrieve saved cooling systems");
         table.placeholderProperty().setValue(errorPlaceholder);
     }
 
     private void handleSucceed(WorkerStateEvent workerStateEvent) {
-        table.getItems().setAll((List<GraphicsCard>) opener.getValue());
+        table.getItems().setAll((List<Mouse>) opener.getValue());
     }
+
     @FXML
     private void viewSwapper(){
         try {

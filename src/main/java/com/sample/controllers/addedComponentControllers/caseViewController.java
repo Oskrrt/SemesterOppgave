@@ -1,9 +1,9 @@
-package com.sample.controllers.addedComponentTableControllers;
+package com.sample.controllers.addedComponentControllers;
 
 import com.sample.App;
 import com.sample.DAL.OpenFile.Subtypes.OpenAddedComponents;
-import com.sample.DAL.OpenFile.Subtypes.OpenPowerSupplies;
-import com.sample.Models.ComputerComponents.PowerSupply;
+import com.sample.DAL.OpenFile.Subtypes.OpenCases;
+import com.sample.Models.ComputerComponents.Case;
 import javafx.concurrent.WorkerStateEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -15,31 +15,30 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class PowerSupplyViewController implements Initializable {
-    @FXML
-    private TableView<PowerSupply> table;
-    private OpenAddedComponents opener = new OpenPowerSupplies();
+public class caseViewController implements Initializable {
+    @FXML private TableView<Case> table;
+    private OpenAddedComponents opener = new OpenCases();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
-            Thread openPowerSuppliesThread = new Thread(opener);
+            Thread openCaseFilesThread = new Thread(opener);
             opener.setOnSucceeded(this::handleSucceed);
             opener.setOnFailed(this::handleError);
-            openPowerSuppliesThread.setDaemon(true);
-            openPowerSuppliesThread.start();
+            openCaseFilesThread.setDaemon(true);
+            openCaseFilesThread.start();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     private void handleError(WorkerStateEvent workerStateEvent) {
-        Label errorPlaceholder = new Label("Could not retrieve saved cooling systems");
+        Label errorPlaceholder = new Label("Could not retrieve saved cases");
         table.placeholderProperty().setValue(errorPlaceholder);
     }
 
     private void handleSucceed(WorkerStateEvent workerStateEvent) {
-        table.getItems().setAll((List<PowerSupply>) opener.getValue());
+        table.getItems().setAll((List<Case>) opener.getValue());
     }
 
     @FXML

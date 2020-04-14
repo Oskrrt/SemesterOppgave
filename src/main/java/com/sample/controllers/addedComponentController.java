@@ -1,7 +1,6 @@
 package com.sample.controllers;
 
 import com.sample.App;
-import com.sample.BLL.AdminLogic;
 import com.sample.Models.ComputerComponents.Case;
 import com.sample.Models.ComputerComponents.*;
 import javafx.event.Event;
@@ -14,7 +13,6 @@ import javafx.scene.layout.AnchorPane;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import com.sample.DAL.init;
 
 
 public class addedComponentController extends adminUserController implements Initializable {
@@ -31,6 +29,7 @@ public class addedComponentController extends adminUserController implements Ini
     @FXML private TableView<Speaker> speakerTable;
     @FXML private TableView<StorageComponent> storageComponentTable;
     @FXML private AnchorPane casePane;
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

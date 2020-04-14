@@ -3,26 +3,18 @@ package com.sample.controllers;
 import com.sample.App;
 import com.sample.BLL.AdminLogic;
 import com.sample.BLL.ComponentFactory;
+import com.sample.BLL.InputValidation.ValidationException;
 import com.sample.Models.ComputerComponents.*;
-import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.VBox;
 
-import java.io.File;
 import java.io.IOException;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.ArrayList;
 import java.util.List;
 
 public class adminUserController {
-
 
     @FXML
     private void handleSelectionButtonEvent(Event event){
@@ -61,13 +53,20 @@ public class adminUserController {
         String type = ((Control)event.getSource()).getParent().getId(); //gets the id of the form grid, so we know what component to create.
         Parent form = ((Node)event.getSource()).getParent(); //gets the entire form grid from fxml
         List<Node> formData = form.getChildrenUnmodifiable(); //gets the children (aka textfields) in the form grid
-        ComputerComponent componentToSave = ComponentFactory.createComponent(formData, type);
-        assert componentToSave != null;
-        if (AdminLogic.saveComponent(componentToSave, type)){
-            System.out.println("JA MANNNN");
-        } else {
-            //TODO: output error message to view
+        ComputerComponent componentToSave = null;
+        try {
+            componentToSave = ComponentFactory.createComponent(formData, type);
+            componentToSave.validate();
+            if (AdminLogic.saveComponent(componentToSave, type)){
+            } else {
+                //TODO: output error message to view
+            }
+        } catch (ValidationException e) {
+            System.err.println(e.getMessage());
         }
+
+
+
     }
 
 

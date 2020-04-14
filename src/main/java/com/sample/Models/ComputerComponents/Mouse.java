@@ -1,5 +1,7 @@
 package com.sample.Models.ComputerComponents;
 
+import com.sample.BLL.InputValidation.ValidationException;
+
 public class Mouse extends ComputerComponent {
     private boolean wireless;
 
@@ -17,5 +19,11 @@ public class Mouse extends ComputerComponent {
             isWireless = "No";
         }
         return isWireless;
+    }
+
+    @Override
+    public boolean validate() throws ValidationException {
+        super.validate();
+        return true;
     }
 }

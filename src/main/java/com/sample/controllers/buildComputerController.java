@@ -49,7 +49,6 @@ public class buildComputerController {
     }
     public void updateComputer(ComputerComponent component) {
         computerBeingBuilt.setComputerCase((Case) component);
-
     }
     @FXML
     void logOut(ActionEvent event) throws IOException {

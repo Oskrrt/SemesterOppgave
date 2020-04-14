@@ -1,9 +1,9 @@
-package com.sample.controllers.addedComponentTableControllers;
+package com.sample.controllers.addedComponentControllers;
 
 import com.sample.App;
 import com.sample.DAL.OpenFile.Subtypes.OpenAddedComponents;
-import com.sample.DAL.OpenFile.Subtypes.OpenSpeakers;
-import com.sample.Models.ComputerComponents.Speaker;
+import com.sample.DAL.OpenFile.Subtypes.OpenKeyboards;
+import com.sample.Models.ComputerComponents.Keyboard;
 import javafx.concurrent.WorkerStateEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -15,20 +15,20 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class SpeakerViewController implements Initializable {
-
+public class KeyboardViewController implements Initializable {
     @FXML
-    public TableView<Speaker> table;
-    private OpenAddedComponents opener = new OpenSpeakers();
+    private TableView<Keyboard> table;
+
+    private OpenAddedComponents opener = new OpenKeyboards();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
-            Thread openSpeakersThread = new Thread(opener);
+            Thread openKeyboardsThread = new Thread(opener);
             opener.setOnSucceeded(this::handleSucceed);
             opener.setOnFailed(this::handleError);
-            openSpeakersThread.setDaemon(true);
-            openSpeakersThread.start();
+            openKeyboardsThread.setDaemon(true);
+            openKeyboardsThread.start();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -40,7 +40,7 @@ public class SpeakerViewController implements Initializable {
     }
 
     private void handleSucceed(WorkerStateEvent workerStateEvent) {
-        table.getItems().setAll((List<Speaker>) opener.getValue());
+        table.getItems().setAll((List<Keyboard>) opener.getValue());
     }
 
     @FXML

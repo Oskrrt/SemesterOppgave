@@ -1,9 +1,9 @@
-package com.sample.controllers.addedComponentTableControllers;
+package com.sample.controllers.addedComponentControllers;
 
 import com.sample.App;
 import com.sample.DAL.OpenFile.Subtypes.OpenAddedComponents;
-import com.sample.DAL.OpenFile.Subtypes.OpenKeyboards;
-import com.sample.Models.ComputerComponents.Keyboard;
+import com.sample.DAL.OpenFile.Subtypes.OpenMotherBoards;
+import com.sample.Models.ComputerComponents.Motherboard;
 import javafx.concurrent.WorkerStateEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -15,20 +15,19 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class KeyboardViewController implements Initializable {
+public class MotherboardViewController implements Initializable {
     @FXML
-    private TableView<Keyboard> table;
-
-    private OpenAddedComponents opener = new OpenKeyboards();
+    private TableView<Motherboard> table;
+    private OpenAddedComponents opener = new OpenMotherBoards();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
-            Thread openKeyboardsThread = new Thread(opener);
+            Thread openMotherBoardsThread = new Thread(opener);
             opener.setOnSucceeded(this::handleSucceed);
             opener.setOnFailed(this::handleError);
-            openKeyboardsThread.setDaemon(true);
-            openKeyboardsThread.start();
+            openMotherBoardsThread.setDaemon(true);
+            openMotherBoardsThread.start();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -40,7 +39,7 @@ public class KeyboardViewController implements Initializable {
     }
 
     private void handleSucceed(WorkerStateEvent workerStateEvent) {
-        table.getItems().setAll((List<Keyboard>) opener.getValue());
+        table.getItems().setAll((List<Motherboard>) opener.getValue());
     }
 
     @FXML

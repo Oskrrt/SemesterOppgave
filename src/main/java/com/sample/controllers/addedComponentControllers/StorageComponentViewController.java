@@ -1,9 +1,9 @@
-package com.sample.controllers.addedComponentTableControllers;
+package com.sample.controllers.addedComponentControllers;
 
 import com.sample.App;
 import com.sample.DAL.OpenFile.Subtypes.OpenAddedComponents;
-import com.sample.DAL.OpenFile.Subtypes.OpenCases;
-import com.sample.Models.ComputerComponents.Case;
+import com.sample.DAL.OpenFile.Subtypes.OpenStorageComponents;
+import com.sample.Models.ComputerComponents.StorageComponent;
 import javafx.concurrent.WorkerStateEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -15,30 +15,32 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class caseViewController implements Initializable {
-    @FXML private TableView<Case> table;
-    private OpenAddedComponents opener = new OpenCases();
+public class StorageComponentViewController implements Initializable {
+
+    @FXML
+    public TableView<StorageComponent> table;
+    private OpenAddedComponents opener = new OpenStorageComponents();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
-            Thread openCaseFilesThread = new Thread(opener);
+            Thread openStorageComponentsThread = new Thread(opener);
             opener.setOnSucceeded(this::handleSucceed);
             opener.setOnFailed(this::handleError);
-            openCaseFilesThread.setDaemon(true);
-            openCaseFilesThread.start();
+            openStorageComponentsThread.setDaemon(true);
+            openStorageComponentsThread.start();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     private void handleError(WorkerStateEvent workerStateEvent) {
-        Label errorPlaceholder = new Label("Could not retrieve saved cases");
+        Label errorPlaceholder = new Label("Could not retrieve saved cooling systems");
         table.placeholderProperty().setValue(errorPlaceholder);
     }
 
     private void handleSucceed(WorkerStateEvent workerStateEvent) {
-        table.getItems().setAll((List<Case>) opener.getValue());
+        table.getItems().setAll((List<StorageComponent>) opener.getValue());
     }
 
     @FXML
@@ -49,4 +51,5 @@ public class caseViewController implements Initializable {
             e.printStackTrace();
         }
     }
+
 }

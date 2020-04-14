@@ -1,9 +1,9 @@
-package com.sample.controllers.addedComponentTableControllers;
+package com.sample.controllers.addedComponentControllers;
 
 import com.sample.App;
 import com.sample.DAL.OpenFile.Subtypes.OpenAddedComponents;
-import com.sample.DAL.OpenFile.Subtypes.OpenMonitors;
-import com.sample.Models.ComputerComponents.Monitor;
+import com.sample.DAL.OpenFile.Subtypes.OpenCoolingSystems;
+import com.sample.Models.ComputerComponents.CoolingSystem;
 import javafx.concurrent.WorkerStateEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -15,19 +15,18 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class MonitorViewController implements Initializable {
-    @FXML
-    private TableView<Monitor> table;
-    private OpenAddedComponents opener = new OpenMonitors();
+public class CoolingSystemViewController implements Initializable {
+    @FXML private TableView<CoolingSystem> table;
+    private OpenAddedComponents opener = new OpenCoolingSystems();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
-            Thread openMonitorsThread = new Thread(opener);
+            Thread openCoolingSystemsThread = new Thread(opener);
             opener.setOnSucceeded(this::handleSucceed);
             opener.setOnFailed(this::handleError);
-            openMonitorsThread.setDaemon(true);
-            openMonitorsThread.start();
+            openCoolingSystemsThread.setDaemon(true);
+            openCoolingSystemsThread.start();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -39,9 +38,8 @@ public class MonitorViewController implements Initializable {
     }
 
     private void handleSucceed(WorkerStateEvent workerStateEvent) {
-        table.getItems().setAll((List<Monitor>) opener.getValue());
+        table.getItems().setAll((List<CoolingSystem>) opener.getValue());
     }
-
     @FXML
     private void viewSwapper(){
         try {

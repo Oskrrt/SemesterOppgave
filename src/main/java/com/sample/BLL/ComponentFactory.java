@@ -1,12 +1,11 @@
 package com.sample.BLL;
 
-import com.sample.DAL.OpenFile.FileOpener;
+import com.sample.BLL.InputValidation.ValidationException;
 import com.sample.DAL.OpenFile.FileOpenerJobj;
 import com.sample.Models.ComputerComponents.Case;
 import com.sample.Models.ComputerComponents.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.concurrent.Task;
 import javafx.scene.Node;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextArea;
@@ -19,9 +18,14 @@ import java.util.List;
 
 public class ComponentFactory {
 
-    public static ComputerComponent createComponent(List<Node> formData, String type){
+    public static ComputerComponent createComponent(List<Node> formData, String type) throws ValidationException {
+        double price;
         String description = ((TextArea)formData.get(0)).getText();
-        double price = Double.parseDouble(((TextField)formData.get(1)).getText());
+        try{
+            price = Double.parseDouble(((TextField)formData.get(1)).getText());
+        } catch (NumberFormatException e){
+            throw new ValidationException("Price must be a number with two decimals: X.XX");
+        }
         String productName = ((TextField)formData.get(2)).getText();
         String manufacturer = ((TextField)formData.get(3)).getText();
         String serialNumber = ((TextField)formData.get(4)).getText();

@@ -1,9 +1,9 @@
-package com.sample.controllers.addedComponentTableControllers;
+package com.sample.controllers.addedComponentControllers;
 
 import com.sample.App;
 import com.sample.DAL.OpenFile.Subtypes.OpenAddedComponents;
-import com.sample.DAL.OpenFile.Subtypes.OpenMotherBoards;
-import com.sample.Models.ComputerComponents.Motherboard;
+import com.sample.DAL.OpenFile.Subtypes.OpenMonitors;
+import com.sample.Models.ComputerComponents.Monitor;
 import javafx.concurrent.WorkerStateEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -15,19 +15,19 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class MotherboardViewController implements Initializable {
+public class MonitorViewController implements Initializable {
     @FXML
-    private TableView<Motherboard> table;
-    private OpenAddedComponents opener = new OpenMotherBoards();
+    private TableView<Monitor> table;
+    private OpenAddedComponents opener = new OpenMonitors();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
-            Thread openMotherBoardsThread = new Thread(opener);
+            Thread openMonitorsThread = new Thread(opener);
             opener.setOnSucceeded(this::handleSucceed);
             opener.setOnFailed(this::handleError);
-            openMotherBoardsThread.setDaemon(true);
-            openMotherBoardsThread.start();
+            openMonitorsThread.setDaemon(true);
+            openMonitorsThread.start();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -39,7 +39,7 @@ public class MotherboardViewController implements Initializable {
     }
 
     private void handleSucceed(WorkerStateEvent workerStateEvent) {
-        table.getItems().setAll((List<Motherboard>) opener.getValue());
+        table.getItems().setAll((List<Monitor>) opener.getValue());
     }
 
     @FXML
