@@ -1,7 +1,8 @@
 package com.sample.controllers.addedComponentTableControllers;
 
 import com.sample.App;
-import com.sample.DAL.OpenFile.OpenAddedComponents.OpenMonitors;
+import com.sample.DAL.OpenFile.Subtypes.OpenAddedComponents;
+import com.sample.DAL.OpenFile.Subtypes.OpenMonitors;
 import com.sample.Models.ComputerComponents.Monitor;
 import javafx.concurrent.WorkerStateEvent;
 import javafx.fxml.FXML;
@@ -17,7 +18,7 @@ import java.util.ResourceBundle;
 public class MonitorViewController implements Initializable {
     @FXML
     private TableView<Monitor> table;
-    private OpenMonitors opener = new OpenMonitors();
+    private OpenAddedComponents opener = new OpenMonitors();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

@@ -1,8 +1,8 @@
 package com.sample.controllers.addedComponentTableControllers;
 
 import com.sample.App;
-import com.sample.DAL.OpenFile.OpenAddedComponents.OpenMotherBoards;
-import com.sample.DAL.OpenFile.OpenAddedComponents.OpenRAM;
+import com.sample.DAL.OpenFile.Subtypes.OpenAddedComponents;
+import com.sample.DAL.OpenFile.Subtypes.OpenMotherBoards;
 import com.sample.Models.ComputerComponents.Motherboard;
 import javafx.concurrent.WorkerStateEvent;
 import javafx.fxml.FXML;
@@ -18,7 +18,7 @@ import java.util.ResourceBundle;
 public class MotherboardViewController implements Initializable {
     @FXML
     private TableView<Motherboard> table;
-    private OpenMotherBoards opener = new OpenMotherBoards();
+    private OpenAddedComponents opener = new OpenMotherBoards();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

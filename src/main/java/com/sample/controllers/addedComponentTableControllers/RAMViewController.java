@@ -1,8 +1,8 @@
 package com.sample.controllers.addedComponentTableControllers;
 
 import com.sample.App;
-import com.sample.DAL.OpenFile.OpenAddedComponents.OpenRAM;
-import com.sample.Models.ComputerComponents.Motherboard;
+import com.sample.DAL.OpenFile.Subtypes.OpenAddedComponents;
+import com.sample.DAL.OpenFile.Subtypes.OpenRAM;
 import com.sample.Models.ComputerComponents.RAM;
 import javafx.concurrent.WorkerStateEvent;
 import javafx.fxml.FXML;
@@ -18,7 +18,7 @@ import java.util.ResourceBundle;
 public class RAMViewController implements Initializable {
     @FXML
     private TableView<RAM> table;
-    private OpenRAM opener = new OpenRAM();
+    private OpenAddedComponents opener = new OpenRAM();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

@@ -1,7 +1,8 @@
 package com.sample.controllers.addedComponentTableControllers;
 
 import com.sample.App;
-import com.sample.DAL.OpenFile.OpenAddedComponents.OpenPowerSupplies;
+import com.sample.DAL.OpenFile.Subtypes.OpenAddedComponents;
+import com.sample.DAL.OpenFile.Subtypes.OpenPowerSupplies;
 import com.sample.Models.ComputerComponents.PowerSupply;
 import javafx.concurrent.WorkerStateEvent;
 import javafx.fxml.FXML;
@@ -17,7 +18,7 @@ import java.util.ResourceBundle;
 public class PowerSupplyViewController implements Initializable {
     @FXML
     private TableView<PowerSupply> table;
-    private OpenPowerSupplies opener = new OpenPowerSupplies();
+    private OpenAddedComponents opener = new OpenPowerSupplies();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

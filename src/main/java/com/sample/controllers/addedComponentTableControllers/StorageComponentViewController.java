@@ -1,9 +1,8 @@
 package com.sample.controllers.addedComponentTableControllers;
 
 import com.sample.App;
-import com.sample.BLL.ComponentFactory;
-import com.sample.DAL.OpenFile.OpenAddedComponents.OpenStorageComponents;
-import com.sample.Models.ComputerComponents.Motherboard;
+import com.sample.DAL.OpenFile.Subtypes.OpenAddedComponents;
+import com.sample.DAL.OpenFile.Subtypes.OpenStorageComponents;
 import com.sample.Models.ComputerComponents.StorageComponent;
 import javafx.concurrent.WorkerStateEvent;
 import javafx.fxml.FXML;
@@ -20,7 +19,7 @@ public class StorageComponentViewController implements Initializable {
 
     @FXML
     public TableView<StorageComponent> table;
-    private OpenStorageComponents opener = new OpenStorageComponents();
+    private OpenAddedComponents opener = new OpenStorageComponents();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

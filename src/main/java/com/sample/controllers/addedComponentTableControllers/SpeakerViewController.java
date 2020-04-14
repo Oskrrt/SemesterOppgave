@@ -1,9 +1,8 @@
 package com.sample.controllers.addedComponentTableControllers;
 
 import com.sample.App;
-import com.sample.BLL.ComponentFactory;
-import com.sample.DAL.OpenFile.OpenAddedComponents.OpenSpeakers;
-import com.sample.Models.ComputerComponents.Motherboard;
+import com.sample.DAL.OpenFile.Subtypes.OpenAddedComponents;
+import com.sample.DAL.OpenFile.Subtypes.OpenSpeakers;
 import com.sample.Models.ComputerComponents.Speaker;
 import javafx.concurrent.WorkerStateEvent;
 import javafx.fxml.FXML;
@@ -20,7 +19,7 @@ public class SpeakerViewController implements Initializable {
 
     @FXML
     public TableView<Speaker> table;
-    private OpenSpeakers opener = new OpenSpeakers();
+    private OpenAddedComponents opener = new OpenSpeakers();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

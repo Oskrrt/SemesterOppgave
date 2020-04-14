@@ -1,7 +1,8 @@
 package com.sample.controllers.addedComponentTableControllers;
 
 import com.sample.App;
-import com.sample.DAL.OpenFile.OpenAddedComponents.OpenMice;
+import com.sample.DAL.OpenFile.Subtypes.OpenAddedComponents;
+import com.sample.DAL.OpenFile.Subtypes.OpenMice;
 import com.sample.Models.ComputerComponents.Mouse;
 import javafx.concurrent.WorkerStateEvent;
 import javafx.fxml.FXML;
@@ -17,7 +18,7 @@ import java.util.ResourceBundle;
 public class MouseViewController implements Initializable {
     @FXML
     private TableView<Mouse> table;
-    private OpenMice opener = new OpenMice();
+    private OpenAddedComponents opener = new OpenMice();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

@@ -1,7 +1,8 @@
 package com.sample.controllers.addedComponentTableControllers;
 
 import com.sample.App;
-import com.sample.DAL.OpenFile.OpenAddedComponents.OpenCases;
+import com.sample.DAL.OpenFile.Subtypes.OpenAddedComponents;
+import com.sample.DAL.OpenFile.Subtypes.OpenCases;
 import com.sample.Models.ComputerComponents.Case;
 import javafx.concurrent.WorkerStateEvent;
 import javafx.fxml.FXML;
@@ -9,7 +10,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableView;
 
-import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.List;
@@ -17,7 +17,7 @@ import java.util.ResourceBundle;
 
 public class caseViewController implements Initializable {
     @FXML private TableView<Case> table;
-    private OpenCases opener = new OpenCases();
+    private OpenAddedComponents opener = new OpenCases();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
