@@ -1,6 +1,7 @@
 package com.sample.controllers.chooseComponentControllers;
 
-import com.sample.DAL.OpenFile.OpenAddedComponents.OpenCases;
+import com.sample.DAL.OpenFile.Subtypes.OpenAddedComponents;
+import com.sample.DAL.OpenFile.Subtypes.OpenCases;
 import com.sample.Models.Computer.Computer;
 import com.sample.Models.ComputerComponents.Case;
 import com.sample.controllers.buildComputerController;
@@ -291,7 +292,7 @@ public class chooseCase {
             Case chosenCase = new Case(usbPorts, hdAudioJacks, widthCm, heightCm, depthCm, Double.parseDouble(price), "", productName, manufacturer, "");
             bcc.updateComputer(chosenCase);
         } catch (NumberFormatException e) {
-            System.out.println("sle");
+            e.printStackTrace();
         }
 
     }
