@@ -56,5 +56,37 @@ public class Computer {
     public RAM getMemory() {
         return memory;
     }
+
+    public void setComputerCase(Case computerCase) {
+        this.computerCase = computerCase;
+    }
+
+    public void setCooling(CoolingSystem cooling) {
+        this.cooling = cooling;
+    }
+
+    public void setGraphicsCard(GraphicsCard graphicsCard) {
+        this.graphicsCard = graphicsCard;
+    }
+
+    public void setStorageComponent(StorageComponent storageComponent) {
+        this.storageComponent = storageComponent;
+    }
+
+    public void setMotherboard(Motherboard motherboard) {
+        this.motherboard = motherboard;
+    }
+
+    public void setPowerSupply(PowerSupply powerSupply) {
+        this.powerSupply = powerSupply;
+    }
+
+    public void setCPU(Processor CPU) {
+        this.CPU = CPU;
+    }
+
+    public void setMemory(RAM memory) {
+        this.memory = memory;
+    }
 }
 

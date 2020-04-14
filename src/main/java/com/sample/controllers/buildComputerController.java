@@ -1,6 +1,10 @@
 package com.sample.controllers;
 
+import com.sample.App;
 import com.sample.BLL.UserLogic;
+import com.sample.Models.Computer.Computer;
+import com.sample.Models.ComputerComponents.Case;
+import com.sample.Models.ComputerComponents.ComputerComponent;
 import javafx.beans.property.ReadOnlyDoubleProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -21,6 +25,9 @@ import java.io.IOException;
 public class buildComputerController {
 
     private regularUserController mainControllerForRegularUsers = new regularUserController();
+    private static Computer computerBeingBuilt = new Computer(null, null, null, null, null ,null, null, null);
+
+
     @FXML
     private ImageView computerImageView;
 
@@ -38,12 +45,12 @@ public class buildComputerController {
 
     @FXML
     void initialize() {
-        /*Image computerImage = new Image("file:src/main/java/com/sample/Images/pc.png");
-        computerImageView.setFitWidth(700);
-        System.out.println(computerImage.getUrl());
-        computerImageView.setImage(computerImage);*/
+        // The null values will be set when the user chooses the parts.
     }
+    public void updateComputer(ComputerComponent component) {
+        computerBeingBuilt.setComputerCase((Case) component);
 
+    }
     @FXML
     void logOut(ActionEvent event) throws IOException {
         mainControllerForRegularUsers.logOut();
@@ -59,19 +66,6 @@ public class buildComputerController {
         mainControllerForRegularUsers.onClickMyComputers();
     }
 
-    @FXML
-    void openChoiceWindow(MouseEvent event) throws ClassNotFoundException, IOException {
-        System.out.println(((Control)event.getSource()).getId());
-        String idOfClickedLabel = ((Control)event.getSource()).getId();
-        AnchorPane ap = new AnchorPane();
-        ap.setId("ap");
-        ap.setPrefWidth(1000);
-        ap.setPrefHeight(750);
-        Stage choiceStage = new Stage();
-        Scene choiceScene = new Scene(ap);
-        choiceStage.setScene(choiceScene);
-        UserLogic.renderChoiceWindow(choiceStage, idOfClickedLabel);
-    }
 
     @FXML
     void makeBigger(MouseEvent event) {
@@ -85,5 +79,15 @@ public class buildComputerController {
         String idOfHoveredLabel = "#"+((Control)event.getSource()).getId();
         Label hoveredLabel = (Label)container.lookup(idOfHoveredLabel);
         hoveredLabel.setFont(new Font("System", 20));
+    }
+
+    @FXML
+    void openChoiceWindow(MouseEvent event) throws IOException {
+        String idOfClickedLabel = ((Control)event.getSource()).getId();
+        if (computerBeingBuilt.getComputerCase()!= null) {
+            System.out.println("albaba"+ computerBeingBuilt.getComputerCase().getHDAudioJacks());
+        }
+
+        UserLogic.openCorrectWindow(idOfClickedLabel);
     }
 }

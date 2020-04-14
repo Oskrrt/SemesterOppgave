@@ -44,7 +44,7 @@
          </image>
       </ImageView>
       <Polyline fill="#2527c2" layoutX="497.0" layoutY="467.0" points="19.0, -40.0, 215.0, -40.0, 215.0, -40.0, 295.0, 41.0" stroke="#eb8c34" strokeMiterLimit="40.0" strokeType="INSIDE" strokeWidth="2.0" style="-fx-fill: none;" />
-      <Label fx:id="graphicsCard" alignment="CENTER" layoutX="502.0" layoutY="396.0" onMouseClicked="#openChoiceWindow" onMouseEntered="#makeBigger" onMouseExited="#makeNormal" prefHeight="32.0" prefWidth="226.0" text="Graphics card (GPU)">
+      <Label fx:id="GraphicsCard" alignment="CENTER" layoutX="502.0" layoutY="396.0" onMouseClicked="#openChoiceWindow" onMouseEntered="#makeBigger" onMouseExited="#makeNormal" prefHeight="32.0" prefWidth="226.0" text="Graphics card (GPU)">
          <font>
             <Font size="20.0" />
          </font>
@@ -71,7 +71,7 @@
          </cursor>
       </Label>
       <Polyline fill="#2527c2" layoutX="527.0" layoutY="497.0" points="233.0, 114.0, 175.0, 61.0, 175.0, 61.0, -7.0, 61.0" stroke="#eb8c34" strokeMiterLimit="40.0" strokeType="INSIDE" strokeWidth="2.0" style="-fx-fill: none;" />
-      <Label fx:id="powerSupply" alignment="CENTER" layoutX="520.0" layoutY="526.0" onMouseClicked="#openChoiceWindow" onMouseEntered="#makeBigger" onMouseExited="#makeNormal" prefHeight="32.0" prefWidth="189.0" text="Power supply">
+      <Label fx:id="PowerSupply" alignment="CENTER" layoutX="520.0" layoutY="526.0" onMouseClicked="#openChoiceWindow" onMouseEntered="#makeBigger" onMouseExited="#makeNormal" prefHeight="32.0" prefWidth="189.0" text="Power supply">
          <font>
             <Font size="20.0" />
          </font>
@@ -80,7 +80,7 @@
          </cursor>
       </Label>
       <Polyline fill="#2527c2" layoutX="537.0" layoutY="507.0" points="31.0, -182.0, 151.0, -182.0, 151.0, -182.0, 215.0, -137.0" stroke="#eb8c34" strokeMiterLimit="40.0" strokeType="INSIDE" strokeWidth="2.0" style="-fx-fill: none;" />
-      <Label fx:id="coolingSystem" alignment="CENTER" layoutX="548.0" layoutY="292.0" onMouseClicked="#openChoiceWindow" onMouseEntered="#makeBigger" onMouseExited="#makeNormal" prefHeight="32.0" prefWidth="145.0" text="Cooling system">
+      <Label fx:id="CoolingSystem" alignment="CENTER" layoutX="548.0" layoutY="292.0" onMouseClicked="#openChoiceWindow" onMouseEntered="#makeBigger" onMouseExited="#makeNormal" prefHeight="32.0" prefWidth="171.0" text="Cooling system">
          <font>
             <Font size="20.0" />
          </font>
@@ -89,7 +89,7 @@
          </cursor>
       </Label>
       <Polyline fill="#2527c2" layoutX="547.0" layoutY="517.0" points="-24.0, -140.0, 137.0, -140.0, 137.0, -140.0, 302.0, -70.0" stroke="#eb8c34" strokeMiterLimit="40.0" strokeType="INSIDE" strokeWidth="2.0" style="-fx-fill: none;" />
-      <Label fx:id="motherBoard" alignment="CENTER" layoutX="515.0" layoutY="348.0" onMouseClicked="#openChoiceWindow" onMouseEntered="#makeBigger" onMouseExited="#makeNormal" prefHeight="32.0" prefWidth="171.0" text="Motherboard">
+      <Label fx:id="MotherBoard" alignment="CENTER" layoutX="515.0" layoutY="348.0" onMouseClicked="#openChoiceWindow" onMouseEntered="#makeBigger" onMouseExited="#makeNormal" prefHeight="32.0" prefWidth="171.0" text="Motherboard">
          <font>
             <Font size="20.0" />
          </font>
@@ -107,7 +107,7 @@
          </cursor>
       </Label>
       <Polyline fill="#2527c2" layoutX="517.0" layoutY="487.0" points="51.0, 13.0, 193.0, 13.0, 193.0, 13.0, 292.0, 82.0" stroke="#eb8c34" strokeMiterLimit="40.0" strokeType="INSIDE" strokeWidth="2.0" style="-fx-fill: none;" />
-      <Label fx:id="storageComponent" alignment="CENTER" layoutX="585.0" layoutY="469.0" onMouseClicked="#openChoiceWindow" onMouseEntered="#makeBigger" onMouseExited="#makeNormal" prefHeight="32.0" prefWidth="110.0" text="Storage">
+      <Label fx:id="StorageComponent" alignment="CENTER" layoutX="585.0" layoutY="469.0" onMouseClicked="#openChoiceWindow" onMouseEntered="#makeBigger" onMouseExited="#makeNormal" prefHeight="32.0" prefWidth="110.0" text="Storage">
          <font>
             <Font size="20.0" />
          </font>

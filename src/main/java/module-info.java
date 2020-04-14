@@ -8,6 +8,7 @@ module com.sample {
 
     opens com.sample.controllers to javafx.fxml;
     opens com.sample.controllers.addedComponentTableControllers to javafx.fxml;
+    opens com.sample.controllers.chooseComponentControllers to javafx.fxml;
     opens com.sample.Models.Computer to javafx.base;
     opens com.sample.Models.ComputerComponents to javafx.base;
     opens com.sample.Models.Users to javafx.base;

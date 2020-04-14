@@ -29,19 +29,19 @@ public class regularUserController {
      void logOut() throws IOException {
         //loggedInUser = signInController.getLoggedInUser();
         loggedInUser.setLoggedIn(false);
-        App.changeView("signIn.fxml", 500, 450);
+        App.changeView("/fxml/signIn.fxml", 500, 450);
     }
 
     @FXML
     void onClickBuildComputer(ActionEvent event) throws IOException {
-        App.changeView("buildComputer.fxml", 0, 0);
+        App.changeView("/fxml/buildComputer.fxml", 0, 0);
 
     }
 
     @FXML
     void onClickHome() throws IOException {
         System.out.println("Du trykka home");
-        App.changeView("homeScreenRegularUser.fxml",0, 0);
+        App.changeView("/fxml/homeScreenRegularUser.fxml",0, 0);
     }
 
     @FXML
