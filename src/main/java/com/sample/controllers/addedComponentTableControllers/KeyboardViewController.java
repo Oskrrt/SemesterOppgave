@@ -1,7 +1,8 @@
 package com.sample.controllers.addedComponentTableControllers;
 
 import com.sample.App;
-import com.sample.DAL.OpenFile.OpenAddedComponents.OpenKeyboards;
+import com.sample.DAL.OpenFile.Subtypes.OpenAddedComponents;
+import com.sample.DAL.OpenFile.Subtypes.OpenKeyboards;
 import com.sample.Models.ComputerComponents.Keyboard;
 import javafx.concurrent.WorkerStateEvent;
 import javafx.fxml.FXML;
@@ -18,7 +19,7 @@ public class KeyboardViewController implements Initializable {
     @FXML
     private TableView<Keyboard> table;
 
-    private OpenKeyboards opener = new OpenKeyboards();
+    private OpenAddedComponents opener = new OpenKeyboards();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

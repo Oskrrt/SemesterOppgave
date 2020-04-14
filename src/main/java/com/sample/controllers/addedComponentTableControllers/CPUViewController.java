@@ -1,10 +1,8 @@
 package com.sample.controllers.addedComponentTableControllers;
 
 import com.sample.App;
-import com.sample.BLL.ComponentFactory;
-import com.sample.DAL.OpenFile.OpenAddedComponents.OpenCPUs;
-import com.sample.DAL.OpenFile.OpenAddedComponents.OpenCoolingSystems;
-import com.sample.Models.ComputerComponents.CoolingSystem;
+import com.sample.DAL.OpenFile.Subtypes.OpenAddedComponents;
+import com.sample.DAL.OpenFile.Subtypes.OpenCPUs;
 import com.sample.Models.ComputerComponents.Processor;
 import javafx.concurrent.WorkerStateEvent;
 import javafx.fxml.FXML;
@@ -12,7 +10,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableView;
 
-import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.List;
@@ -21,7 +18,7 @@ import java.util.ResourceBundle;
 public class CPUViewController implements Initializable {
     @FXML
     private TableView<Processor> table;
-    private OpenCPUs opener = new OpenCPUs();
+    private OpenAddedComponents opener = new OpenCPUs();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

@@ -1,8 +1,8 @@
 package com.sample.controllers.addedComponentTableControllers;
 
 import com.sample.App;
-import com.sample.DAL.OpenFile.OpenAddedComponents.OpenGPUs;
-import com.sample.DAL.OpenFile.OpenAddedComponents.OpenRAM;
+import com.sample.DAL.OpenFile.Subtypes.OpenAddedComponents;
+import com.sample.DAL.OpenFile.Subtypes.OpenGPUs;
 import com.sample.Models.ComputerComponents.GraphicsCard;
 import javafx.concurrent.WorkerStateEvent;
 import javafx.fxml.FXML;
@@ -18,7 +18,7 @@ import java.util.ResourceBundle;
 public class GPUViewController implements Initializable {
     @FXML
     private TableView<GraphicsCard> table;
-    private OpenGPUs opener = new OpenGPUs();
+    private OpenAddedComponents opener = new OpenGPUs();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -34,7 +34,7 @@ public class GPUViewController implements Initializable {
     }
 
     private void handleError(WorkerStateEvent workerStateEvent) {
-        Label errorPlaceholder = new Label("Could not retrieve saved cooling systems");
+        Label errorPlaceholder = new Label("Could not retrieve saved GPUs");
         table.placeholderProperty().setValue(errorPlaceholder);
     }
 
