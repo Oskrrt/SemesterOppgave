@@ -11,7 +11,7 @@ public class GraphicsCard extends ComputerComponent implements ValidateForm {
     private String memoryType;// e.g GDDR6 SDRAM
 
     private final String validateMemoryCapacity = "1|2|4|8|16|32|64|128|256|512";
-    private final String validateMemoryType = "[\\w ]{3,30}";
+    private final String validateMemoryType = "[\\w]{3,30}";
 
     public GraphicsCard(double price, String description, String productName, String productionCompany, String serialNumber, String memoryCapacity, String memoryType) {
         super(price, description, productName, productionCompany, serialNumber);
@@ -36,7 +36,7 @@ public class GraphicsCard extends ComputerComponent implements ValidateForm {
         super.validate();
 
         if (Pattern.matches(validateMemoryCapacity, getMemoryCapacity())){
-            if (Pattern.matches(validateMemoryCapacity, getMemoryType())){
+            if (Pattern.matches(validateMemoryType, getMemoryType())){
                 return true;
             } else throw new ValidationException("Invalid memory type");
         }else throw new ValidationException("Invalid memory capacity");

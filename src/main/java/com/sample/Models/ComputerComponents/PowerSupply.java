@@ -11,7 +11,7 @@ public class PowerSupply extends ComputerComponent {
 
     private final String validatePowerSource = "[a-zæøåA-ZÆØÅ ,;.:-_*]{3,30}";
     private final String validateVoltage = "[0-9]{3,4}";
-    private final String validateWatts = "[0-9]{3-4}";
+    private final String validateWatts = "[0-9]{3,4}";
 
     public PowerSupply(double price, String description, String productName, String productionCompany, String serialNumber, String powerSource, String voltage, String watts) {
         super(price, description, productName, productionCompany, serialNumber);

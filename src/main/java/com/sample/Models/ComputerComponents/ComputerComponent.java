@@ -15,7 +15,7 @@ public class ComputerComponent  implements Serializable, ValidateForm {
     private String serialNumber;
 
     private final String validatePrice = "[0-9]+(\\.[0-9][0-9]?)?"; //any double with two decimal points
-    private final String validateDescription = "[\\w ._,:;-]{3,500}"; //any character. Between 5-300 characters
+    private final String validateDescription = "[\\w ._,:;-]{5,500}"; //any character. Between 5-300 characters
     private final String validateName = "[\\w ]{2,50}"; //any word + spaces and  between 2-50 characters. Also allows numbers.
     private final String validateProductionCompany = "[\\w -]{2,30}"; //any word + spaces betwwen 2-30 characters. Allows numbers
     private final String validateSerialnumber = "[0-9]{8}"; //8 numbers.
