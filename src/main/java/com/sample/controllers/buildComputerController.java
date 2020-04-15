@@ -45,7 +45,6 @@ public class buildComputerController {
 
     @FXML
     void initialize() {
-        // The null values will be set when the user chooses the parts.
     }
     public void updateComputer(ComputerComponent component) {
         computerBeingBuilt.setComputerCase((Case) component);

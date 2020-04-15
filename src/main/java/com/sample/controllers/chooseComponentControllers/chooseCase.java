@@ -260,7 +260,6 @@ public class chooseCase {
 
     private void handleError(WorkerStateEvent workerStateEvent) {
         Label errorPlaceholder = new Label("Could not retrieve saved cases");
-        //table.placeholderProperty().setValue(errorPlaceholder);
         System.out.println("RIP");
     }
 

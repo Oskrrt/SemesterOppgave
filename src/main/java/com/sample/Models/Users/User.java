@@ -65,6 +65,12 @@ public class User {
         if (mail.length() < 1 || mail.trim().isEmpty() || mail.isBlank()) {
             return false;
         }
+        // regex retrieved from https://emailregex.com/
+        // added ÆØÅ for norwegian emails
         else return mail.matches("(?:[a-zæøåA-ZÆØÅ0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-zæøåA-ZÆØÅ0-9!#$%&'*+/=?^_`{|}~-]+)*|\"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*\")@(?:(?:[a-zæøåA-ZÆØÅ0-9](?:[a-zæøåA-ZÆØÅ0-9-]*[a-zæøåA-ZÆØÅ0-9])?\\.)+[a-zæøåA-ZÆØÅ0-9](?:[a-zæøåA-ZÆØÅ0-9-]*[a-zæøåA-ZÆØÅ0-9])?|\\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-zæøåA-ZÆØÅ0-9-]*[a-zæøåA-ZÆØÅ0-9]:(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)\\])");
+    }
+
+    public static boolean validatePassword(String password) {
+        return password.matches("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=\\S+$).{8,}$");
     }
 }

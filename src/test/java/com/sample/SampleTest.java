@@ -40,4 +40,18 @@ public class SampleTest {
         assertFalse(User.validateMail("oskar_ruyter@kdkd337373.37ö"));
         assertFalse(User.validateMail("grek.fedro@/(.ë"));
     }
+
+    @Test
+    public void testValidPassword() {
+        assertTrue(User.validatePassword("HeiHei45"));
+        assertTrue(User.validatePassword("DetteErEtPassord00"));
+        assertTrue(User.validatePassword("PasswordValid50"));
+    }
+
+    @Test
+    public void testInvalidAPassword() {
+        assertFalse(User.validatePassword("heihei"));
+        assertFalse(User.validatePassword("PassordManglerTall"));
+        assertFalse(User.validatePassword("passordmanglerstorbokstav400"));
+    }
 }
