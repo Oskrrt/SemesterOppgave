@@ -1,5 +1,6 @@
 package com.sample.Models.Users;
 
+import com.sample.BLL.InputValidation.ValidationException;
 import org.apache.commons.codec.digest.DigestUtils;
 
 public class User {
@@ -40,14 +41,15 @@ public class User {
 
     public void setAdmin(boolean isAdmin) {this.isAdmin = isAdmin;}
 
-    public boolean validateUser(String mail, String password, String confirmPassword) {
-        boolean invalidMail = mail.isBlank() || mail.isEmpty();
-        boolean invalidPassword = password.isBlank() || password.isEmpty();
-        boolean invalidConfirmPassword = confirmPassword.isBlank() || confirmPassword.isEmpty();
-        if (invalidMail || invalidPassword || invalidConfirmPassword) {
-            return false;
-        } else if(invalidMail && invalidMail && invalidConfirmPassword) {
-            return false;
+    public boolean validateUser(String mail, String password, String confirmPassword) throws ValidationException {
+        boolean invalidMail = mail.isBlank() || mail.isEmpty() || !validateMail(mail);
+        boolean invalidPassword = password.isBlank() || password.isEmpty() || !validatePassword(password);
+        boolean invalidConfirmPassword = confirmPassword.isBlank() || confirmPassword.isEmpty() || !validatePassword(password);
+
+        if(invalidMail && invalidMail && invalidConfirmPassword) {
+            throw new ValidationException("All of the fields are invalid");
+        } else if (invalidMail || invalidPassword || invalidConfirmPassword) {
+            throw new ValidationException("One of the fields is invalid");
         } else {
             if (password.equals(confirmPassword)) {
                 this.mail = mail.toLowerCase();
@@ -55,7 +57,7 @@ public class User {
                 this.isAdmin = false;
                 return true;
             } else {
-                return false;
+                throw new ValidationException("The passwords do not match");
             }
         }
     }

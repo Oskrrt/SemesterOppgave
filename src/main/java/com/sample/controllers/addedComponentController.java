@@ -1,6 +1,7 @@
 package com.sample.controllers;
 
 import com.sample.App;
+import com.sample.DAL.init;
 import com.sample.Models.ComputerComponents.Case;
 import com.sample.Models.ComputerComponents.*;
 import javafx.event.Event;
@@ -34,7 +35,7 @@ public class addedComponentController extends adminUserController implements Ini
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         // remove comment if you need to initialize all components.
-        // init.initFiles();
+         //init.initFiles();
     }
 
     @FXML

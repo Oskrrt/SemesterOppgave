@@ -1,6 +1,7 @@
 package com.sample.controllers;
 
 import com.sample.App;
+import com.sample.BLL.InputValidation.ValidationException;
 import com.sample.BLL.LoginLogic;
 import com.sample.DAL.SaveFile.SaveTxt;
 import com.sample.Models.Users.User;
@@ -36,23 +37,24 @@ public class SignUpFormController {
 
     @FXML
     void backToStart() throws IOException {
-        App.changeView("signIn.fxml", 0, 0);
+        App.changeView("/fxml/signIn.fxml", 0, 0);
     }
     @FXML
-    void signUp(ActionEvent event) throws IOException {
+    void signUp(ActionEvent event) {
         lblNotifyIfSignUpSucceeded.setText("");
         User userToRegister = new User();
-        if (!userToRegister.validateUser(txtEmail.getText(), txtPassword.getText(), txtConfirmPassword.getText())) {
+        try {
+            userToRegister.validateUser(txtEmail.getText(), txtPassword.getText(), txtConfirmPassword.getText());
+            saver = new SaveTxt(userToRegister);
+            Thread tr = new Thread(saver);
+            saver.setOnSucceeded(this::succeed);
+            tr.setDaemon(true);
+            tr.start();
+        } catch (ValidationException ve) {
             lblNotifyIfSignUpSucceeded.setStyle("-fx-text-fill: red");
-            lblNotifyIfSignUpSucceeded.setText("Failed to sign up");
-            return;
+            lblNotifyIfSignUpSucceeded.setText(ve.getMessage());
         }
 
-        saver = new SaveTxt(userToRegister);
-        Thread tr = new Thread(saver);
-        saver.setOnSucceeded(this::succeed);
-        tr.setDaemon(true);
-        tr.start();
     }
 
     private void succeed(WorkerStateEvent e) {

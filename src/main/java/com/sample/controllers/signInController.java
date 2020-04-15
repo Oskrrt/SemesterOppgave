@@ -25,10 +25,10 @@ public class signInController {
     public void changeView(Event event) throws IOException {
         String elementClicked = ((Control) event.getSource()).getId();
         if (elementClicked.equals("signUpLink")) {
-            App.changeView("signUpForm.fxml", 0, 0);
+            App.changeView("/fxml/signUpForm.fxml", 0, 0);
         }
         if (elementClicked.equals("btnSignIn")) {
-            App.changeView("signIn.fxml", 0, 0);
+            App.changeView("/fxml/signIn.fxml", 0, 0);
         }
     }
     @FXML
