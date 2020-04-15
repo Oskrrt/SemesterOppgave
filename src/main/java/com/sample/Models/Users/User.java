@@ -61,7 +61,6 @@ public class User {
     }
 
     public static boolean validateMail(String mail) {
-
         if (mail.length() < 1 || mail.trim().isEmpty() || mail.isBlank()) {
             return false;
         }

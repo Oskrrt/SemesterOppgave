@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import com.sample.Models.Users.User;
 import org.junit.jupiter.api.Test;
 
-public class SampleTest {
+public class TestUser {
 
     // Simple assertion
     @Test
