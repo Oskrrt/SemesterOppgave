@@ -13,10 +13,6 @@ public class Processor extends ComputerComponent {
     private transient SimpleStringProperty threadCount; //e.g 12 Threads
     private transient SimpleStringProperty maxFrequency; //e.g 4.2Hz
 
-    private final String validateCoreCount = "[0-9]{1,2}";
-    private final String validateThreadCount = "[0-9][1,2]";
-    private final String validateMaxFrequency = "[0-9]*(\\.[0-9]{0,1})?$";
-
     public Processor(double price, String description, String productName, String productionCompany, String serialNumber, String coreCount, String threadCount, String maxFrequency) {
         super(price, description, productName, productionCompany, serialNumber);
         this.coreCount = new SimpleStringProperty(coreCount);
@@ -37,7 +33,6 @@ public class Processor extends ComputerComponent {
     }
 
     private void writeObject(ObjectOutputStream s) throws IOException {
-        super.write(s);
         s.defaultWriteObject();
 
         s.writeUTF(coreCount.getValue());
@@ -46,7 +41,6 @@ public class Processor extends ComputerComponent {
     }
 
     private void readObject(ObjectInputStream s) throws IOException, ClassNotFoundException {
-        super.read(s);
         String coreCount = s.readUTF();
         String threadCount = s.readUTF();
         String maxFreq = s.readUTF();
@@ -60,8 +54,11 @@ public class Processor extends ComputerComponent {
     public boolean validate() throws ValidationException {
         super.validate();
 
+        String validateCoreCount = "[0-9]{1,2}";
         if(Pattern.matches(validateCoreCount, getCoreCount())){
+            String validateThreadCount = "[0-9][1,2]";
             if (Pattern.matches(validateThreadCount, getThreadCount())){
+                String validateMaxFrequency = "[0-9]*(\\.[0-9]{0,1})?$";
                 if (Pattern.matches(validateMaxFrequency, getMaxFrequency())){
                     return true;
                 } else throw new ValidationException("Invalid max frequency");

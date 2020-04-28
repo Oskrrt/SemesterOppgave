@@ -16,28 +16,28 @@ public class Mouse extends ComputerComponent {
     public Mouse(double price, String description, String productName, String productionCompany, String serialNumber, boolean wireless) {
         super(price, description, productName, productionCompany, serialNumber);
         this.wireless = new SimpleBooleanProperty(wireless);
-        this.isWireLess = getIsWireless();
+        setIsWireless();
     }
 
     //For a more user-friendly tableview. Yes/No instead of true/false.
-    public SimpleStringProperty getIsWireless() {
+    public void setIsWireless() {
         if(wireless.get()){
             isWireLess = new SimpleStringProperty("Yes");
         } else {
             isWireLess = new SimpleStringProperty("No");
         }
-        return isWireLess;
     }
 
+    public String getIsWireless(){
+        return isWireLess.getValue();
+    }
     private void writeObject(ObjectOutputStream s) throws IOException {
-        super.write(s);
         s.defaultWriteObject();
 
         s.writeUTF(isWireLess.getValue());
     }
 
     private void readObject(ObjectInputStream s) throws IOException, ClassNotFoundException {
-        super.read(s);
         String isWireless = s.readUTF();
 
         this.isWireLess = new SimpleStringProperty(isWireless);

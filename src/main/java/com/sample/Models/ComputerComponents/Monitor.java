@@ -14,11 +14,6 @@ public class Monitor extends ComputerComponent {
     private transient SimpleStringProperty resolution; //e.g 4k
     private transient SimpleStringProperty connector; //e.g HDMI
 
-    private final String validateDisplayType = "LCD|CRT|LED|OLED|Plasma";
-    private final String validateInches = "[0-9]{1,2}";
-    private final String validateResolution = "[a-zæøåA-ZÆØÅ0-9]{2,6}";
-    private final String validateConnector = "SCART|VGA|DVI|SDI|HDMI|DisplayPort|Mini-DVI|RCA|";
-
     public Monitor(double price, String description, String productName, String productionCompany, String serialNumber, String displayType, String inches, String resolution, String connector) {
         super(price, description, productName, productionCompany, serialNumber);
         this.displayType = new SimpleStringProperty(displayType);
@@ -44,7 +39,6 @@ public class Monitor extends ComputerComponent {
     }
 
     private void writeObject(ObjectOutputStream s) throws IOException {
-        super.write(s);
         s.defaultWriteObject();
 
         s.writeUTF(displayType.getValue());
@@ -54,7 +48,6 @@ public class Monitor extends ComputerComponent {
     }
 
     private void readObject(ObjectInputStream s) throws IOException, ClassNotFoundException {
-        super.read(s);
         String displayType = s.readUTF();
         String inches = s.readUTF();
         String resolution = s.readUTF();
@@ -71,9 +64,13 @@ public class Monitor extends ComputerComponent {
     public boolean validate() throws ValidationException {
         super.validate();
 
+        String validateDisplayType = "LCD|CRT|LED|OLED|Plasma";
         if(Pattern.matches(validateDisplayType, getDisplayType())){
+            String validateInches = "[0-9]{1,2}";
             if (Pattern.matches(validateInches, getInches())){
+                String validateResolution = "[a-zæøåA-ZÆØÅ0-9]{2,6}";
                 if (Pattern.matches(validateResolution, getResolution())){
+                    String validateConnector = "SCART|VGA|DVI|SDI|HDMI|DisplayPort|Mini-DVI|RCA|";
                     if (Pattern.matches(validateConnector, getConnector())){
                         return true;
                     } else throw new ValidationException("Only SCART/VGA/DVI/SDI/HDMI/DisplayPort/Mini-DVI and RCA are currently allowed");

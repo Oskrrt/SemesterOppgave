@@ -6,7 +6,6 @@ import com.sample.BLL.EditTable;
 import com.sample.DAL.OpenFile.Subtypes.OpenAddedComponents;
 import com.sample.DAL.OpenFile.Subtypes.OpenCases;
 import com.sample.Models.ComputerComponents.Case;
-import com.sample.Models.EditModels.EditCase;
 import javafx.concurrent.WorkerStateEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;

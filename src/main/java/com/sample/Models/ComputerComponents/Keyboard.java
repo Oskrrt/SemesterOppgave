@@ -15,13 +15,11 @@ public class Keyboard extends ComputerComponent {
     private transient SimpleStringProperty isWireless;
     private transient SimpleBooleanProperty wireless;
 
-    private final String validateLanguage = "Norwegian|English"; //an API with all keyboard languages would be nice
-
     public Keyboard(double price, String description, String productName, String productionCompany, String serialNumber, String language, boolean wireless) {
         super(price, description, productName, productionCompany, serialNumber);
         this.language = new SimpleStringProperty(language);
         this.wireless = new SimpleBooleanProperty(wireless);
-        this.isWireless = getIsWireless();
+        setIsWireless();
     }
 
     public String getLanguage() {
@@ -29,17 +27,19 @@ public class Keyboard extends ComputerComponent {
     }
 
     //For a more user-friendly tableview. Yes/No instead of true/false.
-    public SimpleStringProperty getIsWireless() {
-        if (wireless.get()){
+    public void setIsWireless() {
+        if (this.wireless.get()){
             this.isWireless = new SimpleStringProperty("Yes");
         } else {
             this.isWireless = new SimpleStringProperty("No");
         }
-        return isWireless;
+    }
+
+    public String getIsWireless(){
+        return isWireless.getValue();
     }
 
     private void writeObject(ObjectOutputStream s) throws IOException {
-        super.write(s);
         s.defaultWriteObject();
 
         s.writeUTF(language.getValue());
@@ -47,7 +47,6 @@ public class Keyboard extends ComputerComponent {
     }
 
     private void readObject(ObjectInputStream s) throws IOException, ClassNotFoundException {
-        super.read(s);
         String language = s.readUTF();
         String isWireless = s.readUTF();
 
@@ -59,6 +58,8 @@ public class Keyboard extends ComputerComponent {
     public boolean validate() throws ValidationException {
         super.validate();
 
+        //an API with all keyboard languages would be nice
+        String validateLanguage = "Norwegian|English";
         if(Pattern.matches(validateLanguage, getLanguage())){
             return true;
         } else throw new ValidationException("Only Norwegian and English keyboards are supported currently");

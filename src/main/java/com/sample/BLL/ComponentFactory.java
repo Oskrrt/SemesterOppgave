@@ -205,12 +205,10 @@ public class ComponentFactory {
         ObservableList<Case> allCases = FXCollections.observableArrayList();
         List<Path> filePaths = FileOpenerJobj.getFilesFromFolder(caseFolder);
         for (Path file : filePaths){
-            try (FileInputStream fi = new FileInputStream(String.valueOf(file)); ObjectInputStream ois = new ObjectInputStream(fi)){
-                while(fi.available() > 0){
-                    Case foundCase = (Case) ois.readObject();
-                    if (foundCase.validate()){
-                        allCases.add(foundCase);
-                    }
+            try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(String.valueOf(file)))){
+                Case foundCase = (Case) ois.readObject();
+                if (foundCase.validate()){
+                    allCases.add(foundCase);
                 }
             } catch (ClassNotFoundException | ValidationException e) {
                 e.printStackTrace();

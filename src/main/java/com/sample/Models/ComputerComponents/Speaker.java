@@ -11,8 +11,6 @@ import java.util.regex.Pattern;
 public class Speaker extends ComputerComponent{
     private transient SimpleStringProperty inputType; //e.g AUX, USB-C, USB-A.
 
-    private final String validateInputType = "AUX|USB-C|USB-B|USB-A|Bluetooth|";
-
 
     public Speaker(double price, String description, String productName, String productionCompany, String serialNumber, String inputType) {
         super(price, description, productName, productionCompany, serialNumber);
@@ -24,15 +22,12 @@ public class Speaker extends ComputerComponent{
     }
 
     private void writeObject(ObjectOutputStream s) throws IOException {
-        super.write(s);
-
         s.defaultWriteObject();
         s.writeUTF(inputType.getValue());
 
     }
 
     private void readObject(ObjectInputStream s) throws IOException, ClassNotFoundException {
-        super.read(s);
         String input = s.readUTF();
         this.inputType = new SimpleStringProperty(input);
 
@@ -42,6 +37,7 @@ public class Speaker extends ComputerComponent{
     public boolean validate() throws ValidationException {
         super.validate();
 
+        String validateInputType = "AUX|USB-C|USB-B|USB-A|Bluetooth|";
         if(Pattern.matches(validateInputType, getInputType())){
             return true;
         } else throw new ValidationException("Only AUX/USB-C/USB-B/USB-A and Bluetooth are currently allowed");

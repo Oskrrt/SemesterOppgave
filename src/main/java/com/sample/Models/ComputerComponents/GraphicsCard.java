@@ -15,9 +15,6 @@ public class GraphicsCard extends ComputerComponent implements ValidateForm {
     private transient SimpleStringProperty memoryCapacity; // e.g 16 GB
     private transient SimpleStringProperty memoryType;// e.g GDDR6 SDRAM
 
-    private final String validateMemoryCapacity = "1|2|4|8|16|32|64|128|256|512";
-    private final String validateMemoryType = "[\\w]{3,30}";
-
     public GraphicsCard(double price, String description, String productName, String productionCompany, String serialNumber, String memoryCapacity, String memoryType) {
         super(price, description, productName, productionCompany, serialNumber);
         this.memoryCapacity = new SimpleStringProperty(memoryCapacity);
@@ -37,7 +34,6 @@ public class GraphicsCard extends ComputerComponent implements ValidateForm {
     }
 
     private void writeObject(ObjectOutputStream s) throws IOException {
-        super.write(s);
         s.defaultWriteObject();
 
         s.writeUTF(memoryCapacity.getValue());
@@ -45,7 +41,6 @@ public class GraphicsCard extends ComputerComponent implements ValidateForm {
     }
 
     private void readObject(ObjectInputStream s) throws IOException, ClassNotFoundException {
-        super.read(s);
         String memoryCap = s.readUTF();
         String memoryType = s.readUTF();
 
@@ -57,7 +52,9 @@ public class GraphicsCard extends ComputerComponent implements ValidateForm {
     public boolean validate() throws ValidationException {
         super.validate();
 
+        String validateMemoryCapacity = "1|2|4|8|16|32|64|128|256|512";
         if (Pattern.matches(validateMemoryCapacity, getMemoryCapacity())){
+            String validateMemoryType = "[\\w]{3,30}";
             if (Pattern.matches(validateMemoryType, getMemoryType())){
                 return true;
             } else throw new ValidationException("Invalid memory type");

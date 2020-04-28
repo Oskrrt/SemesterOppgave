@@ -41,8 +41,8 @@ abstract public class FileSaver extends Task<Boolean> {
         Path filePath = Paths.get(ComponentFactory.createPath(type)+component.getProductName()+".jobj"); //saves in correct directory with components name as file name.
         try(FileOutputStream os = new FileOutputStream(String.valueOf(filePath)); ObjectOutputStream out = new ObjectOutputStream(os)) {
             out.writeObject(component);
-            os.close();
-            out.close();
+//            os.close();
+//            out.close();
             return true;
         } catch (IOException e) {
             e.printStackTrace();

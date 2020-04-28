@@ -16,12 +16,6 @@ public class Case extends ComputerComponent implements ValidateForm {
     private transient SimpleStringProperty heightCM;
     private transient SimpleStringProperty depthCM;
 
-    private final String validatenumberOfUSBPorts = "[0-1]?[0-9]|10";
-    private final String validateHDAudioJacks = "[0-1]?[0-9]|10";
-    private final String validatewidthCM = "[0-9]+(\\.[0-9]{0,2})?$"; //0-9 that doesnt have to have decimals, but can.
-    private final String validateheightCM = "[0-9]+(\\.[0-9]{0,2})?$"; //same as width
-    private final String validatedepthCM = "[0-9]+(\\.[0-9]{0,2})?$"; //same as width
-
     public Case(String numberOfUSBPorts, String HDAudioJacks, String widthCM, String heightCM, String depthCM, double price, String description, String productName, String productionCompany, String serialNumber) {
         super(price, description, productName, productionCompany, serialNumber);
         this.numberOfUSBPorts = new SimpleStringProperty(numberOfUSBPorts);
@@ -50,9 +44,7 @@ public class Case extends ComputerComponent implements ValidateForm {
 
     public String getDepthCM() {return depthCM.get();}
 
-    public void setNumberOfUSBPorts(String numberOfUSBPorts) {
-        this.numberOfUSBPorts = new SimpleStringProperty(numberOfUSBPorts);
-    }
+    public void setNumberOfUSBPorts(String numberOfUSBPorts) { this.numberOfUSBPorts = new SimpleStringProperty(numberOfUSBPorts); }
 
     public void setHDAudioJacks(String HDAudioJacks) {
         this.HDAudioJacks = new SimpleStringProperty(HDAudioJacks);
@@ -72,7 +64,6 @@ public class Case extends ComputerComponent implements ValidateForm {
 
     private void writeObject(ObjectOutputStream s) throws IOException {
         s.defaultWriteObject();
-        super.write(s);
         s.writeUTF(numberOfUSBPorts.getValue());
         s.writeUTF(HDAudioJacks.getValue());
         s.writeUTF(widthCM.getValue());
@@ -81,7 +72,6 @@ public class Case extends ComputerComponent implements ValidateForm {
     }
 
     private void readObject(ObjectInputStream s) throws IOException, ClassNotFoundException {
-        super.read(s);
         String numberOfUSBPorts = s.readUTF();
         String HDAudioJacks = s.readUTF();
         String widthCM = s.readUTF();
@@ -97,10 +87,18 @@ public class Case extends ComputerComponent implements ValidateForm {
     @Override
     public boolean validate() throws ValidationException {
         super.validate();
+        String validatenumberOfUSBPorts = "[0-1]?[0-9]|10";
         if(Pattern.matches(validatenumberOfUSBPorts, getNumberOfUSBPorts())){
+            String validateHDAudioJacks = "[0-1]?[0-9]|10";
             if(Pattern.matches(validateHDAudioJacks, getHDAudioJacks())){
+                //0-9 that doesnt have to have decimals, but can.
+                String validatewidthCM = "[0-9]+(\\.[0-9]{0,2})?$";
                 if(Pattern.matches(validatewidthCM, getWidthCM())){
+                    //same as width
+                    String validateheightCM = "[0-9]+(\\.[0-9]{0,2})?$";
                     if(Pattern.matches(validateheightCM, getHeightCM())){
+                        //same as width
+                        String validatedepthCM = "[0-9]+(\\.[0-9]{0,2})?$";
                         if(Pattern.matches(validatedepthCM, getDepthCM())){
                             return true;
                         } else throw new ValidationException("Invalid depth");

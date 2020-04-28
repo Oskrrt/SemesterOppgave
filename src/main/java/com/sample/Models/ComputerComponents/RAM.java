@@ -12,9 +12,6 @@ public class RAM extends ComputerComponent{
     private transient SimpleStringProperty gigabytes;
     private transient SimpleStringProperty MHz;
 
-    private final String validateGigabytes  = "1|2|4|8|16|32|64|128|256|512";
-    private final String validateMHz = "[0-9]{3,5}";
-
     public RAM(double price, String description, String productName, String productionCompany, String serialNumber, String gigabytes, String MHz) {
         super(price, description, productName, productionCompany, serialNumber);
         this.gigabytes = new SimpleStringProperty(gigabytes);
@@ -30,7 +27,6 @@ public class RAM extends ComputerComponent{
     }
 
     private void writeObject(ObjectOutputStream s) throws IOException {
-        super.write(s);
         s.defaultWriteObject();
 
         s.writeUTF(gigabytes.getValue());
@@ -39,7 +35,6 @@ public class RAM extends ComputerComponent{
     }
 
     private void readObject(ObjectInputStream s) throws IOException, ClassNotFoundException {
-        super.read(s);
         String gb = s.readUTF();
         String mhz = s.readUTF();
 
@@ -52,7 +47,9 @@ public class RAM extends ComputerComponent{
     public boolean validate() throws ValidationException {
         super.validate();
 
+        String validateGigabytes = "1|2|4|8|16|32|64|128|256|512";
         if (Pattern.matches(validateGigabytes, getGigabytes())){
+            String validateMHz = "[0-9]{3,5}";
             if (Pattern.matches(validateMHz, getMHz())){
                 return true;
             } else throw new ValidationException("Invalid MHz");

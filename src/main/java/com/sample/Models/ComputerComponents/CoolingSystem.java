@@ -14,9 +14,6 @@ public class CoolingSystem extends ComputerComponent implements ValidateForm {
     private transient SimpleStringProperty widthCM;
     private transient SimpleStringProperty heightCM;
 
-    private final String validateWidth = "[0-9]*(\\.[0-9]{0,2})?$"; //0-9 that doesnt have to have decimals, but can.
-    private final String validateHeight = "[0-9]*(\\.[0-9]{0,2})?$"; //0-9 that doesnt have to have decimals, but can.
-
 
     public CoolingSystem(String widthCM, String heightCM, double price, String description, String productName, String productionCompany, String serialNumber) {
         super(price, description, productName, productionCompany, serialNumber);
@@ -34,13 +31,11 @@ public class CoolingSystem extends ComputerComponent implements ValidateForm {
 
     private void writeObject(ObjectOutputStream s) throws IOException {
         s.defaultWriteObject();
-        super.write(s);
         s.writeUTF(widthCM.getValue());
         s.writeUTF(heightCM.getValue());
     }
 
     private void readObject(ObjectInputStream s) throws IOException, ClassNotFoundException {
-        super.read(s);
         String width = s.readUTF();
         String height = s.readUTF();
 
@@ -51,7 +46,11 @@ public class CoolingSystem extends ComputerComponent implements ValidateForm {
     @Override
     public boolean validate() throws ValidationException {
         super.validate();
+        //0-9 that doesnt have to have decimals, but can.
+        String validateWidth = "[0-9]*(\\.[0-9]{0,2})?$";
         if (Pattern.matches(validateWidth, getWidthCM())){
+            //0-9 that doesnt have to have decimals, but can.
+            String validateHeight = "[0-9]*(\\.[0-9]{0,2})?$";
             if (Pattern.matches(validateHeight, getHeightCM())){
                 return true;
             } else throw new ValidationException("Invalid height");

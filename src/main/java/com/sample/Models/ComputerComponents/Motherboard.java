@@ -20,17 +20,6 @@ public class Motherboard extends ComputerComponent {
     private transient SimpleStringProperty audio; //e.g 8-Channel HD.
     private transient SimpleStringProperty formFactor; //e.g ATX (305x244).
 
-    private final String validateCPUSupport = "[a-zæøåA-ZÆØÅ0-9\\-._@*¨^`=)(/&%$#\"! ]+";
-    private final String validateMemoryType = "[a-zæøåA-ZÆØÅ0-9\\-_.@*¨^`=)(/&%$#\"! ]+";
-    private final String validateMemoryDIMMS = "[a-zæøåA-ZÆØÅ0-9\\-_.@*¨^`=)(/&%$#\"! ]+";
-    private final String validateGraphicInterface = "[a-zæøåA-ZÆØÅ0-9\\-_.@*¨^`=)(/&%$#\"! ]+";
-    private final String validateExpansionSlots = "[a-zæøåA-ZÆØÅ0-9\\-_.@*¨^`=)(/&%$#\"! ]+";
-    private final String validateM2Slot = "[a-zæøåA-ZÆØÅ0-9\\-_.@*¨^`=)(/&%$#\"! ]+";
-    private final String validateDisplayInterface = "SCART|VGA|DVI|SDI|HDMI|DisplayPort|Mini-DVI|RCA";
-    private final String validateWIFI = "[a-zæøåA-ZÆØÅ0-9\\-_.@*¨^`=)(/&%$#\"! ]+|N/A]";
-    private final String validateAudio = "[a-zæøåA-ZÆØÅ0-9\\-_.@*¨^`=)(/&%$#\"! ]+";
-    private final String validateFormFactor = "[a-zæøåA-ZÆØÅ0-9\\-_.@*¨^`=)(/&%$#\"! ]+";
-
 
     public Motherboard(double price, String description, String productName, String productionCompany, String serialNumber, String CPUSupport, String memoryType, String memoryDIMMs, String graphicInterface, String expansionSlots, String m2Slot, String displayInterface, String WIFI, String audio, String formFactor) {
         super(price, description, productName, productionCompany, serialNumber);
@@ -87,7 +76,6 @@ public class Motherboard extends ComputerComponent {
     }
 
     private void writeObject(ObjectOutputStream s) throws IOException {
-        super.write(s);
         s.defaultWriteObject();
 
         s.writeUTF(CPUSupport.getValue());
@@ -103,7 +91,6 @@ public class Motherboard extends ComputerComponent {
     }
 
     private void readObject(ObjectInputStream s) throws IOException, ClassNotFoundException {
-        super.read(s);
         String CPUSupport = s.readUTF();
         String memoryType = s.readUTF();
         String memoryDIMMs = s.readUTF();
@@ -132,15 +119,25 @@ public class Motherboard extends ComputerComponent {
     public boolean validate() throws ValidationException {
         super.validate();
 
+        String validateCPUSupport = "[a-zæøåA-ZÆØÅ0-9\\-._@*¨^`=)(/&%$#\"! ]+";
         if (Pattern.matches(validateCPUSupport, getCPUSupport())){
+            String validateMemoryType = "[a-zæøåA-ZÆØÅ0-9\\-_.@*¨^`=)(/&%$#\"! ]+";
             if (Pattern.matches(validateMemoryType, getMemoryType())){
+                String validateMemoryDIMMS = "[a-zæøåA-ZÆØÅ0-9\\-_.@*¨^`=)(/&%$#\"! ]+";
                 if (Pattern.matches(validateMemoryDIMMS, getMemoryDIMMs())){
+                    String validateGraphicInterface = "[a-zæøåA-ZÆØÅ0-9\\-_.@*¨^`=)(/&%$#\"! ]+";
                     if (Pattern.matches(validateGraphicInterface, getGraphicInterface())){
+                        String validateExpansionSlots = "[a-zæøåA-ZÆØÅ0-9\\-_.@*¨^`=)(/&%$#\"! ]+";
                         if (Pattern.matches(validateExpansionSlots, getExpansionSlots())){
+                            String validateM2Slot = "[a-zæøåA-ZÆØÅ0-9\\-_.@*¨^`=)(/&%$#\"! ]+";
                             if (Pattern.matches(validateM2Slot, getM2Slot())){
+                                String validateDisplayInterface = "SCART|VGA|DVI|SDI|HDMI|DisplayPort|Mini-DVI|RCA";
                                 if(Pattern.matches(validateDisplayInterface, getDisplayInterface())){
+                                    String validateWIFI = "[a-zæøåA-ZÆØÅ0-9\\-_.@*¨^`=)(/&%$#\"! ]+|N/A]";
                                     if(Pattern.matches(validateWIFI, getWIFI())){
+                                        String validateAudio = "[a-zæøåA-ZÆØÅ0-9\\-_.@*¨^`=)(/&%$#\"! ]+";
                                         if (Pattern.matches(validateAudio, getAudio())){
+                                            String validateFormFactor = "[a-zæøåA-ZÆØÅ0-9\\-_.@*¨^`=)(/&%$#\"! ]+";
                                             if (Pattern.matches(validateFormFactor, getFormFactor())){
                                                 return true;
                                             }else throw new ValidationException("Invalid form factor");

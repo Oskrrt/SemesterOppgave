@@ -13,10 +13,6 @@ public class PowerSupply extends ComputerComponent {
     private transient SimpleStringProperty voltage; //e.g 230 volts
     private transient SimpleStringProperty watts; //e.g 600 watts
 
-    private final String validatePowerSource = "[a-zæøåA-ZÆØÅ ,;.:-_*]{3,30}";
-    private final String validateVoltage = "[0-9]{3,4}";
-    private final String validateWatts = "[0-9]{3,4}";
-
     public PowerSupply(double price, String description, String productName, String productionCompany, String serialNumber, String powerSource, String voltage, String watts) {
         super(price, description, productName, productionCompany, serialNumber);
         this.powerSource = new SimpleStringProperty(powerSource);
@@ -37,7 +33,6 @@ public class PowerSupply extends ComputerComponent {
     }
 
     private void writeObject(ObjectOutputStream s) throws IOException {
-        super.write(s);
         s.defaultWriteObject();
 
         s.writeUTF(powerSource.getValue());
@@ -47,7 +42,6 @@ public class PowerSupply extends ComputerComponent {
     }
 
     private void readObject(ObjectInputStream s) throws IOException, ClassNotFoundException {
-        super.read(s);
         String powersrc = s.readUTF();
         String volt = s.readUTF();
         String watt = s.readUTF();
@@ -62,8 +56,11 @@ public class PowerSupply extends ComputerComponent {
     public boolean validate() throws ValidationException {
         super.validate();
 
+        String validatePowerSource = "[a-zæøåA-ZÆØÅ ,;.:-_*]{3,30}";
         if (Pattern.matches(validatePowerSource, getPowerSource())){
+            String validateVoltage = "[0-9]{3,4}";
             if(Pattern.matches(validateVoltage, getVoltage())){
+                String validateWatts = "[0-9]{3,4}";
                 if (Pattern.matches(validateWatts, getWatts())){
                     return true;
                 } else throw new ValidationException("Invalid watts");
