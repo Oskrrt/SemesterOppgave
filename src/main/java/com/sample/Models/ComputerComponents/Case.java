@@ -2,50 +2,98 @@ package com.sample.Models.ComputerComponents;
 
 import com.sample.BLL.InputValidation.ValidateForm;
 import com.sample.BLL.InputValidation.ValidationException;
+import javafx.beans.property.SimpleStringProperty;
 
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.regex.Pattern;
 
 public class Case extends ComputerComponent implements ValidateForm {
-    private String numberOfUSBPorts; //e.g 4
-    private String HDAudioJacks;//e.g 1
-    private String widthCM;
-    private String heightCM;
-    private String depthCM;
+    private transient SimpleStringProperty numberOfUSBPorts; //e.g 4
+    private transient SimpleStringProperty HDAudioJacks;//e.g 1
+    private transient SimpleStringProperty widthCM;
+    private transient SimpleStringProperty heightCM;
+    private transient SimpleStringProperty depthCM;
 
     private final String validatenumberOfUSBPorts = "[0-1]?[0-9]|10";
     private final String validateHDAudioJacks = "[0-1]?[0-9]|10";
-    private final String validatewidthCM = "[0-9]*(\\.[0-9]{0,2})?$"; //0-9 that doesnt have to have decimals, but can.
-    private final String validateheightCM = "[0-9]*(\\.[0-9]{0,2})?$"; //same as width
-    private final String validatedepthCM = "[0-9]*(\\.[0-9]{0,2})?$"; //same as width
+    private final String validatewidthCM = "[0-9]+(\\.[0-9]{0,2})?$"; //0-9 that doesnt have to have decimals, but can.
+    private final String validateheightCM = "[0-9]+(\\.[0-9]{0,2})?$"; //same as width
+    private final String validatedepthCM = "[0-9]+(\\.[0-9]{0,2})?$"; //same as width
 
     public Case(String numberOfUSBPorts, String HDAudioJacks, String widthCM, String heightCM, String depthCM, double price, String description, String productName, String productionCompany, String serialNumber) {
         super(price, description, productName, productionCompany, serialNumber);
-        this.numberOfUSBPorts = numberOfUSBPorts;
-        this.HDAudioJacks = HDAudioJacks;
-        this.widthCM = widthCM;
-        this.heightCM = heightCM;
-        this.depthCM = depthCM;
+        this.numberOfUSBPorts = new SimpleStringProperty(numberOfUSBPorts);
+        this.HDAudioJacks = new SimpleStringProperty(HDAudioJacks);
+        this.widthCM = new SimpleStringProperty(widthCM);
+        this.heightCM = new SimpleStringProperty(heightCM);
+        this.depthCM = new SimpleStringProperty(depthCM);
     }
 
 
     public String getNumberOfUSBPorts() {
-        return numberOfUSBPorts;
+        return numberOfUSBPorts.get();
     }
 
     public String getHDAudioJacks() {
-        return HDAudioJacks;
+        return HDAudioJacks.get();
     }
 
     public String getWidthCM() {
-        return widthCM;
+        return widthCM.get();
     }
 
     public String getHeightCM() {
-        return heightCM;
+        return heightCM.get();
     }
 
-    public String getDepthCM() {return depthCM;}
+    public String getDepthCM() {return depthCM.get();}
 
+    public void setNumberOfUSBPorts(String numberOfUSBPorts) {
+        this.numberOfUSBPorts = new SimpleStringProperty(numberOfUSBPorts);
+    }
+
+    public void setHDAudioJacks(String HDAudioJacks) {
+        this.HDAudioJacks = new SimpleStringProperty(HDAudioJacks);
+    }
+
+    public void setWidthCM(String widthCM) {
+        this.widthCM = new SimpleStringProperty(widthCM);
+    }
+
+    public void setHeightCM(String heightCM) {
+        this.heightCM = new SimpleStringProperty(heightCM);
+    }
+
+    public void setDepthCM(String depthCM) {
+        this.depthCM = new SimpleStringProperty(depthCM);
+    }
+
+    private void writeObject(ObjectOutputStream s) throws IOException {
+        s.defaultWriteObject();
+        super.write(s);
+        s.writeUTF(numberOfUSBPorts.getValue());
+        s.writeUTF(HDAudioJacks.getValue());
+        s.writeUTF(widthCM.getValue());
+        s.writeUTF(heightCM.getValue());
+        s.writeUTF(depthCM.getValue());
+    }
+
+    private void readObject(ObjectInputStream s) throws IOException, ClassNotFoundException {
+        super.read(s);
+        String numberOfUSBPorts = s.readUTF();
+        String HDAudioJacks = s.readUTF();
+        String widthCM = s.readUTF();
+        String heightCM = s.readUTF();
+        String depthCM = s.readUTF();
+
+        this.numberOfUSBPorts = new SimpleStringProperty(numberOfUSBPorts);
+        this.HDAudioJacks = new SimpleStringProperty(HDAudioJacks);
+        this.widthCM = new SimpleStringProperty(widthCM);
+        this.heightCM = new SimpleStringProperty(heightCM);
+        this.depthCM = new SimpleStringProperty(depthCM);
+    }
     @Override
     public boolean validate() throws ValidationException {
         super.validate();

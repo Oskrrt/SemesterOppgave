@@ -13,7 +13,7 @@
 
 <AnchorPane prefHeight="610.0" prefWidth="530.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sample.controllers.adminUserController">
    <children>
-      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" fx:id="btnCreateBack" onAction="#viewSwapper" text="Back" />
+      <Button fx:id="btnCreateBack" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#viewSwapper" text="Back" />
       <Label layoutX="14.0" layoutY="65.0" text="Add a new graphics card">
          <font>
             <Font size="27.0" />
@@ -33,6 +33,7 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints />
         </rowConstraints>
          <children>
             <TextArea prefHeight="200.0" prefWidth="200.0" />
@@ -42,7 +43,7 @@
             <TextField GridPane.rowIndex="4" />
             <TextField GridPane.rowIndex="5" />
             <TextField GridPane.rowIndex="6" />
-            <Button mnemonicParsing="false" onAction="#saveNewComponentFromForm" fx:id="saveGPU" text="Save" GridPane.rowIndex="7" />
+            <Button fx:id="saveGPU" mnemonicParsing="false" onAction="#saveNewComponentFromForm" text="Save" GridPane.rowIndex="7" />
             <Label text="Description" GridPane.columnIndex="1">
                <GridPane.margin>
                   <Insets left="10.0" />
@@ -80,5 +81,6 @@
             </Label>
          </children>
       </GridPane>
+      <Label fx:id="lblError" layoutX="26.0" layoutY="505.0" prefHeight="17.0" prefWidth="896.0" />
    </children>
 </AnchorPane>

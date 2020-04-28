@@ -303,7 +303,7 @@ public class chooseCase {
         for (int i = 0; i < cases.size(); i++) {
             productContainers.get(i).setVisible(true);
             ((Label)((AnchorPane)productContainers.get(i)).getChildren().get(0)).setText(cases.get(i).getProductName());
-            ((Label)((AnchorPane)productContainers.get(i)).getChildren().get(7)).setText(String.valueOf(cases.get(i).getPrice())+" kr");
+            ((Label)((AnchorPane)productContainers.get(i)).getChildren().get(7)).setText(cases.get(i).getPrice() +" kr");
             ((Label)((AnchorPane)productContainers.get(i)).getChildren().get(8)).setText(cases.get(i).getNumberOfUSBPorts());
             ((Label)((AnchorPane)productContainers.get(i)).getChildren().get(9)).setText(cases.get(i).getHDAudioJacks());
             ((Label)((AnchorPane)productContainers.get(i)).getChildren().get(10)).setText(cases.get(i).getWidthCM());

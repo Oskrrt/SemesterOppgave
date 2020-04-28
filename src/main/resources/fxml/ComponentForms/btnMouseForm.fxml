@@ -14,7 +14,7 @@
 
 <AnchorPane prefHeight="610.0" prefWidth="530.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sample.controllers.adminUserController">
    <children>
-      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" fx:id="btnCreateBack" onAction="#viewSwapper" text="Back" />
+      <Button fx:id="btnCreateBack" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#viewSwapper" text="Back" />
       <Label layoutX="14.0" layoutY="51.0" text="Add a new mouse">
          <font>
             <Font size="31.0" />
@@ -33,6 +33,7 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints />
         </rowConstraints>
          <children>
             <TextArea prefHeight="200.0" prefWidth="200.0" />
@@ -41,7 +42,7 @@
             <TextField GridPane.rowIndex="3" />
             <TextField GridPane.rowIndex="4" />
             <RadioButton mnemonicParsing="false" text="Is wireless" GridPane.rowIndex="5" />
-            <Button mnemonicParsing="false" onAction="#saveNewComponentFromForm" fx:id="saveMouse" text="Save" GridPane.rowIndex="6" />
+            <Button fx:id="saveMouse" mnemonicParsing="false" onAction="#saveNewComponentFromForm" text="Save" GridPane.rowIndex="6" />
             <Label text="Description" GridPane.columnIndex="1">
                <GridPane.margin>
                   <Insets left="10.0" />
@@ -69,5 +70,6 @@
             </Label>
          </children>
       </GridPane>
+      <Label fx:id="lblError" layoutX="14.0" layoutY="517.0" prefHeight="17.0" prefWidth="896.0" />
    </children>
 </AnchorPane>

@@ -10,11 +10,14 @@ import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
+import javafx.scene.paint.Color;
 
 import java.io.IOException;
 import java.util.List;
 
 public class adminUserController {
+
+    @FXML Label lblError;
 
     @FXML
     private void handleSelectionButtonEvent(Event event){
@@ -50,6 +53,7 @@ public class adminUserController {
 
     @FXML
     private void saveNewComponentFromForm(Event event){
+        lblError.setText("");
         String type = ((Control)event.getSource()).getParent().getId(); //gets the id of the form grid, so we know what component to create.
         Parent form = ((Node)event.getSource()).getParent(); //gets the entire form grid from fxml
         List<Node> formData = form.getChildrenUnmodifiable(); //gets the children (aka textfields) in the form grid
@@ -62,7 +66,8 @@ public class adminUserController {
                 //TODO: output error message to view
             }
         } catch (ValidationException e) {
-            System.err.println(e.getMessage());
+            lblError.setTextFill(Color.web("#D8000C"));
+            lblError.setText(e.getMessage());
         }
 
 

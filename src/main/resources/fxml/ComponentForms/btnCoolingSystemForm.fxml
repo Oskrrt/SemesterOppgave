@@ -82,11 +82,12 @@
             </Label>
          </children>
       </GridPane>
-      <Button fx:id="btnCreateBack" layoutX="22.0" layoutY="14.0" mnemonicParsing="false" onAction="#viewSwapper" text="Back" />
+       <Button fx:id="btnCreateBack" layoutX="22.0" layoutY="14.0" mnemonicParsing="false" onAction="#viewSwapper" text="Back" />
       <Label layoutX="22.0" layoutY="66.0" text="Add a new cooling component">
          <font>
             <Font size="26.0" />
          </font>
       </Label>
+      <Label fx:id="lblError" layoutX="23.0" layoutY="513.0" prefHeight="17.0" prefWidth="896.0" />
    </children>
 </AnchorPane>

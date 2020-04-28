@@ -28,7 +28,7 @@ public class AdminLogic {
 
 
     public static void swapViewsBasedOnButtonPressed_ADD_COMPONENTS(String buttonPressed) throws IOException {
-        App.changeView("/fxml/ComponentForms/"+buttonPressed+"Form.fxml", 530, 610);
+        App.changeView("/fxml/ComponentForms/"+buttonPressed+"Form.fxml", 650, 700);
     }
 
 }

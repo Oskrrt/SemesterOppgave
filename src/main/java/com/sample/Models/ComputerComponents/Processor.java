@@ -1,13 +1,17 @@
 package com.sample.Models.ComputerComponents;
 
 import com.sample.BLL.InputValidation.ValidationException;
+import javafx.beans.property.SimpleStringProperty;
 
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.regex.Pattern;
 
 public class Processor extends ComputerComponent {
-    private String coreCount; //e.g 6 cores
-    private String threadCount; //e.g 12 Threads
-    private String maxFrequency; //e.g 4.2Hz
+    private transient SimpleStringProperty coreCount; //e.g 6 cores
+    private transient SimpleStringProperty threadCount; //e.g 12 Threads
+    private transient SimpleStringProperty maxFrequency; //e.g 4.2Hz
 
     private final String validateCoreCount = "[0-9]{1,2}";
     private final String validateThreadCount = "[0-9][1,2]";
@@ -15,23 +19,43 @@ public class Processor extends ComputerComponent {
 
     public Processor(double price, String description, String productName, String productionCompany, String serialNumber, String coreCount, String threadCount, String maxFrequency) {
         super(price, description, productName, productionCompany, serialNumber);
-        this.coreCount = coreCount;
-        this.threadCount = threadCount;
-        this.maxFrequency = maxFrequency;
+        this.coreCount = new SimpleStringProperty(coreCount);
+        this.threadCount = new SimpleStringProperty(threadCount);
+        this.maxFrequency = new SimpleStringProperty(maxFrequency);
     }
 
     public String getCoreCount() {
-        return coreCount;
+        return coreCount.get();
     }
 
     public String getThreadCount() {
-        return threadCount;
+        return threadCount.get();
     }
 
     public String getMaxFrequency() {
-        return maxFrequency;
+        return maxFrequency.get();
     }
 
+    private void writeObject(ObjectOutputStream s) throws IOException {
+        super.write(s);
+        s.defaultWriteObject();
+
+        s.writeUTF(coreCount.getValue());
+        s.writeUTF(threadCount.getValue());
+        s.writeUTF(maxFrequency.getValue());
+    }
+
+    private void readObject(ObjectInputStream s) throws IOException, ClassNotFoundException {
+        super.read(s);
+        String coreCount = s.readUTF();
+        String threadCount = s.readUTF();
+        String maxFreq = s.readUTF();
+
+        this.coreCount = new SimpleStringProperty(coreCount);
+        this.threadCount = new SimpleStringProperty(threadCount);
+        this.maxFrequency = new SimpleStringProperty(maxFreq);
+
+    }
     @Override
     public boolean validate() throws ValidationException {
         super.validate();

@@ -4,10 +4,10 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<?import javafx.scene.control.cell.PropertyValueFactory?>
 <AnchorPane fx:id="" prefHeight="900.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sample.controllers.addedComponentControllers.KeyboardViewController">
    <children>
       <Button fx:id="backToAddedComponents" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#viewSwapper" prefHeight="65.0" prefWidth="125.0" text="Back" />
@@ -58,5 +58,7 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
+      <Button layoutX="1007.0" layoutY="135.0" mnemonicParsing="false" onAction="#deleteKeyboard" prefHeight="46.0" prefWidth="125.0" text="Delete selected" />
+      <Button layoutX="857.0" layoutY="135.0" mnemonicParsing="false" onAction="#editKeyboard" prefHeight="46.0" prefWidth="125.0" text="Edit selected" />
    </children>
 </AnchorPane>

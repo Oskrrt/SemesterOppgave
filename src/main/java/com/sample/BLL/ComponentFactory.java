@@ -206,9 +206,15 @@ public class ComponentFactory {
         List<Path> filePaths = FileOpenerJobj.getFilesFromFolder(caseFolder);
         for (Path file : filePaths){
             try (FileInputStream fi = new FileInputStream(String.valueOf(file)); ObjectInputStream ois = new ObjectInputStream(fi)){
-                Case foundCase = (Case) ois.readObject();
-                allCases.add(foundCase);
-            } catch (ClassNotFoundException e) {
+                while(fi.available() > 0){
+                    Case foundCase = (Case) ois.readObject();
+                    if (foundCase.validate()){
+                        allCases.add(foundCase);
+                    }
+                }
+            } catch (ClassNotFoundException | ValidationException e) {
+                e.printStackTrace();
+            } catch(Exception e){
                 e.printStackTrace();
             }
         }
