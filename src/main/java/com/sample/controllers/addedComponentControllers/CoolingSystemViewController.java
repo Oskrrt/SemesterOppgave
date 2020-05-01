@@ -9,10 +9,7 @@ import com.sample.Models.ComputerComponents.CoolingSystem;
 import javafx.concurrent.WorkerStateEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 
 import java.io.File;
 import java.io.IOException;
@@ -110,5 +107,23 @@ public class CoolingSystemViewController implements Initializable {
     @FXML
     private void editCoolingSystem(){
 
+    }
+
+    public void editDescription(TableColumn.CellEditEvent cellEditEvent) {
+    }
+
+    public void editName(TableColumn.CellEditEvent cellEditEvent) {
+    }
+
+    public void editManufacturer(TableColumn.CellEditEvent cellEditEvent) {
+    }
+
+    public void editSerialNumber(TableColumn.CellEditEvent cellEditEvent) {
+    }
+
+    public void editWidth(TableColumn.CellEditEvent cellEditEvent) {
+    }
+
+    public void editHeight(TableColumn.CellEditEvent cellEditEvent) {
     }
 }

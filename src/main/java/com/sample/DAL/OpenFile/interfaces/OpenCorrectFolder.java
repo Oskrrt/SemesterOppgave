@@ -1,10 +1,11 @@
 package com.sample.DAL.OpenFile.interfaces;
 
+import com.sample.BLL.InputValidation.ValidationException;
 import com.sample.Models.ComputerComponents.ComputerComponent;
 
 import java.io.IOException;
 import java.util.List;
 
 public interface OpenCorrectFolder {
-    List<? extends ComputerComponent> perform() throws IOException;
+    List<? extends ComputerComponent> perform() throws IOException, ValidationException, ClassNotFoundException;
 }

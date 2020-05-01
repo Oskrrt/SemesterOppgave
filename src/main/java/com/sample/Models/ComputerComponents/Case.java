@@ -44,22 +44,22 @@ public class Case extends ComputerComponent implements ValidateForm {
 
     public String getDepthCM() {return depthCM.get();}
 
-    public void setNumberOfUSBPorts(String numberOfUSBPorts) { this.numberOfUSBPorts = new SimpleStringProperty(numberOfUSBPorts); }
+    public void setNumberOfUSBPorts(String numberOfUSBPorts) { this.numberOfUSBPorts.set(numberOfUSBPorts);}
 
     public void setHDAudioJacks(String HDAudioJacks) {
-        this.HDAudioJacks = new SimpleStringProperty(HDAudioJacks);
+        this.HDAudioJacks.set(HDAudioJacks);
     }
 
     public void setWidthCM(String widthCM) {
-        this.widthCM = new SimpleStringProperty(widthCM);
+        this.widthCM.set(widthCM);
     }
 
     public void setHeightCM(String heightCM) {
-        this.heightCM = new SimpleStringProperty(heightCM);
+        this.heightCM.set(heightCM);
     }
 
     public void setDepthCM(String depthCM) {
-        this.depthCM = new SimpleStringProperty(depthCM);
+        this.depthCM.set(depthCM);
     }
 
     private void writeObject(ObjectOutputStream s) throws IOException {
@@ -71,7 +71,7 @@ public class Case extends ComputerComponent implements ValidateForm {
         s.writeUTF(depthCM.getValue());
     }
 
-    private void readObject(ObjectInputStream s) throws IOException, ClassNotFoundException {
+    private void readObject(ObjectInputStream s) throws IOException, ClassNotFoundException, ValidationException {
         String numberOfUSBPorts = s.readUTF();
         String HDAudioJacks = s.readUTF();
         String widthCM = s.readUTF();
@@ -83,13 +83,14 @@ public class Case extends ComputerComponent implements ValidateForm {
         this.widthCM = new SimpleStringProperty(widthCM);
         this.heightCM = new SimpleStringProperty(heightCM);
         this.depthCM = new SimpleStringProperty(depthCM);
+        validate();
     }
     @Override
     public boolean validate() throws ValidationException {
         super.validate();
-        String validatenumberOfUSBPorts = "[0-1]?[0-9]|10";
+        String validatenumberOfUSBPorts = "[0-9]|10";
         if(Pattern.matches(validatenumberOfUSBPorts, getNumberOfUSBPorts())){
-            String validateHDAudioJacks = "[0-1]?[0-9]|10";
+            String validateHDAudioJacks = "[0-9]|10";
             if(Pattern.matches(validateHDAudioJacks, getHDAudioJacks())){
                 //0-9 that doesnt have to have decimals, but can.
                 String validatewidthCM = "[0-9]+(\\.[0-9]{0,2})?$";

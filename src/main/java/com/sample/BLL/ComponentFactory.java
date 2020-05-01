@@ -200,7 +200,7 @@ public class ComponentFactory {
     }
 
 
-    public static List<Case> createCasesFromFile() throws IOException {
+    public static List<Case> createCasesFromFile() throws IOException, ValidationException, ClassNotFoundException {
         final File caseFolder = new File("src/main/java/com/sample/DAL/SavedFiles/NewComponents/Cases");
         ObservableList<Case> allCases = FXCollections.observableArrayList();
         List<Path> filePaths = FileOpenerJobj.getFilesFromFolder(caseFolder);
@@ -210,10 +210,6 @@ public class ComponentFactory {
                 if (foundCase.validate()){
                     allCases.add(foundCase);
                 }
-            } catch (ClassNotFoundException | ValidationException e) {
-                e.printStackTrace();
-            } catch(Exception e){
-                e.printStackTrace();
             }
         }
         return allCases;

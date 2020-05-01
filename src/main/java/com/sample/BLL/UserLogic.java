@@ -1,5 +1,6 @@
 package com.sample.BLL;
 
+import com.sample.BLL.InputValidation.ValidationException;
 import com.sample.Models.ComputerComponents.ComputerComponent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -35,7 +36,7 @@ public class UserLogic {
         }
     }
 
-    private static List<ComputerComponent> getAllComponents(String type) throws IOException {
+    private static List<ComputerComponent> getAllComponents(String type) throws IOException, ValidationException, ClassNotFoundException {
         List<? extends ComputerComponent> list = new ArrayList<>();
         switch (type) {
             case "Case":

@@ -52,23 +52,23 @@ public class ComputerComponent  implements Serializable, ValidateForm {
     }
 
     public void setPrice(double price) {
-        this.price = new SimpleDoubleProperty(price);
+        this.price.set(price);
     }
 
     public void setDescription(String description) {
-        this.description = new SimpleStringProperty(description);
+        this.description.set(description);
     }
 
     public void setProductName(String productName) {
-        this.productName = new SimpleStringProperty(productName);
+        this.productName.set(productName);
     }
 
     public void setProductionCompany(String productionCompany) {
-        this.productionCompany = new SimpleStringProperty(productionCompany);
+        this.productionCompany.set(productionCompany);;
     }
 
     public void setSerialNumber(String serialNumber) {
-        this.serialNumber = new SimpleStringProperty(serialNumber);
+        this.serialNumber.set(serialNumber);
     }
 
     private void writeObject(ObjectOutputStream s) throws IOException {
@@ -79,7 +79,7 @@ public class ComputerComponent  implements Serializable, ValidateForm {
         s.writeUTF(serialNumber.getValue());
     }
 
-    private void readObject(ObjectInputStream s) throws IOException, ClassNotFoundException {
+    private void readObject(ObjectInputStream s) throws IOException, ClassNotFoundException, ValidationException {
         double price = s.readDouble();
         String description = s.readUTF();
         String productName = s.readUTF();
@@ -100,7 +100,7 @@ public class ComputerComponent  implements Serializable, ValidateForm {
         writeObject(s);
     }
 
-    void read(ObjectInputStream s) throws IOException, ClassNotFoundException {
+    void read(ObjectInputStream s) throws IOException, ClassNotFoundException, ValidationException {
         readObject(s);
     }
     @Override
@@ -112,7 +112,7 @@ public class ComputerComponent  implements Serializable, ValidateForm {
             String validateDescription = "[\\w ,;.:\\-_´``?=)(/&%$#\"'!'@*¨^ÆØÅæøå \\s]{5,500}";
             if (Pattern.matches(validateDescription, getDescription())){
                 //any word + spaces and  between 2-50 characters. Also allows numbers and special characters.
-                String validateName = "[a-zæøåA-ZÆØÅ0-9\\-_.@*¨^`=)(/&%$#\"! ]+";
+                String validateName = "[a-zæøåA-ZÆØÅ0-9\\-_.@*¨^`=)(/&%$#\"! ]{2,100}";
                 if(Pattern.matches(validateName, getProductName())){
                     //any word + spaces betwwen 2-30 characters. Allows numbers
                     String validateProductionCompany = "[\\w -]{2,30}";

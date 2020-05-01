@@ -87,7 +87,7 @@
                   <Insets left="10.0" />
                </padding>
             </Label>
-            <Label text="Price" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <Label text="Price (USD)" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <padding>
                   <Insets left="10.0" />
                </padding>

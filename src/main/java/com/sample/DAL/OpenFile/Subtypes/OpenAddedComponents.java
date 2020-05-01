@@ -1,6 +1,7 @@
 package com.sample.DAL.OpenFile.Subtypes;
 
 import com.sample.BLL.ComponentFactory;
+import com.sample.BLL.InputValidation.ValidationException;
 import com.sample.DAL.OpenFile.FileOpenerJobj;
 import com.sample.DAL.OpenFile.interfaces.OpenCorrectFolder;
 import com.sample.Models.Computer.Computer;
@@ -23,7 +24,7 @@ public class OpenAddedComponents extends FileOpenerJobj {
     //all subclasses (like OpenCases, OpenCoolingSystems) implement the interface OpenCorrectFolder to ensure
     //the right files are being read when trying to initiate their respective tableview. Because of this interface
     //we can simply call this.perform() in this super-class
-    public List<? extends ComputerComponent> perform() throws IOException {
+    public List<? extends ComputerComponent> perform() throws IOException, ValidationException, ClassNotFoundException {
         return this.perform();
     }
 

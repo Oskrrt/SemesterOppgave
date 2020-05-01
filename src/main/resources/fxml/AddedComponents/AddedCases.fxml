@@ -19,7 +19,7 @@
       </Label>
       <TableView fx:id="table" layoutX="14.0" layoutY="216.0" prefHeight="618.0" prefWidth="1118.0">
          <columns>
-            <TableColumn fx:id="description" prefWidth="75.0" onEditCommit="#test" text="Description">
+            <TableColumn fx:id="description" prefWidth="75.0" onEditCommit="#editDescription" text="Description">
             <cellValueFactory>
                <PropertyValueFactory property="description" />
             </cellValueFactory>
@@ -27,50 +27,77 @@
                   <TextFieldTableCell fx:factory="forTableColumn" />
                </cellFactory>
             </TableColumn>
-            <TableColumn prefWidth="75.0" text="Price">
+            <TableColumn prefWidth="75.0" text="Price" fx:id="price" onEditCommit="#editPrice">
                <cellValueFactory>
                   <PropertyValueFactory property="price" />
                </cellValueFactory>
             </TableColumn>
-            <TableColumn prefWidth="75.0" text="Name">
+            <TableColumn prefWidth="75.0" onEditCommit="#editName" text="Name">
                <cellValueFactory>
                   <PropertyValueFactory property="productName" />
                </cellValueFactory>
+               <cellFactory>
+                  <TextFieldTableCell fx:factory="forTableColumn" />
+               </cellFactory>
             </TableColumn>
-            <TableColumn prefWidth="75.0" text="Manufacturer">
+            <TableColumn prefWidth="75.0" text="Manufacturer" onEditCommit="#editManufacturer">
                <cellValueFactory>
                   <PropertyValueFactory property="productionCompany" />
                </cellValueFactory>
+               <cellFactory>
+                  <TextFieldTableCell fx:factory="forTableColumn" />
+               </cellFactory>
             </TableColumn>
-            <TableColumn prefWidth="75.0" text="Serial number">
+            <TableColumn prefWidth="75.0" text="Serial number" onEditCommit="#editSerialNumber">
                <cellValueFactory>
                   <PropertyValueFactory property="serialNumber" />
                </cellValueFactory>
+               <cellFactory>
+                  <TextFieldTableCell fx:factory="forTableColumn" />
+               </cellFactory>
             </TableColumn>
-            <TableColumn prefWidth="153.0" text="USB ports">
+            <TableColumn prefWidth="153.0" text="USB ports" onEditCommit="#editUSBports">
                <cellValueFactory>
                   <PropertyValueFactory property="numberOfUSBPorts" />
                </cellValueFactory>
+               <cellFactory>
+                  <TextFieldTableCell fx:factory="forTableColumn" />
+               </cellFactory>
             </TableColumn>
-            <TableColumn prefWidth="95.0" text="Audio jacks">
+            <TableColumn prefWidth="95.0" text="Audio jacks" onEditCommit="#editAudioJacks">
                <cellValueFactory>
                   <PropertyValueFactory property="HDAudioJacks" />
                </cellValueFactory>
+               <cellFactory>
+                  <TextFieldTableCell fx:factory="forTableColumn" />
+               </cellFactory>
             </TableColumn>
-            <TableColumn prefWidth="75.0" text="Width">
+            <TableColumn prefWidth="75.0" text="Width" onEditCommit="#editWidth">
                <cellValueFactory>
                   <PropertyValueFactory property="widthCM" />
                </cellValueFactory>
+               <cellFactory>
+                  <TextFieldTableCell fx:factory="forTableColumn" />
+               </cellFactory>
+               <cellFactory>
+                  <TextFieldTableCell fx:factory="forTableColumn" />
+               </cellFactory>
             </TableColumn>
-            <TableColumn prefWidth="75.0" text="Height">
+            <TableColumn prefWidth="75.0" text="Height" onEditCommit="#editHeight">
                <cellValueFactory>
                   <PropertyValueFactory property="heightCM" />
                </cellValueFactory>
+               <cellFactory>
+                  <TextFieldTableCell fx:factory="forTableColumn" />
+               </cellFactory>
             </TableColumn>
-            <TableColumn prefWidth="75.0" text="Depth">
+            <TableColumn prefWidth="75.0" text="Depth" onEditCommit="#editDepth">
                <cellValueFactory>
                   <PropertyValueFactory property="heightCM" />
                </cellValueFactory>
+               <cellFactory>
+                  <TextFieldTableCell fx:factory="forTableColumn" />
+               </cellFactory>
             </TableColumn>
          </columns>
          <columnResizePolicy>
@@ -78,6 +105,6 @@
          </columnResizePolicy>
       </TableView>
       <Button layoutX="1007.0" layoutY="135.0" mnemonicParsing="false" onAction="#deleteCase" prefHeight="46.0" prefWidth="125.0" text="Delete selected" />
-      <Button layoutX="857.0" layoutY="135.0" mnemonicParsing="false" onAction="#editCase" prefHeight="46.0" prefWidth="125.0" text="Edit selected" />
+      <Button layoutX="857.0" layoutY="135.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="125.0" text="Edit selected" />
    </children>
 </AnchorPane>
