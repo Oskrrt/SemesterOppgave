@@ -29,21 +29,9 @@ import java.util.Stack;
 
 public class caseViewController {
     @FXML private TableView<Case> table;
-    @FXML private TableColumn<Case, String> description;
-    @FXML private TableColumn<Case, Double> price;
-    @FXML private TableColumn<Case, String> manufacturer;
-    @FXML private TableColumn<Case, String> productName;
-    @FXML private TableColumn<Case, String> serialNumber;
-    @FXML private TableColumn<Case, String> USBPorts;
-    @FXML private TableColumn<Case, String> audioJacks;
-    @FXML private TableColumn<Case, String> width;
-    @FXML private TableColumn<Case, String> height;
-    @FXML private TableColumn<Case, String> depth;
-
-
-
     private OpenAddedComponents opener = new OpenCases();
     private OpenAddedComponents deleter = new OpenCases();
+    @FXML private TableColumn<Case, Double> price;
 
     public void initialize() {
         table.setEditable(true);
@@ -61,15 +49,6 @@ public class caseViewController {
 
     }
 
-    @FXML
-    private void viewSwapper(){
-        try {
-            App.changeView("/fxml/viewAddedComponents.fxml", 1200, 900);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
     private void startThread(){
         try {
             Thread openCaseFilesThread = new Thread(opener);
@@ -83,11 +62,18 @@ public class caseViewController {
         }
     }
 
-    private void handleError(WorkerStateEvent workerStateEvent) {
-        StackTraceElement[] stack = Thread.currentThread().getStackTrace();
-        for (StackTraceElement s : stack){
-            System.out.println(s);
+    @FXML
+    private void viewSwapper(){
+        try {
+            App.changeView("/fxml/viewAddedComponents.fxml", 1200, 900);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
+    }
+
+
+
+    private void handleError(WorkerStateEvent workerStateEvent) {
         Label errorPlaceholder = new Label("Could not retrieve saved cases");
         table.placeholderProperty().setValue(errorPlaceholder);
     }

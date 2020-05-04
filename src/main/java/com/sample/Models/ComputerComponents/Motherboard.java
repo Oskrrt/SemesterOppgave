@@ -75,6 +75,46 @@ public class Motherboard extends ComputerComponent {
         return formFactor.get();
     }
 
+    public void setCPUSupport(String CPUSupport) {
+        this.CPUSupport.set(CPUSupport);
+    }
+
+    public void setMemoryType(String memoryType) {
+        this.memoryType.set(memoryType);
+    }
+
+    public void setMemoryDIMMs(String memoryDIMMs) {
+        this.memoryDIMMs.set(memoryDIMMs);
+    }
+
+    public void setGraphicInterface(String graphicInterface) {
+        this.graphicInterface.set(graphicInterface);
+    }
+
+    public void setExpansionSlots(String expansionSlots) {
+        this.expansionSlots.set(expansionSlots);
+    }
+
+    public void setM2Slot(String m2Slot) {
+        this.m2Slot.set(m2Slot);
+    }
+
+    public void setDisplayInterface(String displayInterface) {
+        this.displayInterface.set(displayInterface);
+    }
+
+    public void setWIFI(String WIFI) {
+        this.WIFI.set(WIFI);
+    }
+
+    public void setAudio(String audio) {
+        this.audio.set(audio);
+    }
+
+    public void setFormFactor(String formFactor) {
+        this.formFactor.set(formFactor);
+    }
+
     private void writeObject(ObjectOutputStream s) throws IOException {
         s.defaultWriteObject();
 
@@ -120,29 +160,29 @@ public class Motherboard extends ComputerComponent {
         super.validate();
 
         String validateCPUSupport = "[a-zæøåA-ZÆØÅ0-9\\-._@*¨^`=)(/&%$#\"! ]+";
-        if (Pattern.matches(validateCPUSupport, getCPUSupport())){
+        if (Pattern.matches(validateCPUSupport, getCPUSupport()) && !getCPUSupport().isBlank()){
             String validateMemoryType = "[a-zæøåA-ZÆØÅ0-9\\-_.@*¨^`=)(/&%$#\"! ]+";
-            if (Pattern.matches(validateMemoryType, getMemoryType())){
+            if (Pattern.matches(validateMemoryType, getMemoryType()) && !getMemoryType().isBlank()){
                 String validateMemoryDIMMS = "[a-zæøåA-ZÆØÅ0-9\\-_.@*¨^`=)(/&%$#\"! ]+";
-                if (Pattern.matches(validateMemoryDIMMS, getMemoryDIMMs())){
+                if (Pattern.matches(validateMemoryDIMMS, getMemoryDIMMs()) && !getMemoryDIMMs().isBlank()){
                     String validateGraphicInterface = "[a-zæøåA-ZÆØÅ0-9\\-_.@*¨^`=)(/&%$#\"! ]+";
-                    if (Pattern.matches(validateGraphicInterface, getGraphicInterface())){
+                    if (Pattern.matches(validateGraphicInterface, getGraphicInterface()) && !getGraphicInterface().isBlank()){
                         String validateExpansionSlots = "[a-zæøåA-ZÆØÅ0-9\\-_.@*¨^`=)(/&%$#\"! ]+";
-                        if (Pattern.matches(validateExpansionSlots, getExpansionSlots())){
+                        if (Pattern.matches(validateExpansionSlots, getExpansionSlots()) && !getExpansionSlots().isBlank()){
                             String validateM2Slot = "[a-zæøåA-ZÆØÅ0-9\\-_.@*¨^`=)(/&%$#\"! ]+";
-                            if (Pattern.matches(validateM2Slot, getM2Slot())){
+                            if (Pattern.matches(validateM2Slot, getM2Slot()) && !getM2Slot().isBlank()){
                                 String validateDisplayInterface = "SCART|VGA|DVI|SDI|HDMI|DisplayPort|Mini-DVI|RCA";
-                                if(Pattern.matches(validateDisplayInterface, getDisplayInterface())){
+                                if(Pattern.matches(validateDisplayInterface, getDisplayInterface()) && !getDisplayInterface().isBlank()){
                                     String validateWIFI = "[a-zæøåA-ZÆØÅ0-9\\-_.@*¨^`=)(/&%$#\"! ]+|N/A]";
-                                    if(Pattern.matches(validateWIFI, getWIFI())){
+                                    if(Pattern.matches(validateWIFI, getWIFI()) && !getWIFI().isBlank()){
                                         String validateAudio = "[a-zæøåA-ZÆØÅ0-9\\-_.@*¨^`=)(/&%$#\"! ]+";
-                                        if (Pattern.matches(validateAudio, getAudio())){
+                                        if (Pattern.matches(validateAudio, getAudio()) && !getAudio().isBlank()){
                                             String validateFormFactor = "[a-zæøåA-ZÆØÅ0-9\\-_.@*¨^`=)(/&%$#\"! ]+";
-                                            if (Pattern.matches(validateFormFactor, getFormFactor())){
+                                            if (Pattern.matches(validateFormFactor, getFormFactor()) && !getFormFactor().isBlank()){
                                                 return true;
                                             }else throw new ValidationException("Invalid form factor");
                                         } else throw new ValidationException("Invalid audio");
-                                    } else throw new ValidationException("Invalid WIFI or not N/A");
+                                    } else throw new ValidationException("Invalid WIFI. If there is no WIFI, write 'N/A'.");
                                 } else throw new ValidationException("Only SCART/VGA/DVI/SDI/HDMI/DisplayPort/Mini-DVI and RCA are currently allowed.");
                             } else throw new ValidationException("Invalid M2Slots");
                         } else throw new ValidationException("Invalid expansion slots");

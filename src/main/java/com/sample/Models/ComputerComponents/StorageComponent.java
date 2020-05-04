@@ -20,6 +20,10 @@ public class StorageComponent extends ComputerComponent {
         return size.get();
     }
 
+    public void setSize(String size) {
+        this.size.set(size);
+    }
+
     private void writeObject(ObjectOutputStream s) throws IOException {
         s.defaultWriteObject();
         s.writeUTF(size.getValue());

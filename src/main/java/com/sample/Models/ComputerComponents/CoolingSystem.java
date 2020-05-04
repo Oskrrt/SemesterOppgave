@@ -29,6 +29,14 @@ public class CoolingSystem extends ComputerComponent implements ValidateForm {
         return heightCM.get();
     }
 
+    public void setHeightCM(String heightCM) {
+        this.heightCM.set(heightCM);
+    }
+
+    public void setWidthCM(String widthCM){
+        this.widthCM.set(widthCM);
+    }
+
     private void writeObject(ObjectOutputStream s) throws IOException {
         s.defaultWriteObject();
         s.writeUTF(widthCM.getValue());
@@ -56,4 +64,6 @@ public class CoolingSystem extends ComputerComponent implements ValidateForm {
             } else throw new ValidationException("Invalid height");
         } else throw new ValidationException("Invalid width");
     }
+
+
 }

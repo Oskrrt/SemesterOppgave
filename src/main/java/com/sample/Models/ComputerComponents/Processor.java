@@ -32,6 +32,18 @@ public class Processor extends ComputerComponent {
         return maxFrequency.get();
     }
 
+    public void set(String coreCount) {
+        this.coreCount.set(coreCount);
+    }
+
+    public void setThreadCount(String threadCount) {
+        this.threadCount.set(threadCount);
+    }
+
+    public void setMaxFrequency(String maxFrequency) {
+        this.maxFrequency.set(maxFrequency);
+    }
+
     private void writeObject(ObjectOutputStream s) throws IOException {
         s.defaultWriteObject();
 
@@ -58,7 +70,7 @@ public class Processor extends ComputerComponent {
         if(Pattern.matches(validateCoreCount, getCoreCount())){
             String validateThreadCount = "[0-9][1,2]";
             if (Pattern.matches(validateThreadCount, getThreadCount())){
-                String validateMaxFrequency = "[0-9]*(\\.[0-9]{0,1})?$";
+                String validateMaxFrequency = "[0-9]+(\\.[0-9]{0,1})?$";
                 if (Pattern.matches(validateMaxFrequency, getMaxFrequency())){
                     return true;
                 } else throw new ValidationException("Invalid max frequency");

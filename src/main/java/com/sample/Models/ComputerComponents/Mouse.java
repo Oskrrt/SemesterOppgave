@@ -8,6 +8,7 @@ import javafx.fxml.FXML;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.util.regex.Pattern;
 
 public class Mouse extends ComputerComponent {
     private transient SimpleBooleanProperty wireless;
@@ -16,11 +17,11 @@ public class Mouse extends ComputerComponent {
     public Mouse(double price, String description, String productName, String productionCompany, String serialNumber, boolean wireless) {
         super(price, description, productName, productionCompany, serialNumber);
         this.wireless = new SimpleBooleanProperty(wireless);
-        setIsWireless();
+        setIsWirelessFromForm();
     }
 
     //For a more user-friendly tableview. Yes/No instead of true/false.
-    public void setIsWireless() {
+    public void setIsWirelessFromForm() {
         if(wireless.get()){
             isWireLess = new SimpleStringProperty("Yes");
         } else {
@@ -31,11 +32,21 @@ public class Mouse extends ComputerComponent {
     public String getIsWireless(){
         return isWireLess.getValue();
     }
+
+    public void setWireless(boolean wireless) {
+        this.wireless.set(wireless);
+    }
+
+    public void setIsWireLess(String isWireLess) {
+        this.isWireLess.set(isWireLess);
+    }
+
+
     private void writeObject(ObjectOutputStream s) throws IOException {
         s.defaultWriteObject();
-
         s.writeUTF(isWireLess.getValue());
     }
+
 
     private void readObject(ObjectInputStream s) throws IOException, ClassNotFoundException {
         String isWireless = s.readUTF();
@@ -47,6 +58,10 @@ public class Mouse extends ComputerComponent {
     @Override
     public boolean validate() throws ValidationException {
         super.validate();
-        return true;
+        String validateWireless = "Yes|No";
+        if (Pattern.matches(validateWireless.toLowerCase(), getIsWireless().toLowerCase())){
+            return true;
+
+        } else throw new ValidationException("Wireless has to either be yes or no.");
     }
 }

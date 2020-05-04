@@ -26,6 +26,14 @@ public class RAM extends ComputerComponent{
         return MHz.get();
     }
 
+    public void setGigabytes(String gigabytes) {
+        this.gigabytes.set(gigabytes);
+    }
+
+    public void setMHz(String MHz) {
+        this.MHz.set(MHz);
+    }
+
     private void writeObject(ObjectOutputStream s) throws IOException {
         s.defaultWriteObject();
 

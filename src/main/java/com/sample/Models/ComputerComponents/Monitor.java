@@ -38,6 +38,22 @@ public class Monitor extends ComputerComponent {
         return connector.get();
     }
 
+    public void setDisplayType(String displayType) {
+        this.displayType.set(displayType);
+    }
+
+    public void setInches(String inches) {
+        this.inches.set(inches);
+    }
+
+    public void setResolution(String resolution) {
+        this.resolution.set(resolution);
+    }
+
+    public void setConnector(String connector) {
+        this.connector.set(connector);
+    }
+
     private void writeObject(ObjectOutputStream s) throws IOException {
         s.defaultWriteObject();
 
@@ -70,13 +86,13 @@ public class Monitor extends ComputerComponent {
             if (Pattern.matches(validateInches, getInches())){
                 String validateResolution = "[a-zæøåA-ZÆØÅ0-9]{2,6}";
                 if (Pattern.matches(validateResolution, getResolution())){
-                    String validateConnector = "SCART|VGA|DVI|SDI|HDMI|DisplayPort|Mini-DVI|RCA|";
+                    String validateConnector = "SCART|VGA|DVI|SDI|HDMI|DisplayPort|Mini-DVI|RCA";
                     if (Pattern.matches(validateConnector, getConnector())){
                         return true;
                     } else throw new ValidationException("Only SCART/VGA/DVI/SDI/HDMI/DisplayPort/Mini-DVI and RCA are currently allowed");
                 } else throw new ValidationException("Invalid resolution");
             } else throw new ValidationException("Invalid inches");
-        } else throw new ValidationException("Only LCD/CRT/LED/OLED and Plasma are cuurently allowed");
+        } else throw new ValidationException("Only LCD/CRT/LED/OLED and Plasma are curently allowed");
 
     }
 }

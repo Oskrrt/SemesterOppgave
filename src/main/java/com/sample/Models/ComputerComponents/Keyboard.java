@@ -39,6 +39,18 @@ public class Keyboard extends ComputerComponent {
         return isWireless.getValue();
     }
 
+    public void setLanguage(String language) {
+        this.language.set(language);
+    }
+
+    public void setIsWireless(String isWireless) {
+        this.isWireless.set(isWireless);
+    }
+
+    public void setWireless(boolean wireless) {
+        this.wireless.set(wireless);
+    }
+
     private void writeObject(ObjectOutputStream s) throws IOException {
         s.defaultWriteObject();
 
@@ -60,8 +72,11 @@ public class Keyboard extends ComputerComponent {
 
         //an API with all keyboard languages would be nice
         String validateLanguage = "Norwegian|English";
-        if(Pattern.matches(validateLanguage, getLanguage())){
-            return true;
+        if(Pattern.matches(validateLanguage.toLowerCase(), getLanguage().toLowerCase())){
+            String validateWireless = "Yes|No";
+            if (Pattern.matches(validateWireless.toLowerCase(), getIsWireless().toLowerCase())){
+                return true;
+            } else throw new ValidationException("Wireless has to be either yes or no");
         } else throw new ValidationException("Only Norwegian and English keyboards are supported currently");
     }
 }

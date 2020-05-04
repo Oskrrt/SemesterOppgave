@@ -28,7 +28,7 @@
                   <TextFieldTableCell fx:factory="forTableColumn" />
                </cellFactory>
             </TableColumn>
-            <TableColumn prefWidth="75.0" text="Price">
+            <TableColumn prefWidth="75.0" text="Price" fx:id="price" onEditCommit="#editPrice">
                <cellValueFactory>
                   <PropertyValueFactory property="price" />
                </cellValueFactory>
@@ -79,6 +79,5 @@
          </columnResizePolicy>
       </TableView>
       <Button layoutX="1007.0" layoutY="135.0" mnemonicParsing="false" onAction="#deleteCoolingSystem" prefHeight="46.0" prefWidth="125.0" text="Delete selected" />
-      <Button layoutX="857.0" layoutY="135.0" mnemonicParsing="false" onAction="#editCoolingSystem" prefHeight="46.0" prefWidth="125.0" text="Edit selected" />
    </children>
 </AnchorPane>

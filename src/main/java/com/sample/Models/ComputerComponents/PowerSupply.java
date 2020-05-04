@@ -32,6 +32,18 @@ public class PowerSupply extends ComputerComponent {
         return watts.get();
     }
 
+    public void setPowerSource(String powerSource) {
+        this.powerSource.set(powerSource);
+    }
+
+    public void setVoltage(String voltage) {
+        this.voltage.set(voltage);
+    }
+
+    public void setWatts(String watts) {
+        this.watts.set(watts);
+    }
+
     private void writeObject(ObjectOutputStream s) throws IOException {
         s.defaultWriteObject();
 
@@ -56,7 +68,7 @@ public class PowerSupply extends ComputerComponent {
     public boolean validate() throws ValidationException {
         super.validate();
 
-        String validatePowerSource = "[a-zæøåA-ZÆØÅ ,;.:-_*]{3,30}";
+        String validatePowerSource = "[a-zæøåA-ZÆØÅ ,;.:\\-_*]{3,30}";
         if (Pattern.matches(validatePowerSource, getPowerSource())){
             String validateVoltage = "[0-9]{3,4}";
             if(Pattern.matches(validateVoltage, getVoltage())){

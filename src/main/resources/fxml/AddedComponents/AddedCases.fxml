@@ -105,6 +105,5 @@
          </columnResizePolicy>
       </TableView>
       <Button layoutX="1007.0" layoutY="135.0" mnemonicParsing="false" onAction="#deleteCase" prefHeight="46.0" prefWidth="125.0" text="Delete selected" />
-      <Button layoutX="857.0" layoutY="135.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="125.0" text="Edit selected" />
    </children>
 </AnchorPane>

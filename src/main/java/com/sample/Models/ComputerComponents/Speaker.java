@@ -21,6 +21,10 @@ public class Speaker extends ComputerComponent{
         return inputType.get();
     }
 
+    public void setInputType(String inputType) {
+        this.inputType.set(inputType);
+    }
+
     private void writeObject(ObjectOutputStream s) throws IOException {
         s.defaultWriteObject();
         s.writeUTF(inputType.getValue());

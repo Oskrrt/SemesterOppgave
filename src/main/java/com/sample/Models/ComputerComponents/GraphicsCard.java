@@ -29,6 +29,14 @@ public class GraphicsCard extends ComputerComponent implements ValidateForm {
         return memoryType.get();
     }
 
+    public void setMemoryCapacity(String memoryCapacity) {
+        this.memoryCapacity.set(memoryCapacity);
+    }
+
+    public void setMemoryType(String memoryType) {
+        this.memoryType.set(memoryType);
+    }
+
     public String toString() {
         return super.toString()+"\n"+this.memoryCapacity+"\n"+this.memoryType;
     }
