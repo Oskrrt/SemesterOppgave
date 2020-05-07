@@ -29,6 +29,9 @@ public class GPUViewController {
     private OpenAddedComponents opener = new OpenGPUs();
     private OpenAddedComponents deleter = new OpenGPUs();
 
+    //this function sets the tableview for added components as editable, sets a cellfactory for price, as we need to handle exceptions if
+    //somebody writes something that won't parse from text to double.
+    //finally it starts the thread responsible for loading all added components to the view's tableview.
     public void initialize() {
         table.setEditable(true);
         price.setCellFactory(TextFieldTableCell.forTableColumn(new DoubleStringConverter(){
@@ -45,6 +48,7 @@ public class GPUViewController {
 
     }
 
+    //this function loads added components in their own thread.
     private void startThread(){
         try {
             Thread openCaseFilesThread = new Thread(opener);
@@ -58,14 +62,18 @@ public class GPUViewController {
         }
     }
 
+    //sets the table's placeholder text to an error message if something failed
     private void handleError(WorkerStateEvent workerStateEvent) {
         Label errorPlaceholder = new Label("Could not retrieve saved GPUs");
         table.placeholderProperty().setValue(errorPlaceholder);
     }
-
+    
+    //loads every added component to the tableview.
     private void handleSucceed(WorkerStateEvent workerStateEvent) {
         table.getItems().setAll((List<GraphicsCard>) opener.getValue());
     }
+
+    //back-button that loads the view where the user selects what added components to see
     @FXML
     private void viewSwapper(){
         try {
@@ -75,6 +83,8 @@ public class GPUViewController {
         }
     }
 
+    //this function gets the selected item, asks for confirmation and sends the component to be deleted, after it was deleted successfully the tableview
+    //is updated to reflect this deletion. if one presses the delete button without selecting a component, an error pop-up will appear.
     @FXML
     private void deleteGPU(){
         try{
@@ -102,6 +112,8 @@ public class GPUViewController {
 
     }
 
+    //this seperate thread does the same task as startThread(). The reason we needed a seperate function to update the tableview after deletion
+    // is because thread.start() will only run once. If we tried to run the same thread again, it would not actually perform its task.
     private void startDeleteThread(){
         Thread openFilesThread = new Thread(deleter);
         deleter.setOnSucceeded(this::handleDeleteSucceed);
@@ -110,6 +122,7 @@ public class GPUViewController {
         openFilesThread.start();
     }
 
+    //resets the tableview so it only contains the components that are saved. Without this the deleted item would still appear.
     private void handleDeleteSucceed(WorkerStateEvent workerStateEvent) {
         try{
             table.getItems().setAll((List<GraphicsCard>) deleter.getValue());
@@ -126,6 +139,22 @@ public class GPUViewController {
         errorBox.setTitle("Something went wrong while deleting");
     }
 
+    //because of Java-FX's quirks, we needed a single function for every single tablecolumn that could be edited. All these functions
+    //perform the same task, which is:
+    // - get a hold of the original value of the edited tablecell
+    //   (if the computercomponent did not validate, the tablecell
+    //   would still show the wrong value after committing the edit).
+    //   This is used for rolling it back to the original value if a validationException is thrown.
+    //
+    // - create a path using the selected components product name (filenames are the product names)
+    //
+    // - use the model's set-methods to change the selected object
+    //
+    // - validate the new object
+    //
+    // - if no ValidationException is thrown, edit the existing file to reflect the new changes (This is a bit different in editName(). See the comment there.)
+    //
+    // - since the tableview's edit methods are dynamic, we dont need to update it the same way our delete solution does, table.refresh() is enough.
     @FXML
     private void editDescription(TableColumn.CellEditEvent cellEditEvent){
         String originalDescription = cellEditEvent.getOldValue().toString();

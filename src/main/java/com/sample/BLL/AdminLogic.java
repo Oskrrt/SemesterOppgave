@@ -20,12 +20,15 @@ import java.util.List;
 
 public class AdminLogic {
 
-    public static <T extends ComputerComponent> Boolean saveComponent(T component, String type) {
+    //takes in any component and sends it further down the line to our Data Access Layer
+    public static <T extends ComputerComponent> Boolean saveComponent(T component, String type) throws IOException {
         return FileSaver.saveComponent(component, type);
     }
 
 
-    public static void swapViewsBasedOnButtonPressed_ADD_COMPONENTS(String buttonPressed) throws IOException {
+    //Each FXML-file containing the different forms for every component is named after the buttonPressed fxid + Form.fxml (for example: btnCaseForm.fxml)
+    //this made it easy to swap view correctly as we always know which file needs to be loaded based on which button was pressed.
+    public static void swapViewsBasedOnButtonPressed(String buttonPressed) throws IOException {
         App.changeView("/fxml/ComponentForms/"+buttonPressed+"Form.fxml", 650, 700);
     }
 
