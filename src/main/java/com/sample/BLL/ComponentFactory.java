@@ -18,6 +18,10 @@ import java.util.List;
 
 public class ComponentFactory {
 
+    //this beefy function is essantially just one large switch-case statement. It takes in the form data along with a string specifying which
+    //specific component has been requested to be made. Because the FXML files have been made so that the order of elements in the List correspond
+    //with the order of textfields in the form, we can be confident that, for example, formData.get(5)).getText() will always contain the number
+    //of USB-ports written in the form.
     public static ComputerComponent createComponent(List<Node> formData, String type) throws ValidationException {
         double price;
         String description = ((TextArea)formData.get(0)).getText();
@@ -156,6 +160,7 @@ public class ComponentFactory {
     }
 
 
+    //generates path to make sure computercomponents get saved to their respective directories
     public static String createPath(String componentType){
         String path = "";
         switch(componentType){
@@ -200,6 +205,13 @@ public class ComponentFactory {
     }
 
 
+
+    /*
+    these next twelve functions all perform the same task, only returning different types of Lists.
+    First, they get a list of paths which contain all the saved JOBJ documents in their relevant directories (/NewComponents/Cases, /CoolingSystems, /CPUs etc)
+    using FileOpenerJobj.getFilesFromFolder. Then we loop through all the files and create new objects using ois.readObject. If the object
+    validates, we add it to our list.
+     */
     public static List<Case> createCasesFromFile() throws IOException, ValidationException, ClassNotFoundException {
         final File caseFolder = new File("src/main/java/com/sample/DAL/SavedFiles/NewComponents/Cases");
         ObservableList<Case> allCases = FXCollections.observableArrayList();

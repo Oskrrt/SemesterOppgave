@@ -5,9 +5,10 @@ import com.sample.DAL.SaveFile.SaveJobj;
 import com.sample.Models.ComputerComponents.*;
 
 import java.io.File;
+import java.io.IOException;
 
 public class init {
-    public static void initFiles(){
+    public static void initFiles() throws IOException {
         Case c = new Case("4", "2", "20", "40", "40", 140.52, "Enhanced Cable Management: Our patented cable routing kit with pre-installed channels and straps makes wiring easy and intuitive. Fan Noise: 28 dBA", "CA-H510B-W1 - Compact ATX Mid-Tower PC Gaming Case","NZXT", "22443311" );
         CoolingSystem cs = new CoolingSystem("20", "20", 9.9, "Innovative DESIGN enables quiet and efficient ventilation: The innovative design of the fan blades improves the air flow and facilitates a highly efficient ventilation. The impeller was designed with a focus on minimizing the noise level yet delivering the desired airflow and pressure.", "F12-120 mm Standard Low Noise Case Fan", "ARCTIC", "55664477");
         Processor cpu = new Processor(199.99, "The world's most advanced processor in the desktop PC gaming segment", "Ryzen 5 3600", "AMD", "44998877", "6", "12", "4.2");

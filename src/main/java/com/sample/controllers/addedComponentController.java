@@ -16,27 +16,23 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/*
+this controller is basically just a middle-man between adminUserController and every single addedComponentController.
+We originally planned on only using this controller for showing all added components, but as we wanted a single
+view for every table, this provided NullReferenceExceptions every time we swapped views. The solution was to create
+a single controller for every view. You'll find each controller in com/sample/controllers/addedComponentControllers/*
 
+*/
 public class addedComponentController extends adminUserController implements Initializable {
-    @FXML private TableView<Case> caseTable;
-    @FXML private TableView<CoolingSystem> coolingTable;
-    @FXML private TableView<Processor> CPUTable;
-    @FXML private TableView<GraphicsCard> GPUTable;
-    @FXML private TableView<Keyboard> keyboardTable;
-    @FXML private TableView<Monitor> monitorTable;
-    @FXML private TableView<Motherboard> motherboardTable;
-    @FXML private TableView<Mouse> mouseTable;
-    @FXML private TableView<PowerSupply> powerSupplyTable;
-    @FXML private TableView<RAM> RAMTable;
-    @FXML private TableView<Speaker> speakerTable;
-    @FXML private TableView<StorageComponent> storageComponentTable;
-    @FXML private AnchorPane casePane;
-
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         //remove comment if you need to initialize all components.
-        init.initFiles();
+        try {
+            init.initFiles();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
@@ -65,6 +61,9 @@ public class addedComponentController extends adminUserController implements Ini
     }
 
 
+    /*
+    view-swappers
+     */
 
     @FXML
     public void showAddedCases() throws IOException {

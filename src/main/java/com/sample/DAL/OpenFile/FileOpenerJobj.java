@@ -14,6 +14,8 @@ import java.util.Objects;
 
 public abstract class FileOpenerJobj extends Task<List<? extends ComputerComponent>> {
 
+    //recursively loops through every file in the specified folder until all the filepaths have been read.
+    //this solution is in large part thanks to: https://stackoverflow.com/questions/1844688/how-to-read-all-files-in-a-folder-from-java
     public static List<Path> getFilesFromFolder(final File folder) throws IOException {
         List<Path> filePaths = new ArrayList<>();
         for (final File fileEntry: Objects.requireNonNull(folder.listFiles())){
