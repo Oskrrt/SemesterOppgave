@@ -2,51 +2,51 @@ package com.sample.Models.Computer;
 
 import com.sample.Models.ComputerComponents.Case;
 import com.sample.Models.ComputerComponents.*;
+import com.sample.Models.Users.User;
 
 public class Computer {
-    private Case computerCase;
-    private CoolingSystem cooling;
-    private GraphicsCard graphicsCard;
-    private StorageComponent storageComponent;
-    private Motherboard motherboard;
-    private PowerSupply powerSupply;
+    private Case ComputerCase;
+    private CoolingSystem Cooling;
+    private GraphicsCard GraphicsCard;
+    private StorageComponent StorageComponent;
+    private Motherboard Motherboard;
+    private PowerSupply PowerSupply;
     private Processor CPU;
-    private RAM memory;
-    private double price;
+    private RAM Memory;
+    private double Price;
+    private User Creator;
 
     public Computer(Case computerCase, CoolingSystem cooling, GraphicsCard graphicsCard, StorageComponent storageComponent,  Motherboard motherboard, PowerSupply powerSupply, Processor CPU, RAM memory) {
-        this.computerCase = computerCase;
-        this.cooling = cooling;
-        this.graphicsCard = graphicsCard;
-        this.storageComponent = storageComponent;
-        this.motherboard = motherboard;
-        this.powerSupply = powerSupply;
+        this.ComputerCase = computerCase;
+        this.Cooling = cooling;
+        this.GraphicsCard = graphicsCard;
+        this.StorageComponent = storageComponent;
+        this.Motherboard = motherboard;
+        this.PowerSupply = powerSupply;
         this.CPU = CPU;
-        this.memory = memory;
+        this.Memory = memory;
     }
 
     public Case getComputerCase() {
-        return computerCase;
+        return ComputerCase;
     }
 
     public CoolingSystem getCooling() {
-        return cooling;
+        return Cooling;
     }
 
-    public GraphicsCard getGraphicsCard() {
-        return graphicsCard;
-    }
+    public GraphicsCard getGraphicsCard() { return GraphicsCard; }
 
     public StorageComponent getStorageComponent() {
-        return storageComponent;
+        return StorageComponent;
     }
 
     public Motherboard getMotherboard() {
-        return motherboard;
+        return Motherboard;
     }
 
     public PowerSupply getPowerSupply() {
-        return powerSupply;
+        return PowerSupply;
     }
 
     public Processor getCPU() {
@@ -54,31 +54,33 @@ public class Computer {
     }
 
     public RAM getMemory() {
-        return memory;
+        return Memory;
     }
 
+    public User getCreator(){return Creator;}
+
     public void setComputerCase(Case computerCase) {
-        this.computerCase = computerCase;
+        this.ComputerCase = computerCase;
     }
 
     public void setCooling(CoolingSystem cooling) {
-        this.cooling = cooling;
+        this.Cooling = cooling;
     }
 
     public void setGraphicsCard(GraphicsCard graphicsCard) {
-        this.graphicsCard = graphicsCard;
+        this.GraphicsCard = graphicsCard;
     }
 
     public void setStorageComponent(StorageComponent storageComponent) {
-        this.storageComponent = storageComponent;
+        this.StorageComponent = storageComponent;
     }
 
     public void setMotherboard(Motherboard motherboard) {
-        this.motherboard = motherboard;
+        this.Motherboard = motherboard;
     }
 
     public void setPowerSupply(PowerSupply powerSupply) {
-        this.powerSupply = powerSupply;
+        this.PowerSupply = powerSupply;
     }
 
     public void setCPU(Processor CPU) {
@@ -86,7 +88,10 @@ public class Computer {
     }
 
     public void setMemory(RAM memory) {
-        this.memory = memory;
+        this.Memory = memory;
+    }
+    public void setCreator(User creator) {
+        this.Creator = creator;
     }
 }
 

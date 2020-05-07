@@ -21,6 +21,7 @@ public class signInController {
     @FXML
     private Button mainButton;
 
+
     @FXML
     public void changeView(Event event) throws IOException {
         String elementClicked = ((Control) event.getSource()).getId();
@@ -41,7 +42,7 @@ public class signInController {
     private Label lblFailedSignIn;
     private static User loggedInUser;
 
-    public static User getLoggedInUser() {
+    protected static User getLoggedInUser() {
         return loggedInUser;
     }
 

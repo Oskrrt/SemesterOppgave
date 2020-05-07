@@ -4,8 +4,10 @@ import com.sample.App;
 import com.sample.DAL.OpenFile.Subtypes.OpenCPUs;
 import com.sample.DAL.OpenFile.Subtypes.OpenCases;
 import com.sample.DAL.OpenFile.Subtypes.OpenCoolingSystems;
-import com.sample.DAL.OpenFile.Subtypes.OpenRAM;
-import com.sample.Models.ComputerComponents.*;
+import com.sample.Models.ComputerComponents.Case;
+import com.sample.Models.ComputerComponents.CoolingSystem;
+import com.sample.Models.ComputerComponents.Fan;
+import com.sample.Models.ComputerComponents.Processor;
 import com.sample.controllers.buildComputerController;
 import javafx.concurrent.WorkerStateEvent;
 import javafx.event.ActionEvent;
@@ -20,7 +22,7 @@ import javafx.scene.layout.GridPane;
 import java.io.IOException;
 import java.util.List;
 
-public class chooseRam {
+public class chooseCPU {
     private buildComputerController bc = new buildComputerController();
     @FXML
     private GridPane gp;
@@ -31,7 +33,7 @@ public class chooseRam {
     void back(ActionEvent event) throws IOException {
         App.changeView("/fxml/buildComputer.fxml", 0 ,0);
     }
-    private OpenRAM opener = new OpenRAM();
+    private OpenCPUs opener = new OpenCPUs();
 
     public void initialize() {
         try {
@@ -52,12 +54,12 @@ public class chooseRam {
     }
 
     private void handleSucceed(WorkerStateEvent workerStateEvent) {
-        List<RAM> allRAMs = (List<RAM>) opener.getValue();
+        List<Processor> allProcessors = (List<Processor>) opener.getValue();
         // Makes all the product containers invisible, sets each one visible later depending on whether they have a component to showcase or not
         for (int i = 0; i < gp.getChildren().size(); i++) {
             gp.getChildren().get(i).setVisible(false);
         }
-        placeComponentInfo(allRAMs);
+        placeComponentInfo(allProcessors);
     }
 
     @FXML
@@ -68,34 +70,36 @@ public class chooseRam {
         String[] priceWithoutKr = ((Label)ContainerContent.get(6)).getText().split(" ");
         String productName = ((Label)ContainerContent.get(0)).getText();
         String price = priceWithoutKr[0];
-        String gigabytes = ((Label)ContainerContent.get(7)).getText();
-        String mhz = ((Label)ContainerContent.get(8)).getText();
-        String manufacturer = ((Label)ContainerContent.get(9)).getText();
-        String serialNumber = ((Label)ContainerContent.get(10)).getText();
-        String description = ((Label)ContainerContent.get(11)).getText();
+        String coreCount = ((Label)ContainerContent.get(7)).getText();
+        String threadCount = ((Label)ContainerContent.get(8)).getText();
+        String maxFrequency = ((Label)ContainerContent.get(9)).getText();
+        String manufacturer = ((Label)ContainerContent.get(10)).getText();
+        String serialNumber = ((Label)ContainerContent.get(11)).getText();
+        String description = ((Label)ContainerContent.get(12)).getText();
         try {
-            RAM ram = new RAM(Double.parseDouble(price),description, productName, manufacturer, serialNumber, gigabytes, mhz);
-            bc.updateComputer(ram);
+            Processor cpu = new Processor(Double.parseDouble(price), description, productName, manufacturer, serialNumber, coreCount, threadCount, coreCount);
+            bc.updateComputer(cpu);
             App.changeView("/fxml/buildComputer.fxml", 0,0);
         } catch (NumberFormatException e) {
             e.printStackTrace();
         }
     }
 
-    private  void placeComponentInfo(List<RAM> RAMs) {
+    private  void placeComponentInfo(List<Processor> processors) {
         List<Node> productContainers = gp.getChildren();
-        System.out.println(RAMs.get(0).getClass().getSimpleName());
+        System.out.println(processors.get(0).getClass().getSimpleName());
         // this loop will have a lot of confusing casts because javafx's handling of Nodes vs Label etc.
         // all it does is set the values of the labels to the values of the components in the list.
-        for (int i = 0; i < RAMs.size(); i++) {
+        for (int i = 0; i < processors.size(); i++) {
             productContainers.get(i).setVisible(true);
-            ((Label)((AnchorPane)productContainers.get(i)).getChildren().get(0)).setText(RAMs.get(i).getProductName());
-            ((Label)((AnchorPane)productContainers.get(i)).getChildren().get(5)).setText(String.valueOf(RAMs.get(i).getPrice())+" kr");
-            ((Label)((AnchorPane)productContainers.get(i)).getChildren().get(6)).setText(RAMs.get(i).getGigabytes());
-            ((Label)((AnchorPane)productContainers.get(i)).getChildren().get(7)).setText(RAMs.get(i).getMHz());
-            ((Label)((AnchorPane)productContainers.get(i)).getChildren().get(8)).setText(RAMs.get(i).getProductionCompany());
-            ((Label)((AnchorPane)productContainers.get(i)).getChildren().get(9)).setText(RAMs.get(i).getSerialNumber());
-            ((Label)((AnchorPane)productContainers.get(i)).getChildren().get(10)).setText(RAMs.get(i).getDescription());
+            ((Label)((AnchorPane)productContainers.get(i)).getChildren().get(0)).setText(processors.get(i).getProductName());
+            ((Label)((AnchorPane)productContainers.get(i)).getChildren().get(6)).setText(String.valueOf(processors.get(i).getPrice())+" kr");
+            ((Label)((AnchorPane)productContainers.get(i)).getChildren().get(7)).setText(processors.get(i).getCoreCount());
+            ((Label)((AnchorPane)productContainers.get(i)).getChildren().get(8)).setText(processors.get(i).getThreadCount());
+            ((Label)((AnchorPane)productContainers.get(i)).getChildren().get(9)).setText(processors.get(i).getMaxFrequency());
+            ((Label)((AnchorPane)productContainers.get(i)).getChildren().get(10)).setText(processors.get(i).getProductionCompany());
+            ((Label)((AnchorPane)productContainers.get(i)).getChildren().get(11)).setText(processors.get(i).getSerialNumber());
+            ((Label)((AnchorPane)productContainers.get(i)).getChildren().get(12)).setText(processors.get(i).getDescription());
             //((Label)((AnchorPane)productContainers.get(i)).getChildren().get(7)).setText(coolingSystems.get(i).getClass().toString());
         }
     }

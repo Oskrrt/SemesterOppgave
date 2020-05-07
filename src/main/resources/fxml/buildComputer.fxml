@@ -53,7 +53,7 @@
          </cursor>
       </Label>
       <Polyline fill="#2527c2" layoutX="507.0" layoutY="477.0" points="74.0, -221.0, 253.0, -221.0, 253.0, -221.0, 342.0, -71.0" stroke="#eb8c34" strokeMiterLimit="40.0" strokeType="INSIDE" strokeWidth="2.0" style="-fx-fill: none;" />
-      <Label fx:id="CPU" alignment="CENTER" layoutX="571.0" layoutY="224.0" onMouseClicked="#openChoiceWindow" onMouseEntered="#makeBigger" onMouseExited="#makeNormal" prefHeight="32.0" prefWidth="189.0" text="Processor (CPU)">
+      <Label fx:id="Processor" alignment="CENTER" layoutX="571.0" layoutY="224.0" onMouseClicked="#openChoiceWindow" onMouseEntered="#makeBigger" onMouseExited="#makeNormal" prefHeight="32.0" prefWidth="189.0" text="Processor (CPU)">
          <font>
             <Font size="20.0" />
          </font>
@@ -98,7 +98,7 @@
          </cursor>
       </Label>
       <Polyline fill="#2527c2" layoutX="507.0" layoutY="477.0" points="292.0, -317.0, 386.0, -317.0, 386.0, -317.0, 446.0, -176.0" stroke="#eb8c34" strokeMiterLimit="40.0" strokeType="INSIDE" strokeWidth="2.0" style="-fx-fill: none;" />
-      <Label fx:id="Case" alignment="CENTER" layoutX="791.0" layoutY="128.0" onMouseClicked="#openChoiceWindow" onMouseEntered="#makeBigger" onMouseExited="#makeNormal" prefHeight="32.0" prefWidth="117.0" text="Case">
+      <Label fx:id="Case" alignment="CENTER" layoutX="487.0" layoutY="128.0" onMouseClicked="#openChoiceWindow" onMouseEntered="#makeBigger" onMouseExited="#makeNormal" prefHeight="32.0" prefWidth="713.0" text="Case">
          <font>
             <Font size="20.0" />
          </font>

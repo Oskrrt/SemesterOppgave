@@ -1,40 +1,22 @@
 package com.sample.BLL;
 
+import com.sample.App;
 import com.sample.BLL.InputValidation.ValidationException;
+import com.sample.Models.Computer.Computer;
 import com.sample.Models.ComputerComponents.ComputerComponent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import java.io.IOException;
+import java.lang.reflect.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UserLogic {
-    /*public static void renderChoiceWindow(Stage choiceStage, String idOfClickedLabel) throws ClassNotFoundException, IOException {
-        Label lbl = new Label(idOfClickedLabel);
-        AnchorPane ap = (AnchorPane) choiceStage.getScene().lookup("#ap");
-        ap.getChildren().add(lbl);
-        choiceStage.show();
-        List<ComputerComponent> componentList = getAllComponents(idOfClickedLabel);
-        System.out.println(componentList.get(0).getPrice());
-    }*/
 
-    public static void openCorrectWindow(String componentToChoose) {
-        try {
-            FXMLLoader fxmlLoader = new FXMLLoader(UserLogic.class.getResource("/fxml/chooseComponentWindows/choose"+componentToChoose+".fxml"));
-            Parent root = fxmlLoader.load();
-            Stage stage = new Stage();
-            // the following line makes it so the user can't interact with other parts of the application while this window is open.
-            stage.initModality(Modality.APPLICATION_MODAL);
-            stage.setTitle(componentToChoose+"s");
-            stage.setScene(new Scene(root));
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+public class UserLogic {
 
     private static List<ComputerComponent> getAllComponents(String type) throws IOException, ValidationException, ClassNotFoundException {
         List<? extends ComputerComponent> list = new ArrayList<>();
@@ -80,6 +62,28 @@ public class UserLogic {
                 break;
         }
             return (List<ComputerComponent>) list;
+    }
+
+    public static List<ComputerComponent> getCurrentlyChosenComponents(Computer computerBeingBuilt) {
+        List<ComputerComponent> products = new ArrayList<>();
+        Field[] fields = Computer.class.getDeclaredFields();
+        // loops over all the attributes in the computer class and checks if the computerBeingBuilt object has values assigned to them
+        // if they do have values, add the productName to the arraylist.
+        for (Field field: fields) {
+            String methodName = "get"+field.getName();
+            try {
+                // We only want the product names for now, so we leave the price and the creator out.
+                if((!methodName.equals("getPrice")) && (!methodName.equals("getCreator"))) {
+                    ComputerComponent product = (ComputerComponent) computerBeingBuilt.getClass().getMethod(methodName).invoke(computerBeingBuilt);
+                    if (product != null) {
+                        products.add(product);
+                    }
+                }
+            } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
+                e.printStackTrace();
+            }
+        }
+        return products;
     }
 
 

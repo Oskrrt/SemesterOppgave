@@ -42,6 +42,6 @@ public class StorageComponent extends ComputerComponent {
         String validateSize = "[0-9]{2,4}";
         if(Pattern.matches(validateSize, getSize())){
             return true;
-        } else throw new ValidationException("Invalid size. must a number with 2-4 digits");
+        } else throw new ValidationException("Invalid size. must be a number with 2-4 digits");
     }
 }

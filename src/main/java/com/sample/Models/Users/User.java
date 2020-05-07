@@ -1,6 +1,7 @@
 package com.sample.Models.Users;
 
 import com.sample.BLL.InputValidation.ValidationException;
+import com.sample.Models.Computer.Computer;
 import org.apache.commons.codec.digest.DigestUtils;
 
 public class User {
@@ -8,6 +9,7 @@ public class User {
     private String password;
     private boolean isLoggedIn;
     private boolean isAdmin;
+    private Computer computerInProduction;
 
     /*public User(String mail, String password) {
         this.mail = mail.toLowerCase();
@@ -29,6 +31,8 @@ public class User {
 
     public boolean getAdmin() {return isAdmin;}
 
+    public Computer getComputerInProduction() {return computerInProduction;}
+
     public void setMail(String mail) {
         this.mail = mail;
     }
@@ -40,6 +44,8 @@ public class User {
     public void setLoggedIn(boolean loggedIn) {this.isLoggedIn = loggedIn;}
 
     public void setAdmin(boolean isAdmin) {this.isAdmin = isAdmin;}
+
+    public void setComputerInProduction(Computer computerInProduction) {this.computerInProduction = computerInProduction;}
 
     public boolean validateUser(String mail, String password, String confirmPassword) throws ValidationException {
         boolean invalidMail = mail.isBlank() || mail.isEmpty() || !validateMail(mail);

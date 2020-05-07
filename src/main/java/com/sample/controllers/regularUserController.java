@@ -7,6 +7,7 @@ import com.sample.Models.Users.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 
@@ -18,12 +19,18 @@ public class regularUserController {
     @FXML
     private ImageView computerImageView;
 
+    @FXML
+    private Label bla;
+
     // this is basically working as a session variable
     private User loggedInUser = signInController.getLoggedInUser();
     @FXML
     void initialize() throws IOException {
-        //loggedInUser = signInController.getLoggedInUser();
-        //container.getChildren().add(Repository.renderNavBar());
+        System.out.println(loggedInUser.getMail());
+
+    }
+    protected User getLoggedInUser() {
+        return loggedInUser;
     }
     @FXML
      void logOut() throws IOException {

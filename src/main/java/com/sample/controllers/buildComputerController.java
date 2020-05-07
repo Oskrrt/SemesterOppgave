@@ -3,11 +3,14 @@ package com.sample.controllers;
 import com.sample.App;
 import com.sample.BLL.UserLogic;
 import com.sample.Models.Computer.Computer;
-import com.sample.Models.ComputerComponents.Case;
-import com.sample.Models.ComputerComponents.ComputerComponent;
+import com.sample.Models.ComputerComponents.*;
+import com.sample.Models.Users.User;
+import com.sample.controllers.chooseComponentControllers.chooseCase;
 import javafx.beans.property.ReadOnlyDoubleProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Control;
@@ -21,9 +24,11 @@ import javafx.stage.Stage;
 import javafx.stage.Window;
 
 import java.io.IOException;
+import java.util.List;
 
 public class buildComputerController {
-
+    private regularUserController connector = new regularUserController();
+    private User loggedInUser = connector.getLoggedInUser();
     private regularUserController mainControllerForRegularUsers = new regularUserController();
     private static Computer computerBeingBuilt = new Computer(null, null, null, null, null ,null, null, null);
 
@@ -44,11 +49,78 @@ public class buildComputerController {
     private Button logOutBtn;
 
     @FXML
+    private Label GraphicsCard;
+
+    @FXML
+    private Label CPU;
+
+    @FXML
+    private Label RAM;
+
+    @FXML
+    private Label PowerSupply;
+
+    @FXML
+    private Label CoolingSystem;
+
+    @FXML
+    private Label MotherBoard;
+
+    @FXML
+    private Label Case;
+
+    @FXML
+    private Label StorageComponent;
+    @FXML
     void initialize() {
+        List<ComputerComponent> componentsNotNull = UserLogic.getCurrentlyChosenComponents(computerBeingBuilt);
+        for(ComputerComponent chosenComponents : componentsNotNull) {
+            System.out.println("from list"+chosenComponents);
+            System.out.println(chosenComponents.getClass().getSimpleName());
+            Label lbl = (Label) container.lookup("#"+chosenComponents.getClass().getSimpleName());
+            lbl.setText(chosenComponents.getProductName());
+        }
+        if(computerBeingBuilt.getCreator() == null) {
+            computerBeingBuilt.setCreator(loggedInUser);
+        }
+        System.out.println(loggedInUser.getMail());
+        loggedInUser.setComputerInProduction(computerBeingBuilt);
+        if (loggedInUser.getComputerInProduction().getCreator().getMail().equals(loggedInUser.getMail())) {
+            System.out.println("Samme bruker");
+            /*if(loggedInUser.getComputerInProduction().getComputerCase() != null) {
+                Case.setText(loggedInUser.getComputerInProduction().getComputerCase().getProductName());
+            } else if(loggedInUser.getComputerInProduction().getComputerCase() == null){
+                Case.setText("Case");
+                System.out.println("getComputerCase = null");
+            }*/
+        } else {
+            System.out.println("Ikke samme bruker");
+        }
+
     }
-    public void updateComputer(ComputerComponent component) {
-        computerBeingBuilt.setComputerCase((Case) component);
+    public void updateComputer(ComputerComponent component) throws IOException {
+
+        //System.out.println(component.getProductName());
+
+        if (component instanceof Case) {
+            loggedInUser.getComputerInProduction().setComputerCase((Case) component);
+        } else if (component instanceof CoolingSystem) {
+            loggedInUser.getComputerInProduction().setCooling((CoolingSystem) component);
+        } else if (component instanceof GraphicsCard) {
+            loggedInUser.getComputerInProduction().setGraphicsCard(((GraphicsCard) component));
+        } else if (component instanceof StorageComponent) {
+            loggedInUser.getComputerInProduction().setStorageComponent((StorageComponent) component);
+        } else if (component instanceof Motherboard) {
+            loggedInUser.getComputerInProduction().setMotherboard((Motherboard) component);
+        } else if (component instanceof PowerSupply) {
+            loggedInUser.getComputerInProduction().setPowerSupply((PowerSupply) component);
+        } else if (component instanceof Processor) {
+            loggedInUser.getComputerInProduction().setCPU((Processor) component);
+        } else if (component instanceof RAM) {
+            loggedInUser.getComputerInProduction().setMemory((RAM) component);
+        }
     }
+
     @FXML
     void logOut(ActionEvent event) throws IOException {
         mainControllerForRegularUsers.logOut();
@@ -85,7 +157,6 @@ public class buildComputerController {
         if (computerBeingBuilt.getComputerCase()!= null) {
             System.out.println("albaba"+ computerBeingBuilt.getComputerCase().getHDAudioJacks());
         }
-
-        UserLogic.openCorrectWindow(idOfClickedLabel);
+        App.changeView("/fxml/chooseComponentWindows/choose"+idOfClickedLabel+".fxml", 0,0 );
     }
 }
