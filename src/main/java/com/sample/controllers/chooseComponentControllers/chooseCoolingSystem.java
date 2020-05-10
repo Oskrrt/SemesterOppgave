@@ -1,11 +1,8 @@
 package com.sample.controllers.chooseComponentControllers;
 
 import com.sample.App;
-import com.sample.DAL.OpenFile.Subtypes.OpenCases;
 import com.sample.DAL.OpenFile.Subtypes.OpenCoolingSystems;
-import com.sample.Models.ComputerComponents.Case;
 import com.sample.Models.ComputerComponents.CoolingSystem;
-import com.sample.Models.ComputerComponents.Fan;
 import com.sample.controllers.buildComputerController;
 import javafx.concurrent.WorkerStateEvent;
 import javafx.event.ActionEvent;

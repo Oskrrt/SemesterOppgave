@@ -11,7 +11,7 @@ import com.sample.Models.ComputerComponents.ComputerComponent;
 import java.io.IOException;
 import java.util.List;
 
-
+//se the comment in the OpenCorrectFolder interface.
 public class OpenAddedComponents extends FileOpenerJobj {
 
     @Override
@@ -20,10 +20,7 @@ public class OpenAddedComponents extends FileOpenerJobj {
     }
 
 
-    //using subtype polimorfism we can use multithreading with only one call-method in this super-class.
-    //all subclasses (like OpenCases, OpenCoolingSystems) implement the interface OpenCorrectFolder to ensure
-    //the right files are being read when trying to initiate their respective tableview. Because of this interface
-    //we can simply call this.perform() in this super-class
+
     public List<? extends ComputerComponent> perform() throws IOException, ValidationException, ClassNotFoundException {
         return this.perform();
     }

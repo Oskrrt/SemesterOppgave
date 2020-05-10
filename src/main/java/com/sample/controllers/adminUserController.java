@@ -5,6 +5,7 @@ import com.sample.BLL.AdminLogic;
 import com.sample.BLL.ComponentFactory;
 import com.sample.BLL.InputValidation.ValidationException;
 import com.sample.Models.ComputerComponents.*;
+import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
@@ -91,4 +92,8 @@ public class adminUserController {
         App.changeView("/fxml/viewAddedComponents.fxml", 1200,900);
     }
 
+    @FXML
+    private void goToRegistration(ActionEvent actionEvent) throws IOException {
+        App.changeView("/fxml/signUpForm_ADMIN.fxml", 672, 503);
+    }
 }

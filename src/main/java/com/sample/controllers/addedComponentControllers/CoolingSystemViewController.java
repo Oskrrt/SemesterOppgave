@@ -7,7 +7,6 @@ import com.sample.BLL.InputValidation.ValidationException;
 import com.sample.DAL.OpenFile.Subtypes.OpenAddedComponents;
 import com.sample.DAL.OpenFile.Subtypes.OpenCoolingSystems;
 import com.sample.Models.ComputerComponents.CoolingSystem;
-import com.sample.Models.ComputerComponents.CoolingSystem;
 import javafx.concurrent.WorkerStateEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;

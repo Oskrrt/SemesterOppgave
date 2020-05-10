@@ -1,24 +1,18 @@
 package com.sample.controllers.chooseComponentControllers;
 
 import com.sample.App;
-import com.sample.DAL.OpenFile.Subtypes.OpenAddedComponents;
 import com.sample.DAL.OpenFile.Subtypes.OpenCases;
-import com.sample.Models.Computer.Computer;
 import com.sample.Models.ComputerComponents.Case;
 import com.sample.controllers.buildComputerController;
-import javafx.collections.ObservableList;
 import javafx.concurrent.WorkerStateEvent;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.Control;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
-import javafx.stage.WindowEvent;
 
 import java.io.IOException;
 import java.util.List;

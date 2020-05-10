@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
@@ -12,22 +13,33 @@
          <font>
             <Font size="68.0" />
          </font></Text>
-      <Button fx:id="btnGoToList" alignment="CENTER" layoutX="617.0" layoutY="305.0" mnemonicParsing="false" onAction="#goToAddedComponentController" prefHeight="372.0" prefWidth="504.0" style="-fx-background-color: white; -fx-border-color: black;" text="View previously added components" textAlignment="CENTER" textOverrun="CLIP" wrapText="true">
-         <font>
-            <Font size="49.0" />
-         </font>
-      </Button>
       <Button fx:id="btnLogOut" alignment="CENTER" layoutX="967.0" layoutY="92.0" mnemonicParsing="false" onAction="#viewSwapper" prefHeight="65.0" prefWidth="151.0" style="-fx-background-color: white; -fx-border-color: black;" text="Log out" textAlignment="CENTER" textOverrun="CLIP" wrapText="true">
          <font>
             <Font size="26.0" />
          </font>
       </Button>
-      <HBox layoutX="66.0" layoutY="305.0" prefHeight="372.0" prefWidth="504.0">
+      <HBox layoutX="66.0" layoutY="305.0" prefHeight="372.0" prefWidth="1072.0">
          <children>
-            <Button fx:id="btnGoToCreation" alignment="CENTER" mnemonicParsing="false" onAction="#viewSwapper" prefHeight="372.0" prefWidth="504.0" style="-fx-background-color: white; -fx-border-color: black;" text="Add a new component" textAlignment="CENTER" textOverrun="CLIP" wrapText="true">
+            <Button fx:id="btnGoToList" alignment="CENTER" mnemonicParsing="false" onAction="#goToAddedComponentController" prefHeight="345.0" prefWidth="329.0" style="-fx-background-color: white; -fx-border-color: black;" text="View previously added components" textAlignment="CENTER" textOverrun="CLIP" wrapText="true">
                <font>
-                  <Font size="49.0" />
+                  <Font size="28.0" />
                </font>
+            </Button>
+            <Button fx:id="btnGoToCreation" alignment="CENTER" mnemonicParsing="false" onAction="#viewSwapper" prefHeight="345.0" prefWidth="329.0" style="-fx-background-color: white; -fx-border-color: black;" text="Add a new component" textAlignment="CENTER" textOverrun="CLIP" wrapText="true">
+               <font>
+                  <Font size="28.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="40.0" />
+               </HBox.margin>
+            </Button>
+            <Button alignment="CENTER" mnemonicParsing="false" onAction="#goToRegistration" prefHeight="345.0" prefWidth="329.0" style="-fx-background-color: white; -fx-border-color: black;" text="Register new admin" textAlignment="CENTER" textOverrun="CLIP" wrapText="true">
+               <font>
+                  <Font size="28.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="40.0" />
+               </HBox.margin>
             </Button>
          </children>
       </HBox>

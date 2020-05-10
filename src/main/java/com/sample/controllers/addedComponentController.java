@@ -1,16 +1,11 @@
 package com.sample.controllers;
 
 import com.sample.App;
-import com.sample.BLL.ComponentDeleter;
 import com.sample.DAL.init;
-import com.sample.Models.ComputerComponents.Case;
-import com.sample.Models.ComputerComponents.*;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Control;
-import javafx.scene.control.TableView;
-import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
 import java.net.URL;

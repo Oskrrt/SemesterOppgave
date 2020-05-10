@@ -10,6 +10,7 @@ public class SaveTxt extends FileSaver {
     @Override
     protected Boolean call() throws Exception {
         System.out.println("Inne i call metoden");
+        Thread.sleep(1500);
         return super.writeToFile();
     }
 }

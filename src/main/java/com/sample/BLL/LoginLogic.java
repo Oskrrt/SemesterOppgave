@@ -38,7 +38,7 @@ public class LoginLogic {
         }
         if (userFromFile.getMail().equals(mail) && userFromFile.getPassword().equals(hashedPassword)) {
             userFromFile.setLoggedIn(true);
-            //TODO Fjerne den komenterte kode blokken før vi leverer
+            //TODO Fjerne den kommenterte kode blokken før vi leverer
             // den oppretter et admin objekt
            /* userFromFile.setAdmin("true");
             Admin admin = new Admin(userFromFile);

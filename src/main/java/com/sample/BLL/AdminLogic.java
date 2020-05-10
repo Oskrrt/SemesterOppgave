@@ -4,18 +4,8 @@ import com.sample.App;
 import com.sample.DAL.SaveFile.FileSaver;
 import com.sample.DAL.UpdateFile.UpdateJobj;
 import com.sample.Models.ComputerComponents.*;
-import com.sample.controllers.adminUserController;
-import javafx.scene.Node;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
-import org.w3c.dom.Text;
 
 import java.io.*;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.List;
 
 
 public class AdminLogic {
@@ -32,10 +22,12 @@ public class AdminLogic {
         App.changeView("/fxml/ComponentForms/"+buttonPressed+"Form.fxml", 650, 700);
     }
 
+    //takes in a file and a component and sends it further down the line to our Data Access Layer
     public static boolean editFile(File fileName, ComputerComponent newComponent) throws IOException{
         return UpdateJobj.updateFile(fileName, newComponent);
     }
 
+    //takes in two files, one with the original filename and one with the new filename, and sends it further down the line to our Data Access Layer
     public static boolean editFileName(File originalFile, File newFile) {
         return UpdateJobj.editFilename(originalFile, newFile);
     }

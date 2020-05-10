@@ -8,21 +8,16 @@ import com.sample.DAL.OpenFile.Subtypes.OpenAddedComponents;
 import com.sample.DAL.OpenFile.Subtypes.OpenSpeakers;
 import com.sample.Models.ComputerComponents.Case;
 import com.sample.Models.ComputerComponents.Speaker;
-import com.sample.Models.ComputerComponents.Speaker;
-import com.sample.Models.ComputerComponents.Speaker;
 import javafx.concurrent.WorkerStateEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.util.converter.DoubleStringConverter;
 
 import java.io.File;
 import java.io.IOException;
-import java.net.URL;
 import java.util.List;
 import java.util.Optional;
-import java.util.ResourceBundle;
 
 public class SpeakerViewController {
 

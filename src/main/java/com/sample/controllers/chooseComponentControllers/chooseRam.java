@@ -1,9 +1,6 @@
 package com.sample.controllers.chooseComponentControllers;
 
 import com.sample.App;
-import com.sample.DAL.OpenFile.Subtypes.OpenCPUs;
-import com.sample.DAL.OpenFile.Subtypes.OpenCases;
-import com.sample.DAL.OpenFile.Subtypes.OpenCoolingSystems;
 import com.sample.DAL.OpenFile.Subtypes.OpenRAM;
 import com.sample.Models.ComputerComponents.*;
 import com.sample.controllers.buildComputerController;

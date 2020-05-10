@@ -1,4 +1,1 @@
-skriv i denne om det er noe du vil opplyse om.
-
-Ang antall controllers??
-
+ - To edit existing components, double-click the cell you want to edit
