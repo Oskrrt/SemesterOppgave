@@ -17,7 +17,7 @@ public class TestProcessor {
     @Test
     public void testThrowsValidationExceptionProcessor() throws ValidationException {
         assertThrows(ValidationException.class, () -> {
-            Processor cpu = new Processor(3499, "Intelcore good processor", "Intel Core i7-9700K", "Intelcore", "12345678", "8", "12", "4.9");
+            Processor cpu = new Processor(-3499, "Intelcore good processor", "Intel Core i7-9700K", "Intelcore", "12345678", "8", "12", "4.9");
             assertTrue(cpu.validate());
         });
         assertThrows(ValidationException.class, () -> {
