@@ -51,6 +51,7 @@ public class StorageComponentViewController {
         startThread();
     }
 
+    /*TODO slett denne todo-en */
     //this function uses loads added components in their own thread.
     private void startThread(){
         Thread openStorageComponentFilesThread = new Thread(opener);
