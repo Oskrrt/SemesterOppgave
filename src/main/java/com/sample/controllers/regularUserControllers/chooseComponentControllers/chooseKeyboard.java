@@ -21,7 +21,8 @@ public class chooseKeyboard {
     private addAccessoriesController aac = new addAccessoriesController();
     @FXML
     private GridPane gp;
-
+    @FXML
+    private Label errorLbl;
     @FXML
     private Label caseLabel;
     @FXML
@@ -43,7 +44,9 @@ public class chooseKeyboard {
     }
 
     private void handleError(WorkerStateEvent workerStateEvent) {
-        Label errorPlaceholder = new Label("Could not retrieve saved cooling systems");
+        gp.setVisible(false);
+        String ex = workerStateEvent.getSource().getException().getMessage();
+        errorLbl.setText(ex);
     }
 
     private void handleSucceed(WorkerStateEvent workerStateEvent) {
