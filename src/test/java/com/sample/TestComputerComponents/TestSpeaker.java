@@ -1,7 +1,6 @@
 package com.sample.TestComputerComponents;
 
-import com.sample.BLL.InputValidation.ValidationException;
-import com.sample.Models.ComputerComponents.RAM;
+import com.sample.Exceptions.ValidationException;
 import com.sample.Models.ComputerComponents.Speaker;
 import org.junit.jupiter.api.Test;
 

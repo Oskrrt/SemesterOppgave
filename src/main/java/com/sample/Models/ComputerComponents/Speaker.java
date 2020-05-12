@@ -1,6 +1,6 @@
 package com.sample.Models.ComputerComponents;
 
-import com.sample.BLL.InputValidation.ValidationException;
+import com.sample.Exceptions.ValidationException;
 import javafx.beans.property.SimpleStringProperty;
 
 import java.io.IOException;

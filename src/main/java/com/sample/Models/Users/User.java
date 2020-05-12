@@ -1,6 +1,6 @@
 package com.sample.Models.Users;
 
-import com.sample.BLL.InputValidation.ValidationException;
+import com.sample.Exceptions.ValidationException;
 import com.sample.Models.Computer.Computer;
 import org.apache.commons.codec.digest.DigestUtils;
 

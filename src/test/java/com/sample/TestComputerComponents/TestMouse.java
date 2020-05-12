@@ -1,7 +1,6 @@
 package com.sample.TestComputerComponents;
 
-import com.sample.BLL.InputValidation.ValidationException;
-import com.sample.Models.ComputerComponents.Monitor;
+import com.sample.Exceptions.ValidationException;
 import com.sample.Models.ComputerComponents.Mouse;
 import org.junit.jupiter.api.Test;
 

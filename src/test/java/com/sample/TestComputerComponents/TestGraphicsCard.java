@@ -1,11 +1,8 @@
 package com.sample.TestComputerComponents;
 
-import com.sample.BLL.InputValidation.ValidationException;
-import com.sample.Models.ComputerComponents.Fan;
+import com.sample.Exceptions.ValidationException;
 import com.sample.Models.ComputerComponents.GraphicsCard;
 import org.junit.jupiter.api.Test;
-
-import java.awt.*;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;

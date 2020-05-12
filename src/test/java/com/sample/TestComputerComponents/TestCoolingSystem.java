@@ -1,6 +1,6 @@
 package com.sample.TestComputerComponents;
 
-import com.sample.BLL.InputValidation.ValidationException;
+import com.sample.Exceptions.ValidationException;
 import com.sample.Models.ComputerComponents.CoolingSystem;
 import org.junit.jupiter.api.Test;
 

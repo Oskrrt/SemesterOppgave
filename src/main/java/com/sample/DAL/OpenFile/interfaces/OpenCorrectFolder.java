@@ -1,6 +1,7 @@
 package com.sample.DAL.OpenFile.interfaces;
 
-import com.sample.BLL.InputValidation.ValidationException;
+import com.sample.Exceptions.InvalidFileDataException;
+import com.sample.Exceptions.ValidationException;
 import com.sample.Models.ComputerComponents.ComputerComponent;
 
 import java.io.IOException;
@@ -12,5 +13,5 @@ import java.util.List;
 //the right files are being read when trying to initiate their respective tableview. Because of this interface
 //we can simply call this.perform() in OpenAddedComponents, instead of having one read-method in every single class.
 public interface OpenCorrectFolder {
-    List<? extends ComputerComponent> perform() throws IOException, ValidationException, ClassNotFoundException;
+    List<? extends ComputerComponent> perform() throws IOException, ValidationException, ClassNotFoundException, InvalidFileDataException;
 }

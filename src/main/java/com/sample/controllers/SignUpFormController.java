@@ -1,7 +1,7 @@
 package com.sample.controllers;
 
 import com.sample.App;
-import com.sample.BLL.InputValidation.ValidationException;
+import com.sample.Exceptions.ValidationException;
 import com.sample.BLL.LoginLogic;
 import com.sample.DAL.SaveFile.SaveTxt;
 import com.sample.Models.Users.User;

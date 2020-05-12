@@ -31,4 +31,8 @@ public class AdminLogic {
     public static boolean editFileName(File originalFile, File newFile) {
         return UpdateJobj.editFilename(originalFile, newFile);
     }
+
+    public static void disableGUI(){
+
+    }
 }

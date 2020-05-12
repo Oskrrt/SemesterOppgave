@@ -1,7 +1,6 @@
 package com.sample.TestComputerComponents;
 
-import com.sample.BLL.InputValidation.ValidationException;
-import com.sample.Models.ComputerComponents.PowerSupply;
+import com.sample.Exceptions.ValidationException;
 import com.sample.Models.ComputerComponents.Processor;
 import org.junit.jupiter.api.Test;
 

@@ -3,7 +3,7 @@ package com.sample.controllers.addedComponentControllers;
 import com.sample.App;
 import com.sample.BLL.AdminLogic;
 import com.sample.BLL.ComponentDeleter;
-import com.sample.BLL.InputValidation.ValidationException;
+import com.sample.Exceptions.ValidationException;
 import com.sample.DAL.OpenFile.Subtypes.OpenAddedComponents;
 import com.sample.DAL.OpenFile.Subtypes.OpenRAM;
 import com.sample.Models.ComputerComponents.RAM;
@@ -11,6 +11,7 @@ import javafx.concurrent.WorkerStateEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.TextFieldTableCell;
+import javafx.scene.layout.AnchorPane;
 import javafx.util.converter.DoubleStringConverter;
 
 import java.io.File;
@@ -19,10 +20,9 @@ import java.util.List;
 import java.util.Optional;
 
 public class RAMViewController {
-    @FXML
-    private TableView<RAM> table;
-    @FXML
-    private TableColumn<RAM, Double> price;
+    @FXML private AnchorPane componentPane;
+    @FXML private TableView<RAM> table;
+    @FXML private TableColumn<RAM, Double> price;
     private OpenAddedComponents opener = new OpenRAM();
     private OpenAddedComponents deleter = new OpenRAM();
 
@@ -47,31 +47,33 @@ public class RAMViewController {
 
     //this function uses loads added components in their own thread.
     private void startThread(){
-        try {
-            Thread openCaseFilesThread = new Thread(opener);
-            opener.setOnSucceeded(this::handleSucceed);
-            opener.setOnFailed(this::handleError);
-            openCaseFilesThread.setDaemon(true);
-            openCaseFilesThread.start();
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        Thread openRAMFilesThread = new Thread(opener);
+        opener.setOnSucceeded(this::handleSucceed);
+        opener.setOnFailed(this::handleError);
+        openRAMFilesThread.setDaemon(true);
+        toggleGUIDisable();
+        openRAMFilesThread.start();
     }
 
-    //sets the table's placeholder text to an error message if something failed
+    private void toggleGUIDisable() {
+        componentPane.setDisable(!componentPane.isDisable());
+    }
+
+    //sets the table's placeholder text to an error message if something failed (most likely invalid data injected into a file)
     private void handleError(WorkerStateEvent workerStateEvent) {
-        Label errorPlaceholder = new Label("Could not retrieve saved RAM");
+        var exception = workerStateEvent.getSource().getException().getMessage();
+        Label errorPlaceholder = new Label("Could not retrieve saved RAMs, because" + exception);
         table.placeholderProperty().setValue(errorPlaceholder);
+        toggleGUIDisable();
     }
 
     //loads every added component to the tableview.
     private void handleSucceed(WorkerStateEvent workerStateEvent) {
         table.getItems().setAll((List<RAM>) opener.getValue());
+        toggleGUIDisable();
     }
 
     //back-button that loads the view where the user selects what added components to see
-
     @FXML
     private void viewSwapper(){
         try {
@@ -117,6 +119,7 @@ public class RAMViewController {
         deleter.setOnSucceeded(this::handleDeleteSucceed);
         deleter.setOnFailed(this::handleDeleteError);
         openFilesThread.setDaemon(true);
+        toggleGUIDisable();
         openFilesThread.start();
     }
 
@@ -130,11 +133,13 @@ public class RAMViewController {
         } catch (NullPointerException e){
             table.placeholderProperty().setValue(new Label("Something went wrong"));
         }
+        toggleGUIDisable();
     }
 
     private void handleDeleteError(WorkerStateEvent workerStateEvent) {
         Alert errorBox = new Alert(Alert.AlertType.ERROR);
         errorBox.setTitle("Something went wrong while deleting");
+        toggleGUIDisable();
     }
 
     //because of Java-FX's quirks, we needed a single function for every single tablecolumn that could be edited. All these functions

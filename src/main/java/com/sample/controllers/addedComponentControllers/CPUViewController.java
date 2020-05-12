@@ -3,7 +3,7 @@ package com.sample.controllers.addedComponentControllers;
 import com.sample.App;
 import com.sample.BLL.AdminLogic;
 import com.sample.BLL.ComponentDeleter;
-import com.sample.BLL.InputValidation.ValidationException;
+import com.sample.Exceptions.ValidationException;
 import com.sample.DAL.OpenFile.Subtypes.OpenAddedComponents;
 import com.sample.DAL.OpenFile.Subtypes.OpenCPUs;
 import com.sample.Models.ComputerComponents.Processor;
@@ -11,6 +11,7 @@ import javafx.concurrent.WorkerStateEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.TextFieldTableCell;
+import javafx.scene.layout.AnchorPane;
 import javafx.util.converter.DoubleStringConverter;
 
 import java.io.File;
@@ -19,6 +20,7 @@ import java.util.List;
 import java.util.Optional;
 
 public class CPUViewController {
+    @FXML private AnchorPane componentPane;
     @FXML
     private TableView<Processor> table;
     @FXML private TableColumn<Processor, Double> price;
@@ -47,27 +49,30 @@ public class CPUViewController {
 
     //this function loads added components in their own thread.
     private void startThread(){
-        try {
-            Thread openCaseFilesThread = new Thread(opener);
+            Thread openCPUFilesThread = new Thread(opener);
             opener.setOnSucceeded(this::handleSucceed);
             opener.setOnFailed(this::handleError);
-            openCaseFilesThread.setDaemon(true);
-            openCaseFilesThread.start();
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+            openCPUFilesThread.setDaemon(true);
+            toggleGUIDisable();
+            openCPUFilesThread.start();
     }
 
-    //sets the table's placeholder text to an error message if something failed
+    private void toggleGUIDisable() {
+        componentPane.setDisable(!componentPane.isDisable());
+    }
+
+    //sets the table's placeholder text to an error message if something failed (most likely invalid data injected into a file)
     private void handleError(WorkerStateEvent workerStateEvent) {
-        Label errorPlaceholder = new Label("Could not retrieve saved CPUs");
+        var exception = workerStateEvent.getSource().getException().getMessage();
+        Label errorPlaceholder = new Label("Could not retrieve saved CPUs, because" + exception);
         table.placeholderProperty().setValue(errorPlaceholder);
+        toggleGUIDisable();
     }
 
     //loads every added component to the tableview.
     private void handleSucceed(WorkerStateEvent workerStateEvent) {
         table.getItems().setAll((List<Processor>) opener.getValue());
+        toggleGUIDisable();
     }
 
     //back-button that loads the view where the user selects what added components to see
@@ -117,6 +122,7 @@ public class CPUViewController {
         deleter.setOnFailed(this::handleDeleteError);
         openFilesThread.setDaemon(true);
         openFilesThread.start();
+        toggleGUIDisable();
     }
 
     //resets the tableview so it only contains the components that are saved. Without this the deleted item would still appear.
@@ -129,12 +135,14 @@ public class CPUViewController {
         } catch (NullPointerException e){
             table.placeholderProperty().setValue(new Label("Something went wrong"));
         }
+        toggleGUIDisable();
     }
 
 
     private void handleDeleteError(WorkerStateEvent workerStateEvent) {
         Alert errorBox = new Alert(Alert.AlertType.ERROR);
         errorBox.setTitle("Something went wrong while deleting");
+        toggleGUIDisable();
     }
 
     //because of Java-FX's quirks, we needed a single function for every single tablecolumn that could be edited. All these functions

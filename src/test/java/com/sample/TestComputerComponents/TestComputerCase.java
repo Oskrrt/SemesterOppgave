@@ -1,9 +1,8 @@
 package com.sample.TestComputerComponents;
 import static org.junit.jupiter.api.Assertions.*;
 
-import com.sample.BLL.InputValidation.ValidationException;
+import com.sample.Exceptions.ValidationException;
 import com.sample.Models.ComputerComponents.Case;
-import com.sample.Models.ComputerComponents.CoolingSystem;
 import org.junit.jupiter.api.Test;
 
 class TestComputerCase {

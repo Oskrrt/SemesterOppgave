@@ -3,7 +3,7 @@ package com.sample.controllers.addedComponentControllers;
 import com.sample.App;
 import com.sample.BLL.AdminLogic;
 import com.sample.BLL.ComponentDeleter;
-import com.sample.BLL.InputValidation.ValidationException;
+import com.sample.Exceptions.ValidationException;
 import com.sample.DAL.OpenFile.Subtypes.OpenAddedComponents;
 import com.sample.DAL.OpenFile.Subtypes.OpenCases;
 import com.sample.Models.ComputerComponents.Case;
@@ -11,6 +11,7 @@ import javafx.concurrent.WorkerStateEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.TextFieldTableCell;
+import javafx.scene.layout.AnchorPane;
 import javafx.util.converter.DoubleStringConverter;
 
 import java.io.File;
@@ -19,6 +20,7 @@ import java.util.List;
 import java.util.Optional;
 
 public class caseViewController {
+    @FXML private AnchorPane componentPane;
     @FXML private TableView<Case> table;
     private OpenAddedComponents opener = new OpenCases();
     private OpenAddedComponents deleter = new OpenCases();
@@ -45,16 +47,16 @@ public class caseViewController {
 
     //this function uses loads added components in their own thread.
     private void startThread(){
-        try {
-            Thread openCaseFilesThread = new Thread(opener);
-            opener.setOnSucceeded(this::handleSucceed);
-            opener.setOnFailed(this::handleError);
-            openCaseFilesThread.setDaemon(true);
-            openCaseFilesThread.start();
+        Thread openCaseFilesThread = new Thread(opener);
+        opener.setOnSucceeded(this::handleSucceed);
+        opener.setOnFailed(this::handleError);
+        openCaseFilesThread.setDaemon(true);
+        toggleGUIDisable();
+        openCaseFilesThread.start();
+    }
 
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    private void toggleGUIDisable() {
+        componentPane.setDisable(!componentPane.isDisable());
     }
 
     //back-button that loads the view where the user selects what added components to see
@@ -68,20 +70,18 @@ public class caseViewController {
     }
 
 
-    //sets the table's placeholder text to an error message if something failed
+    //sets the table's placeholder text to an error message if something failed (most likely invalid data injected into a file)
     private void handleError(WorkerStateEvent workerStateEvent) {
-        Label errorPlaceholder = new Label("Could not retrieve saved cases");
+        var exception = workerStateEvent.getSource().getException().getMessage();
+        Label errorPlaceholder = new Label("Could not retrieve saved cases, because " + exception);
         table.placeholderProperty().setValue(errorPlaceholder);
+        toggleGUIDisable();
     }
 
     //loads every added component to the tableview.
     private void handleSucceed(WorkerStateEvent workerStateEvent) {
-        try{
-            table.getItems().setAll((List<Case>) opener.getValue());
-
-        } catch (NullPointerException e){
-            table.placeholderProperty().setValue(new Label("No cases saved"));
-        }
+        table.getItems().setAll((List<Case>) opener.getValue());
+        toggleGUIDisable();
     }
 
 
@@ -121,6 +121,7 @@ public class caseViewController {
             deleter.setOnSucceeded(this::handleDeleteSucceed);
             deleter.setOnFailed(this::handleDeleteError);
             openFilesThread.setDaemon(true);
+            toggleGUIDisable();
             openFilesThread.start();
     }
 
@@ -134,12 +135,14 @@ public class caseViewController {
         } catch (NullPointerException e){
             table.placeholderProperty().setValue(new Label("Something went wrong"));
         }
+        toggleGUIDisable();
     }
 
 
     private void handleDeleteError(WorkerStateEvent workerStateEvent) {
         Alert errorBox = new Alert(Alert.AlertType.ERROR);
         errorBox.setTitle("Something went wrong while deleting");
+        toggleGUIDisable();
     }
 
 

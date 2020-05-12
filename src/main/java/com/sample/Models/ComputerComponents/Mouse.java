@@ -1,9 +1,8 @@
 package com.sample.Models.ComputerComponents;
 
-import com.sample.BLL.InputValidation.ValidationException;
+import com.sample.Exceptions.ValidationException;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleStringProperty;
-import javafx.fxml.FXML;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;

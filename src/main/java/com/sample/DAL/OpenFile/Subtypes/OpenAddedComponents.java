@@ -1,27 +1,23 @@
 package com.sample.DAL.OpenFile.Subtypes;
 
-import com.sample.BLL.ComponentFactory;
-import com.sample.BLL.InputValidation.ValidationException;
+import com.sample.Exceptions.InvalidFileDataException;
+import com.sample.Exceptions.ValidationException;
 import com.sample.DAL.OpenFile.FileOpenerJobj;
-import com.sample.DAL.OpenFile.interfaces.OpenCorrectFolder;
-import com.sample.Models.Computer.Computer;
-import com.sample.Models.ComputerComponents.Case;
 import com.sample.Models.ComputerComponents.ComputerComponent;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.concurrent.Callable;
 
-//se the comment in the OpenCorrectFolder interface.
-public class OpenAddedComponents extends FileOpenerJobj {
+//see the comment in the OpenCorrectFolder interface for an explanation of what this file does.
+public class OpenAddedComponents extends FileOpenerJobj implements Callable<List<? extends ComputerComponent>>{
 
     @Override
-    protected List<? extends ComputerComponent> call() throws Exception {
+    public List<? extends ComputerComponent> call() throws InvalidFileDataException, IOException, ValidationException {
         return perform();
     }
 
-
-
-    public List<? extends ComputerComponent> perform() throws IOException, ValidationException, ClassNotFoundException {
+    public List<? extends ComputerComponent> perform() throws IOException, InvalidFileDataException, ValidationException {
         return this.perform();
     }
 

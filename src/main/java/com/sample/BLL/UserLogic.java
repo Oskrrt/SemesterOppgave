@@ -1,15 +1,10 @@
 package com.sample.BLL;
 
-import com.sample.App;
-import com.sample.BLL.InputValidation.ValidationException;
+import com.sample.Exceptions.InvalidFileDataException;
+import com.sample.Exceptions.ValidationException;
 import com.sample.Models.Computer.Computer;
 import com.sample.Models.ComputerComponents.ComputerComponent;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
+
 import java.io.IOException;
 import java.lang.reflect.*;
 import java.util.ArrayList;
@@ -18,7 +13,7 @@ import java.util.List;
 
 public class UserLogic {
 
-    private static List<ComputerComponent> getAllComponents(String type) throws IOException, ValidationException, ClassNotFoundException {
+    private static List<ComputerComponent> getAllComponents(String type) throws IOException, InvalidFileDataException, ValidationException {
         List<? extends ComputerComponent> list = new ArrayList<>();
         switch (type) {
             case "Case":

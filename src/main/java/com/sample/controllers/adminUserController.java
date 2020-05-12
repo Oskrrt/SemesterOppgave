@@ -3,7 +3,7 @@ package com.sample.controllers;
 import com.sample.App;
 import com.sample.BLL.AdminLogic;
 import com.sample.BLL.ComponentFactory;
-import com.sample.BLL.InputValidation.ValidationException;
+import com.sample.Exceptions.ValidationException;
 import com.sample.Models.ComputerComponents.*;
 import javafx.event.ActionEvent;
 import javafx.event.Event;

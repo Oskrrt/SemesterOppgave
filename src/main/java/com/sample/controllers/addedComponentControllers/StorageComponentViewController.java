@@ -3,15 +3,15 @@ package com.sample.controllers.addedComponentControllers;
 import com.sample.App;
 import com.sample.BLL.AdminLogic;
 import com.sample.BLL.ComponentDeleter;
-import com.sample.BLL.InputValidation.ValidationException;
+import com.sample.Exceptions.ValidationException;
 import com.sample.DAL.OpenFile.Subtypes.OpenAddedComponents;
 import com.sample.DAL.OpenFile.Subtypes.OpenStorageComponents;
-import com.sample.Models.ComputerComponents.Case;
 import com.sample.Models.ComputerComponents.StorageComponent;
 import javafx.concurrent.WorkerStateEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.TextFieldTableCell;
+import javafx.scene.layout.AnchorPane;
 import javafx.util.converter.DoubleStringConverter;
 
 import java.io.File;
@@ -20,13 +20,12 @@ import java.util.List;
 import java.util.Optional;
 
 public class StorageComponentViewController {
-
-    @FXML
-    public TableView<StorageComponent> table;
+    @FXML private AnchorPane componentPane;
+    @FXML public TableView<StorageComponent> table;
     private OpenAddedComponents opener = new OpenStorageComponents();
     private OpenAddedComponents deleter = new OpenStorageComponents();
 
-    @FXML private TableColumn<Case, Double> price;
+    @FXML private TableColumn<StorageComponent, Double> price;
 
     //this function sets the tableview as editable, sets a cellfactory for price, as we need to handle exceptions if
     //somebody writes something that won't parse from text to double.
@@ -44,32 +43,34 @@ public class StorageComponentViewController {
             }
         }));
         startThread();
-
     }
 
     //this function uses loads added components in their own thread.
     private void startThread(){
-        try {
-            Thread openCaseFilesThread = new Thread(opener);
-            opener.setOnSucceeded(this::handleSucceed);
-            opener.setOnFailed(this::handleError);
-            openCaseFilesThread.setDaemon(true);
-            openCaseFilesThread.start();
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        Thread openStorageComponentFilesThread = new Thread(opener);
+        opener.setOnSucceeded(this::handleSucceed);
+        opener.setOnFailed(this::handleError);
+        openStorageComponentFilesThread.setDaemon(true);
+        toggleGUIDisable();
+        openStorageComponentFilesThread.start();
     }
 
-    //sets the table's placeholder text to an error message if something failed
+    private void toggleGUIDisable() {
+        componentPane.setDisable(!componentPane.isDisable());
+    }
+
+    //sets the table's placeholder text to an error message if something failed (most likely invalid data injected into a file)
     private void handleError(WorkerStateEvent workerStateEvent) {
-        Label errorPlaceholder = new Label("Could not retrieve saved storage components");
+        var exception = workerStateEvent.getSource().getException().getMessage();
+        Label errorPlaceholder = new Label("Could not retrieve saved storage components, because" + exception);
         table.placeholderProperty().setValue(errorPlaceholder);
+        toggleGUIDisable();
     }
 
     //loads every added component to the tableview.
     private void handleSucceed(WorkerStateEvent workerStateEvent) {
         table.getItems().setAll((List<StorageComponent>) opener.getValue());
+        toggleGUIDisable();
     }
 
     //back-button that loads the view where the user selects what added components to see
@@ -118,6 +119,7 @@ public class StorageComponentViewController {
         deleter.setOnSucceeded(this::handleDeleteSucceed);
         deleter.setOnFailed(this::handleDeleteError);
         openFilesThread.setDaemon(true);
+        toggleGUIDisable();
         openFilesThread.start();
     }
 
@@ -131,11 +133,13 @@ public class StorageComponentViewController {
         } catch (NullPointerException e){
             table.placeholderProperty().setValue(new Label("Something went wrong"));
         }
+        toggleGUIDisable();
     }
 
     private void handleDeleteError(WorkerStateEvent workerStateEvent) {
         Alert errorBox = new Alert(Alert.AlertType.ERROR);
         errorBox.setTitle("Something went wrong while deleting");
+        toggleGUIDisable();
     }
 
     //because of Java-FX's quirks, we needed a single function for every single tablecolumn that could be edited. All these functions

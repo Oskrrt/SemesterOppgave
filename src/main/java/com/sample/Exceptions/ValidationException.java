@@ -1,4 +1,4 @@
-package com.sample.BLL.InputValidation;
+package com.sample.Exceptions;
 
 public class ValidationException extends Exception{
     public ValidationException(String msg){

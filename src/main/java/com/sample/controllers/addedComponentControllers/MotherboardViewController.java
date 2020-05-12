@@ -3,7 +3,7 @@ package com.sample.controllers.addedComponentControllers;
 import com.sample.App;
 import com.sample.BLL.AdminLogic;
 import com.sample.BLL.ComponentDeleter;
-import com.sample.BLL.InputValidation.ValidationException;
+import com.sample.Exceptions.ValidationException;
 import com.sample.DAL.OpenFile.Subtypes.OpenAddedComponents;
 import com.sample.DAL.OpenFile.Subtypes.OpenMotherBoards;
 import com.sample.Models.ComputerComponents.Motherboard;
@@ -11,6 +11,7 @@ import javafx.concurrent.WorkerStateEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.TextFieldTableCell;
+import javafx.scene.layout.AnchorPane;
 import javafx.util.converter.DoubleStringConverter;
 
 import java.io.File;
@@ -19,6 +20,7 @@ import java.util.List;
 import java.util.Optional;
 
 public class MotherboardViewController {
+    @FXML private AnchorPane componentPane;
     @FXML private TableView<Motherboard> table;
     @FXML private TableColumn<Motherboard, Double> price;
     private OpenAddedComponents opener = new OpenMotherBoards();
@@ -45,27 +47,30 @@ public class MotherboardViewController {
 
     //this function uses loads added components in their own thread.
     private void startThread(){
-        try {
-            Thread openCaseFilesThread = new Thread(opener);
-            opener.setOnSucceeded(this::handleSucceed);
-            opener.setOnFailed(this::handleError);
-            openCaseFilesThread.setDaemon(true);
-            openCaseFilesThread.start();
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        Thread openMotherboardFilesThread = new Thread(opener);
+        opener.setOnSucceeded(this::handleSucceed);
+        opener.setOnFailed(this::handleError);
+        openMotherboardFilesThread.setDaemon(true);
+        toggleGUIDisable();
+        openMotherboardFilesThread.start();
     }
 
-    //sets the table's placeholder text to an error message if something failed
+    private void toggleGUIDisable() {
+        componentPane.setDisable(!componentPane.isDisable());
+    }
+
+    //sets the table's placeholder text to an error message if something failed (most likely invalid data injected into a file)
     private void handleError(WorkerStateEvent workerStateEvent) {
-        Label errorPlaceholder = new Label("Could not retrieve saved motherboards");
+        var exception = workerStateEvent.getSource().getException().getMessage();
+        Label errorPlaceholder = new Label("Could not retrieve saved motherboards, because" + exception);
         table.placeholderProperty().setValue(errorPlaceholder);
+        toggleGUIDisable();
     }
 
     //loads every added component to the tableview.
     private void handleSucceed(WorkerStateEvent workerStateEvent) {
         table.getItems().setAll((List<Motherboard>) opener.getValue());
+        toggleGUIDisable();
     }
 
     @FXML
@@ -113,6 +118,7 @@ public class MotherboardViewController {
         deleter.setOnSucceeded(this::handleDeleteSucceed);
         deleter.setOnFailed(this::handleDeleteError);
         openFilesThread.setDaemon(true);
+        toggleGUIDisable();
         openFilesThread.start();
     }
 
@@ -126,11 +132,13 @@ public class MotherboardViewController {
         } catch (NullPointerException e){
             table.placeholderProperty().setValue(new Label("Something went wrong"));
         }
+        toggleGUIDisable();
     }
 
     private void handleDeleteError(WorkerStateEvent workerStateEvent) {
         Alert errorBox = new Alert(Alert.AlertType.ERROR);
         errorBox.setTitle("Something went wrong while deleting");
+        toggleGUIDisable();
     }
 
     //because of Java-FX's quirks, we needed a single function for every single tablecolumn that could be edited. All these functions

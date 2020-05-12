@@ -1,12 +1,11 @@
 package com.sample.controllers;
 
 import com.sample.App;
-import com.sample.BLL.InputValidation.ValidationException;
+import com.sample.Exceptions.ValidationException;
 import com.sample.BLL.LoginLogic;
 import com.sample.DAL.SaveFile.SaveTxt;
 import com.sample.Models.Users.Admin;
 import com.sample.Models.Users.User;
-import com.sample.controllers.signInController;
 import javafx.concurrent.WorkerStateEvent;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
