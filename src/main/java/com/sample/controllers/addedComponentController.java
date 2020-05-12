@@ -11,23 +11,22 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-/*
+/**
 this controller is basically just a middle-man between adminUserController and every single addedComponentController.
 We originally planned on only using this controller for showing all added components, but as we wanted a single
 view for every table, this provided NullReferenceExceptions every time we swapped views. The solution was to create
-a single controller for every view. You'll find each controller in com/sample/controllers/addedComponentControllers/*
-
+a single controller for every view. You'll find each controller in com/sample/controllers/addedComponentControllers.
 */
 public class addedComponentController extends adminUserController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         //remove comment if you need to initialize all components.
-//        try {
-//            init.initFiles();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
+        try {
+            init.initFiles();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML

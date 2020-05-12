@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.control.cell.TextFieldTableCell?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.control.cell.TextFieldTableCell ?>
 
 <AnchorPane fx:id="componentPane" prefHeight="900.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sample.controllers.addedComponentControllers.MotherboardViewController">
    <children>
@@ -19,7 +21,7 @@
       </Label>
       <TableView fx:id="table" layoutX="14.0" layoutY="216.0" prefHeight="618.0" prefWidth="1118.0">
          <columns>
-            <TableColumn fx:id="description" prefWidth="75.0" onEditCommit="#editDescription" text="Description">
+            <TableColumn fx:id="description" onEditCommit="#editDescription" prefWidth="75.0" text="Description">
                <cellValueFactory>
                   <PropertyValueFactory property="description" />
                </cellValueFactory>
@@ -27,12 +29,12 @@
                   <TextFieldTableCell fx:factory="forTableColumn" />
                </cellFactory>
             </TableColumn>
-            <TableColumn prefWidth="75.0" text="Price" fx:id="price" onEditCommit="#editPrice">
+            <TableColumn fx:id="price" onEditCommit="#editPrice" prefWidth="75.0" text="Price">
                <cellValueFactory>
                   <PropertyValueFactory property="price" />
                </cellValueFactory>
             </TableColumn>
-            <TableColumn prefWidth="75.0" onEditCommit="#editName" text="Name">
+            <TableColumn onEditCommit="#editName" prefWidth="75.0" text="Name">
                <cellValueFactory>
                   <PropertyValueFactory property="productName" />
                </cellValueFactory>
@@ -40,7 +42,7 @@
                   <TextFieldTableCell fx:factory="forTableColumn" />
                </cellFactory>
             </TableColumn>
-            <TableColumn prefWidth="75.0" text="Manufacturer" onEditCommit="#editManufacturer">
+            <TableColumn onEditCommit="#editManufacturer" prefWidth="75.0" text="Manufacturer">
                <cellValueFactory>
                   <PropertyValueFactory property="productionCompany" />
                </cellValueFactory>
@@ -48,7 +50,7 @@
                   <TextFieldTableCell fx:factory="forTableColumn" />
                </cellFactory>
             </TableColumn>
-            <TableColumn prefWidth="75.0" text="Serial number" onEditCommit="#editSerialNumber">
+            <TableColumn onEditCommit="#editSerialNumber" prefWidth="75.0" text="Serial number">
                <cellValueFactory>
                   <PropertyValueFactory property="serialNumber" />
                </cellValueFactory>
@@ -56,7 +58,7 @@
                   <TextFieldTableCell fx:factory="forTableColumn" />
                </cellFactory>
             </TableColumn>
-            <TableColumn prefWidth="153.0" text="CPU support" onEditCommit="#editCPUSupport">
+            <TableColumn onEditCommit="#editCPUSupport" prefWidth="153.0" text="CPU support">
                <cellValueFactory>
                   <PropertyValueFactory property="CPUSupport" />
                </cellValueFactory>
@@ -64,7 +66,7 @@
                   <TextFieldTableCell fx:factory="forTableColumn" />
                </cellFactory>
             </TableColumn>
-            <TableColumn prefWidth="95.0" text="Memory type" onEditCommit="#editMemoryType">
+            <TableColumn onEditCommit="#editMemoryType" prefWidth="95.0" text="Memory type">
                <cellValueFactory>
                   <PropertyValueFactory property="memoryType" />
                </cellValueFactory>
@@ -72,7 +74,7 @@
                   <TextFieldTableCell fx:factory="forTableColumn" />
                </cellFactory>
             </TableColumn>
-            <TableColumn prefWidth="75.0" text="DIMMs" onEditCommit="#editMemoryDIMMs">
+            <TableColumn onEditCommit="#editMemoryDIMMs" prefWidth="75.0" text="DIMMs">
                <cellValueFactory>
                   <PropertyValueFactory property="memoryDIMMs" />
                </cellValueFactory>
@@ -80,7 +82,7 @@
                   <TextFieldTableCell fx:factory="forTableColumn" />
                </cellFactory>
             </TableColumn>
-            <TableColumn prefWidth="75.0" text="Graphics interface" onEditCommit="#editGraphicsInterface">
+            <TableColumn onEditCommit="#editGraphicsInterface" prefWidth="75.0" text="Graphics interface">
                <cellValueFactory>
                   <PropertyValueFactory property="graphicInterface" />
                </cellValueFactory>
@@ -88,7 +90,7 @@
                   <TextFieldTableCell fx:factory="forTableColumn" />
                </cellFactory>
             </TableColumn>
-            <TableColumn prefWidth="75.0" text="Expansion slots" onEditCommit="#editExpansionSlots">
+            <TableColumn onEditCommit="#editExpansionSlots" prefWidth="75.0" text="Expansion slots">
                <cellValueFactory>
                   <PropertyValueFactory property="expansionSlots" />
                </cellValueFactory>
@@ -96,7 +98,7 @@
                   <TextFieldTableCell fx:factory="forTableColumn" />
                </cellFactory>
             </TableColumn>
-            <TableColumn prefWidth="75.0" text="M2 slot" onEditCommit="#editM2slot">
+            <TableColumn onEditCommit="#editM2slot" prefWidth="75.0" text="M2 slot">
                <cellValueFactory>
                   <PropertyValueFactory property="m2Slot" />
                </cellValueFactory>
@@ -104,7 +106,7 @@
                   <TextFieldTableCell fx:factory="forTableColumn" />
                </cellFactory>
             </TableColumn>
-            <TableColumn prefWidth="75.0" text="Display interface" onEditCommit="#editDisplayInterface">
+            <TableColumn onEditCommit="#editDisplayInterface" prefWidth="75.0" text="Display interface">
                <cellValueFactory>
                   <PropertyValueFactory property="displayInterface" />
                </cellValueFactory>
@@ -112,7 +114,7 @@
                   <TextFieldTableCell fx:factory="forTableColumn" />
                </cellFactory>
             </TableColumn>
-            <TableColumn prefWidth="75.0" text="WIFI" onEditCommit="#editWIFI">
+            <TableColumn onEditCommit="#editWIFI" prefWidth="75.0" text="WIFI">
                <cellValueFactory>
                   <PropertyValueFactory property="WIFI" />
                </cellValueFactory>
@@ -120,7 +122,7 @@
                   <TextFieldTableCell fx:factory="forTableColumn" />
                </cellFactory>
             </TableColumn>
-            <TableColumn prefWidth="75.0" text="Audio" onEditCommit="#editAudio">
+            <TableColumn onEditCommit="#editAudio" prefWidth="75.0" text="Audio">
                <cellValueFactory>
                   <PropertyValueFactory property="audio" />
                </cellValueFactory>
@@ -128,7 +130,7 @@
                   <TextFieldTableCell fx:factory="forTableColumn" />
                </cellFactory>
             </TableColumn>
-            <TableColumn prefWidth="75.0" text="Form factor" onEditCommit="#editFormFactor">
+            <TableColumn onEditCommit="#editFormFactor" prefWidth="75.0" text="Form factor">
                <cellValueFactory>
                   <PropertyValueFactory property="formFactor" />
                </cellValueFactory>
@@ -142,5 +144,7 @@
          </columnResizePolicy>
       </TableView>
       <Button layoutX="1007.0" layoutY="135.0" mnemonicParsing="false" onAction="#deleteMotherboard" prefHeight="46.0" prefWidth="125.0" text="Delete selected" />
+      <TextField fx:id="querySearch" layoutX="647.0" layoutY="152.0" onMouseClicked="#startSearch" prefHeight="29.0" prefWidth="342.0" promptText="Search.." style="-fx-border-color: black; fx-background-radius: 5;" />
+      <ChoiceBox fx:id="filter" layoutX="862.0" layoutY="152.0" prefHeight="29.0" prefWidth="126.0" style="-fx-background-color: white; -fx-border-color: black;" />
    </children>
 </AnchorPane>

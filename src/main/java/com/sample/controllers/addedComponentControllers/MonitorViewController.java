@@ -6,6 +6,7 @@ import com.sample.BLL.ComponentDeleter;
 import com.sample.Exceptions.ValidationException;
 import com.sample.DAL.OpenFile.Subtypes.OpenAddedComponents;
 import com.sample.DAL.OpenFile.Subtypes.OpenMonitors;
+import com.sample.Models.ComputerComponents.Case;
 import com.sample.Models.ComputerComponents.Monitor;
 import javafx.concurrent.WorkerStateEvent;
 import javafx.fxml.FXML;
@@ -18,6 +19,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 public class MonitorViewController {
     @FXML
@@ -28,12 +30,17 @@ public class MonitorViewController {
     private TableColumn<Monitor, Double> price;
     private OpenAddedComponents opener = new OpenMonitors();
     private OpenAddedComponents deleter = new OpenMonitors();
+    @FXML private ChoiceBox<String> filter;
+    @FXML private TextField querySearch;
 
     //this function sets the tableview as editable, sets a cellfactory for price, as we need to handle exceptions if
     //somebody writes something that won't parse from text to double.
     //finally it starts the thread responsible for loading all added components to the view's tableview.
     public void initialize() {
         table.setEditable(true);
+        filter.getItems().add("Name");
+        filter.getItems().add("Serial number");
+        filter.getSelectionModel().selectFirst();
         price.setCellFactory(TextFieldTableCell.forTableColumn(new DoubleStringConverter(){
             @Override
             public Double fromString(String s) {
@@ -145,6 +152,31 @@ public class MonitorViewController {
         toggleGUIDisable();
     }
 
+    private void search(String query) {
+        List<Monitor> newList;
+        try{
+            List<Monitor> listToSearch = (List<Monitor>) opener.perform();
+            table.getItems().clear();
+            switch (filter.getValue()){
+                case "Name":
+                    newList = listToSearch.stream().filter(c -> c.getProductName().toLowerCase().contains(query.toLowerCase())).collect(Collectors.toList());
+                    table.getItems().addAll(newList);
+                    break;
+                case "Serial number":
+                    newList = listToSearch.stream().filter(c -> c.getSerialNumber().toLowerCase().contains(query.toLowerCase())).collect(Collectors.toList());
+                    table.getItems().addAll(newList);
+            }
+        } catch (IOException | ValidationException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void startSearch(){
+        querySearch.textProperty().addListener((observable, oldText, newText) -> {
+            search(newText);
+        });
+    }
     //because of Java-FX's quirks, we needed a single function for every single tablecolumn that could be edited. All these functions
     //perform the same task, which is:
     // - get a hold of the original value of the edited tablecell

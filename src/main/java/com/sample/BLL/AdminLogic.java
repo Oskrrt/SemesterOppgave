@@ -3,9 +3,13 @@ package com.sample.BLL;
 import com.sample.App;
 import com.sample.DAL.SaveFile.FileSaver;
 import com.sample.DAL.UpdateFile.UpdateJobj;
+import com.sample.Exceptions.ValidationException;
 import com.sample.Models.ComputerComponents.*;
 
 import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 
 public class AdminLogic {
@@ -32,7 +36,7 @@ public class AdminLogic {
         return UpdateJobj.editFilename(originalFile, newFile);
     }
 
-    public static void disableGUI(){
 
-    }
+
+
 }
