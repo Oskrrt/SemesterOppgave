@@ -52,6 +52,7 @@ public class caseViewController {
         opener.setOnFailed(this::handleError);
         openCaseFilesThread.setDaemon(true);
         toggleGUIDisable();
+
         openCaseFilesThread.start();
     }
 
@@ -74,6 +75,7 @@ public class caseViewController {
     private void handleError(WorkerStateEvent workerStateEvent) {
         var exception = workerStateEvent.getSource().getException().getMessage();
         Label errorPlaceholder = new Label("Could not retrieve saved cases, because " + exception);
+        errorPlaceholder.setWrapText(true);
         table.placeholderProperty().setValue(errorPlaceholder);
         toggleGUIDisable();
     }

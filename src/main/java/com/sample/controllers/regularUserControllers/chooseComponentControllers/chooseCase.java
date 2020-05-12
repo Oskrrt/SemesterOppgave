@@ -21,7 +21,7 @@ public class chooseCase {
     private buildComputerController bc = new buildComputerController();
     @FXML
     private GridPane gp;
-
+    @FXML private Label errorLbl;
     @FXML
     private Label caseLabel;
     @FXML
@@ -45,8 +45,9 @@ public class chooseCase {
 
 
     private void handleError(WorkerStateEvent workerStateEvent) {
-        Label errorPlaceholder = new Label("Could not retrieve saved cases");
-        System.out.println("RIP");
+        gp.setVisible(false);
+        String ex = workerStateEvent.getSource().getException().getMessage();
+        errorLbl.setText(ex);
     }
 
     private void handleSucceed(WorkerStateEvent workerStateEvent) {

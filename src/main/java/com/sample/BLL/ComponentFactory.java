@@ -232,7 +232,7 @@ public class ComponentFactory {
             } catch (ClassNotFoundException e) {
                 e.printStackTrace();
             } catch (IOException e) {
-                throw new StreamCorruptedException(invalidFile+" has been injected with invalid data.");
+                throw new StreamCorruptedException(invalidFile+" has been injected with invalid data. Please reinstall the program or contact support");
             }
         }
         return allCases;
@@ -254,7 +254,7 @@ public class ComponentFactory {
             } catch (ClassNotFoundException e) {
                 e.printStackTrace();
             } catch (IOException e) {
-                throw new InvalidFileDataException(invalidFile+" has been injected with invalid data.");
+                throw new InvalidFileDataException(invalidFile+" has been injected with invalid data. Please reinstall the program or contact support");
             } catch (ValidationException e) {
                 throw new ValidationException(e.getMessage());
             }
@@ -278,7 +278,7 @@ public class ComponentFactory {
             } catch (ValidationException e) {
                 throw new ValidationException(e.getMessage());
             } catch (IOException e){
-                throw new InvalidFileDataException(invalidFile+" has been injected with invalid data.");
+                throw new InvalidFileDataException(invalidFile+" has been injected with invalid data. Please reinstall the program or contact support");
             }
         }
         return allGPUs;
@@ -301,7 +301,7 @@ public class ComponentFactory {
             } catch (ValidationException e) {
                 throw new ValidationException(e.getMessage());
             } catch (IOException e){
-                throw new InvalidFileDataException(invalidFile+" has been injected with invalid data.");
+                throw new InvalidFileDataException(invalidFile+" has been injected with invalid data. Please reinstall the program or contact support");
             }
         }
         return allKeyboards;
@@ -324,7 +324,7 @@ public class ComponentFactory {
             } catch (ValidationException e) {
                 throw new ValidationException(e.getMessage());
             } catch (IOException e){
-                throw new InvalidFileDataException(invalidFile+" has been injected with invalid data.");
+                throw new InvalidFileDataException(invalidFile+" has been injected with invalid data. Please reinstall the program or contact support");
             }
         }
         return allMice;
@@ -347,7 +347,7 @@ public class ComponentFactory {
             } catch (ValidationException e) {
                 throw new ValidationException(e.getMessage());
             } catch (IOException e){
-                throw new InvalidFileDataException(invalidFile+" has been injected with invalid data.");
+                throw new InvalidFileDataException(invalidFile+" has been injected with invalid data. Please reinstall the program or contact support");
             }
         }
         return allMonitors;
@@ -370,7 +370,7 @@ public class ComponentFactory {
             } catch (ValidationException e) {
                 throw new ValidationException(e.getMessage());
             } catch (IOException e){
-                throw new InvalidFileDataException(invalidFile+" has been injected with invalid data.");
+                throw new InvalidFileDataException(invalidFile+" has been injected with invalid data. Please reinstall the program or contact support");
             }
         }
         return allMotherBoards;
@@ -393,7 +393,7 @@ public class ComponentFactory {
             } catch (ValidationException e) {
                 throw new ValidationException(e.getMessage());
             } catch (IOException e){
-                throw new InvalidFileDataException(invalidFile+" has been injected with invalid data.");
+                throw new InvalidFileDataException(invalidFile+" has been injected with invalid data. Please reinstall the program or contact support");
             }
         }
         return allPowerSupplies;
@@ -417,7 +417,7 @@ public class ComponentFactory {
             } catch (ValidationException e) {
                 throw new ValidationException(e.getMessage());
             } catch (IOException e){
-                throw new InvalidFileDataException(invalidFile+" has been injected with invalid data.");
+                throw new InvalidFileDataException(invalidFile+" has been injected with invalid data. Please reinstall the program or contact support");
             }
         }
         return allCPUs;
@@ -440,7 +440,7 @@ public class ComponentFactory {
             } catch (ValidationException e) {
                 throw new ValidationException(e.getMessage());
             } catch (IOException e){
-                throw new InvalidFileDataException(invalidFile+" has been injected with invalid data.");
+                throw new InvalidFileDataException(invalidFile+" has been injected with invalid data. Please reinstall the program or contact support");
             }
         }
         return allRAMs;
@@ -463,7 +463,7 @@ public class ComponentFactory {
             } catch (ValidationException e) {
                 throw new ValidationException(e.getMessage());
             } catch (IOException e){
-                throw new InvalidFileDataException(invalidFile+" has been injected with invalid data.");
+                throw new InvalidFileDataException(invalidFile+" has been injected with invalid data. Please reinstall the program or contact support");
             }
         }
         return allSpeakers;
@@ -486,7 +486,7 @@ public class ComponentFactory {
             } catch (ValidationException e) {
                 throw new ValidationException(e.getMessage());
             } catch (IOException e){
-                throw new InvalidFileDataException(invalidFile+" has been injected with invalid data.");
+                throw new InvalidFileDataException(invalidFile+" has been injected with invalid data. Please reinstall the program or contact support");
             }
         }
         return allStorageComponents;

@@ -48,7 +48,7 @@
                         <Label fx:id="lblManufacturer" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="56.0" prefHeight="17.0" prefWidth="64.0" />
                         <Label fx:id="lblSerialNumber" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="73.0" prefHeight="17.0" prefWidth="64.0" />
                         <Label fx:id="lblDescription" layoutX="17.0" layoutY="102.0" prefHeight="89.0" prefWidth="255.0" wrapText="true" />
-                        <Button layoutX="207.0" layoutY="202.0" mnemonicParsing="false" onAction="#chooseComponent" prefHeight="33.0" prefWidth="67.0" style="-fx-background-color: green;" text="Choose" textFill="WHITE">
+                        <Button layoutX="207.0" layoutY="202.0" mnemonicParsing="false" onAction="#chooseComponent" style="-fx-background-color: green;" text="Choose" textFill="WHITE">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
@@ -276,7 +276,7 @@
                   </AnchorPane>
                </children>
             </GridPane>
-            <Button layoutX="33.0" layoutY="21.0" mnemonicParsing="false" onAction="#back" prefHeight="25.0" prefWidth="46.0" text="Back" />
+            <Button layoutX="33.0" layoutY="21.0" mnemonicParsing="false" onAction="#back" text="Back" />
          </children>
       </AnchorPane>
    </content>

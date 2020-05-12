@@ -1,7 +1,9 @@
 package com.sample.Exceptions;
 
-public class InvalidFileDataException extends Exception {
+import java.io.IOException;
+
+public class InvalidFileDataException extends IOException {
     public InvalidFileDataException(String msg){
-        super(msg);
+        super(msg + "please reinstall the program or contact support help desk");
     }
 }
