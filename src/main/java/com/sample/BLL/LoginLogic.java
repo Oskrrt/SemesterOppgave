@@ -1,20 +1,9 @@
 package com.sample.BLL;
 
 import com.sample.DAL.OpenFile.OpenTxt;
-import com.sample.DAL.SaveFile.SaveTxt;
-import com.sample.Models.ComputerComponents.ComputerComponent;
-import com.sample.Models.Users.Admin;
 import com.sample.Models.Users.User;
-import com.sample.controllers.regularUserController;
-import com.sample.controllers.signInController;
-import javafx.event.ActionEvent;
-import javafx.geometry.Insets;
-import javafx.geometry.Pos;
+import com.sample.controllers.regularUserControllers.regularUserController;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.HBox;
-import javafx.stage.Stage;
 import org.apache.commons.codec.digest.DigestUtils;
 
 import java.io.IOException;

@@ -1,9 +1,9 @@
-package com.sample.controllers.chooseComponentControllers;
+package com.sample.controllers.regularUserControllers.chooseComponentControllers;
 
 import com.sample.App;
 import com.sample.DAL.OpenFile.Subtypes.OpenCases;
 import com.sample.Models.ComputerComponents.Case;
-import com.sample.controllers.buildComputerController;
+import com.sample.controllers.regularUserControllers.buildComputerController;
 import javafx.concurrent.WorkerStateEvent;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -26,7 +26,7 @@ public class chooseCase {
     private Label caseLabel;
     @FXML
     void back(ActionEvent event) throws IOException {
-        App.changeView("/fxml/buildComputer.fxml", 0 ,0);
+        App.changeView("/fxml/BuildComputer/buildComputer.fxml", 0 ,0);
     }
     private OpenCases opener = new OpenCases();
 
@@ -54,18 +54,18 @@ public class chooseCase {
         // Makes all the product containers invisible, sets each one visible later depending on whether they have a component to showcase or not
         for (int i = 0; i < gp.getChildren().size(); i++) {
            gp.getChildren().get(i).setVisible(false);
+           gp.getChildren().get(i).setStyle("-fx-border-color: black");
         }
         placeComponentInfo(allCases);
     }
 
     @FXML
     void chooseComponent(ActionEvent event) throws IOException {
-        String idOfClickedLabel = ((Control)event.getSource()).getId();
         Parent p = ((Control) event.getSource()).getParent();
         List<Node> ContainerContent = p.getChildrenUnmodifiable();
-        String[] priceWithoutKr = ((Label)ContainerContent.get(8)).getText().split(" ");
+        String[] priceWithoutDollar = ((Label)ContainerContent.get(8)).getText().split(" ");
         String productName = ((Label)ContainerContent.get(0)).getText();
-        String price = priceWithoutKr[0];
+        String price = priceWithoutDollar[1];
         String usbPorts = ((Label)ContainerContent.get(9)).getText();
         String hdAudioJacks = ((Label)ContainerContent.get(10)).getText();
         String widthCm = ((Label)ContainerContent.get(11)).getText();
@@ -77,7 +77,7 @@ public class chooseCase {
         try {
             Case chosenCase = new Case(usbPorts, hdAudioJacks, widthCm, heightCm, depthCm, Double.parseDouble(price), description, productName, manufacturer, serialNumber);
             bc.updateComputer(chosenCase);
-            App.changeView("/fxml/buildComputer.fxml", 0,0);
+            App.changeView("/fxml/BuildComputer/buildComputer.fxml", 0,0);
         } catch (NumberFormatException e) {
             e.printStackTrace();
         }
@@ -90,7 +90,7 @@ public class chooseCase {
         for (int i = 0; i < cases.size(); i++) {
             productContainers.get(i).setVisible(true);
             ((Label)((AnchorPane)productContainers.get(i)).getChildren().get(0)).setText(cases.get(i).getProductName());
-            ((Label)((AnchorPane)productContainers.get(i)).getChildren().get(8)).setText(String.valueOf(cases.get(i).getPrice())+" kr");
+            ((Label)((AnchorPane)productContainers.get(i)).getChildren().get(8)).setText("$ "+cases.get(i).getPrice());
             ((Label)((AnchorPane)productContainers.get(i)).getChildren().get(9)).setText(cases.get(i).getNumberOfUSBPorts());
             ((Label)((AnchorPane)productContainers.get(i)).getChildren().get(10)).setText(cases.get(i).getHDAudioJacks());
             ((Label)((AnchorPane)productContainers.get(i)).getChildren().get(11)).setText(cases.get(i).getWidthCM());

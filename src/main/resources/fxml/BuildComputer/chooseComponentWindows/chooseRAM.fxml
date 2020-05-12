@@ -10,16 +10,16 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<ScrollPane hbarPolicy="NEVER" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sample.controllers.chooseComponentControllers.chooseRam">
+<ScrollPane hbarPolicy="NEVER" prefWidth="1157.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sample.controllers.regularUserControllers.chooseComponentControllers.chooseRam">
    <content>
       <AnchorPane prefHeight="800.0" prefWidth="1000.0">
          <children>
-            <Label fx:id="lblHeader" alignment="CENTER" layoutX="74.0" layoutY="21.0" prefHeight="65.0" prefWidth="354.0" text="RAM">
+            <Label fx:id="lblHeader" alignment="CENTER" layoutX="94.0" layoutY="1.0" prefHeight="65.0" prefWidth="152.0" text="RAM">
                <font>
                   <Font size="40.0" />
                </font>
             </Label>
-            <GridPane fx:id="gp" alignment="CENTER" hgap="50.0" layoutX="33.0" layoutY="96.0" prefHeight="787.0" prefWidth="959.0" vgap="30.0">
+            <GridPane fx:id="gp" alignment="CENTER" hgap="50.0" layoutX="112.0" layoutY="82.0" prefHeight="787.0" prefWidth="959.0" vgap="30.0">
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />

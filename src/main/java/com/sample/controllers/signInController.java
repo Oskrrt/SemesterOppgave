@@ -42,7 +42,7 @@ public class signInController {
     private Label lblFailedSignIn;
     private static User loggedInUser;
 
-    protected static User getLoggedInUser() {
+    public static User getLoggedInUser() {
         return loggedInUser;
     }
 

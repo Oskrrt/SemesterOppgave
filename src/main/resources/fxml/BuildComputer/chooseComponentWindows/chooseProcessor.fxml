@@ -10,16 +10,16 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<ScrollPane hbarPolicy="NEVER" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sample.controllers.chooseComponentControllers.chooseCoolingSystem">
+<ScrollPane hbarPolicy="NEVER" prefWidth="1200.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sample.controllers.regularUserControllers.chooseComponentControllers.chooseCPU">
    <content>
       <AnchorPane prefHeight="800.0" prefWidth="1000.0">
          <children>
-            <Label fx:id="lblHeader" alignment="CENTER" layoutX="74.0" layoutY="21.0" prefHeight="65.0" prefWidth="354.0" text="Cooling systems">
+            <Label fx:id="lblHeader" alignment="CENTER" layoutX="112.0" layoutY="1.0" prefHeight="65.0" prefWidth="171.0" text="CPU's">
                <font>
                   <Font size="40.0" />
                </font>
             </Label>
-            <GridPane fx:id="gp" alignment="CENTER" hgap="50.0" layoutX="33.0" layoutY="96.0" prefHeight="787.0" prefWidth="959.0" vgap="30.0">
+            <GridPane fx:id="gp" alignment="CENTER" hgap="50.0" layoutX="129.0" layoutY="96.0" prefHeight="787.0" prefWidth="959.0" vgap="30.0">
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -34,9 +34,9 @@
                   <AnchorPane fx:id="ap1" prefHeight="200.0" prefWidth="287.0">
                      <children>
                         <Label fx:id="lblProductName" alignment="CENTER" layoutX="1.0" prefHeight="17.0" prefWidth="286.0" text="Product name" />
-                        <Label layoutX="18.0" layoutY="21.0" prefHeight="17.0" prefWidth="52.0" text="Type:" />
-                        <Label layoutX="18.0" layoutY="39.0" text="Width (CM):" />
-                        <Label layoutX="18.0" layoutY="57.0" text="Height (CM):" />
+                        <Label layoutX="18.0" layoutY="21.0" prefHeight="17.0" prefWidth="63.0" text="Core count:" />
+                        <Label layoutX="18.0" layoutY="39.0" prefHeight="17.0" prefWidth="79.0" text="Thread count:" />
+                        <Label layoutX="18.0" layoutY="57.0" text="Max frequency:" />
                         <Label layoutX="18.0" layoutY="74.0" text="Manufacturer:" />
                         <Label layoutX="18.0" layoutY="91.0" text="Serial number:" />
                         <Label fx:id="lblPrice" layoutX="17.0" layoutY="202.0" prefHeight="33.0" prefWidth="96.0">
@@ -44,9 +44,9 @@
                               <Font name="System Bold" size="16.0" />
                            </font>
                         </Label>
-                        <Label fx:id="type" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="21.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblWidth" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="39.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblHeight" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="57.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblCores" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="21.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblThreads" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="39.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblFrequency" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="57.0" prefHeight="17.0" prefWidth="64.0" />
                         <Label fx:id="lblManufacturer" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="74.0" prefHeight="17.0" prefWidth="64.0" />
                         <Label fx:id="lblSerialNumber" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="91.0" prefHeight="17.0" prefWidth="64.0" />
                         <Label fx:id="lblDescription" layoutX="17.0" layoutY="122.0" prefHeight="69.0" prefWidth="255.0" wrapText="true" />
@@ -63,9 +63,9 @@
                   <AnchorPane fx:id="ap11" prefHeight="200.0" prefWidth="287.0" GridPane.columnIndex="1">
                      <children>
                         <Label fx:id="lblProductName1" alignment="CENTER" layoutX="1.0" prefHeight="17.0" prefWidth="286.0" text="Product name" />
-                        <Label layoutX="18.0" layoutY="21.0" prefHeight="17.0" prefWidth="52.0" text="Type:" />
-                        <Label layoutX="18.0" layoutY="39.0" text="Width (CM):" />
-                        <Label layoutX="18.0" layoutY="57.0" text="Height (CM):" />
+                        <Label layoutX="18.0" layoutY="21.0" prefHeight="17.0" prefWidth="63.0" text="Core count:" />
+                        <Label layoutX="18.0" layoutY="39.0" prefHeight="17.0" prefWidth="79.0" text="Thread count:" />
+                        <Label layoutX="18.0" layoutY="57.0" text="Max frequency:" />
                         <Label layoutX="18.0" layoutY="74.0" text="Manufacturer:" />
                         <Label layoutX="18.0" layoutY="91.0" text="Serial number:" />
                         <Label fx:id="lblPrice1" layoutX="17.0" layoutY="202.0" prefHeight="33.0" prefWidth="96.0">
@@ -73,9 +73,9 @@
                               <Font name="System Bold" size="16.0" />
                            </font>
                         </Label>
-                        <Label fx:id="type1" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="21.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblWidth1" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="39.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblHeight1" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="57.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblCores1" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="21.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblThreads1" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="39.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblFrequency1" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="57.0" prefHeight="17.0" prefWidth="64.0" />
                         <Label fx:id="lblManufacturer1" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="74.0" prefHeight="17.0" prefWidth="64.0" />
                         <Label fx:id="lblSerialNumber1" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="91.0" prefHeight="17.0" prefWidth="64.0" />
                         <Label fx:id="lblDescription1" layoutX="17.0" layoutY="122.0" prefHeight="69.0" prefWidth="255.0" wrapText="true" />
@@ -92,9 +92,9 @@
                   <AnchorPane fx:id="ap12" prefHeight="200.0" prefWidth="287.0" GridPane.columnIndex="2">
                      <children>
                         <Label fx:id="lblProductName2" alignment="CENTER" layoutX="1.0" prefHeight="17.0" prefWidth="286.0" text="Product name" />
-                        <Label layoutX="18.0" layoutY="21.0" prefHeight="17.0" prefWidth="52.0" text="Type:" />
-                        <Label layoutX="18.0" layoutY="39.0" text="Width (CM):" />
-                        <Label layoutX="18.0" layoutY="57.0" text="Height (CM):" />
+                        <Label layoutX="18.0" layoutY="21.0" prefHeight="17.0" prefWidth="63.0" text="Core count:" />
+                        <Label layoutX="18.0" layoutY="39.0" prefHeight="17.0" prefWidth="79.0" text="Thread count:" />
+                        <Label layoutX="18.0" layoutY="57.0" text="Max frequency:" />
                         <Label layoutX="18.0" layoutY="74.0" text="Manufacturer:" />
                         <Label layoutX="18.0" layoutY="91.0" text="Serial number:" />
                         <Label fx:id="lblPrice2" layoutX="17.0" layoutY="202.0" prefHeight="33.0" prefWidth="96.0">
@@ -102,9 +102,9 @@
                               <Font name="System Bold" size="16.0" />
                            </font>
                         </Label>
-                        <Label fx:id="type2" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="21.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblWidth2" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="39.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblHeight2" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="57.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblCores2" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="21.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblThreads2" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="39.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblFrequency2" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="57.0" prefHeight="17.0" prefWidth="64.0" />
                         <Label fx:id="lblManufacturer2" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="74.0" prefHeight="17.0" prefWidth="64.0" />
                         <Label fx:id="lblSerialNumber2" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="91.0" prefHeight="17.0" prefWidth="64.0" />
                         <Label fx:id="lblDescription2" layoutX="17.0" layoutY="122.0" prefHeight="69.0" prefWidth="255.0" wrapText="true" />
@@ -121,9 +121,9 @@
                   <AnchorPane fx:id="ap13" prefHeight="200.0" prefWidth="287.0" GridPane.rowIndex="1">
                      <children>
                         <Label fx:id="lblProductName3" alignment="CENTER" layoutX="1.0" prefHeight="17.0" prefWidth="286.0" text="Product name" />
-                        <Label layoutX="18.0" layoutY="21.0" prefHeight="17.0" prefWidth="52.0" text="Type:" />
-                        <Label layoutX="18.0" layoutY="39.0" text="Width (CM):" />
-                        <Label layoutX="18.0" layoutY="57.0" text="Height (CM):" />
+                        <Label layoutX="18.0" layoutY="21.0" prefHeight="17.0" prefWidth="63.0" text="Core count:" />
+                        <Label layoutX="18.0" layoutY="39.0" prefHeight="17.0" prefWidth="79.0" text="Thread count:" />
+                        <Label layoutX="18.0" layoutY="57.0" text="Max frequency:" />
                         <Label layoutX="18.0" layoutY="74.0" text="Manufacturer:" />
                         <Label layoutX="18.0" layoutY="91.0" text="Serial number:" />
                         <Label fx:id="lblPrice3" layoutX="17.0" layoutY="202.0" prefHeight="33.0" prefWidth="96.0">
@@ -131,9 +131,9 @@
                               <Font name="System Bold" size="16.0" />
                            </font>
                         </Label>
-                        <Label fx:id="type3" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="21.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblWidth3" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="39.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblHeight3" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="57.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblCores3" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="21.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblThreads3" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="39.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblFrequency3" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="57.0" prefHeight="17.0" prefWidth="64.0" />
                         <Label fx:id="lblManufacturer3" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="74.0" prefHeight="17.0" prefWidth="64.0" />
                         <Label fx:id="lblSerialNumber3" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="91.0" prefHeight="17.0" prefWidth="64.0" />
                         <Label fx:id="lblDescription3" layoutX="17.0" layoutY="122.0" prefHeight="69.0" prefWidth="255.0" wrapText="true" />
@@ -150,9 +150,9 @@
                   <AnchorPane fx:id="ap14" prefHeight="200.0" prefWidth="287.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <children>
                         <Label fx:id="lblProductName4" alignment="CENTER" layoutX="1.0" prefHeight="17.0" prefWidth="286.0" text="Product name" />
-                        <Label layoutX="18.0" layoutY="21.0" prefHeight="17.0" prefWidth="52.0" text="Type:" />
-                        <Label layoutX="18.0" layoutY="39.0" text="Width (CM):" />
-                        <Label layoutX="18.0" layoutY="57.0" text="Height (CM):" />
+                        <Label layoutX="18.0" layoutY="21.0" prefHeight="17.0" prefWidth="63.0" text="Core count:" />
+                        <Label layoutX="18.0" layoutY="39.0" prefHeight="17.0" prefWidth="79.0" text="Thread count:" />
+                        <Label layoutX="18.0" layoutY="57.0" text="Max frequency:" />
                         <Label layoutX="18.0" layoutY="74.0" text="Manufacturer:" />
                         <Label layoutX="18.0" layoutY="91.0" text="Serial number:" />
                         <Label fx:id="lblPrice4" layoutX="17.0" layoutY="202.0" prefHeight="33.0" prefWidth="96.0">
@@ -160,9 +160,9 @@
                               <Font name="System Bold" size="16.0" />
                            </font>
                         </Label>
-                        <Label fx:id="type4" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="21.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblWidth4" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="39.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblHeight4" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="57.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblCores4" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="21.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblThreads4" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="39.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblFrequency4" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="57.0" prefHeight="17.0" prefWidth="64.0" />
                         <Label fx:id="lblManufacturer4" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="74.0" prefHeight="17.0" prefWidth="64.0" />
                         <Label fx:id="lblSerialNumber4" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="91.0" prefHeight="17.0" prefWidth="64.0" />
                         <Label fx:id="lblDescription4" layoutX="17.0" layoutY="122.0" prefHeight="69.0" prefWidth="255.0" wrapText="true" />
@@ -179,9 +179,9 @@
                   <AnchorPane fx:id="ap15" prefHeight="200.0" prefWidth="287.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
                      <children>
                         <Label fx:id="lblProductName5" alignment="CENTER" layoutX="1.0" prefHeight="17.0" prefWidth="286.0" text="Product name" />
-                        <Label layoutX="18.0" layoutY="21.0" prefHeight="17.0" prefWidth="52.0" text="Type:" />
-                        <Label layoutX="18.0" layoutY="39.0" text="Width (CM):" />
-                        <Label layoutX="18.0" layoutY="57.0" text="Height (CM):" />
+                        <Label layoutX="18.0" layoutY="21.0" prefHeight="17.0" prefWidth="63.0" text="Core count:" />
+                        <Label layoutX="18.0" layoutY="39.0" prefHeight="17.0" prefWidth="79.0" text="Thread count:" />
+                        <Label layoutX="18.0" layoutY="57.0" text="Max frequency:" />
                         <Label layoutX="18.0" layoutY="74.0" text="Manufacturer:" />
                         <Label layoutX="18.0" layoutY="91.0" text="Serial number:" />
                         <Label fx:id="lblPrice5" layoutX="17.0" layoutY="202.0" prefHeight="33.0" prefWidth="96.0">
@@ -189,9 +189,9 @@
                               <Font name="System Bold" size="16.0" />
                            </font>
                         </Label>
-                        <Label fx:id="type5" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="21.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblWidth5" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="39.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblHeight5" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="57.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblCores5" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="21.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblThreads5" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="39.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblFrequency5" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="57.0" prefHeight="17.0" prefWidth="64.0" />
                         <Label fx:id="lblManufacturer5" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="74.0" prefHeight="17.0" prefWidth="64.0" />
                         <Label fx:id="lblSerialNumber5" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="91.0" prefHeight="17.0" prefWidth="64.0" />
                         <Label fx:id="lblDescription5" layoutX="17.0" layoutY="122.0" prefHeight="69.0" prefWidth="255.0" wrapText="true" />
@@ -208,9 +208,9 @@
                   <AnchorPane fx:id="ap16" prefHeight="200.0" prefWidth="287.0" GridPane.rowIndex="2">
                      <children>
                         <Label fx:id="lblProductName6" alignment="CENTER" layoutX="1.0" prefHeight="17.0" prefWidth="286.0" text="Product name" />
-                        <Label layoutX="18.0" layoutY="21.0" prefHeight="17.0" prefWidth="52.0" text="Type:" />
-                        <Label layoutX="18.0" layoutY="39.0" text="Width (CM):" />
-                        <Label layoutX="18.0" layoutY="57.0" text="Height (CM):" />
+                        <Label layoutX="18.0" layoutY="21.0" prefHeight="17.0" prefWidth="63.0" text="Core count:" />
+                        <Label layoutX="18.0" layoutY="39.0" prefHeight="17.0" prefWidth="79.0" text="Thread count:" />
+                        <Label layoutX="18.0" layoutY="57.0" text="Max frequency:" />
                         <Label layoutX="18.0" layoutY="74.0" text="Manufacturer:" />
                         <Label layoutX="18.0" layoutY="91.0" text="Serial number:" />
                         <Label fx:id="lblPrice6" layoutX="17.0" layoutY="202.0" prefHeight="33.0" prefWidth="96.0">
@@ -218,9 +218,9 @@
                               <Font name="System Bold" size="16.0" />
                            </font>
                         </Label>
-                        <Label fx:id="type6" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="21.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblWidth6" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="39.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblHeight6" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="57.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblCores6" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="21.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblThreads6" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="39.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblFrequency6" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="57.0" prefHeight="17.0" prefWidth="64.0" />
                         <Label fx:id="lblManufacturer6" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="74.0" prefHeight="17.0" prefWidth="64.0" />
                         <Label fx:id="lblSerialNumber6" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="91.0" prefHeight="17.0" prefWidth="64.0" />
                         <Label fx:id="lblDescription6" layoutX="17.0" layoutY="122.0" prefHeight="69.0" prefWidth="255.0" wrapText="true" />
@@ -237,9 +237,9 @@
                   <AnchorPane fx:id="ap17" prefHeight="200.0" prefWidth="287.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                      <children>
                         <Label fx:id="lblProductName7" alignment="CENTER" layoutX="1.0" prefHeight="17.0" prefWidth="286.0" text="Product name" />
-                        <Label layoutX="18.0" layoutY="21.0" prefHeight="17.0" prefWidth="52.0" text="Type:" />
-                        <Label layoutX="18.0" layoutY="39.0" text="Width (CM):" />
-                        <Label layoutX="18.0" layoutY="57.0" text="Height (CM):" />
+                        <Label layoutX="18.0" layoutY="21.0" prefHeight="17.0" prefWidth="63.0" text="Core count:" />
+                        <Label layoutX="18.0" layoutY="39.0" prefHeight="17.0" prefWidth="79.0" text="Thread count:" />
+                        <Label layoutX="18.0" layoutY="57.0" text="Max frequency:" />
                         <Label layoutX="18.0" layoutY="74.0" text="Manufacturer:" />
                         <Label layoutX="18.0" layoutY="91.0" text="Serial number:" />
                         <Label fx:id="lblPrice7" layoutX="17.0" layoutY="202.0" prefHeight="33.0" prefWidth="96.0">
@@ -247,9 +247,9 @@
                               <Font name="System Bold" size="16.0" />
                            </font>
                         </Label>
-                        <Label fx:id="type7" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="21.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblWidth7" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="39.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblHeight7" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="57.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblCores7" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="21.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblThreads7" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="39.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblFrequency7" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="57.0" prefHeight="17.0" prefWidth="64.0" />
                         <Label fx:id="lblManufacturer7" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="74.0" prefHeight="17.0" prefWidth="64.0" />
                         <Label fx:id="lblSerialNumber7" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="91.0" prefHeight="17.0" prefWidth="64.0" />
                         <Label fx:id="lblDescription7" layoutX="17.0" layoutY="122.0" prefHeight="69.0" prefWidth="255.0" wrapText="true" />
@@ -266,9 +266,9 @@
                   <AnchorPane fx:id="ap18" prefHeight="200.0" prefWidth="287.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
                      <children>
                         <Label fx:id="lblProductName8" alignment="CENTER" layoutX="1.0" prefHeight="17.0" prefWidth="286.0" text="Product name" />
-                        <Label layoutX="18.0" layoutY="21.0" prefHeight="17.0" prefWidth="52.0" text="Type:" />
-                        <Label layoutX="18.0" layoutY="39.0" text="Width (CM):" />
-                        <Label layoutX="18.0" layoutY="57.0" text="Height (CM):" />
+                        <Label layoutX="18.0" layoutY="21.0" prefHeight="17.0" prefWidth="63.0" text="Core count:" />
+                        <Label layoutX="18.0" layoutY="39.0" prefHeight="17.0" prefWidth="79.0" text="Thread count:" />
+                        <Label layoutX="18.0" layoutY="57.0" text="Max frequency:" />
                         <Label layoutX="18.0" layoutY="74.0" text="Manufacturer:" />
                         <Label layoutX="18.0" layoutY="91.0" text="Serial number:" />
                         <Label fx:id="lblPrice8" layoutX="17.0" layoutY="202.0" prefHeight="33.0" prefWidth="96.0">
@@ -276,9 +276,9 @@
                               <Font name="System Bold" size="16.0" />
                            </font>
                         </Label>
-                        <Label fx:id="type8" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="21.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblWidth8" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="39.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblHeight8" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="57.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblCores8" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="21.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblThreads8" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="39.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblFrequency8" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="57.0" prefHeight="17.0" prefWidth="64.0" />
                         <Label fx:id="lblManufacturer8" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="74.0" prefHeight="17.0" prefWidth="64.0" />
                         <Label fx:id="lblSerialNumber8" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="91.0" prefHeight="17.0" prefWidth="64.0" />
                         <Label fx:id="lblDescription8" layoutX="17.0" layoutY="122.0" prefHeight="69.0" prefWidth="255.0" wrapText="true" />

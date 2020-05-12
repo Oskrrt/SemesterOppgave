@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.shape.Polyline?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="container" prefHeight="900.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sample.controllers.regularUserControllers.buildComputerController">
+   <children>
+      <HBox alignment="CENTER_RIGHT" layoutY="14.0" prefHeight="100.0" prefWidth="1200.0" spacing="30.0" style="-fx-border-color: black; -fx-border-width: 0 0 1 0;">
+         <children>
+            <Button fx:id="homeBtn" onAction="#onClickHome" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: white; -fx-border-color: black;" text="Home">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="myComputersbtn" onAction="#onClickMyComputers" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: white; -fx-border-color: black;" text="My computers">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="logOutBtn" alignment="CENTER" onAction="#logOut" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: white; -fx-border-color: black;" text="Log out">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <padding>
+            <Insets right="50.0" />
+         </padding>
+      </HBox>
+      <ImageView fx:id="computerImageView" fitHeight="500.0" fitWidth="633.0" layoutX="568.0" layoutY="248.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/pc.png" />
+         </image>
+      </ImageView>
+      <Polyline fx:id="polyGpu" fill="#2527c2" layoutX="497.0" layoutY="467.0" points="19.0, -40.0, 215.0, -40.0, 215.0, -40.0, 295.0, 41.0" stroke="#eb8c34" strokeMiterLimit="40.0" strokeType="INSIDE" strokeWidth="2.0" style="-fx-fill: none;" />
+      <Label fx:id="GraphicsCard" alignment="CENTER_RIGHT" layoutX="231.0" layoutY="397.0" onMouseClicked="#openChoiceWindow" onMouseEntered="#makeBigger" onMouseExited="#makeNormal" prefHeight="30.0" prefWidth="477.0" text="Graphics card (GPU)">
+         <font>
+            <Font size="20.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Label>
+      <Polyline fx:id="polyCpu" fill="#2527c2" layoutX="507.0" layoutY="477.0" points="74.0, -221.0, 253.0, -221.0, 253.0, -221.0, 342.0, -71.0" stroke="#eb8c34" strokeMiterLimit="40.0" strokeType="INSIDE" strokeWidth="2.0" style="-fx-fill: none;" />
+      <Label fx:id="Processor" alignment="CENTER_RIGHT" layoutX="295.0" layoutY="226.0" onMouseClicked="#openChoiceWindow" onMouseEntered="#makeBigger" onMouseExited="#makeNormal" prefHeight="30.0" prefWidth="436.0" text="Processor (CPU)">
+         <font>
+            <Font size="20.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Label>
+      <Polyline fx:id="polyRam" fill="#2527c2" layoutX="517.0" layoutY="487.0" points="404.0, -94.0, 309.5, -285.0, 309.5, -285.0, 221.0, -285.0" stroke="#eb8c34" strokeMiterLimit="40.0" strokeType="INSIDE" strokeWidth="2.0" style="-fx-fill: none;" />
+      <Label fx:id="RAM" alignment="CENTER_RIGHT" layoutX="453.0" layoutY="172.0" onMouseClicked="#openChoiceWindow" onMouseEntered="#makeBigger" onMouseExited="#makeNormal" prefHeight="30.0" prefWidth="350.0" text="RAM">
+         <font>
+            <Font size="20.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Label>
+      <Polyline fx:id="polyPowerSupply" fill="#2527c2" layoutX="527.0" layoutY="497.0" points="233.0, 114.0, 175.0, 61.0, 175.0, 61.0, -7.0, 61.0" stroke="#eb8c34" strokeMiterLimit="40.0" strokeType="INSIDE" strokeWidth="2.0" style="-fx-fill: none;" />
+      <Label fx:id="PowerSupply" alignment="CENTER_RIGHT" layoutX="360.0" layoutY="528.0" onMouseClicked="#openChoiceWindow" onMouseEntered="#makeBigger" onMouseExited="#makeNormal" prefHeight="30.0" prefWidth="326.0" text="Power supply">
+         <font>
+            <Font size="20.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Label>
+      <Polyline fx:id="polyCooling" fill="#2527c2" layoutX="537.0" layoutY="507.0" points="31.0, -182.0, 151.0, -182.0, 151.0, -182.0, 215.0, -137.0" stroke="#eb8c34" strokeMiterLimit="40.0" strokeType="INSIDE" strokeWidth="2.0" style="-fx-fill: none;" />
+      <Label fx:id="CoolingSystem" alignment="CENTER_RIGHT" layoutX="249.0" layoutY="286.0" onMouseClicked="#openChoiceWindow" onMouseEntered="#makeBigger" onMouseExited="#makeNormal" prefHeight="30.0" prefWidth="450.0" text="Cooling system">
+         <font>
+            <Font size="20.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Label>
+      <Polyline fx:id="polyMotherboard" fill="#2527c2" layoutX="547.0" layoutY="517.0" points="-24.0, -140.0, 137.0, -140.0, 137.0, -140.0, 302.0, -70.0" stroke="#eb8c34" strokeMiterLimit="40.0" strokeType="INSIDE" strokeWidth="2.0" style="-fx-fill: none;" />
+      <Label fx:id="Motherboard" alignment="CENTER_RIGHT" layoutX="249.0" layoutY="348.0" onMouseClicked="#openChoiceWindow" onMouseEntered="#makeBigger" onMouseExited="#makeNormal" prefHeight="30.0" prefWidth="426.0" text="Motherboard">
+         <font>
+            <Font size="20.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Label>
+      <Polyline fx:id="polyCase" fill="#2527c2" layoutX="507.0" layoutY="477.0" points="292.0, -317.0, 386.0, -317.0, 386.0, -317.0, 446.0, -176.0" stroke="#eb8c34" strokeMiterLimit="40.0" strokeType="INSIDE" strokeWidth="2.0" style="-fx-fill: none;" />
+      <Label fx:id="Case" alignment="CENTER_RIGHT" layoutX="362.0" layoutY="130.0" onMouseClicked="#openChoiceWindow" onMouseEntered="#makeBigger" onMouseExited="#makeNormal" prefHeight="30.0" prefWidth="508.0" text="Case">
+         <font>
+            <Font size="20.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Label>
+      <Polyline fx:id="polyStorage" fill="#2527c2" layoutX="517.0" layoutY="487.0" points="51.0, 13.0, 193.0, 13.0, 193.0, 13.0, 292.0, 82.0" stroke="#eb8c34" strokeMiterLimit="40.0" strokeType="INSIDE" strokeWidth="2.0" style="-fx-fill: none;" />
+      <Label fx:id="StorageComponent" alignment="CENTER_RIGHT" layoutX="244.0" layoutY="470.0" onMouseClicked="#openChoiceWindow" onMouseEntered="#makeBigger" onMouseExited="#makeNormal" prefHeight="30.0" prefWidth="436.0" text="Storage">
+         <font>
+            <Font size="20.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Label>
+      <Button layoutX="953.0" layoutY="777.0" mnemonicParsing="false" onAction="#onClickNext" prefHeight="70.0" prefWidth="154.0" style="-fx-background-color: green;" text="NEXT" textFill="WHITE">
+         <font>
+            <Font size="32.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <CheckBox fx:id="chkAccessories" contentDisplay="RIGHT" graphicTextGap="2.0" layoutX="303.0" layoutY="785.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" prefHeight="53.0" prefWidth="618.0" text="I also want extra accessories like monitors, mice and keyboards">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </CheckBox>
+      <Text layoutX="23.0" layoutY="615.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Price of computer:">
+         <font>
+            <Font size="28.0" />
+         </font>
+      </Text>
+      <Label fx:id="lblPrice" layoutX="286.0" layoutY="585.0">
+         <font>
+            <Font size="28.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

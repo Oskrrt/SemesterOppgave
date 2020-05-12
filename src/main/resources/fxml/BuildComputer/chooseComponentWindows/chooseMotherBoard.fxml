@@ -1,0 +1,427 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<ScrollPane hbarPolicy="NEVER" prefHeight="802.0" prefWidth="1157.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sample.controllers.regularUserControllers.chooseComponentControllers.chooseMotherboard">
+   <content>
+      <AnchorPane prefHeight="800.0" prefWidth="1121.0">
+         <children>
+            <Label fx:id="lblHeader" alignment="CENTER" layoutX="93.0" layoutY="1.0" prefHeight="65.0" prefWidth="354.0" text="Motherboards">
+               <font>
+                  <Font size="40.0" />
+               </font>
+            </Label>
+            <GridPane fx:id="gp" alignment="CENTER" hgap="50.0" layoutX="127.0" layoutY="82.0" prefHeight="1200.0" prefWidth="959.0" vgap="30.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <AnchorPane fx:id="ap1" prefHeight="200.0" prefWidth="287.0">
+                     <children>
+                        <Label fx:id="lblProductName" alignment="CENTER" layoutX="1.0" prefHeight="17.0" prefWidth="286.0" text="Product name" />
+                        <Label layoutX="18.0" layoutY="21.0" prefHeight="17.0" prefWidth="78.0" text="CPU support:" />
+                        <Label layoutX="18.0" layoutY="39.0" prefHeight="17.0" prefWidth="79.0" text="Memory type:" />
+                        <Label layoutX="18.0" layoutY="57.0" text="Memory dimms:" />
+                        <Label layoutX="18.0" layoutY="193.0" text="Manufacturer:" />
+                        <Label layoutX="18.0" layoutY="210.0" text="Serial number:" />
+                        <Label fx:id="lblPrice" layoutX="11.0" layoutY="333.0" prefHeight="33.0" prefWidth="96.0">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblCpuSupport" alignment="CENTER_RIGHT" layoutX="105.0" layoutY="21.0" prefHeight="17.0" prefWidth="167.0" />
+                        <Label fx:id="lblMemoryType" alignment="CENTER_RIGHT" layoutX="186.0" layoutY="39.0" prefHeight="17.0" prefWidth="86.0" />
+                        <Label fx:id="lblMemoryDimms" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="57.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblManufacturer" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="193.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblSerialNumber" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="210.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblDescription" layoutX="17.0" layoutY="238.0" prefHeight="85.0" prefWidth="255.0" wrapText="true" />
+                        <Button layoutX="207.0" layoutY="333.0" mnemonicParsing="false" onAction="#chooseComponent" prefHeight="33.0" prefWidth="67.0" style="-fx-background-color: green;" text="Choose" textFill="WHITE">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Button>
+                        <Label layoutX="18.0" layoutY="74.0" prefHeight="17.0" prefWidth="101.0" text="Graphics inteface:" />
+                        <Label layoutX="18.0" layoutY="91.0" prefHeight="17.0" prefWidth="91.0" text="Expansion slots:" />
+                        <Label layoutX="18.0" layoutY="108.0" prefHeight="17.0" prefWidth="50.0" text="M2 slot:" />
+                        <Label layoutX="18.0" layoutY="125.0" prefHeight="17.0" prefWidth="97.0" text="Display interface:" />
+                        <Label layoutX="18.0" layoutY="142.0" prefHeight="17.0" prefWidth="34.0" text="WIFI:" />
+                        <Label layoutX="18.0" layoutY="159.0" prefHeight="17.0" prefWidth="41.0" text="Audio:" />
+                        <Label layoutX="18.0" layoutY="176.0" prefHeight="17.0" prefWidth="71.0" text="Form factor:" />
+                        <Label fx:id="lblGraphicsInterface" alignment="CENTER_RIGHT" layoutX="186.0" layoutY="74.0" prefHeight="17.0" prefWidth="86.0" />
+                        <Label fx:id="lblExpansionSlots" alignment="CENTER_RIGHT" layoutX="185.0" layoutY="91.0" prefHeight="17.0" prefWidth="87.0" />
+                        <Label fx:id="lblM2Slot" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="108.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblDisplayInterface" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="125.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblWifi" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="142.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblAudio" alignment="CENTER_RIGHT" layoutX="167.0" layoutY="159.0" prefHeight="17.0" prefWidth="107.0" />
+                        <Label fx:id="lblFormFactor" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="176.0" prefHeight="17.0" prefWidth="64.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="ap11" prefHeight="200.0" prefWidth="287.0" GridPane.columnIndex="1">
+                     <children>
+                        <Label fx:id="lblProductName1" alignment="CENTER" layoutX="1.0" prefHeight="17.0" prefWidth="286.0" text="Product name" />
+                        <Label layoutX="18.0" layoutY="21.0" prefHeight="17.0" prefWidth="78.0" text="CPU support:" />
+                        <Label layoutX="18.0" layoutY="39.0" prefHeight="17.0" prefWidth="79.0" text="Memory type:" />
+                        <Label layoutX="18.0" layoutY="57.0" text="Memory dimms:" />
+                        <Label layoutX="18.0" layoutY="193.0" text="Manufacturer:" />
+                        <Label layoutX="18.0" layoutY="210.0" text="Serial number:" />
+                        <Label fx:id="lblPrice1" layoutX="11.0" layoutY="333.0" prefHeight="33.0" prefWidth="96.0">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblCpuSupport1" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="21.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblMemoryType1" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="39.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblMemoryDimms1" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="57.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblManufacturer1" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="193.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblSerialNumber1" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="210.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblDescription1" layoutX="17.0" layoutY="238.0" prefHeight="85.0" prefWidth="255.0" wrapText="true" />
+                        <Button layoutX="207.0" layoutY="333.0" mnemonicParsing="false" onAction="#chooseComponent" prefHeight="33.0" prefWidth="67.0" style="-fx-background-color: green;" text="Choose" textFill="WHITE">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Button>
+                        <Label layoutX="18.0" layoutY="74.0" prefHeight="17.0" prefWidth="101.0" text="Graphics inteface:" />
+                        <Label layoutX="18.0" layoutY="91.0" prefHeight="17.0" prefWidth="91.0" text="Expansion slots:" />
+                        <Label layoutX="18.0" layoutY="108.0" prefHeight="17.0" prefWidth="50.0" text="M2 slot:" />
+                        <Label layoutX="18.0" layoutY="125.0" prefHeight="17.0" prefWidth="97.0" text="Display interface:" />
+                        <Label layoutX="18.0" layoutY="142.0" prefHeight="17.0" prefWidth="34.0" text="WIFI:" />
+                        <Label layoutX="18.0" layoutY="159.0" prefHeight="17.0" prefWidth="41.0" text="Audio:" />
+                        <Label layoutX="18.0" layoutY="176.0" prefHeight="17.0" prefWidth="71.0" text="Form factor:" />
+                        <Label fx:id="lblGraphicsInterface1" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="74.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblExpansionSlots1" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="91.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblM2Slot1" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="108.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblDisplayInterface1" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="125.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblWifi1" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="142.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblAudio1" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="159.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblFormFactor1" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="176.0" prefHeight="17.0" prefWidth="64.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="ap12" prefHeight="200.0" prefWidth="287.0" GridPane.columnIndex="2">
+                     <children>
+                        <Label fx:id="lblProductName2" alignment="CENTER" layoutX="1.0" prefHeight="17.0" prefWidth="286.0" text="Product name" />
+                        <Label layoutX="18.0" layoutY="21.0" prefHeight="17.0" prefWidth="78.0" text="CPU support:" />
+                        <Label layoutX="18.0" layoutY="39.0" prefHeight="17.0" prefWidth="79.0" text="Memory type:" />
+                        <Label layoutX="18.0" layoutY="57.0" text="Memory dimms:" />
+                        <Label layoutX="18.0" layoutY="193.0" text="Manufacturer:" />
+                        <Label layoutX="18.0" layoutY="210.0" text="Serial number:" />
+                        <Label fx:id="lblPrice2" layoutX="11.0" layoutY="333.0" prefHeight="33.0" prefWidth="96.0">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblCpuSupport2" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="21.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblMemoryType2" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="39.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblMemoryDimms2" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="57.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblManufacturer2" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="193.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblSerialNumber2" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="210.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblDescription2" layoutX="17.0" layoutY="238.0" prefHeight="85.0" prefWidth="255.0" wrapText="true" />
+                        <Button layoutX="207.0" layoutY="333.0" mnemonicParsing="false" onAction="#chooseComponent" prefHeight="33.0" prefWidth="67.0" style="-fx-background-color: green;" text="Choose" textFill="WHITE">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Button>
+                        <Label layoutX="18.0" layoutY="74.0" prefHeight="17.0" prefWidth="101.0" text="Graphics inteface:" />
+                        <Label layoutX="18.0" layoutY="91.0" prefHeight="17.0" prefWidth="91.0" text="Expansion slots:" />
+                        <Label layoutX="18.0" layoutY="108.0" prefHeight="17.0" prefWidth="50.0" text="M2 slot:" />
+                        <Label layoutX="18.0" layoutY="125.0" prefHeight="17.0" prefWidth="97.0" text="Display interface:" />
+                        <Label layoutX="18.0" layoutY="142.0" prefHeight="17.0" prefWidth="34.0" text="WIFI:" />
+                        <Label layoutX="18.0" layoutY="159.0" prefHeight="17.0" prefWidth="41.0" text="Audio:" />
+                        <Label layoutX="18.0" layoutY="176.0" prefHeight="17.0" prefWidth="71.0" text="Form factor:" />
+                        <Label fx:id="lblGraphicsInterface2" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="74.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblExpansionSlots2" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="91.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblM2Slot2" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="108.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblDisplayInterface2" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="125.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblWifi2" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="142.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblAudio2" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="159.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblFormFactor2" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="176.0" prefHeight="17.0" prefWidth="64.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="ap13" prefHeight="200.0" prefWidth="287.0" GridPane.rowIndex="1">
+                     <children>
+                        <Label fx:id="lblProductName3" alignment="CENTER" layoutX="1.0" prefHeight="17.0" prefWidth="286.0" text="Product name" />
+                        <Label layoutX="18.0" layoutY="21.0" prefHeight="17.0" prefWidth="78.0" text="CPU support:" />
+                        <Label layoutX="18.0" layoutY="39.0" prefHeight="17.0" prefWidth="79.0" text="Memory type:" />
+                        <Label layoutX="18.0" layoutY="57.0" text="Memory dimms:" />
+                        <Label layoutX="18.0" layoutY="193.0" text="Manufacturer:" />
+                        <Label layoutX="18.0" layoutY="210.0" text="Serial number:" />
+                        <Label fx:id="lblPrice3" layoutX="11.0" layoutY="333.0" prefHeight="33.0" prefWidth="96.0">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblCpuSupport3" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="21.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblMemoryType3" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="39.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblMemoryDimms3" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="57.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblManufacturer3" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="193.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblSerialNumber3" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="210.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblDescription3" layoutX="17.0" layoutY="238.0" prefHeight="85.0" prefWidth="255.0" wrapText="true" />
+                        <Button layoutX="207.0" layoutY="333.0" mnemonicParsing="false" onAction="#chooseComponent" prefHeight="33.0" prefWidth="67.0" style="-fx-background-color: green;" text="Choose" textFill="WHITE">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Button>
+                        <Label layoutX="18.0" layoutY="74.0" prefHeight="17.0" prefWidth="101.0" text="Graphics inteface:" />
+                        <Label layoutX="18.0" layoutY="91.0" prefHeight="17.0" prefWidth="91.0" text="Expansion slots:" />
+                        <Label layoutX="18.0" layoutY="108.0" prefHeight="17.0" prefWidth="50.0" text="M2 slot:" />
+                        <Label layoutX="18.0" layoutY="125.0" prefHeight="17.0" prefWidth="97.0" text="Display interface:" />
+                        <Label layoutX="18.0" layoutY="142.0" prefHeight="17.0" prefWidth="34.0" text="WIFI:" />
+                        <Label layoutX="18.0" layoutY="159.0" prefHeight="17.0" prefWidth="41.0" text="Audio:" />
+                        <Label layoutX="18.0" layoutY="176.0" prefHeight="17.0" prefWidth="71.0" text="Form factor:" />
+                        <Label fx:id="lblGraphicsInterface3" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="74.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblExpansionSlots3" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="91.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblM2Slot3" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="108.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblDisplayInterface3" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="125.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblWifi3" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="142.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblAudio3" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="159.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblFormFactor3" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="176.0" prefHeight="17.0" prefWidth="64.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="ap14" prefHeight="200.0" prefWidth="287.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <children>
+                        <Label fx:id="lblProductName4" alignment="CENTER" layoutX="1.0" prefHeight="17.0" prefWidth="286.0" text="Product name" />
+                        <Label layoutX="18.0" layoutY="21.0" prefHeight="17.0" prefWidth="78.0" text="CPU support:" />
+                        <Label layoutX="18.0" layoutY="39.0" prefHeight="17.0" prefWidth="79.0" text="Memory type:" />
+                        <Label layoutX="18.0" layoutY="57.0" text="Memory dimms:" />
+                        <Label layoutX="18.0" layoutY="193.0" text="Manufacturer:" />
+                        <Label layoutX="18.0" layoutY="210.0" text="Serial number:" />
+                        <Label fx:id="lblPrice4" layoutX="11.0" layoutY="333.0" prefHeight="33.0" prefWidth="96.0">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblCpuSupport4" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="21.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblMemoryType4" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="39.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblMemoryDimms4" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="57.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblManufacturer4" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="193.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblSerialNumber4" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="210.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblDescription4" layoutX="17.0" layoutY="238.0" prefHeight="85.0" prefWidth="255.0" wrapText="true" />
+                        <Button layoutX="207.0" layoutY="333.0" mnemonicParsing="false" onAction="#chooseComponent" prefHeight="33.0" prefWidth="67.0" style="-fx-background-color: green;" text="Choose" textFill="WHITE">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Button>
+                        <Label layoutX="18.0" layoutY="74.0" prefHeight="17.0" prefWidth="101.0" text="Graphics inteface:" />
+                        <Label layoutX="18.0" layoutY="91.0" prefHeight="17.0" prefWidth="91.0" text="Expansion slots:" />
+                        <Label layoutX="18.0" layoutY="108.0" prefHeight="17.0" prefWidth="50.0" text="M2 slot:" />
+                        <Label layoutX="18.0" layoutY="125.0" prefHeight="17.0" prefWidth="97.0" text="Display interface:" />
+                        <Label layoutX="18.0" layoutY="142.0" prefHeight="17.0" prefWidth="34.0" text="WIFI:" />
+                        <Label layoutX="18.0" layoutY="159.0" prefHeight="17.0" prefWidth="41.0" text="Audio:" />
+                        <Label layoutX="18.0" layoutY="176.0" prefHeight="17.0" prefWidth="71.0" text="Form factor:" />
+                        <Label fx:id="lblGraphicsInterface4" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="74.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblExpansionSlots4" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="91.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblM2Slot4" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="108.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblDisplayInterface4" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="125.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblWifi4" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="142.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblAudio4" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="159.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblFormFactor4" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="176.0" prefHeight="17.0" prefWidth="64.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="ap15" prefHeight="200.0" prefWidth="287.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                     <children>
+                        <Label fx:id="lblProductName5" alignment="CENTER" layoutX="1.0" prefHeight="17.0" prefWidth="286.0" text="Product name" />
+                        <Label layoutX="18.0" layoutY="21.0" prefHeight="17.0" prefWidth="78.0" text="CPU support:" />
+                        <Label layoutX="18.0" layoutY="39.0" prefHeight="17.0" prefWidth="79.0" text="Memory type:" />
+                        <Label layoutX="18.0" layoutY="57.0" text="Memory dimms:" />
+                        <Label layoutX="18.0" layoutY="193.0" text="Manufacturer:" />
+                        <Label layoutX="18.0" layoutY="210.0" text="Serial number:" />
+                        <Label fx:id="lblPrice5" layoutX="11.0" layoutY="333.0" prefHeight="33.0" prefWidth="96.0">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblCpuSupport5" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="21.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblMemoryType5" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="39.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblMemoryDimms5" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="57.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblManufacturer5" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="193.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblSerialNumber5" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="210.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblDescription5" layoutX="17.0" layoutY="238.0" prefHeight="85.0" prefWidth="255.0" wrapText="true" />
+                        <Button layoutX="207.0" layoutY="333.0" mnemonicParsing="false" onAction="#chooseComponent" prefHeight="33.0" prefWidth="67.0" style="-fx-background-color: green;" text="Choose" textFill="WHITE">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Button>
+                        <Label layoutX="18.0" layoutY="74.0" prefHeight="17.0" prefWidth="101.0" text="Graphics inteface:" />
+                        <Label layoutX="18.0" layoutY="91.0" prefHeight="17.0" prefWidth="91.0" text="Expansion slots:" />
+                        <Label layoutX="18.0" layoutY="108.0" prefHeight="17.0" prefWidth="50.0" text="M2 slot:" />
+                        <Label layoutX="18.0" layoutY="125.0" prefHeight="17.0" prefWidth="97.0" text="Display interface:" />
+                        <Label layoutX="18.0" layoutY="142.0" prefHeight="17.0" prefWidth="34.0" text="WIFI:" />
+                        <Label layoutX="18.0" layoutY="159.0" prefHeight="17.0" prefWidth="41.0" text="Audio:" />
+                        <Label layoutX="18.0" layoutY="176.0" prefHeight="17.0" prefWidth="71.0" text="Form factor:" />
+                        <Label fx:id="lblGraphicsInterface5" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="74.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblExpansionSlots5" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="91.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblM2Slot5" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="108.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblDisplayInterface5" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="125.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblWifi5" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="142.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblAudio5" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="159.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblFormFactor5" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="176.0" prefHeight="17.0" prefWidth="64.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="ap16" prefHeight="200.0" prefWidth="287.0" GridPane.rowIndex="2">
+                     <children>
+                        <Label fx:id="lblProductName6" alignment="CENTER" layoutX="1.0" prefHeight="17.0" prefWidth="286.0" text="Product name" />
+                        <Label layoutX="18.0" layoutY="21.0" prefHeight="17.0" prefWidth="78.0" text="CPU support:" />
+                        <Label layoutX="18.0" layoutY="39.0" prefHeight="17.0" prefWidth="79.0" text="Memory type:" />
+                        <Label layoutX="18.0" layoutY="57.0" text="Memory dimms:" />
+                        <Label layoutX="18.0" layoutY="193.0" text="Manufacturer:" />
+                        <Label layoutX="18.0" layoutY="210.0" text="Serial number:" />
+                        <Label fx:id="lblPrice6" layoutX="11.0" layoutY="333.0" prefHeight="33.0" prefWidth="96.0">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblCpuSupport6" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="21.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblMemoryType6" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="39.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblMemoryDimms6" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="57.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblManufacturer6" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="193.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblSerialNumber6" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="210.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblDescription6" layoutX="17.0" layoutY="238.0" prefHeight="85.0" prefWidth="255.0" wrapText="true" />
+                        <Button layoutX="207.0" layoutY="333.0" mnemonicParsing="false" onAction="#chooseComponent" prefHeight="33.0" prefWidth="67.0" style="-fx-background-color: green;" text="Choose" textFill="WHITE">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Button>
+                        <Label layoutX="18.0" layoutY="74.0" prefHeight="17.0" prefWidth="101.0" text="Graphics inteface:" />
+                        <Label layoutX="18.0" layoutY="91.0" prefHeight="17.0" prefWidth="91.0" text="Expansion slots:" />
+                        <Label layoutX="18.0" layoutY="108.0" prefHeight="17.0" prefWidth="50.0" text="M2 slot:" />
+                        <Label layoutX="18.0" layoutY="125.0" prefHeight="17.0" prefWidth="97.0" text="Display interface:" />
+                        <Label layoutX="18.0" layoutY="142.0" prefHeight="17.0" prefWidth="34.0" text="WIFI:" />
+                        <Label layoutX="18.0" layoutY="159.0" prefHeight="17.0" prefWidth="41.0" text="Audio:" />
+                        <Label layoutX="18.0" layoutY="176.0" prefHeight="17.0" prefWidth="71.0" text="Form factor:" />
+                        <Label fx:id="lblGraphicsInterface6" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="74.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblExpansionSlots6" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="91.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblM2Slot6" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="108.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblDisplayInterface6" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="125.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblWifi6" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="142.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblAudio6" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="159.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblFormFactor6" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="176.0" prefHeight="17.0" prefWidth="64.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="ap17" prefHeight="200.0" prefWidth="287.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                     <children>
+                        <Label fx:id="lblProductName7" alignment="CENTER" layoutX="1.0" prefHeight="17.0" prefWidth="286.0" text="Product name" />
+                        <Label layoutX="18.0" layoutY="21.0" prefHeight="17.0" prefWidth="78.0" text="CPU support:" />
+                        <Label layoutX="18.0" layoutY="39.0" prefHeight="17.0" prefWidth="79.0" text="Memory type:" />
+                        <Label layoutX="18.0" layoutY="57.0" text="Memory dimms:" />
+                        <Label layoutX="18.0" layoutY="193.0" text="Manufacturer:" />
+                        <Label layoutX="18.0" layoutY="210.0" text="Serial number:" />
+                        <Label fx:id="lblPrice7" layoutX="11.0" layoutY="333.0" prefHeight="33.0" prefWidth="96.0">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblCpuSupport7" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="21.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblMemoryType7" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="39.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblMemoryDimms7" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="57.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblManufacturer7" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="193.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblSerialNumber7" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="210.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblDescription7" layoutX="17.0" layoutY="238.0" prefHeight="85.0" prefWidth="255.0" wrapText="true" />
+                        <Button layoutX="207.0" layoutY="333.0" mnemonicParsing="false" onAction="#chooseComponent" prefHeight="33.0" prefWidth="67.0" style="-fx-background-color: green;" text="Choose" textFill="WHITE">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Button>
+                        <Label layoutX="18.0" layoutY="74.0" prefHeight="17.0" prefWidth="101.0" text="Graphics inteface:" />
+                        <Label layoutX="18.0" layoutY="91.0" prefHeight="17.0" prefWidth="91.0" text="Expansion slots:" />
+                        <Label layoutX="18.0" layoutY="108.0" prefHeight="17.0" prefWidth="50.0" text="M2 slot:" />
+                        <Label layoutX="18.0" layoutY="125.0" prefHeight="17.0" prefWidth="97.0" text="Display interface:" />
+                        <Label layoutX="18.0" layoutY="142.0" prefHeight="17.0" prefWidth="34.0" text="WIFI:" />
+                        <Label layoutX="18.0" layoutY="159.0" prefHeight="17.0" prefWidth="41.0" text="Audio:" />
+                        <Label layoutX="18.0" layoutY="176.0" prefHeight="17.0" prefWidth="71.0" text="Form factor:" />
+                        <Label fx:id="lblGraphicsInterface7" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="74.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblExpansionSlots7" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="91.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblM2Slot7" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="108.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblDisplayInterface7" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="125.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblWifi7" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="142.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblAudio7" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="159.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblFormFactor7" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="176.0" prefHeight="17.0" prefWidth="64.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="ap18" prefHeight="200.0" prefWidth="287.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                     <children>
+                        <Label fx:id="lblProductName8" alignment="CENTER" layoutX="1.0" prefHeight="17.0" prefWidth="286.0" text="Product name" />
+                        <Label layoutX="18.0" layoutY="21.0" prefHeight="17.0" prefWidth="78.0" text="CPU support:" />
+                        <Label layoutX="18.0" layoutY="39.0" prefHeight="17.0" prefWidth="79.0" text="Memory type:" />
+                        <Label layoutX="18.0" layoutY="57.0" text="Memory dimms:" />
+                        <Label layoutX="18.0" layoutY="193.0" text="Manufacturer:" />
+                        <Label layoutX="18.0" layoutY="210.0" text="Serial number:" />
+                        <Label fx:id="lblPrice8" layoutX="11.0" layoutY="333.0" prefHeight="33.0" prefWidth="96.0">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblCpuSupport8" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="21.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblMemoryType8" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="39.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblMemoryDimms8" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="57.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblManufacturer8" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="193.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblSerialNumber8" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="210.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblDescription8" layoutX="17.0" layoutY="238.0" prefHeight="85.0" prefWidth="255.0" wrapText="true" />
+                        <Button layoutX="207.0" layoutY="333.0" mnemonicParsing="false" onAction="#chooseComponent" prefHeight="33.0" prefWidth="67.0" style="-fx-background-color: green;" text="Choose" textFill="WHITE">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Button>
+                        <Label layoutX="18.0" layoutY="74.0" prefHeight="17.0" prefWidth="101.0" text="Graphics inteface:" />
+                        <Label layoutX="18.0" layoutY="91.0" prefHeight="17.0" prefWidth="91.0" text="Expansion slots:" />
+                        <Label layoutX="18.0" layoutY="108.0" prefHeight="17.0" prefWidth="50.0" text="M2 slot:" />
+                        <Label layoutX="18.0" layoutY="125.0" prefHeight="17.0" prefWidth="97.0" text="Display interface:" />
+                        <Label layoutX="18.0" layoutY="142.0" prefHeight="17.0" prefWidth="34.0" text="WIFI:" />
+                        <Label layoutX="18.0" layoutY="159.0" prefHeight="17.0" prefWidth="41.0" text="Audio:" />
+                        <Label layoutX="18.0" layoutY="176.0" prefHeight="17.0" prefWidth="71.0" text="Form factor:" />
+                        <Label fx:id="lblGraphicsInterface8" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="74.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblExpansionSlots8" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="91.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblM2Slot8" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="108.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblDisplayInterface8" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="125.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblWifi8" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="142.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblAudio8" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="159.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblFormFactor8" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="176.0" prefHeight="17.0" prefWidth="64.0" />
+                     </children>
+                  </AnchorPane>
+               </children>
+            </GridPane>
+            <Button layoutX="33.0" layoutY="21.0" mnemonicParsing="false" onAction="#back" prefHeight="25.0" prefWidth="46.0" text="Back" />
+         </children>
+      </AnchorPane>
+   </content>
+</ScrollPane>

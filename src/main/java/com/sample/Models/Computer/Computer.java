@@ -4,6 +4,8 @@ import com.sample.Models.ComputerComponents.Case;
 import com.sample.Models.ComputerComponents.*;
 import com.sample.Models.Users.User;
 
+import java.lang.reflect.Field;
+
 public class Computer {
     private Case ComputerCase;
     private CoolingSystem Cooling;
@@ -25,6 +27,17 @@ public class Computer {
         this.PowerSupply = powerSupply;
         this.CPU = CPU;
         this.Memory = memory;
+    }
+
+    public String toString() {
+        return ComputerCase.toString()+":"+Cooling.toString()+":"+GraphicsCard.toString()+":"+StorageComponent.toString()+":"+Motherboard.toString()+":"+PowerSupply.toString()+":"+CPU.toString()+":"+Memory.toString();
+    }
+
+    public boolean allFieldsSet() {
+        if (this.Memory == null || this.GraphicsCard == null || this.CPU == null || this.PowerSupply == null || this.Motherboard == null || this.ComputerCase == null || this.Cooling == null || this.StorageComponent == null) {
+            return false;
+        }
+        return true;
     }
 
     public Case getComputerCase() {
@@ -59,6 +72,8 @@ public class Computer {
 
     public User getCreator(){return Creator;}
 
+    public double getPrice(){return Price;}
+
     public void setComputerCase(Case computerCase) {
         this.ComputerCase = computerCase;
     }
@@ -92,6 +107,9 @@ public class Computer {
     }
     public void setCreator(User creator) {
         this.Creator = creator;
+    }
+    public void setPrice(Double price) {
+        this.Price = price;
     }
 }
 
