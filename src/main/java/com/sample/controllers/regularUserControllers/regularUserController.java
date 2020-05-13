@@ -39,8 +39,8 @@ public class regularUserController {
     }
 
     @FXML
-    void onClickMyComputers() {
-        System.out.println("du trykka my computers");
+    void onClickMyComputers() throws IOException {
+        App.changeView("/fxml/myComputers.fxml",0, 0);
     }
 
 

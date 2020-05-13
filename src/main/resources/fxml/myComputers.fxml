@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+
+<AnchorPane prefHeight="900.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sample.controllers.regularUserControllers.myComputersController">
+   <children>
+      <HBox alignment="CENTER_RIGHT" layoutY="14.0" prefHeight="100.0" prefWidth="1200.0" spacing="30.0" style="-fx-border-color: black; -fx-border-width: 0 0 1 0;">
+         <children>
+            <Button fx:id="homeBtn" onAction="#onClickHome" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: white; -fx-border-color: black;" text="Home">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="myComputersbtn" onAction="#onClickMyComputers" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: white; -fx-border-color: black;" text="My computers">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="logOutBtn" alignment="CENTER" onAction="#logOut" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: white; -fx-border-color: black;" text="Log out">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <padding>
+            <Insets right="50.0" />
+         </padding>
+      </HBox>
+      <TableView fx:id="table" layoutX="224.0" layoutY="218.0" prefHeight="571.0">
+        <columns>
+            <TableColumn prefWidth="75.0" text="Name" >
+
+            </TableColumn>
+            <TableColumn prefWidth="75.0" text="Case" >
+
+            </TableColumn>
+            <TableColumn prefWidth="75.0" text="Cooling" >
+
+            </TableColumn>
+            <TableColumn prefWidth="75.0" text="GPU" >
+
+            </TableColumn>
+            <TableColumn prefWidth="75.0" text="Storage" >
+
+            </TableColumn>
+            <TableColumn prefWidth="98.0" text="Motherboard" >
+
+            </TableColumn>
+            <TableColumn prefWidth="94.0" text="Power supply" >
+
+            </TableColumn>
+            <TableColumn prefWidth="53.0" text="CPU" >
+
+            </TableColumn>
+            <TableColumn prefWidth="55.0" text="RAM" >
+
+            </TableColumn>
+            <TableColumn prefWidth="75.0" text="Price" >
+
+            </TableColumn>
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

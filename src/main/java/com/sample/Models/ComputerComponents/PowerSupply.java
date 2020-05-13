@@ -20,6 +20,10 @@ public class PowerSupply extends ComputerComponent {
         this.watts = new SimpleStringProperty(watts);
     }
 
+    public String toString() {
+        return super.toString()+powerSource.getValueSafe()+";"+voltage.getValueSafe()+";"+watts.getValueSafe();
+    }
+
     public String getPowerSource() {
         return powerSource.get();
     }

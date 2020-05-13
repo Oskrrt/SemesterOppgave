@@ -14,7 +14,7 @@
    <content>
       <AnchorPane prefHeight="800.0" prefWidth="1200.0">
          <children>
-            <Label fx:id="lblHeader" alignment="CENTER" layoutX="91.0" layoutY="1.0" prefHeight="65.0" text="Storage components">
+            <Label fx:id="lblHeader" alignment="CENTER" layoutX="121.0" layoutY="1.0" prefHeight="65.0" text="Storage components">
                <font>
                   <Font size="40.0" />
                </font>
@@ -259,7 +259,7 @@
                </children>
             </GridPane>
             <Button layoutX="33.0" layoutY="21.0" mnemonicParsing="false" onAction="#back" prefHeight="25.0" text="Back" />
-            <Label fx:id="errorLbl" alignment="CENTER" layoutX="108.0" layoutY="102.0" prefHeight="200.0" prefWidth="944.0" wrapText="true">
+            <Label fx:id="errorLbl" alignment="CENTER" layoutX="108.0" layoutY="95.0" prefHeight="200.0" prefWidth="944.0" wrapText="true">
                <font>
                   <Font size="18.0" />
                </font>

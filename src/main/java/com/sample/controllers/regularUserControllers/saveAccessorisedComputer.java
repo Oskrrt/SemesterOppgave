@@ -66,7 +66,7 @@ public class saveAccessorisedComputer {
     }
 
     @FXML
-    void onClickMyComputers(ActionEvent event) {
+    void onClickMyComputers(ActionEvent event) throws IOException {
         connector.onClickMyComputers();
     }
 

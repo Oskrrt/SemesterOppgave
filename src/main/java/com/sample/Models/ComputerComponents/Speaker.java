@@ -26,7 +26,7 @@ public class Speaker extends ComputerComponent{
     }
 
     public String toString() {
-        return super.toString()+"\n"+inputType;
+        return super.toString()+";"+inputType.getValueSafe();
     }
 
     private void writeObject(ObjectOutputStream s) throws IOException {

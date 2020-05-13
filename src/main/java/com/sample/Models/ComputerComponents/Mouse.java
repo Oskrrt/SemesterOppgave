@@ -28,6 +28,10 @@ public class Mouse extends ComputerComponent {
         }
     }
 
+    public String toString() {
+        return super.toString()+isWireLess.getValueSafe();
+    }
+
     public String getIsWireless(){
         return isWireLess.getValue();
     }

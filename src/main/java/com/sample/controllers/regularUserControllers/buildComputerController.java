@@ -5,6 +5,7 @@ import com.sample.BLL.UserLogic;
 import com.sample.Models.Computer.Computer;
 import com.sample.Models.ComputerComponents.*;
 import com.sample.Models.Users.User;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -24,7 +25,7 @@ import java.util.List;
 public class buildComputerController {
     private regularUserController connector = new regularUserController();
     private User loggedInUser = connector.getLoggedInUser();
-    private static Computer computerBeingBuilt = new Computer(null, null, null, null, null ,null, null, null);
+    private static Computer computerBeingBuilt = new Computer(null,null, null, null, null, null ,null, null, null);
 
 
     @FXML
@@ -139,7 +140,7 @@ public class buildComputerController {
     }
 
     @FXML
-    void onClickMyComputers() {
+    void onClickMyComputers() throws IOException {
         connector.onClickMyComputers();
     }
 

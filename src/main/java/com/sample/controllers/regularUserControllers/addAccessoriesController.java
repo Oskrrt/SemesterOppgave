@@ -178,7 +178,7 @@ public class addAccessoriesController {
     }
 
     @FXML
-    void onClickMyComputers() {
+    void onClickMyComputers() throws IOException {
         connector.onClickMyComputers();
     }
 

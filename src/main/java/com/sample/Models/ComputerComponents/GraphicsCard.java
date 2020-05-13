@@ -36,7 +36,7 @@ public class GraphicsCard extends ComputerComponent implements ValidateForm {
     }
 
     public String toString() {
-        return super.toString()+"\n"+this.memoryCapacity+"\n"+this.memoryType;
+        return super.toString()+this.memoryCapacity.getValueSafe()+";"+this.memoryType.getValueSafe();
     }
 
     private void writeObject(ObjectOutputStream s) throws IOException {

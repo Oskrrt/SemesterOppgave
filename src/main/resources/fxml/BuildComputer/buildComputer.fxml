@@ -125,17 +125,17 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <CheckBox fx:id="chkAccessories" contentDisplay="RIGHT" graphicTextGap="2.0" layoutX="303.0" layoutY="785.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" prefHeight="53.0" prefWidth="618.0" text="I also want extra accessories like monitors, mice and keyboards">
+      <CheckBox fx:id="chkAccessories" contentDisplay="RIGHT" graphicTextGap="2.0" layoutX="413.0" layoutY="786.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" prefHeight="53.0" text="I want extra accessories like monitors, mice and keyboards">
          <font>
             <Font size="20.0" />
          </font>
       </CheckBox>
-      <Text layoutX="23.0" layoutY="615.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Price of computer:">
+      <Text layoutX="23.0" layoutY="823.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Price of computer:">
          <font>
             <Font size="28.0" />
          </font>
       </Text>
-      <Label fx:id="lblPrice" layoutX="286.0" layoutY="585.0">
+      <Label fx:id="lblPrice" layoutX="282.0" layoutY="796.0" prefHeight="40.0">
          <font>
             <Font size="28.0" />
          </font>

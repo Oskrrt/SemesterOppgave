@@ -20,6 +20,10 @@ public class CoolingSystem extends ComputerComponent implements ValidateForm {
         this.heightCM = new SimpleStringProperty(heightCM);
     }
 
+    public String toString() {
+        return super.toString()+widthCM.getValueSafe()+";"+heightCM.getValueSafe();
+    }
+
     public String getWidthCM() {
         return widthCM.get();
     }

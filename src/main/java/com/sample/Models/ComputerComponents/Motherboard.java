@@ -35,6 +35,10 @@ public class Motherboard extends ComputerComponent {
         this.formFactor = new SimpleStringProperty(formFactor);
     }
 
+    public String toString() {
+        return super.toString()+CPUSupport.getValueSafe()+";"+memoryType.getValueSafe()+";"+memoryDIMMs.getValueSafe()+";"+graphicInterface.getValueSafe()+";"+expansionSlots.getValueSafe()+";"+m2Slot.getValueSafe()+";"+displayInterface.getValueSafe()+";"+WIFI.getValueSafe()+";"+audio.getValueSafe()+";"+formFactor.getValueSafe();
+    }
+
     public String getCPUSupport() {
         return CPUSupport.get();
     }

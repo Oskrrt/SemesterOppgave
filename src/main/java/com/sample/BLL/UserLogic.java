@@ -19,8 +19,8 @@ public class UserLogic {
         for (Field field: fields) {
             String methodName = "get"+field.getName();
             try {
-                // We only want the computer components for now, so we leave the price and the creator out.
-                if((!methodName.equals("getPrice")) && (!methodName.equals("getCreator"))) {
+                // We only want the computer components for now, so we leave the price, name and the creator out.
+                if((!methodName.equals("getPrice")) && (!methodName.equals("getCreator") && (!methodName.equals("getName")))) {
                     ComputerComponent product = (ComputerComponent) computerBeingBuilt.getClass().getMethod(methodName).invoke(computerBeingBuilt);
                     if (product != null) {
                         products.add(product);
@@ -62,6 +62,10 @@ public class UserLogic {
             price += component.getPrice();
         }
         return price;
+    }
+
+    public static void saveComputer(Computer computerToBeSaved) {
+
     }
 
 

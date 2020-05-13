@@ -16,6 +16,10 @@ public class StorageComponent extends ComputerComponent {
         this.size = new SimpleStringProperty(size);
     }
 
+    public String toString() {
+        return super.toString()+size.getValueSafe();
+    }
+
     public String getSize() {
         return size.get();
     }

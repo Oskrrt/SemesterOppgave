@@ -48,7 +48,7 @@ public class ComputerComponent  implements Serializable, ValidateForm {
     }
 
     public String toString() {
-        return this.price+"\n"+ this.description+"\n"+this.productName+"\n"+this.productionCompany+"\n"+this.serialNumber;
+        return this.price.getValue()+";"+ this.description.getValueSafe()+";"+this.productName.getValueSafe()+";"+this.productionCompany.getValueSafe()+";"+this.serialNumber.getValueSafe()+";";
     }
 
     public void setPrice(double price) {
@@ -109,7 +109,7 @@ public class ComputerComponent  implements Serializable, ValidateForm {
         String validatePrice = "[0-9]+(\\.[0-9][0-9]?)?";
         if(Pattern.matches(validatePrice, String.valueOf(getPrice())) && getPrice() > 0){
             //any character. Between 5-300 characters
-            String validateDescription = "[\\w ,;.:\\-_´``?=)(/&%$#\"'!'@*¨^ÆØÅæøå \\s]{5,500}";
+            String validateDescription = "[\\w ,.\\-_´``?=)(/&%$#\"'!'@*¨^ÆØÅæøå \\s]{5,500}";
             if (Pattern.matches(validateDescription, getDescription())){
                 //any word + spaces and  between 2-50 characters. Also allows numbers and special characters.
                 String validateName = "[a-zæøåA-ZÆØÅ0-9\\-_.@*¨^`=)(/&%$#\"! ]{2,100}";
@@ -124,7 +124,7 @@ public class ComputerComponent  implements Serializable, ValidateForm {
                         } else throw new ValidationException("Serial number must be 8 numbers.");
                     } else throw new ValidationException("Invalid manufacturer. Make sure it also is between 2 and 30 characters long.");
                 } else throw new ValidationException("Invalid product name. Make sure it also is between 2 and 50 characters long.");
-            } else throw new ValidationException("Invalid description. Make sure it is between 5 and 500 characters long.");
+            } else throw new ValidationException("Invalid description. Make sure it is between 5 and 500 characters long. Colon ( : ) and semicolon ( ; ) not allowed");
         } else throw new ValidationException("Invalid price. Make sure you include decimals: X.XX");
     }
 }

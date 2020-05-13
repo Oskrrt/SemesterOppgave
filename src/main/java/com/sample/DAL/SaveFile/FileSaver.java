@@ -1,41 +1,62 @@
 package com.sample.DAL.SaveFile;
 
 import com.sample.BLL.ComponentFactory;
+import com.sample.Models.Computer.Computer;
+import com.sample.Models.Computer.ComputerWithAccessories;
 import com.sample.Models.ComputerComponents.ComputerComponent;
-import com.sample.Models.ComputerComponents.CoolingSystem;
 import com.sample.Models.Users.User;
 import javafx.concurrent.Task;
-
 import java.io.*;
-import java.lang.reflect.Array;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Stream;
-
-import static java.lang.Integer.MAX_VALUE;
 
 abstract public class FileSaver extends Task<Boolean> {
     protected final Path path = Paths.get("src/main/java/com/sample/DAL/SavedFiles/Users.txt");
-    protected User userToRegister;
-    public FileSaver(User userToRegister) {
-        this.userToRegister = userToRegister;
+    private User userToRegister;
+    private Computer computerToSave;
+    private ComputerWithAccessories computerWithAccessoriesToSave;
+
+    FileSaver(Object dataToSave) {
+        if(dataToSave instanceof User) {
+            this.userToRegister = (User) dataToSave;
+        } else if (dataToSave instanceof Computer) {
+            this.computerToSave = (Computer) dataToSave;
+        } else if (dataToSave instanceof ComputerWithAccessories) {
+            this.computerWithAccessoriesToSave = (ComputerWithAccessories) dataToSave;
+        }
     }
 
-     boolean writeToFile() throws IOException {
-         // Declaring two long fileSize variables, one before writing and one after writing. If the size is changed after writing the writing went successfully
-         long fileSize = Files.size(path);
-         String contentToWrite = userToRegister.getMail()+":"+userToRegister.getPassword()+":"+userToRegister.getAdmin()+"\n";
-         Files.write(path, contentToWrite.getBytes(), StandardOpenOption.APPEND);
-         long fileSizeAfter = Files.size(path);
-         System.out.println(fileSize+"------"+fileSizeAfter);
-         System.out.println(fileSizeAfter>fileSize);
-         return fileSizeAfter>fileSize;
-     }
+    boolean writeToFile(Object dataToSave) throws IOException {
+        Path path;
+        if (dataToSave instanceof User) {
+            path = Paths.get("src/main/java/com/sample/DAL/SavedFiles/Users.txt");
+            // Declaring two long fileSize variables, one before writing and one after writing. If the size is changed after writing the writing went successfully
+            long fileSize = Files.size(path);
+            String contentToWrite = ((User) dataToSave).getMail()+":"+ ((User) dataToSave).getPassword()+":"+ ((User) dataToSave).getAdmin()+"\n";
+            Files.write(path, contentToWrite.getBytes(), StandardOpenOption.APPEND);
+            long fileSizeAfter = Files.size(path);
+            return fileSizeAfter>fileSize;
+        } else if(dataToSave instanceof Computer) {
+            path = Paths.get("src/main/java/com/sample/DAL/SavedFiles/SavedComputers/Computers.txt");
+            // Declaring two long fileSize variables, one before writing and one after writing. If the size is changed after writing the writing went successfully
+            long fileSize = Files.size(path);
+            String contentToWrite = dataToSave.toString()+"\n";
+            Files.write(path, contentToWrite.getBytes(), StandardOpenOption.APPEND);
+            long fileSizeAfter = Files.size(path);
+            return fileSizeAfter>fileSize;
+        } else if(dataToSave instanceof ComputerWithAccessories) {
+            path = Paths.get("src/main/java/com/sample/DAL/SavedFiles/SavedComputers/ComputersWithAccessories.txt");
+            // Declaring two long fileSize variables, one before writing and one after writing. If the size is changed after writing the writing went successfully
+            long fileSize = Files.size(path);
+            String contentToWrite = dataToSave.toString()+"\n";
+            Files.write(path, contentToWrite.getBytes(), StandardOpenOption.APPEND);
+            long fileSizeAfter = Files.size(path);
+            return fileSizeAfter>fileSize;
+        }
+        return false;
+    }
 
     //this function takes in a computercomponent and a string identifying which type of component it is. Because we save every component
     //to their own JOBJ file, we first need to figure out which path to generate. after generating the correct path we add the components

@@ -14,7 +14,7 @@
    <content>
       <AnchorPane prefHeight="800.0" prefWidth="1000.0">
          <children>
-            <Label fx:id="lblHeader" alignment="CENTER" layoutX="98.0" layoutY="1.0" prefHeight="65.0" text="Cases">
+            <Label fx:id="lblHeader" alignment="CENTER" layoutX="126.0" layoutY="1.0" prefHeight="65.0" text="Cases">
                <font>
                   <Font size="40.0" />
                </font>

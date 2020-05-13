@@ -25,7 +25,9 @@ public class Case extends ComputerComponent implements ValidateForm {
         this.depthCM = new SimpleStringProperty(depthCM);
     }
 
-
+    public String toString() {
+        return super.toString()+numberOfUSBPorts.getValueSafe()+";"+HDAudioJacks.getValueSafe()+";"+widthCM.getValueSafe()+";"+heightCM.getValueSafe()+";"+depthCM.getValueSafe();
+    }
     public String getNumberOfUSBPorts() {
         return numberOfUSBPorts.get();
     }

@@ -22,6 +22,10 @@ public class Monitor extends ComputerComponent {
         this.connector = new SimpleStringProperty(connector);
     }
 
+    public String toString() {
+        return super.toString()+displayType.getValueSafe()+";"+inches.getValueSafe()+";"+resolution.getValueSafe()+";"+connector.getValueSafe();
+    }
+
     public String getDisplayType() {
         return displayType.get();
     }

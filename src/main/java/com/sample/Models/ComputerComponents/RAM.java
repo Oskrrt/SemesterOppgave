@@ -18,6 +18,10 @@ public class RAM extends ComputerComponent{
         this.MHz = new SimpleStringProperty(MHz);
     }
 
+    public String toString() {
+        return super.toString()+gigabytes.getValueSafe()+";"+MHz.getValueSafe();
+    }
+
     public String getGigabytes() {
         return gigabytes.get();
     }

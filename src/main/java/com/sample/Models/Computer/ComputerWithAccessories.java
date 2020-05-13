@@ -10,7 +10,7 @@ public class ComputerWithAccessories extends Computer {
     private Speaker Speaker;
     private double Price;
     public ComputerWithAccessories(Computer computer, Mouse mouse, Monitor monitor, Speaker speaker, Keyboard keyboard) {
-        super(null, null, null, null, null, null, null, null);
+        super(null, null, null, null, null, null, null, null, null);;
         this.Computer = computer;
         this.Mouse = mouse;
         this.Monitor = monitor;
