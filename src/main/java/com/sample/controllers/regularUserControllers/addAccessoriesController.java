@@ -9,6 +9,7 @@ import com.sample.Models.Users.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
@@ -44,6 +45,9 @@ public class addAccessoriesController {
     @FXML
     void back(ActionEvent event) throws IOException {
         App.changeView("/fxml/BuildComputer/buildComputer.fxml", 0 ,0);
+    }
+    User getLoggedInUser() {
+        return loggedInUser;
     }
     @FXML
     void initialize() {
@@ -136,10 +140,31 @@ public class addAccessoriesController {
         }
         initialize();
     }
-
+    private double generateTotalPriceOfComputerAndAccessories(List<ComputerComponent> accessoriesNotNull, ComputerWithAccessories computerBeingBuilt) {
+        double price = computerBeingBuilt.getComputer().getPrice();
+        for (ComputerComponent accessory : accessoriesNotNull) {
+            price+=accessory.getPrice();
+        }
+        return price;
+    }
     @FXML
     void onClickNext(ActionEvent event) throws IOException {
-        App.changeView("/fxml/BuildComputer/SaveComputer.fxml", 0, 0);
+        List<ComputerComponent> accessoriesNotNull = UserLogic.getCurrentlyChosenComponentsForAccessorisedComputer(computerBeingBuilt);
+        if (accessoriesNotNull.size() < 1) {
+            Alert a = new Alert(Alert.AlertType.INFORMATION);
+            a.setTitle("Computer unfinished");
+            a.setHeaderText(null);
+            a.setContentText("Please select at least one accessory");
+            a.showAndWait();
+            return;
+        }
+        //computerBeingBuilt.setPrice(generateTotalPriceOfComputerAndAccessories(accessoriesNotNull, computerBeingBuilt));
+        double price = computerBeingBuilt.getComputer().getPrice() + UserLogic.calculatePriceOfComputer(accessoriesNotNull);
+        computerBeingBuilt.setPrice(price);
+        System.out.println("før setter pc til bruker "+computerBeingBuilt.getPrice());
+        loggedInUser.setComputerInProduction(computerBeingBuilt);
+        System.out.println("Etter setter pc til bruker "+loggedInUser.getComputerInProduction().getPrice());
+        App.changeView("/fxml/BuildComputer/saveAccessorisedComputer.fxml", 0, 0);
     }
 
     @FXML

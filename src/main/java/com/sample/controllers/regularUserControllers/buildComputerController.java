@@ -5,7 +5,6 @@ import com.sample.BLL.UserLogic;
 import com.sample.Models.Computer.Computer;
 import com.sample.Models.ComputerComponents.*;
 import com.sample.Models.Users.User;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -170,7 +169,7 @@ public class buildComputerController {
         String location = "";
         List<ComputerComponent> componentsNotNull = UserLogic.getCurrentlyChosenComponents(loggedInUser.getComputerInProduction());
         loggedInUser.getComputerInProduction().setPrice(UserLogic.calculatePriceOfComputer(componentsNotNull));
-       if (!loggedInUser.getComputerInProduction().allFieldsSet()) {
+        if (!loggedInUser.getComputerInProduction().allFieldsSet()) {
             Alert a = new Alert(Alert.AlertType.INFORMATION);
             a.setTitle("Computer unfinished");
             a.setHeaderText(null);

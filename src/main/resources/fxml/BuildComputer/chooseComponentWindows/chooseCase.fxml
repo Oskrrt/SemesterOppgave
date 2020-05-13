@@ -14,12 +14,12 @@
    <content>
       <AnchorPane prefHeight="800.0" prefWidth="1000.0">
          <children>
-            <Label fx:id="lblHeader" alignment="CENTER" layoutX="98.0" layoutY="1.0" prefHeight="65.0" prefWidth="181.0" text="Cases">
+            <Label fx:id="lblHeader" alignment="CENTER" layoutX="98.0" layoutY="1.0" prefHeight="65.0" text="Cases">
                <font>
                   <Font size="40.0" />
                </font>
             </Label>
-            <GridPane fx:id="gp" alignment="CENTER" hgap="50.0" layoutX="126.0" layoutY="96.0" prefHeight="787.0" prefWidth="959.0" vgap="30.0">
+            <GridPane fx:id="gp" alignment="CENTER" hgap="50.0" layoutX="126.0" layoutY="96.0" prefHeight="1000.0" prefWidth="959.0" vgap="30.0">
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -41,20 +41,20 @@
                         <Label layoutX="17.0" layoutY="90.0" text="Depth (CM):" />
                         <Label layoutX="18.0" layoutY="107.0" text="Manufacturer:" />
                         <Label layoutX="18.0" layoutY="125.0" text="Serial number:" />
-                        <Label fx:id="lblPrice" layoutX="17.0" layoutY="202.0" prefHeight="33.0" prefWidth="96.0">
+                        <Label fx:id="lblPrice" layoutX="18.0" layoutY="267.0" prefHeight="33.0">
                            <font>
                               <Font name="System Bold" size="16.0" />
                            </font>
                         </Label>
-                        <Label fx:id="lblUsbPorts" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="22.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblAudioJacks" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="39.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblWidth" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="57.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblHeight" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="74.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblDepth" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="89.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblManufacturer" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="108.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblSerialNumber" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="125.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblDescription" layoutX="16.0" layoutY="151.0" prefHeight="51.0" prefWidth="255.0" wrapText="true" />
-                        <Button layoutX="207.0" layoutY="202.0" mnemonicParsing="false" onAction="#chooseComponent" prefHeight="33.0" prefWidth="67.0" style="-fx-background-color: green;" text="Choose" textFill="WHITE">
+                        <Label fx:id="lblUsbPorts" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="22.0" prefHeight="18.0" />
+                        <Label fx:id="lblAudioJacks" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="39.0" prefHeight="18.0" />
+                        <Label fx:id="lblWidth" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="57.0" prefHeight="18.0" />
+                        <Label fx:id="lblHeight" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="74.0" prefHeight="18.0" />
+                        <Label fx:id="lblDepth" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="89.0" prefHeight="18.0" />
+                        <Label fx:id="lblManufacturer" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="108.0" prefHeight="18.0" />
+                        <Label fx:id="lblSerialNumber" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="125.0" prefHeight="18.0" />
+                        <Label fx:id="lblDescription" layoutX="18.0" layoutY="151.0" prefHeight="112.0" prefWidth="255.0" wrapText="true" />
+                        <Button layoutX="208.0" layoutY="267.0" mnemonicParsing="false" onAction="#chooseComponent" prefHeight="33.0" style="-fx-background-color: green;" text="Choose" textFill="WHITE">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
@@ -74,20 +74,20 @@
                         <Label layoutX="17.0" layoutY="90.0" text="Depth (CM):" />
                         <Label layoutX="18.0" layoutY="107.0" text="Manufacturer:" />
                         <Label layoutX="18.0" layoutY="125.0" text="Serial number:" />
-                        <Label fx:id="lblPrice1" layoutX="17.0" layoutY="202.0" prefHeight="33.0" prefWidth="96.0">
+                        <Label fx:id="lblPrice1" layoutX="18.0" layoutY="267.0" prefHeight="33.0">
                            <font>
                               <Font name="System Bold" size="16.0" />
                            </font>
                         </Label>
-                        <Label fx:id="lblUsbPorts1" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="22.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblAudioJacks1" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="39.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblWidth1" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="57.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblHeight1" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="74.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblDepth1" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="89.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblManufacturer1" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="108.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblSerialNumber1" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="125.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblDescription1" layoutX="16.0" layoutY="151.0" prefHeight="51.0" prefWidth="255.0" wrapText="true" />
-                        <Button layoutX="207.0" layoutY="202.0" mnemonicParsing="false" onAction="#chooseComponent" prefHeight="33.0" prefWidth="67.0" style="-fx-background-color: green;" text="Choose" textFill="WHITE">
+                        <Label fx:id="lblUsbPorts1" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="22.0" prefHeight="18.0" />
+                        <Label fx:id="lblAudioJacks1" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="39.0" prefHeight="18.0" />
+                        <Label fx:id="lblWidth1" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="57.0" prefHeight="18.0" />
+                        <Label fx:id="lblHeight1" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="74.0" prefHeight="18.0" />
+                        <Label fx:id="lblDepth1" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="89.0" prefHeight="18.0" />
+                        <Label fx:id="lblManufacturer1" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="108.0" prefHeight="18.0" />
+                        <Label fx:id="lblSerialNumber1" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="125.0" prefHeight="18.0" />
+                        <Label fx:id="lblDescription1" layoutX="18.0" layoutY="151.0" prefHeight="112.0" prefWidth="255.0" wrapText="true" />
+                        <Button layoutX="208.0" layoutY="267.0" mnemonicParsing="false" onAction="#chooseComponent" prefHeight="33.0" style="-fx-background-color: green;" text="Choose" textFill="WHITE">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
@@ -107,20 +107,20 @@
                         <Label layoutX="17.0" layoutY="90.0" text="Depth (CM):" />
                         <Label layoutX="18.0" layoutY="107.0" text="Manufacturer:" />
                         <Label layoutX="18.0" layoutY="125.0" text="Serial number:" />
-                        <Label fx:id="lblPrice2" layoutX="17.0" layoutY="202.0" prefHeight="33.0" prefWidth="96.0">
+                        <Label fx:id="lblPrice2" layoutX="18.0" layoutY="267.0" prefHeight="33.0">
                            <font>
                               <Font name="System Bold" size="16.0" />
                            </font>
                         </Label>
-                        <Label fx:id="lblUsbPorts2" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="22.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblAudioJacks2" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="39.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblWidth2" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="57.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblHeight2" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="74.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblDepth2" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="89.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblManufacturer2" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="108.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblSerialNumber2" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="125.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblDescription2" layoutX="16.0" layoutY="151.0" prefHeight="51.0" prefWidth="255.0" wrapText="true" />
-                        <Button layoutX="207.0" layoutY="202.0" mnemonicParsing="false" onAction="#chooseComponent" prefHeight="33.0" prefWidth="67.0" style="-fx-background-color: green;" text="Choose" textFill="WHITE">
+                        <Label fx:id="lblUsbPorts2" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="22.0" prefHeight="18.0" />
+                        <Label fx:id="lblAudioJacks2" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="39.0" prefHeight="18.0" />
+                        <Label fx:id="lblWidth2" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="57.0" prefHeight="18.0" />
+                        <Label fx:id="lblHeight2" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="74.0" prefHeight="18.0" />
+                        <Label fx:id="lblDepth2" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="89.0" prefHeight="18.0" />
+                        <Label fx:id="lblManufacturer2" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="108.0" prefHeight="18.0" />
+                        <Label fx:id="lblSerialNumber2" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="125.0" prefHeight="18.0" />
+                        <Label fx:id="lblDescription2" layoutX="18.0" layoutY="151.0" prefHeight="112.0" prefWidth="255.0" wrapText="true" />
+                        <Button layoutX="208.0" layoutY="267.0" mnemonicParsing="false" onAction="#chooseComponent" prefHeight="33.0" style="-fx-background-color: green;" text="Choose" textFill="WHITE">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
@@ -140,20 +140,20 @@
                         <Label layoutX="17.0" layoutY="90.0" text="Depth (CM):" />
                         <Label layoutX="18.0" layoutY="107.0" text="Manufacturer:" />
                         <Label layoutX="18.0" layoutY="125.0" text="Serial number:" />
-                        <Label fx:id="lblPrice3" layoutX="17.0" layoutY="202.0" prefHeight="33.0" prefWidth="96.0">
+                        <Label fx:id="lblPrice3" layoutX="18.0" layoutY="267.0" prefHeight="33.0">
                            <font>
                               <Font name="System Bold" size="16.0" />
                            </font>
                         </Label>
-                        <Label fx:id="lblUsbPorts3" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="22.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblAudioJacks3" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="39.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblWidth3" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="57.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblHeight3" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="74.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblDepth3" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="89.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblManufacturer3" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="108.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblSerialNumber3" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="125.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblDescription3" layoutX="16.0" layoutY="151.0" prefHeight="51.0" prefWidth="255.0" wrapText="true" />
-                        <Button layoutX="207.0" layoutY="202.0" mnemonicParsing="false" onAction="#chooseComponent" prefHeight="33.0" prefWidth="67.0" style="-fx-background-color: green;" text="Choose" textFill="WHITE">
+                        <Label fx:id="lblUsbPorts3" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="22.0" prefHeight="18.0" />
+                        <Label fx:id="lblAudioJacks3" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="39.0" prefHeight="18.0" />
+                        <Label fx:id="lblWidth3" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="57.0" prefHeight="18.0" />
+                        <Label fx:id="lblHeight3" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="74.0" prefHeight="18.0" />
+                        <Label fx:id="lblDepth3" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="89.0" prefHeight="18.0" />
+                        <Label fx:id="lblManufacturer3" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="108.0" prefHeight="18.0" />
+                        <Label fx:id="lblSerialNumber3" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="125.0" prefHeight="18.0" />
+                        <Label fx:id="lblDescription3" layoutX="18.0" layoutY="151.0" prefHeight="112.0" prefWidth="255.0" wrapText="true" />
+                        <Button layoutX="208.0" layoutY="267.0" mnemonicParsing="false" onAction="#chooseComponent" prefHeight="33.0" style="-fx-background-color: green;" text="Choose" textFill="WHITE">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
@@ -173,20 +173,20 @@
                         <Label layoutX="17.0" layoutY="90.0" text="Depth (CM):" />
                         <Label layoutX="18.0" layoutY="107.0" text="Manufacturer:" />
                         <Label layoutX="18.0" layoutY="125.0" text="Serial number:" />
-                        <Label fx:id="lblPrice4" layoutX="17.0" layoutY="202.0" prefHeight="33.0" prefWidth="96.0">
+                        <Label fx:id="lblPrice4" layoutX="18.0" layoutY="267.0" prefHeight="33.0">
                            <font>
                               <Font name="System Bold" size="16.0" />
                            </font>
                         </Label>
-                        <Label fx:id="lblUsbPorts4" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="22.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblAudioJacks4" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="39.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblWidth4" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="57.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblHeight4" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="74.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblDepth4" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="89.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblManufacturer4" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="108.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblSerialNumber4" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="125.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblDescription4" layoutX="16.0" layoutY="151.0" prefHeight="51.0" prefWidth="255.0" wrapText="true" />
-                        <Button layoutX="207.0" layoutY="202.0" mnemonicParsing="false" onAction="#chooseComponent" prefHeight="33.0" prefWidth="67.0" style="-fx-background-color: green;" text="Choose" textFill="WHITE">
+                        <Label fx:id="lblUsbPorts4" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="22.0" prefHeight="18.0" />
+                        <Label fx:id="lblAudioJacks4" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="39.0" prefHeight="18.0" />
+                        <Label fx:id="lblWidth4" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="57.0" prefHeight="18.0" />
+                        <Label fx:id="lblHeight4" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="74.0" prefHeight="18.0" />
+                        <Label fx:id="lblDepth4" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="89.0" prefHeight="18.0" />
+                        <Label fx:id="lblManufacturer4" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="108.0" prefHeight="18.0" />
+                        <Label fx:id="lblSerialNumber4" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="125.0" prefHeight="18.0" />
+                        <Label fx:id="lblDescription4" layoutX="18.0" layoutY="151.0" prefHeight="112.0" prefWidth="255.0" wrapText="true" />
+                        <Button layoutX="208.0" layoutY="267.0" mnemonicParsing="false" onAction="#chooseComponent" prefHeight="33.0" style="-fx-background-color: green;" text="Choose" textFill="WHITE">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
@@ -206,20 +206,20 @@
                         <Label layoutX="17.0" layoutY="90.0" text="Depth (CM):" />
                         <Label layoutX="18.0" layoutY="107.0" text="Manufacturer:" />
                         <Label layoutX="18.0" layoutY="125.0" text="Serial number:" />
-                        <Label fx:id="lblPrice5" layoutX="17.0" layoutY="202.0" prefHeight="33.0" prefWidth="96.0">
+                        <Label fx:id="lblPrice5" layoutX="18.0" layoutY="267.0" prefHeight="33.0">
                            <font>
                               <Font name="System Bold" size="16.0" />
                            </font>
                         </Label>
-                        <Label fx:id="lblUsbPorts5" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="22.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblAudioJacks5" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="39.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblWidth5" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="57.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblHeight5" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="74.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblDepth5" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="89.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblManufacturer5" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="108.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblSerialNumber5" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="125.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblDescription5" layoutX="16.0" layoutY="151.0" prefHeight="51.0" prefWidth="255.0" wrapText="true" />
-                        <Button layoutX="207.0" layoutY="202.0" mnemonicParsing="false" onAction="#chooseComponent" prefHeight="33.0" prefWidth="67.0" style="-fx-background-color: green;" text="Choose" textFill="WHITE">
+                        <Label fx:id="lblUsbPorts5" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="22.0" prefHeight="18.0" />
+                        <Label fx:id="lblAudioJacks5" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="39.0" prefHeight="18.0" />
+                        <Label fx:id="lblWidth5" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="57.0" prefHeight="18.0" />
+                        <Label fx:id="lblHeight5" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="74.0" prefHeight="18.0" />
+                        <Label fx:id="lblDepth5" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="89.0" prefHeight="18.0" />
+                        <Label fx:id="lblManufacturer5" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="108.0" prefHeight="18.0" />
+                        <Label fx:id="lblSerialNumber5" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="125.0" prefHeight="18.0" />
+                        <Label fx:id="lblDescription5" layoutX="18.0" layoutY="151.0" prefHeight="112.0" prefWidth="255.0" wrapText="true" />
+                        <Button layoutX="208.0" layoutY="267.0" mnemonicParsing="false" onAction="#chooseComponent" prefHeight="33.0" style="-fx-background-color: green;" text="Choose" textFill="WHITE">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
@@ -239,20 +239,20 @@
                         <Label layoutX="17.0" layoutY="90.0" text="Depth (CM):" />
                         <Label layoutX="18.0" layoutY="107.0" text="Manufacturer:" />
                         <Label layoutX="18.0" layoutY="125.0" text="Serial number:" />
-                        <Label fx:id="lblPrice6" layoutX="17.0" layoutY="202.0" prefHeight="33.0" prefWidth="96.0">
+                        <Label fx:id="lblPrice6" layoutX="18.0" layoutY="267.0" prefHeight="33.0">
                            <font>
                               <Font name="System Bold" size="16.0" />
                            </font>
                         </Label>
-                        <Label fx:id="lblUsbPorts6" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="22.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblAudioJacks6" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="39.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblWidth6" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="57.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblHeight6" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="74.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblDepth6" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="89.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblManufacturer6" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="108.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblSerialNumber6" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="125.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblDescription6" layoutX="16.0" layoutY="151.0" prefHeight="51.0" prefWidth="255.0" wrapText="true" />
-                        <Button layoutX="207.0" layoutY="202.0" mnemonicParsing="false" onAction="#chooseComponent" prefHeight="33.0" prefWidth="67.0" style="-fx-background-color: green;" text="Choose" textFill="WHITE">
+                        <Label fx:id="lblUsbPorts6" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="22.0" prefHeight="18.0" />
+                        <Label fx:id="lblAudioJacks6" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="39.0" prefHeight="18.0" />
+                        <Label fx:id="lblWidth6" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="57.0" prefHeight="18.0" />
+                        <Label fx:id="lblHeight6" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="74.0" prefHeight="18.0" />
+                        <Label fx:id="lblDepth6" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="89.0" prefHeight="18.0" />
+                        <Label fx:id="lblManufacturer6" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="108.0" prefHeight="18.0" />
+                        <Label fx:id="lblSerialNumber6" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="125.0" prefHeight="18.0" />
+                        <Label fx:id="lblDescription6" layoutX="18.0" layoutY="151.0" prefHeight="112.0" prefWidth="255.0" wrapText="true" />
+                        <Button layoutX="208.0" layoutY="267.0" mnemonicParsing="false" onAction="#chooseComponent" prefHeight="33.0" style="-fx-background-color: green;" text="Choose" textFill="WHITE">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
@@ -272,20 +272,20 @@
                         <Label layoutX="17.0" layoutY="90.0" text="Depth (CM):" />
                         <Label layoutX="18.0" layoutY="107.0" text="Manufacturer:" />
                         <Label layoutX="18.0" layoutY="125.0" text="Serial number:" />
-                        <Label fx:id="lblPrice7" layoutX="17.0" layoutY="202.0" prefHeight="33.0" prefWidth="96.0">
+                        <Label fx:id="lblPrice7" layoutX="18.0" layoutY="267.0" prefHeight="33.0">
                            <font>
                               <Font name="System Bold" size="16.0" />
                            </font>
                         </Label>
-                        <Label fx:id="lblUsbPorts7" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="22.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblAudioJacks7" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="39.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblWidth7" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="57.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblHeight7" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="74.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblDepth7" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="89.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblManufacturer7" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="108.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblSerialNumber7" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="125.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblDescription7" layoutX="16.0" layoutY="151.0" prefHeight="51.0" prefWidth="255.0" wrapText="true" />
-                        <Button layoutX="207.0" layoutY="202.0" mnemonicParsing="false" onAction="#chooseComponent" prefHeight="33.0" prefWidth="67.0" style="-fx-background-color: green;" text="Choose" textFill="WHITE">
+                        <Label fx:id="lblUsbPorts7" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="22.0" prefHeight="18.0" />
+                        <Label fx:id="lblAudioJacks7" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="39.0" prefHeight="18.0" />
+                        <Label fx:id="lblWidth7" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="57.0" prefHeight="18.0" />
+                        <Label fx:id="lblHeight7" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="74.0" prefHeight="18.0" />
+                        <Label fx:id="lblDepth7" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="89.0" prefHeight="18.0" />
+                        <Label fx:id="lblManufacturer7" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="108.0" prefHeight="18.0" />
+                        <Label fx:id="lblSerialNumber7" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="125.0" prefHeight="18.0" />
+                        <Label fx:id="lblDescription7" layoutX="18.0" layoutY="151.0" prefHeight="112.0" prefWidth="255.0" wrapText="true" />
+                        <Button layoutX="208.0" layoutY="267.0" mnemonicParsing="false" onAction="#chooseComponent" prefHeight="33.0" style="-fx-background-color: green;" text="Choose" textFill="WHITE">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
@@ -305,20 +305,20 @@
                         <Label layoutX="17.0" layoutY="90.0" text="Depth (CM):" />
                         <Label layoutX="18.0" layoutY="107.0" text="Manufacturer:" />
                         <Label layoutX="18.0" layoutY="125.0" text="Serial number:" />
-                        <Label fx:id="lblPrice8" layoutX="17.0" layoutY="202.0" prefHeight="33.0" prefWidth="96.0">
+                        <Label fx:id="lblPrice8" layoutX="18.0" layoutY="267.0" prefHeight="33.0">
                            <font>
                               <Font name="System Bold" size="16.0" />
                            </font>
                         </Label>
-                        <Label fx:id="lblUsbPorts8" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="22.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblAudioJacks8" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="39.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblWidth8" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="57.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblHeight8" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="74.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblDepth8" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="89.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblManufacturer8" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="108.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblSerialNumber8" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="125.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblDescription8" layoutX="16.0" layoutY="151.0" prefHeight="51.0" prefWidth="255.0" wrapText="true" />
-                        <Button layoutX="207.0" layoutY="202.0" mnemonicParsing="false" onAction="#chooseComponent" prefHeight="33.0" prefWidth="67.0" style="-fx-background-color: green;" text="Choose" textFill="WHITE">
+                        <Label fx:id="lblUsbPorts8" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="22.0" prefHeight="18.0" />
+                        <Label fx:id="lblAudioJacks8" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="39.0" prefHeight="18.0" />
+                        <Label fx:id="lblWidth8" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="57.0" prefHeight="18.0" />
+                        <Label fx:id="lblHeight8" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="74.0" prefHeight="18.0" />
+                        <Label fx:id="lblDepth8" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="89.0" prefHeight="18.0" />
+                        <Label fx:id="lblManufacturer8" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="108.0" prefHeight="18.0" />
+                        <Label fx:id="lblSerialNumber8" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="125.0" prefHeight="18.0" />
+                        <Label fx:id="lblDescription8" layoutX="18.0" layoutY="151.0" prefHeight="112.0" prefWidth="255.0" wrapText="true" />
+                        <Button layoutX="208.0" layoutY="267.0" mnemonicParsing="false" onAction="#chooseComponent" prefHeight="33.0" style="-fx-background-color: green;" text="Choose" textFill="WHITE">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
@@ -330,8 +330,8 @@
                   </AnchorPane>
                </children>
             </GridPane>
-            <Button layoutX="33.0" layoutY="21.0" mnemonicParsing="false" onAction="#back" prefHeight="25.0" prefWidth="46.0" text="Back" />
-            <Label fx:id="errorLbl" alignment="CENTER" layoutX="138.0" layoutY="89.0" prefHeight="200.0" wrapText="true">
+            <Button layoutX="33.0" layoutY="21.0" mnemonicParsing="false" onAction="#back" prefHeight="25.0" text="Back" wrapText="true" />
+            <Label fx:id="errorLbl" alignment="CENTER" layoutX="98.0" layoutY="92.0" prefHeight="200.0" prefWidth="944.0" wrapText="true">
                <font>
                   <Font size="18.0" />
                </font>

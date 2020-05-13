@@ -105,7 +105,7 @@ public class chooseMotherboard {
             ((Label)((AnchorPane)productContainers.get(i)).getChildren().get(9)).setText(motherboards.get(i).getMemoryDIMMs());
             ((Label)((AnchorPane)productContainers.get(i)).getChildren().get(21)).setText(motherboards.get(i).getGraphicInterface());
             ((Label)((AnchorPane)productContainers.get(i)).getChildren().get(22)).setText(motherboards.get(i).getExpansionSlots());
-            ((Label)((AnchorPane)productContainers.get(i)).getChildren().get(24)).setText(motherboards.get(i).getM2Slot());
+            ((Label)((AnchorPane)productContainers.get(i)).getChildren().get(23)).setText(motherboards.get(i).getM2Slot());
             ((Label)((AnchorPane)productContainers.get(i)).getChildren().get(24)).setText(motherboards.get(i).getDisplayInterface());
             ((Label)((AnchorPane)productContainers.get(i)).getChildren().get(25)).setText(motherboards.get(i).getWIFI());
             ((Label)((AnchorPane)productContainers.get(i)).getChildren().get(26)).setText(motherboards.get(i).getAudio());

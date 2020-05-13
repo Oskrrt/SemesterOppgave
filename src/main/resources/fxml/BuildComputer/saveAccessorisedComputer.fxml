@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="900.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sample.controllers.regularUserControllers.saveComputerController">
+<AnchorPane prefHeight="900.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sample.controllers.regularUserControllers.saveAccessorisedComputer">
    <children>
       <HBox alignment="CENTER_RIGHT" layoutY="14.0" prefHeight="100.0" prefWidth="1200.0" spacing="30.0" style="-fx-border-color: black; -fx-border-width: 0 0 1 0;">
          <children>
@@ -57,7 +57,7 @@
             <Font size="18.0" />
          </font>
       </Text>
-      <VBox fx:id="container" layoutX="63.0" layoutY="279.0" prefHeight="336.0" prefWidth="1075.0" style="-fx-border-color: black;">
+      <VBox fx:id="container" layoutX="63.0" layoutY="234.0" prefHeight="457.0" prefWidth="1075.0" style="-fx-border-color: black;">
          <children>
             <AnchorPane prefHeight="37.0" prefWidth="1073.0" style="-fx-border-color: black; -fx-border-width: 0 0 1 0;">
                <children>
@@ -171,6 +171,62 @@
                   </Label>
                </children>
             </AnchorPane>
+            <AnchorPane prefHeight="37.0" prefWidth="1073.0" style="-fx-border-color: black; -fx-border-width: 0 0 1 0;">
+               <children>
+                  <Text layoutX="22.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Monitor:">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Text>
+                  <Label alignment="CENTER_RIGHT" layoutX="408.0" prefHeight="37.0" prefWidth="662.0" text="Not selected">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="37.0" prefWidth="1073.0" style="-fx-border-color: black; -fx-border-width: 0 0 1 0;">
+               <children>
+                  <Text layoutX="22.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Speaker:">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Text>
+                  <Label alignment="CENTER_RIGHT" layoutX="408.0" prefHeight="37.0" prefWidth="662.0" text="Not selected">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="37.0" prefWidth="1073.0" style="-fx-border-color: black; -fx-border-width: 0 0 1 0;">
+               <children>
+                  <Text layoutX="22.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mouse:">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Text>
+                  <Label alignment="CENTER_RIGHT" layoutX="408.0" prefHeight="37.0" prefWidth="662.0" text="Not selected">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="37.0" prefWidth="1073.0" style="-fx-border-color: black; -fx-border-width: 0 0 1 0;">
+               <children>
+                  <Text layoutX="22.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Keyboard:">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Text>
+                  <Label alignment="CENTER_RIGHT" layoutX="408.0" prefHeight="37.0" prefWidth="662.0" text="Not selected">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
             <AnchorPane prefHeight="37.0" prefWidth="1073.0">
                <children>
                   <Text layoutX="22.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Price:">
@@ -187,6 +243,6 @@
             </AnchorPane>
          </children>
       </VBox>
-      <Line endX="-49.0" endY="370.0" layoutX="394.0" layoutY="251.0" startX="-49.0" startY="29.0" />
+      <Line endX="-49.0" endY="523.0" layoutX="394.0" layoutY="206.0" startX="-49.0" startY="29.0" />
    </children>
 </AnchorPane>

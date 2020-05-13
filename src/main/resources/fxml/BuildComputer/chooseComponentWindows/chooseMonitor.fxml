@@ -14,7 +14,7 @@
    <content>
       <AnchorPane prefHeight="800.0" prefWidth="1000.0">
          <children>
-            <Label fx:id="lblHeader" alignment="CENTER" layoutX="94.0" layoutY="1.0" prefHeight="65.0" prefWidth="208.0" text="Monitors">
+            <Label fx:id="lblHeader" alignment="CENTER" layoutX="112.0" layoutY="1.0" prefHeight="65.0" text="Monitors">
                <font>
                   <Font size="40.0" />
                </font>
@@ -34,25 +34,25 @@
                   <AnchorPane fx:id="ap1" prefHeight="200.0" prefWidth="287.0">
                      <children>
                         <Label fx:id="lblProductName" alignment="CENTER" layoutX="1.0" prefHeight="17.0" prefWidth="286.0" text="Product name" />
-                        <Label layoutX="18.0" layoutY="21.0" prefHeight="17.0" prefWidth="73.0" text="Display type:" />
-                        <Label layoutX="18.0" layoutY="38.0" prefHeight="17.0" prefWidth="73.0" text="Inches:" />
-                        <Label layoutX="18.0" layoutY="55.0" prefHeight="17.0" prefWidth="73.0" text="Resolution:" />
-                        <Label layoutX="18.0" layoutY="70.0" prefHeight="17.0" prefWidth="73.0" text="Connector:" />
+                        <Label layoutX="18.0" layoutY="21.0" prefHeight="17.0" text="Display type:" />
+                        <Label layoutX="18.0" layoutY="38.0" prefHeight="17.0" text="Inches:" />
+                        <Label layoutX="18.0" layoutY="55.0" prefHeight="17.0" text="Resolution:" />
+                        <Label layoutX="18.0" layoutY="70.0" prefHeight="17.0" text="Connector:" />
                         <Label layoutX="18.0" layoutY="86.0" text="Manufacturer:" />
                         <Label layoutX="18.0" layoutY="103.0" text="Serial number:" />
-                        <Label fx:id="lblPrice" layoutX="18.0" layoutY="233.0" prefHeight="33.0" prefWidth="96.0">
+                        <Label fx:id="lblPrice" layoutX="18.0" layoutY="233.0" prefHeight="33.0">
                            <font>
                               <Font name="System Bold" size="16.0" />
                            </font>
                         </Label>
-                        <Label fx:id="lblDisplayType" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="21.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblInches" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="38.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblResolution" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="55.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblConnector" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="70.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblManufacturer" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="86.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblSerialNumber" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="103.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblDisplayType" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="21.0" prefHeight="17.0" />
+                        <Label fx:id="lblInches" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="38.0" prefHeight="17.0" />
+                        <Label fx:id="lblResolution" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="55.0" prefHeight="17.0" />
+                        <Label fx:id="lblConnector" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="70.0" prefHeight="17.0" />
+                        <Label fx:id="lblManufacturer" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="86.0" prefHeight="17.0" />
+                        <Label fx:id="lblSerialNumber" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="103.0" prefHeight="17.0" />
                         <Label fx:id="lblDescription" layoutX="18.0" layoutY="124.0" prefHeight="101.0" prefWidth="255.0" wrapText="true" />
-                        <Button layoutX="208.0" layoutY="233.0" mnemonicParsing="false" onAction="#chooseComponent" prefHeight="33.0" prefWidth="67.0" style="-fx-background-color: green;" text="Choose" textFill="WHITE">
+                        <Button layoutX="208.0" layoutY="233.0" mnemonicParsing="false" onAction="#chooseComponent" prefHeight="33.0" style="-fx-background-color: green;" text="Choose" textFill="WHITE">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
@@ -65,25 +65,25 @@
                   <AnchorPane fx:id="ap11" prefHeight="200.0" prefWidth="287.0" GridPane.columnIndex="1">
                      <children>
                         <Label fx:id="lblProductName1" alignment="CENTER" layoutX="1.0" prefHeight="17.0" prefWidth="286.0" text="Product name" />
-                        <Label layoutX="18.0" layoutY="21.0" prefHeight="17.0" prefWidth="73.0" text="Display type:" />
-                        <Label layoutX="18.0" layoutY="38.0" prefHeight="17.0" prefWidth="73.0" text="Inches:" />
-                        <Label layoutX="18.0" layoutY="55.0" prefHeight="17.0" prefWidth="73.0" text="Resolution:" />
-                        <Label layoutX="18.0" layoutY="70.0" prefHeight="17.0" prefWidth="73.0" text="Connector:" />
+                        <Label layoutX="18.0" layoutY="21.0" prefHeight="17.0" text="Display type:" />
+                        <Label layoutX="18.0" layoutY="38.0" prefHeight="17.0" text="Inches:" />
+                        <Label layoutX="18.0" layoutY="55.0" prefHeight="17.0" text="Resolution:" />
+                        <Label layoutX="18.0" layoutY="70.0" prefHeight="17.0" text="Connector:" />
                         <Label layoutX="18.0" layoutY="86.0" text="Manufacturer:" />
                         <Label layoutX="18.0" layoutY="103.0" text="Serial number:" />
-                        <Label fx:id="lblPrice1" layoutX="18.0" layoutY="233.0" prefHeight="33.0" prefWidth="96.0">
+                        <Label fx:id="lblPrice1" layoutX="18.0" layoutY="233.0" prefHeight="33.0">
                            <font>
                               <Font name="System Bold" size="16.0" />
                            </font>
                         </Label>
-                        <Label fx:id="lblDisplayType1" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="21.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblInches1" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="38.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblResolution1" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="55.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblConnector1" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="70.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblManufacturer1" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="86.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblSerialNumber1" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="103.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblDisplayType1" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="21.0" prefHeight="17.0" />
+                        <Label fx:id="lblInches1" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="38.0" prefHeight="17.0" />
+                        <Label fx:id="lblResolution1" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="55.0" prefHeight="17.0" />
+                        <Label fx:id="lblConnector1" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="70.0" prefHeight="17.0" />
+                        <Label fx:id="lblManufacturer1" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="86.0" prefHeight="17.0" />
+                        <Label fx:id="lblSerialNumber1" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="103.0" prefHeight="17.0" />
                         <Label fx:id="lblDescription1" layoutX="18.0" layoutY="124.0" prefHeight="101.0" prefWidth="255.0" wrapText="true" />
-                        <Button layoutX="208.0" layoutY="233.0" mnemonicParsing="false" onAction="#chooseComponent" prefHeight="33.0" prefWidth="67.0" style="-fx-background-color: green;" text="Choose" textFill="WHITE">
+                        <Button layoutX="208.0" layoutY="233.0" mnemonicParsing="false" onAction="#chooseComponent" prefHeight="33.0" style="-fx-background-color: green;" text="Choose" textFill="WHITE">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
@@ -96,25 +96,25 @@
                   <AnchorPane fx:id="ap12" prefHeight="200.0" prefWidth="287.0" GridPane.columnIndex="2">
                      <children>
                         <Label fx:id="lblProductName2" alignment="CENTER" layoutX="1.0" prefHeight="17.0" prefWidth="286.0" text="Product name" />
-                        <Label layoutX="18.0" layoutY="21.0" prefHeight="17.0" prefWidth="73.0" text="Display type:" />
-                        <Label layoutX="18.0" layoutY="38.0" prefHeight="17.0" prefWidth="73.0" text="Inches:" />
-                        <Label layoutX="18.0" layoutY="55.0" prefHeight="17.0" prefWidth="73.0" text="Resolution:" />
-                        <Label layoutX="18.0" layoutY="70.0" prefHeight="17.0" prefWidth="73.0" text="Connector:" />
+                        <Label layoutX="18.0" layoutY="21.0" prefHeight="17.0" text="Display type:" />
+                        <Label layoutX="18.0" layoutY="38.0" prefHeight="17.0" text="Inches:" />
+                        <Label layoutX="18.0" layoutY="55.0" prefHeight="17.0" text="Resolution:" />
+                        <Label layoutX="18.0" layoutY="70.0" prefHeight="17.0" text="Connector:" />
                         <Label layoutX="18.0" layoutY="86.0" text="Manufacturer:" />
                         <Label layoutX="18.0" layoutY="103.0" text="Serial number:" />
-                        <Label fx:id="lblPrice2" layoutX="18.0" layoutY="233.0" prefHeight="33.0" prefWidth="96.0">
+                        <Label fx:id="lblPrice2" layoutX="18.0" layoutY="233.0" prefHeight="33.0">
                            <font>
                               <Font name="System Bold" size="16.0" />
                            </font>
                         </Label>
-                        <Label fx:id="lblDisplayType2" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="21.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblInches2" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="38.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblResolution2" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="55.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblConnector2" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="70.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblManufacturer2" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="86.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblSerialNumber2" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="103.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblDisplayType2" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="21.0" prefHeight="17.0" />
+                        <Label fx:id="lblInches2" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="38.0" prefHeight="17.0" />
+                        <Label fx:id="lblResolution2" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="55.0" prefHeight="17.0" />
+                        <Label fx:id="lblConnector2" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="70.0" prefHeight="17.0" />
+                        <Label fx:id="lblManufacturer2" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="86.0" prefHeight="17.0" />
+                        <Label fx:id="lblSerialNumber2" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="103.0" prefHeight="17.0" />
                         <Label fx:id="lblDescription2" layoutX="18.0" layoutY="124.0" prefHeight="101.0" prefWidth="255.0" wrapText="true" />
-                        <Button layoutX="208.0" layoutY="233.0" mnemonicParsing="false" onAction="#chooseComponent" prefHeight="33.0" prefWidth="67.0" style="-fx-background-color: green;" text="Choose" textFill="WHITE">
+                        <Button layoutX="208.0" layoutY="233.0" mnemonicParsing="false" onAction="#chooseComponent" prefHeight="33.0" style="-fx-background-color: green;" text="Choose" textFill="WHITE">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
@@ -127,25 +127,25 @@
                   <AnchorPane fx:id="ap13" prefHeight="200.0" prefWidth="287.0" GridPane.rowIndex="1">
                      <children>
                         <Label fx:id="lblProductName3" alignment="CENTER" layoutX="1.0" prefHeight="17.0" prefWidth="286.0" text="Product name" />
-                        <Label layoutX="18.0" layoutY="21.0" prefHeight="17.0" prefWidth="73.0" text="Display type:" />
-                        <Label layoutX="18.0" layoutY="38.0" prefHeight="17.0" prefWidth="73.0" text="Inches:" />
-                        <Label layoutX="18.0" layoutY="55.0" prefHeight="17.0" prefWidth="73.0" text="Resolution:" />
-                        <Label layoutX="18.0" layoutY="70.0" prefHeight="17.0" prefWidth="73.0" text="Connector:" />
+                        <Label layoutX="18.0" layoutY="21.0" prefHeight="17.0" text="Display type:" />
+                        <Label layoutX="18.0" layoutY="38.0" prefHeight="17.0" text="Inches:" />
+                        <Label layoutX="18.0" layoutY="55.0" prefHeight="17.0" text="Resolution:" />
+                        <Label layoutX="18.0" layoutY="70.0" prefHeight="17.0" text="Connector:" />
                         <Label layoutX="18.0" layoutY="86.0" text="Manufacturer:" />
                         <Label layoutX="18.0" layoutY="103.0" text="Serial number:" />
-                        <Label fx:id="lblPrice3" layoutX="18.0" layoutY="233.0" prefHeight="33.0" prefWidth="96.0">
+                        <Label fx:id="lblPrice3" layoutX="18.0" layoutY="233.0" prefHeight="33.0">
                            <font>
                               <Font name="System Bold" size="16.0" />
                            </font>
                         </Label>
-                        <Label fx:id="lblDisplayType3" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="21.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblInches3" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="38.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblResolution3" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="55.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblConnector3" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="70.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblManufacturer3" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="86.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblSerialNumber3" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="103.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblDisplayType3" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="21.0" prefHeight="17.0" />
+                        <Label fx:id="lblInches3" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="38.0" prefHeight="17.0" />
+                        <Label fx:id="lblResolution3" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="55.0" prefHeight="17.0" />
+                        <Label fx:id="lblConnector3" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="70.0" prefHeight="17.0" />
+                        <Label fx:id="lblManufacturer3" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="86.0" prefHeight="17.0" />
+                        <Label fx:id="lblSerialNumber3" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="103.0" prefHeight="17.0" />
                         <Label fx:id="lblDescription3" layoutX="18.0" layoutY="124.0" prefHeight="101.0" prefWidth="255.0" wrapText="true" />
-                        <Button layoutX="208.0" layoutY="233.0" mnemonicParsing="false" onAction="#chooseComponent" prefHeight="33.0" prefWidth="67.0" style="-fx-background-color: green;" text="Choose" textFill="WHITE">
+                        <Button layoutX="208.0" layoutY="233.0" mnemonicParsing="false" onAction="#chooseComponent" prefHeight="33.0" style="-fx-background-color: green;" text="Choose" textFill="WHITE">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
@@ -158,25 +158,25 @@
                   <AnchorPane fx:id="ap14" prefHeight="200.0" prefWidth="287.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <children>
                         <Label fx:id="lblProductName4" alignment="CENTER" layoutX="1.0" prefHeight="17.0" prefWidth="286.0" text="Product name" />
-                        <Label layoutX="18.0" layoutY="21.0" prefHeight="17.0" prefWidth="73.0" text="Display type:" />
-                        <Label layoutX="18.0" layoutY="38.0" prefHeight="17.0" prefWidth="73.0" text="Inches:" />
-                        <Label layoutX="18.0" layoutY="55.0" prefHeight="17.0" prefWidth="73.0" text="Resolution:" />
-                        <Label layoutX="18.0" layoutY="70.0" prefHeight="17.0" prefWidth="73.0" text="Connector:" />
+                        <Label layoutX="18.0" layoutY="21.0" prefHeight="17.0" text="Display type:" />
+                        <Label layoutX="18.0" layoutY="38.0" prefHeight="17.0" text="Inches:" />
+                        <Label layoutX="18.0" layoutY="55.0" prefHeight="17.0" text="Resolution:" />
+                        <Label layoutX="18.0" layoutY="70.0" prefHeight="17.0" text="Connector:" />
                         <Label layoutX="18.0" layoutY="86.0" text="Manufacturer:" />
                         <Label layoutX="18.0" layoutY="103.0" text="Serial number:" />
-                        <Label fx:id="lblPrice4" layoutX="18.0" layoutY="233.0" prefHeight="33.0" prefWidth="96.0">
+                        <Label fx:id="lblPrice4" layoutX="18.0" layoutY="233.0" prefHeight="33.0">
                            <font>
                               <Font name="System Bold" size="16.0" />
                            </font>
                         </Label>
-                        <Label fx:id="lblDisplayType4" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="21.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblInches4" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="38.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblResolution4" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="55.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblConnector4" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="70.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblManufacturer4" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="86.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblSerialNumber4" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="103.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblDisplayType4" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="21.0" prefHeight="17.0" />
+                        <Label fx:id="lblInches4" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="38.0" prefHeight="17.0" />
+                        <Label fx:id="lblResolution4" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="55.0" prefHeight="17.0" />
+                        <Label fx:id="lblConnector4" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="70.0" prefHeight="17.0" />
+                        <Label fx:id="lblManufacturer4" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="86.0" prefHeight="17.0" />
+                        <Label fx:id="lblSerialNumber4" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="103.0" prefHeight="17.0" />
                         <Label fx:id="lblDescription4" layoutX="18.0" layoutY="124.0" prefHeight="101.0" prefWidth="255.0" wrapText="true" />
-                        <Button layoutX="208.0" layoutY="233.0" mnemonicParsing="false" onAction="#chooseComponent" prefHeight="33.0" prefWidth="67.0" style="-fx-background-color: green;" text="Choose" textFill="WHITE">
+                        <Button layoutX="208.0" layoutY="233.0" mnemonicParsing="false" onAction="#chooseComponent" prefHeight="33.0" style="-fx-background-color: green;" text="Choose" textFill="WHITE">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
@@ -189,25 +189,25 @@
                   <AnchorPane fx:id="ap15" prefHeight="200.0" prefWidth="287.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
                      <children>
                         <Label fx:id="lblProductName5" alignment="CENTER" layoutX="1.0" prefHeight="17.0" prefWidth="286.0" text="Product name" />
-                        <Label layoutX="18.0" layoutY="21.0" prefHeight="17.0" prefWidth="73.0" text="Display type:" />
-                        <Label layoutX="18.0" layoutY="38.0" prefHeight="17.0" prefWidth="73.0" text="Inches:" />
-                        <Label layoutX="18.0" layoutY="55.0" prefHeight="17.0" prefWidth="73.0" text="Resolution:" />
-                        <Label layoutX="18.0" layoutY="70.0" prefHeight="17.0" prefWidth="73.0" text="Connector:" />
+                        <Label layoutX="18.0" layoutY="21.0" prefHeight="17.0" text="Display type:" />
+                        <Label layoutX="18.0" layoutY="38.0" prefHeight="17.0" text="Inches:" />
+                        <Label layoutX="18.0" layoutY="55.0" prefHeight="17.0" text="Resolution:" />
+                        <Label layoutX="18.0" layoutY="70.0" prefHeight="17.0" text="Connector:" />
                         <Label layoutX="18.0" layoutY="86.0" text="Manufacturer:" />
                         <Label layoutX="18.0" layoutY="103.0" text="Serial number:" />
-                        <Label fx:id="lblPrice5" layoutX="18.0" layoutY="233.0" prefHeight="33.0" prefWidth="96.0">
+                        <Label fx:id="lblPrice5" layoutX="18.0" layoutY="233.0" prefHeight="33.0">
                            <font>
                               <Font name="System Bold" size="16.0" />
                            </font>
                         </Label>
-                        <Label fx:id="lblDisplayType5" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="21.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblInches5" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="38.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblResolution5" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="55.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblConnector5" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="70.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblManufacturer5" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="86.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblSerialNumber5" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="103.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblDisplayType5" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="21.0" prefHeight="17.0" />
+                        <Label fx:id="lblInches5" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="38.0" prefHeight="17.0" />
+                        <Label fx:id="lblResolution5" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="55.0" prefHeight="17.0" />
+                        <Label fx:id="lblConnector5" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="70.0" prefHeight="17.0" />
+                        <Label fx:id="lblManufacturer5" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="86.0" prefHeight="17.0" />
+                        <Label fx:id="lblSerialNumber5" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="103.0" prefHeight="17.0" />
                         <Label fx:id="lblDescription5" layoutX="18.0" layoutY="124.0" prefHeight="101.0" prefWidth="255.0" wrapText="true" />
-                        <Button layoutX="208.0" layoutY="233.0" mnemonicParsing="false" onAction="#chooseComponent" prefHeight="33.0" prefWidth="67.0" style="-fx-background-color: green;" text="Choose" textFill="WHITE">
+                        <Button layoutX="208.0" layoutY="233.0" mnemonicParsing="false" onAction="#chooseComponent" prefHeight="33.0" style="-fx-background-color: green;" text="Choose" textFill="WHITE">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
@@ -220,25 +220,25 @@
                   <AnchorPane fx:id="ap16" prefHeight="200.0" prefWidth="287.0" GridPane.rowIndex="2">
                      <children>
                         <Label fx:id="lblProductName6" alignment="CENTER" layoutX="1.0" prefHeight="17.0" prefWidth="286.0" text="Product name" />
-                        <Label layoutX="18.0" layoutY="21.0" prefHeight="17.0" prefWidth="73.0" text="Display type:" />
-                        <Label layoutX="18.0" layoutY="38.0" prefHeight="17.0" prefWidth="73.0" text="Inches:" />
-                        <Label layoutX="18.0" layoutY="55.0" prefHeight="17.0" prefWidth="73.0" text="Resolution:" />
-                        <Label layoutX="18.0" layoutY="70.0" prefHeight="17.0" prefWidth="73.0" text="Connector:" />
+                        <Label layoutX="18.0" layoutY="21.0" prefHeight="17.0" text="Display type:" />
+                        <Label layoutX="18.0" layoutY="38.0" prefHeight="17.0" text="Inches:" />
+                        <Label layoutX="18.0" layoutY="55.0" prefHeight="17.0" text="Resolution:" />
+                        <Label layoutX="18.0" layoutY="70.0" prefHeight="17.0" text="Connector:" />
                         <Label layoutX="18.0" layoutY="86.0" text="Manufacturer:" />
                         <Label layoutX="18.0" layoutY="103.0" text="Serial number:" />
-                        <Label fx:id="lblPrice6" layoutX="18.0" layoutY="233.0" prefHeight="33.0" prefWidth="96.0">
+                        <Label fx:id="lblPrice6" layoutX="18.0" layoutY="233.0" prefHeight="33.0">
                            <font>
                               <Font name="System Bold" size="16.0" />
                            </font>
                         </Label>
-                        <Label fx:id="lblDisplayType6" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="21.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblInches6" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="38.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblResolution6" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="55.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblConnector6" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="70.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblManufacturer6" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="86.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblSerialNumber6" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="103.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblDisplayType6" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="21.0" prefHeight="17.0" />
+                        <Label fx:id="lblInches6" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="38.0" prefHeight="17.0" />
+                        <Label fx:id="lblResolution6" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="55.0" prefHeight="17.0" />
+                        <Label fx:id="lblConnector6" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="70.0" prefHeight="17.0" />
+                        <Label fx:id="lblManufacturer6" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="86.0" prefHeight="17.0" />
+                        <Label fx:id="lblSerialNumber6" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="103.0" prefHeight="17.0" />
                         <Label fx:id="lblDescription6" layoutX="18.0" layoutY="124.0" prefHeight="101.0" prefWidth="255.0" wrapText="true" />
-                        <Button layoutX="208.0" layoutY="233.0" mnemonicParsing="false" onAction="#chooseComponent" prefHeight="33.0" prefWidth="67.0" style="-fx-background-color: green;" text="Choose" textFill="WHITE">
+                        <Button layoutX="208.0" layoutY="233.0" mnemonicParsing="false" onAction="#chooseComponent" prefHeight="33.0" style="-fx-background-color: green;" text="Choose" textFill="WHITE">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
@@ -251,25 +251,25 @@
                   <AnchorPane fx:id="ap17" prefHeight="200.0" prefWidth="287.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                      <children>
                         <Label fx:id="lblProductName7" alignment="CENTER" layoutX="1.0" prefHeight="17.0" prefWidth="286.0" text="Product name" />
-                        <Label layoutX="18.0" layoutY="21.0" prefHeight="17.0" prefWidth="73.0" text="Display type:" />
-                        <Label layoutX="18.0" layoutY="38.0" prefHeight="17.0" prefWidth="73.0" text="Inches:" />
-                        <Label layoutX="18.0" layoutY="55.0" prefHeight="17.0" prefWidth="73.0" text="Resolution:" />
-                        <Label layoutX="18.0" layoutY="70.0" prefHeight="17.0" prefWidth="73.0" text="Connector:" />
+                        <Label layoutX="18.0" layoutY="21.0" prefHeight="17.0" text="Display type:" />
+                        <Label layoutX="18.0" layoutY="38.0" prefHeight="17.0" text="Inches:" />
+                        <Label layoutX="18.0" layoutY="55.0" prefHeight="17.0" text="Resolution:" />
+                        <Label layoutX="18.0" layoutY="70.0" prefHeight="17.0" text="Connector:" />
                         <Label layoutX="18.0" layoutY="86.0" text="Manufacturer:" />
                         <Label layoutX="18.0" layoutY="103.0" text="Serial number:" />
-                        <Label fx:id="lblPrice7" layoutX="18.0" layoutY="233.0" prefHeight="33.0" prefWidth="96.0">
+                        <Label fx:id="lblPrice7" layoutX="18.0" layoutY="233.0" prefHeight="33.0">
                            <font>
                               <Font name="System Bold" size="16.0" />
                            </font>
                         </Label>
-                        <Label fx:id="lblDisplayType7" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="21.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblInches7" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="38.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblResolution7" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="55.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblConnector7" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="70.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblManufacturer7" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="86.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblSerialNumber7" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="103.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblDisplayType7" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="21.0" prefHeight="17.0" />
+                        <Label fx:id="lblInches7" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="38.0" prefHeight="17.0" />
+                        <Label fx:id="lblResolution7" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="55.0" prefHeight="17.0" />
+                        <Label fx:id="lblConnector7" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="70.0" prefHeight="17.0" />
+                        <Label fx:id="lblManufacturer7" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="86.0" prefHeight="17.0" />
+                        <Label fx:id="lblSerialNumber7" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="103.0" prefHeight="17.0" />
                         <Label fx:id="lblDescription7" layoutX="18.0" layoutY="124.0" prefHeight="101.0" prefWidth="255.0" wrapText="true" />
-                        <Button layoutX="208.0" layoutY="233.0" mnemonicParsing="false" onAction="#chooseComponent" prefHeight="33.0" prefWidth="67.0" style="-fx-background-color: green;" text="Choose" textFill="WHITE">
+                        <Button layoutX="208.0" layoutY="233.0" mnemonicParsing="false" onAction="#chooseComponent" prefHeight="33.0" style="-fx-background-color: green;" text="Choose" textFill="WHITE">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
@@ -282,25 +282,25 @@
                   <AnchorPane fx:id="ap18" prefHeight="200.0" prefWidth="287.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
                      <children>
                         <Label fx:id="lblProductName8" alignment="CENTER" layoutX="1.0" prefHeight="17.0" prefWidth="286.0" text="Product name" />
-                        <Label layoutX="18.0" layoutY="21.0" prefHeight="17.0" prefWidth="73.0" text="Display type:" />
-                        <Label layoutX="18.0" layoutY="38.0" prefHeight="17.0" prefWidth="73.0" text="Inches:" />
-                        <Label layoutX="18.0" layoutY="55.0" prefHeight="17.0" prefWidth="73.0" text="Resolution:" />
-                        <Label layoutX="18.0" layoutY="70.0" prefHeight="17.0" prefWidth="73.0" text="Connector:" />
+                        <Label layoutX="18.0" layoutY="21.0" prefHeight="17.0" text="Display type:" />
+                        <Label layoutX="18.0" layoutY="38.0" prefHeight="17.0" text="Inches:" />
+                        <Label layoutX="18.0" layoutY="55.0" prefHeight="17.0" text="Resolution:" />
+                        <Label layoutX="18.0" layoutY="70.0" prefHeight="17.0" text="Connector:" />
                         <Label layoutX="18.0" layoutY="86.0" text="Manufacturer:" />
                         <Label layoutX="18.0" layoutY="103.0" text="Serial number:" />
-                        <Label fx:id="lblPrice8" layoutX="18.0" layoutY="233.0" prefHeight="33.0" prefWidth="96.0">
+                        <Label fx:id="lblPrice8" layoutX="18.0" layoutY="233.0" prefHeight="33.0">
                            <font>
                               <Font name="System Bold" size="16.0" />
                            </font>
                         </Label>
-                        <Label fx:id="lblDisplayType8" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="21.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblInches8" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="38.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblResolution8" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="55.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblConnector8" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="70.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblManufacturer8" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="86.0" prefHeight="17.0" prefWidth="64.0" />
-                        <Label fx:id="lblSerialNumber8" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="103.0" prefHeight="17.0" prefWidth="64.0" />
+                        <Label fx:id="lblDisplayType8" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="21.0" prefHeight="17.0" />
+                        <Label fx:id="lblInches8" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="38.0" prefHeight="17.0" />
+                        <Label fx:id="lblResolution8" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="55.0" prefHeight="17.0" />
+                        <Label fx:id="lblConnector8" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="70.0" prefHeight="17.0" />
+                        <Label fx:id="lblManufacturer8" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="86.0" prefHeight="17.0" />
+                        <Label fx:id="lblSerialNumber8" alignment="CENTER_RIGHT" layoutX="208.0" layoutY="103.0" prefHeight="17.0" />
                         <Label fx:id="lblDescription8" layoutX="18.0" layoutY="124.0" prefHeight="101.0" prefWidth="255.0" wrapText="true" />
-                        <Button layoutX="208.0" layoutY="233.0" mnemonicParsing="false" onAction="#chooseComponent" prefHeight="33.0" prefWidth="67.0" style="-fx-background-color: green;" text="Choose" textFill="WHITE">
+                        <Button layoutX="208.0" layoutY="233.0" mnemonicParsing="false" onAction="#chooseComponent" prefHeight="33.0" style="-fx-background-color: green;" text="Choose" textFill="WHITE">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
@@ -312,7 +312,12 @@
                   </AnchorPane>
                </children>
             </GridPane>
-            <Button layoutX="33.0" layoutY="21.0" mnemonicParsing="false" onAction="#back" prefHeight="25.0" prefWidth="46.0" text="Back" />
+            <Button layoutX="33.0" layoutY="21.0" mnemonicParsing="false" onAction="#back" prefHeight="25.0" text="Back" />
+            <Label fx:id="errorLbl" alignment="CENTER" layoutX="112.0" layoutY="69.0" prefHeight="200.0" prefWidth="944.0" wrapText="true">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
    </content>

@@ -100,7 +100,7 @@
          </cursor>
       </Label>
       <Polyline fx:id="polyCase" fill="#2527c2" layoutX="507.0" layoutY="477.0" points="292.0, -317.0, 386.0, -317.0, 386.0, -317.0, 446.0, -176.0" stroke="#eb8c34" strokeMiterLimit="40.0" strokeType="INSIDE" strokeWidth="2.0" style="-fx-fill: none;" />
-      <Label fx:id="Case" alignment="CENTER_RIGHT" layoutX="362.0" layoutY="130.0" onMouseClicked="#openChoiceWindow" onMouseEntered="#makeBigger" onMouseExited="#makeNormal" prefHeight="30.0" prefWidth="508.0" text="Case">
+      <Label fx:id="Case" alignment="CENTER_RIGHT" layoutX="261.0" layoutY="130.0" onMouseClicked="#openChoiceWindow" onMouseEntered="#makeBigger" onMouseExited="#makeNormal" prefHeight="30.0" prefWidth="609.0" text="Case">
          <font>
             <Font size="20.0" />
          </font>
@@ -117,7 +117,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Label>
-      <Button layoutX="953.0" layoutY="777.0" mnemonicParsing="false" onAction="#onClickNext" prefHeight="70.0" prefWidth="154.0" style="-fx-background-color: green;" text="NEXT" textFill="WHITE">
+      <Button layoutX="985.0" layoutY="777.0" mnemonicParsing="false" onAction="#onClickNext" prefHeight="70.0" style="-fx-background-color: green;" text="NEXT" textFill="WHITE">
          <font>
             <Font size="32.0" />
          </font>
