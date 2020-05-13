@@ -30,7 +30,7 @@ public class StorageComponentViewController {
     @FXML private TextField querySearch;
     @FXML private TableColumn<StorageComponent, Double> price;
 
-    //this function sets the tableview as editable, sets a cellfactory for price, as we need to handle exceptions if
+    //this function sets the tableview as editable, populates a choicebox for filtering, sets a cellfactory for price, as we need to handle exceptions if
     //somebody writes something that won't parse from text to double.
     //finally it starts the thread responsible for loading all added components to the view's tableview.
     public void initialize() {
