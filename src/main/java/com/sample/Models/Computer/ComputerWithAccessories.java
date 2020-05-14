@@ -30,9 +30,9 @@ public class ComputerWithAccessories extends Computer {
         String msg = "";
         List<ComputerComponent> accessoriesNotNull = UserLogic.getCurrentlyChosenComponentsForAccessorisedComputer(this);
         for (ComputerComponent accessory : accessoriesNotNull) {
-            msg+=":"+accessory.getProductName()+";"+accessory.getPrice()+";"+accessory.getClass().getSimpleName();
+            msg+=accessory.getProductName()+";"+accessory.getPrice()+";"+accessory.getClass().getSimpleName()+":";
         }
-        return Computer.getValuesToSaveToFile()+msg;
+        return msg+Computer.getValuesToSaveToFile();
     }
     public double getPrice() {
         return Price.getValue();

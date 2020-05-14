@@ -47,7 +47,7 @@ public class Computer {
     }
 
     public String getValuesToSaveToFile() {
-        return Name.getValueSafe()+":"+ComputerCase.getProductName()+";"+ComputerCase.getPrice()+":"+Cooling.getProductName()+";"+Cooling.getPrice()+":"+GraphicsCard.getProductName()+";"+GraphicsCard.getPrice()+":"+StorageComponent.getProductName()+";"+StorageComponent.getPrice()+":"+Motherboard.getProductName()+";"+Motherboard.getPrice()+":"+PowerSupply.getProductName()+";"+PowerSupply.getPrice()+":"+CPU.getProductName()+";"+CPU.getPrice()+":"+Memory.getProductName()+";"+Memory.getPrice();
+        return Name.getValueSafe()+":"+ComputerCase.getProductName()+";"+ComputerCase.getPrice()+":"+Cooling.getProductName()+";"+Cooling.getPrice()+":"+GraphicsCard.getProductName()+";"+GraphicsCard.getPrice()+":"+StorageComponent.getProductName()+";"+StorageComponent.getPrice()+":"+Motherboard.getProductName()+";"+Motherboard.getPrice()+":"+PowerSupply.getProductName()+";"+PowerSupply.getPrice()+":"+CPU.getProductName()+";"+CPU.getPrice()+":"+Memory.getProductName()+";"+Memory.getPrice()+":"+Creator.getMail();
     }
 
 
