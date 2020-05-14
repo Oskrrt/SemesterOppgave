@@ -37,35 +37,55 @@
       </HBox>
       <TableView fx:id="table" layoutX="224.0" layoutY="218.0" prefHeight="571.0">
         <columns>
-            <TableColumn prefWidth="75.0" text="Name" >
-
+            <TableColumn fx:id="colName" prefWidth="75.0" text="Name">
+                <!--<cellValueFactory>
+                    <PropertyValueFactory property="Name" />
+                </cellValueFactory>-->
             </TableColumn>
-            <TableColumn prefWidth="75.0" text="Case" >
-
+            <TableColumn fx:id="colCase" prefWidth="75.0" text="Case">
+                <!--<cellValueFactory>
+                    <PropertyValueFactory property="ComputerCase" />
+                </cellValueFactory>-->
             </TableColumn>
-            <TableColumn prefWidth="75.0" text="Cooling" >
-
+            <TableColumn fx:id="colCooling" prefWidth="75.0" text="Cooling">
+                <!--<cellValueFactory>
+                    <PropertyValueFactory property="Cooling" />
+                </cellValueFactory>-->
             </TableColumn>
-            <TableColumn prefWidth="75.0" text="GPU" >
-
+            <TableColumn fx:id="colGpu" prefWidth="75.0" text="GPU">
+                <!--<cellValueFactory>
+                    <PropertyValueFactory property="GraphicsCard" />
+                </cellValueFactory>-->
             </TableColumn>
-            <TableColumn prefWidth="75.0" text="Storage" >
-
+            <TableColumn fx:id="colStorage" prefWidth="75.0" text="Storage">
+                <!--<cellValueFactory>
+                    <PropertyValueFactory property="StorageComponent" />
+                </cellValueFactory>-->
             </TableColumn>
-            <TableColumn prefWidth="98.0" text="Motherboard" >
-
+            <TableColumn fx:id="colMotherboard" prefWidth="98.0" text="Motherboard">
+                <!--<cellValueFactory>
+                    <PropertyValueFactory property="Motherboard" />
+                </cellValueFactory>-->
             </TableColumn>
-            <TableColumn prefWidth="94.0" text="Power supply" >
-
+            <TableColumn fx:id="colPowerSupply" prefWidth="94.0" text="Power supply">
+                <!--<cellValueFactory>
+                    <PropertyValueFactory property="PowerSupply" />
+                </cellValueFactory>-->
             </TableColumn>
-            <TableColumn prefWidth="53.0" text="CPU" >
-
+            <TableColumn fx:id="colCpu" prefWidth="53.0" text="CPU">
+               <!-- <cellValueFactory>
+                    <PropertyValueFactory property="CPU" />
+                </cellValueFactory>-->
             </TableColumn>
-            <TableColumn prefWidth="55.0" text="RAM" >
-
+            <TableColumn fx:id="colRam" prefWidth="55.0" text="RAM">
+                <!--<cellValueFactory>
+                    <PropertyValueFactory property="Memory" />
+                </cellValueFactory>-->
             </TableColumn>
-            <TableColumn prefWidth="75.0" text="Price" >
-
+            <TableColumn fx:id="colPrice" prefWidth="75.0" text="Price">
+                <!--<cellValueFactory>
+                    <PropertyValueFactory property="Price" />
+                </cellValueFactory>-->
             </TableColumn>
         </columns>
       </TableView>

@@ -1,24 +1,31 @@
 package com.sample.controllers.regularUserControllers;
 
 import com.sample.App;
+import com.sample.DAL.SaveFile.SaveTxt;
+import com.sample.Exceptions.ValidationException;
 import com.sample.Models.Computer.ComputerWithAccessories;
 import com.sample.Models.Users.User;
+import javafx.concurrent.WorkerStateEvent;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextInputDialog;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 
 import java.io.IOException;
 import java.text.DecimalFormat;
 import java.util.List;
+import java.util.Optional;
 
 public class saveAccessorisedComputer {
     private regularUserController connector = new regularUserController();
     private static addAccessoriesController aac = new addAccessoriesController();
     private static User loggedInUser = aac.getLoggedInUser();
     private ComputerWithAccessories computerToBeSaved = (ComputerWithAccessories) loggedInUser.getComputerInProduction();
+    private SaveTxt saver;
     @FXML
     private VBox container;
     @FXML
@@ -72,7 +79,34 @@ public class saveAccessorisedComputer {
 
     @FXML
     void onClickSave(ActionEvent event) {
+        TextInputDialog dialog = new TextInputDialog();
+        dialog.setTitle("Save Computer");
+        dialog.setHeaderText(null);
+        dialog.setContentText("Enter the name of this computer: ");
+        Optional<String> result = dialog.showAndWait();
+        result.ifPresent(name->{
+            try {
+                //System.out.println(name);
+                computerToBeSaved.getComputer().validateName(name);
+                computerToBeSaved.getComputer().setName(name);
+                saver = new SaveTxt(computerToBeSaved);
+                Thread tr = new Thread(saver);
+                saver.setOnSucceeded(this::succeed);
+                tr.setDaemon(true);
+                tr.start();
+            } catch (ValidationException e) {
+                Alert a = new Alert(Alert.AlertType.ERROR);
+                a.setTitle("Invalid Name");
+                a.setHeaderText(null);
+                a.setContentText(e.getMessage());
+                a.showAndWait();
+                onClickSave(event);
+            }
+        });
+    }
 
+    private void succeed(WorkerStateEvent e) {
+        System.out.println("hepp "+saver.getValue());
     }
 
 }

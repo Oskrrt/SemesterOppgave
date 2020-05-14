@@ -25,7 +25,7 @@ import java.util.List;
 public class buildComputerController {
     private regularUserController connector = new regularUserController();
     private User loggedInUser = connector.getLoggedInUser();
-    private static Computer computerBeingBuilt = new Computer(null,null, null, null, null, null ,null, null, null);
+    private static Computer computerBeingBuilt = new Computer(null,null, null, null, null, null ,null, null, null, 0);
 
 
     @FXML

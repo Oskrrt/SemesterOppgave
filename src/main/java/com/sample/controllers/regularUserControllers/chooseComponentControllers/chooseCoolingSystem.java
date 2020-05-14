@@ -2,6 +2,8 @@ package com.sample.controllers.regularUserControllers.chooseComponentControllers
 
 import com.sample.App;
 import com.sample.DAL.OpenFile.Subtypes.OpenCoolingSystems;
+import com.sample.Exceptions.ValidationException;
+import com.sample.Models.ComputerComponents.Case;
 import com.sample.Models.ComputerComponents.CoolingSystem;
 import com.sample.controllers.regularUserControllers.buildComputerController;
 import javafx.concurrent.WorkerStateEvent;
@@ -9,13 +11,16 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.Parent;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Control;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class chooseCoolingSystem {
     private buildComputerController bc = new buildComputerController();
@@ -23,8 +28,9 @@ public class chooseCoolingSystem {
     private GridPane gp;
     @FXML
     private Label errorLbl;
-    @FXML
-    private Label caseLabel;
+    @FXML private ChoiceBox<String> filter;
+    @FXML private TextField querySearch;
+
     @FXML
     void back(ActionEvent event) throws IOException {
         App.changeView("/fxml/BuildComputer/buildComputer.fxml", 0 ,0);
@@ -32,6 +38,9 @@ public class chooseCoolingSystem {
     private OpenCoolingSystems opener = new OpenCoolingSystems(false);
 
     public void initialize() {
+        filter.getItems().add("Name");
+        filter.getItems().add("Serial number");
+        filter.getSelectionModel().selectFirst();
         try {
             Thread openCaseFilesThread = new Thread(opener);
             opener.setOnSucceeded(this::handleSucceed);
@@ -39,6 +48,31 @@ public class chooseCoolingSystem {
             openCaseFilesThread.setDaemon(true);
             openCaseFilesThread.start();
         } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void startSearch(){
+        querySearch.textProperty().addListener((observable, oldText, newText) -> {
+            System.out.println(newText);
+            search(newText);
+        });
+    }
+    private void search(String query) {
+        List<CoolingSystem> newList;
+        try{
+            List<CoolingSystem> listToSearch = (List<CoolingSystem>) opener.perform();
+            switch (filter.getValue()){
+                case "Name":
+                    newList = listToSearch.stream().filter(c -> c.getProductName().toLowerCase().contains(query.toLowerCase())).collect(Collectors.toList());
+                    placeComponentInfo(newList);
+                    break;
+                case "Serial number":
+                    newList = listToSearch.stream().filter(c -> c.getSerialNumber().toLowerCase().contains(query.toLowerCase())).collect(Collectors.toList());
+                    placeComponentInfo(newList);
+            }
+        } catch (IOException | ValidationException e) {
             e.printStackTrace();
         }
     }
@@ -53,11 +87,7 @@ public class chooseCoolingSystem {
 
     private void handleSucceed(WorkerStateEvent workerStateEvent) {
         List<CoolingSystem> allCoolingSystems = (List<CoolingSystem>) opener.getValue();
-        // Makes all the product containers invisible, sets each one visible later depending on whether they have a component to showcase or not
-        for (int i = 0; i < gp.getChildren().size(); i++) {
-            gp.getChildren().get(i).setVisible(false);
-            gp.getChildren().get(i).setStyle("-fx-border-color: black");
-        }
+
         placeComponentInfo(allCoolingSystems);
     }
 
@@ -84,8 +114,12 @@ public class chooseCoolingSystem {
     }
 
     private  void placeComponentInfo(List<CoolingSystem> coolingSystems) {
+        // Makes all the product containers invisible, sets each one visible later depending on whether they have a component to showcase or not
+        for (int i = 0; i < gp.getChildren().size(); i++) {
+            gp.getChildren().get(i).setVisible(false);
+            gp.getChildren().get(i).setStyle("-fx-border-color: black");
+        }
         List<Node> productContainers = gp.getChildren();
-        System.out.println(coolingSystems.get(0).getClass().getSimpleName());
         // this loop will have a lot of confusing casts because javafx's handling of Nodes vs Label etc.
         // all it does is set the values of the labels to the values of the components in the list.
         for (int i = 0; i < coolingSystems.size(); i++) {

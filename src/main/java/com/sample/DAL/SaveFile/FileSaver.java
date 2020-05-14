@@ -38,19 +38,19 @@ abstract public class FileSaver extends Task<Boolean> {
             Files.write(path, contentToWrite.getBytes(), StandardOpenOption.APPEND);
             long fileSizeAfter = Files.size(path);
             return fileSizeAfter>fileSize;
-        } else if(dataToSave instanceof Computer) {
-            path = Paths.get("src/main/java/com/sample/DAL/SavedFiles/SavedComputers/Computers.txt");
-            // Declaring two long fileSize variables, one before writing and one after writing. If the size is changed after writing the writing went successfully
-            long fileSize = Files.size(path);
-            String contentToWrite = dataToSave.toString()+"\n";
-            Files.write(path, contentToWrite.getBytes(), StandardOpenOption.APPEND);
-            long fileSizeAfter = Files.size(path);
-            return fileSizeAfter>fileSize;
         } else if(dataToSave instanceof ComputerWithAccessories) {
             path = Paths.get("src/main/java/com/sample/DAL/SavedFiles/SavedComputers/ComputersWithAccessories.txt");
             // Declaring two long fileSize variables, one before writing and one after writing. If the size is changed after writing the writing went successfully
             long fileSize = Files.size(path);
-            String contentToWrite = dataToSave.toString()+"\n";
+            String contentToWrite = ((ComputerWithAccessories) dataToSave).getValuesToSaveToFile()+":"+((ComputerWithAccessories) dataToSave).getPrice()+"\n";
+            Files.write(path, contentToWrite.getBytes(), StandardOpenOption.APPEND);
+            long fileSizeAfter = Files.size(path);
+            return fileSizeAfter>fileSize;
+        } else if(dataToSave instanceof Computer) {
+            path = Paths.get("src/main/java/com/sample/DAL/SavedFiles/SavedComputers/Computers.txt");
+            // Declaring two long fileSize variables, one before writing and one after writing. If the size is changed after writing the writing went successfully
+            long fileSize = Files.size(path);
+            String contentToWrite = ((Computer) dataToSave).getValuesToSaveToFile()+":"+((Computer) dataToSave).getPrice()+"\n";
             Files.write(path, contentToWrite.getBytes(), StandardOpenOption.APPEND);
             long fileSizeAfter = Files.size(path);
             return fileSizeAfter>fileSize;

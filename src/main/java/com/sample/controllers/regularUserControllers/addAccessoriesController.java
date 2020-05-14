@@ -25,7 +25,7 @@ public class addAccessoriesController {
     private regularUserController connector = new regularUserController();
     private static buildComputerController bc = new buildComputerController();
     private static User loggedInUser = bc.getLoggedInUser();
-    private static ComputerWithAccessories computerBeingBuilt = new ComputerWithAccessories(loggedInUser.getComputerInProduction(), null, null, null, null);
+    private static ComputerWithAccessories computerBeingBuilt = new ComputerWithAccessories(loggedInUser.getComputerInProduction(), null, null, null, null, 0);
 
     @FXML
     private AnchorPane container;
@@ -161,9 +161,7 @@ public class addAccessoriesController {
         //computerBeingBuilt.setPrice(generateTotalPriceOfComputerAndAccessories(accessoriesNotNull, computerBeingBuilt));
         double price = computerBeingBuilt.getComputer().getPrice() + UserLogic.calculatePriceOfComputer(accessoriesNotNull);
         computerBeingBuilt.setPrice(price);
-        System.out.println("før setter pc til bruker "+computerBeingBuilt.getPrice());
         loggedInUser.setComputerInProduction(computerBeingBuilt);
-        System.out.println("Etter setter pc til bruker "+loggedInUser.getComputerInProduction().getPrice());
         App.changeView("/fxml/BuildComputer/saveAccessorisedComputer.fxml", 0, 0);
     }
 

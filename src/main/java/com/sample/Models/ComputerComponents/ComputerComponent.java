@@ -27,6 +27,11 @@ public class ComputerComponent  implements Serializable, ValidateForm {
         this.serialNumber = new SimpleStringProperty(serialNumber);
     }
 
+    public ComputerComponent(double price, String productName) {
+        this.price = new SimpleDoubleProperty(price);
+        this.productName = new SimpleStringProperty(productName);
+    }
+
     public double getPrice() {
         return price.get();
     }

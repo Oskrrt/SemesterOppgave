@@ -1,5 +1,6 @@
 package com.sample.DAL.OpenFile;
 
+import com.sample.Models.Computer.Computer;
 import com.sample.Models.Users.Admin;
 import com.sample.Models.Users.User;
 
@@ -7,23 +8,18 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.List;
 
 public class OpenTxt extends FileOpener {
 
-    public OpenTxt(Path path) {
-        super(path);
-    }
-
-    public String read() {
-        return "hei";
-    }
-
     @Override
-    protected Void call() throws Exception {
-        return null;
+    protected List<String> call() {
+        return super.getComputerInfo();
     }
 
     public User getUserTryingToLogIn(String mail) {
+        Path path = Paths.get("src/main/java/com/sample/DAL/SavedFiles/Users.txt");
         User userTryingToLogIn = new User();
 
         String[] userFromFile = null;
@@ -38,8 +34,7 @@ public class OpenTxt extends FileOpener {
             userTryingToLogIn.setMail(userFromFile[0]);
             userTryingToLogIn.setPassword(userFromFile[1]);
             userTryingToLogIn.setAdmin(Boolean.parseBoolean(userFromFile[2]));
-
-            // determines wether the user trying to log in is an admin user or a regular user using the decorator design pattern
+            // determines whether the user trying to log in is an admin user or a regular user using the decorator design pattern
             if (userTryingToLogIn.getAdmin()) {
                 Admin admin = new Admin(userTryingToLogIn);
                 return admin;

@@ -19,7 +19,7 @@ public class LoginLogic {
 
 
     public static User validateSignIn(String mail, String password) throws IOException {
-        OpenTxt opener = new OpenTxt(pathToUserFile);
+        OpenTxt opener = new OpenTxt();
         String hashedPassword = DigestUtils.shaHex(password);
         User userFromFile = opener.getUserTryingToLogIn(mail);
         if (userFromFile == null) {
