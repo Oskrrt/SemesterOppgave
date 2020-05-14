@@ -11,8 +11,19 @@ import java.util.List;
 
 public class OpenSpeakers extends OpenAddedComponents implements OpenCorrectFolder {
 
+    public OpenSpeakers(boolean adminThread) {
+        super(adminThread);
+    }
+
     @Override
     public List<? extends ComputerComponent> perform() throws IOException, InvalidFileDataException, ValidationException {
+        if (super.adminThread){
+            try {
+                Thread.sleep(1500);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
         return ComponentFactory.createSpeakersFromFile();
     }
 }

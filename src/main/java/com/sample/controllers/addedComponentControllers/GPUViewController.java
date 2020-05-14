@@ -25,8 +25,8 @@ public class GPUViewController {
     @FXML private AnchorPane componentPane;
     @FXML private TableView<GraphicsCard> table;
     @FXML private TableColumn<GraphicsCard, Double> price;
-    private OpenAddedComponents opener = new OpenGPUs();
-    private OpenAddedComponents deleter = new OpenGPUs();
+    private OpenAddedComponents opener = new OpenGPUs(true);
+    private OpenAddedComponents deleter = new OpenGPUs(true);
     @FXML private ChoiceBox<String> filter;
     @FXML private TextField querySearch;
     //this function sets the tableview for added components as editable, sets a cellfactory for price, as we need to handle exceptions if

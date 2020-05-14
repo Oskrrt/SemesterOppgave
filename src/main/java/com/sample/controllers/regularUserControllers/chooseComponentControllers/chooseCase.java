@@ -28,7 +28,7 @@ public class chooseCase {
     void back(ActionEvent event) throws IOException {
         App.changeView("/fxml/BuildComputer/buildComputer.fxml", 0 ,0);
     }
-    private OpenCases opener = new OpenCases();
+    private OpenCases opener = new OpenCases(false);
 
     public void initialize() {
         try {

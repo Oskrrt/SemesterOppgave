@@ -3,24 +3,19 @@ package com.sample.controllers.addedComponentControllers;
 import com.sample.App;
 import com.sample.BLL.AdminLogic;
 import com.sample.BLL.ComponentDeleter;
-import com.sample.Exceptions.InvalidFileDataException;
 import com.sample.Exceptions.ValidationException;
 import com.sample.DAL.OpenFile.Subtypes.OpenAddedComponents;
 import com.sample.DAL.OpenFile.Subtypes.OpenCases;
-import com.sample.Models.Computer.Computer;
 import com.sample.Models.ComputerComponents.Case;
-import com.sample.Models.ComputerComponents.ComputerComponent;
 import javafx.concurrent.WorkerStateEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.converter.DoubleStringConverter;
-import org.w3c.dom.Text;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -28,8 +23,8 @@ import java.util.stream.Collectors;
 public class caseViewController {
     @FXML private AnchorPane componentPane;
     @FXML private TableView<Case> table;
-    private OpenAddedComponents opener = new OpenCases();
-    private OpenAddedComponents deleter = new OpenCases();
+    private OpenAddedComponents opener = new OpenCases(true);
+    private OpenAddedComponents deleter = new OpenCases(true);
     @FXML private TableColumn<Case, Double> price;
     @FXML private ChoiceBox<String> filter;
     @FXML private TextField querySearch;
@@ -63,9 +58,9 @@ public class caseViewController {
         opener.setOnFailed(this::handleError);
         openCaseFilesThread.setDaemon(true);
         toggleGUIDisable();
-
         openCaseFilesThread.start();
     }
+
 
     private void toggleGUIDisable() {
         componentPane.setDisable(!componentPane.isDisable());
@@ -80,7 +75,6 @@ public class caseViewController {
             e.printStackTrace();
         }
     }
-
 
     //sets the table's placeholder text to an error message if something failed (most likely invalid data injected into a file)
     private void handleError(WorkerStateEvent workerStateEvent) {

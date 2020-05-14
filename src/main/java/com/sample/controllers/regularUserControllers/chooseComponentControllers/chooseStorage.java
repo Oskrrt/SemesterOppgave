@@ -30,7 +30,7 @@ public class chooseStorage {
     void back(ActionEvent event) throws IOException {
         App.changeView("/fxml/BuildComputer/buildComputer.fxml", 0 ,0);
     }
-    private OpenStorageComponents opener = new OpenStorageComponents();
+    private OpenStorageComponents opener = new OpenStorageComponents(false);
 
     public void initialize() {
         try {

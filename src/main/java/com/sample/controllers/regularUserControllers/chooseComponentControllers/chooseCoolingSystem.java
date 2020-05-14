@@ -29,7 +29,7 @@ public class chooseCoolingSystem {
     void back(ActionEvent event) throws IOException {
         App.changeView("/fxml/BuildComputer/buildComputer.fxml", 0 ,0);
     }
-    private OpenCoolingSystems opener = new OpenCoolingSystems();
+    private OpenCoolingSystems opener = new OpenCoolingSystems(false);
 
     public void initialize() {
         try {

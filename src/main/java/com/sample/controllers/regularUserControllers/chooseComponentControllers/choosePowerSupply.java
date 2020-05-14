@@ -30,7 +30,7 @@ public class choosePowerSupply {
     void back(ActionEvent event) throws IOException {
         App.changeView("/fxml/BuildComputer/buildComputer.fxml", 0 ,0);
     }
-    private OpenPowerSupplies opener = new OpenPowerSupplies();
+    private OpenPowerSupplies opener = new OpenPowerSupplies(false);
 
     public void initialize() {
         try {

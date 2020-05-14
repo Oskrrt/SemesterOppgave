@@ -11,8 +11,19 @@ import java.util.List;
 
 public class OpenMonitors extends OpenAddedComponents implements OpenCorrectFolder {
 
+    public OpenMonitors(boolean adminThread) {
+        super(adminThread);
+    }
+
     @Override
     public List<? extends ComputerComponent> perform() throws IOException, InvalidFileDataException, ValidationException {
+        if (super.adminThread){
+            try {
+                Thread.sleep(1500);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
         return ComponentFactory.createMonitorsFromFile();
     }
 }

@@ -29,7 +29,7 @@ public class chooseGPU {
     void back(ActionEvent event) throws IOException {
         App.changeView("/fxml/BuildComputer/buildComputer.fxml", 0 ,0);
     }
-    private OpenGPUs opener = new OpenGPUs();
+    private OpenGPUs opener = new OpenGPUs(false);
 
     public void initialize() {
         try {

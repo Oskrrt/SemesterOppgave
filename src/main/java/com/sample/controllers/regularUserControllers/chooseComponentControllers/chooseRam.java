@@ -29,7 +29,7 @@ public class chooseRam {
     void back(ActionEvent event) throws IOException {
         App.changeView("/fxml/BuildComputer/buildComputer.fxml", 0 ,0);
     }
-    private OpenRAM opener = new OpenRAM();
+    private OpenRAM opener = new OpenRAM(false);
 
     public void initialize() {
         try {

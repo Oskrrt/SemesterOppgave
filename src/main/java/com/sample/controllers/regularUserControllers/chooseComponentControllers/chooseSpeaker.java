@@ -31,7 +31,7 @@ public class chooseSpeaker {
     void back(ActionEvent event) throws IOException {
         App.changeView("/fxml/BuildComputer/addAccessories.fxml", 0 ,0);
     }
-    private OpenSpeakers opener = new OpenSpeakers();
+    private OpenSpeakers opener = new OpenSpeakers(false);
 
     public void initialize() {
         try {

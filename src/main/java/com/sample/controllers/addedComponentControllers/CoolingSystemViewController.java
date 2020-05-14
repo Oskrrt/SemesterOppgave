@@ -27,8 +27,8 @@ public class CoolingSystemViewController implements Initializable {
     @FXML private AnchorPane componentPane;
     @FXML private TableView<CoolingSystem> table;
     @FXML private TableColumn<CoolingSystem, Double> price;
-    private OpenAddedComponents opener = new OpenCoolingSystems();
-    private OpenAddedComponents deleter = new OpenCoolingSystems();
+    private OpenAddedComponents opener = new OpenCoolingSystems(true);
+    private OpenAddedComponents deleter = new OpenCoolingSystems(true);
     @FXML private ChoiceBox<String> filter;
     @FXML private TextField querySearch;
     //this function sets the tableview for added components as editable, sets a cellfactory for price, as we need to handle exceptions if

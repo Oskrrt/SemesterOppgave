@@ -24,8 +24,8 @@ import java.util.stream.Collectors;
 public class StorageComponentViewController {
     @FXML private AnchorPane componentPane;
     @FXML public TableView<StorageComponent> table;
-    private OpenAddedComponents opener = new OpenStorageComponents();
-    private OpenAddedComponents deleter = new OpenStorageComponents();
+    private OpenAddedComponents opener = new OpenStorageComponents(true);
+    private OpenAddedComponents deleter = new OpenStorageComponents(true);
     @FXML private ChoiceBox<String> filter;
     @FXML private TextField querySearch;
     @FXML private TableColumn<StorageComponent, Double> price;

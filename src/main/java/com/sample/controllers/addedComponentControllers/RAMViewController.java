@@ -25,8 +25,8 @@ public class RAMViewController {
     @FXML private AnchorPane componentPane;
     @FXML private TableView<RAM> table;
     @FXML private TableColumn<RAM, Double> price;
-    private OpenAddedComponents opener = new OpenRAM();
-    private OpenAddedComponents deleter = new OpenRAM();
+    private OpenAddedComponents opener = new OpenRAM(true);
+    private OpenAddedComponents deleter = new OpenRAM(true);
     @FXML private ChoiceBox<String> filter;
     @FXML private TextField querySearch;
 

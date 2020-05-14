@@ -31,7 +31,7 @@ public class chooseMonitor {
     void back(ActionEvent event) throws IOException {
         App.changeView("/fxml/BuildComputer/addAccessories.fxml", 0 ,0);
     }
-    private OpenMonitors opener = new OpenMonitors();
+    private OpenMonitors opener = new OpenMonitors(false);
 
     public void initialize() {
         try {

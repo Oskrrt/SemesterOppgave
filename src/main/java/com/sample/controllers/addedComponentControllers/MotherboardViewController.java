@@ -25,8 +25,8 @@ public class MotherboardViewController {
     @FXML private AnchorPane componentPane;
     @FXML private TableView<Motherboard> table;
     @FXML private TableColumn<Motherboard, Double> price;
-    private OpenAddedComponents opener = new OpenMotherBoards();
-    private OpenAddedComponents deleter = new OpenMotherBoards();
+    private OpenAddedComponents opener = new OpenMotherBoards(true);
+    private OpenAddedComponents deleter = new OpenMotherBoards(true);
     @FXML private ChoiceBox<String> filter;
     @FXML private TextField querySearch;
     //this function sets the tableview as editable, sets a cellfactory for price, as we need to handle exceptions if

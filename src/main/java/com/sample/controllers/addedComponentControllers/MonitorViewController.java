@@ -28,8 +28,8 @@ public class MonitorViewController {
     private TableView<Monitor> table;
     @FXML
     private TableColumn<Monitor, Double> price;
-    private OpenAddedComponents opener = new OpenMonitors();
-    private OpenAddedComponents deleter = new OpenMonitors();
+    private OpenAddedComponents opener = new OpenMonitors(true);
+    private OpenAddedComponents deleter = new OpenMonitors(true);
     @FXML private ChoiceBox<String> filter;
     @FXML private TextField querySearch;
 

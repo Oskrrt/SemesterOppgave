@@ -36,7 +36,13 @@ public class AdminLogic {
         return UpdateJobj.editFilename(originalFile, newFile);
     }
 
-
+    public static void pauseThread(){
+        try {
+            Thread.sleep(1500);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
 
 
 }

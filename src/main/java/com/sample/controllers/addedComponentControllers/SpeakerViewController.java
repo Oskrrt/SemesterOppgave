@@ -24,8 +24,8 @@ import java.util.stream.Collectors;
 public class SpeakerViewController {
     @FXML private AnchorPane componentPane;
     @FXML public TableView<Speaker> table;
-    private OpenAddedComponents opener = new OpenSpeakers();
-    private OpenAddedComponents deleter = new OpenSpeakers();
+    private OpenAddedComponents opener = new OpenSpeakers(true);
+    private OpenAddedComponents deleter = new OpenSpeakers(true);
     @FXML private ChoiceBox<String> filter;
     @FXML private TextField querySearch;
     @FXML private TableColumn<Speaker, Double> price;

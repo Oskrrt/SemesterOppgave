@@ -31,7 +31,7 @@ public class chooseMouse {
     void back(ActionEvent event) throws IOException {
         App.changeView("/fxml/BuildComputer/addAccessories.fxml", 0 ,0);
     }
-    private OpenMice opener = new OpenMice();
+    private OpenMice opener = new OpenMice(false);
 
     public void initialize() {
         try {

@@ -29,7 +29,7 @@ public class chooseKeyboard {
     void back(ActionEvent event) throws IOException {
         App.changeView("/fxml/BuildComputer/addAccessories.fxml", 0 ,0);
     }
-    private OpenKeyboards opener = new OpenKeyboards();
+    private OpenKeyboards opener = new OpenKeyboards(false);
 
     public void initialize() {
         try {

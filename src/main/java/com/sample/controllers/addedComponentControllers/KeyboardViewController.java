@@ -29,8 +29,8 @@ public class KeyboardViewController {
     private TableView<Keyboard> table;
     @FXML
     private TableColumn<Keyboard, Double> price;
-    private OpenAddedComponents opener = new OpenKeyboards();
-    private OpenAddedComponents deleter = new OpenKeyboards();
+    private OpenAddedComponents opener = new OpenKeyboards(true);
+    private OpenAddedComponents deleter = new OpenKeyboards(true);
     @FXML private ChoiceBox<String> filter;
     @FXML private TextField querySearch;
     //this function sets the tableview for added components as editable, sets a cellfactory for price, as we need to handle exceptions if

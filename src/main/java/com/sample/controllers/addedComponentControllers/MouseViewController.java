@@ -25,8 +25,8 @@ public class MouseViewController {
     @FXML private AnchorPane componentPane;
     @FXML private TableView<Mouse> table;
     @FXML private TableColumn<Mouse, Double> price;
-    private OpenAddedComponents opener = new OpenMice();
-    private OpenAddedComponents deleter = new OpenMice();
+    private OpenAddedComponents opener = new OpenMice(true);
+    private OpenAddedComponents deleter = new OpenMice(true);
     @FXML private ChoiceBox<String> filter;
     @FXML private TextField querySearch;
     //this function sets the tableview as editable, sets a cellfactory for price, as we need to handle exceptions if

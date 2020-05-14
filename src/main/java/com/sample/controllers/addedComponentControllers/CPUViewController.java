@@ -26,8 +26,8 @@ public class CPUViewController {
     @FXML
     private TableView<Processor> table;
     @FXML private TableColumn<Processor, Double> price;
-    private OpenAddedComponents opener = new OpenCPUs();
-    private OpenAddedComponents deleter = new OpenCPUs();
+    private OpenAddedComponents opener = new OpenCPUs(true);
+    private OpenAddedComponents deleter = new OpenCPUs(true);
     @FXML private ChoiceBox<String> filter;
     @FXML private TextField querySearch;
 

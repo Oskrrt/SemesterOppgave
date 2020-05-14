@@ -23,19 +23,6 @@ public class OpenTxt extends FileOpener {
         return null;
     }
 
-   /* public void readAll() throws IOException {
-        String halla = "";
-        try(BufferedReader reader = Files.newBufferedReader(path)) {
-            String line;
-            while ((line = reader.readLine()) != null) {
-                halla += line;
-            }
-        } catch(IOException e) {
-            e.printStackTrace();
-        }
-        System.out.println(halla);
-    }*/
-
     public User getUserTryingToLogIn(String mail) {
         User userTryingToLogIn = new User();
 
@@ -51,6 +38,7 @@ public class OpenTxt extends FileOpener {
             userTryingToLogIn.setMail(userFromFile[0]);
             userTryingToLogIn.setPassword(userFromFile[1]);
             userTryingToLogIn.setAdmin(Boolean.parseBoolean(userFromFile[2]));
+
             // determines wether the user trying to log in is an admin user or a regular user using the decorator design pattern
             if (userTryingToLogIn.getAdmin()) {
                 Admin admin = new Admin(userTryingToLogIn);

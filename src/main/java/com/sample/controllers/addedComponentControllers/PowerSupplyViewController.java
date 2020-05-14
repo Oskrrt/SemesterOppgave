@@ -27,8 +27,8 @@ public class PowerSupplyViewController {
     private TableView<PowerSupply> table;
     @FXML 
     private TableColumn<PowerSupply, Double> price;
-    private OpenAddedComponents opener = new OpenPowerSupplies();
-    private OpenAddedComponents deleter = new OpenPowerSupplies();
+    private OpenAddedComponents opener = new OpenPowerSupplies(true);
+    private OpenAddedComponents deleter = new OpenPowerSupplies(true);
     @FXML private ChoiceBox<String> filter;
     @FXML private TextField querySearch;
 

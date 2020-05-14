@@ -29,7 +29,7 @@ public class chooseMotherboard {
     void back(ActionEvent event) throws IOException {
         App.changeView("/fxml/BuildComputer/buildComputer.fxml", 0 ,0);
     }
-    private OpenMotherBoards opener = new OpenMotherBoards();
+    private OpenMotherBoards opener = new OpenMotherBoards(false);
 
     public void initialize() {
         try {

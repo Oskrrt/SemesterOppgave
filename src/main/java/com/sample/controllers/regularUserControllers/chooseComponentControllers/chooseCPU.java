@@ -29,7 +29,7 @@ public class chooseCPU {
     void back(ActionEvent event) throws IOException {
         App.changeView("/fxml/BuildComputer/buildComputer.fxml", 0 ,0);
     }
-    private OpenCPUs opener = new OpenCPUs();
+    private OpenCPUs opener = new OpenCPUs(false);
 
     public void initialize() {
         try {
