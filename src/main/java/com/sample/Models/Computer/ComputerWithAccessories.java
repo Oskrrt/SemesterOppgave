@@ -4,6 +4,7 @@ import com.sample.BLL.UserLogic;
 import com.sample.Models.ComputerComponents.*;
 import javafx.beans.property.SimpleDoubleProperty;
 
+import java.security.Key;
 import java.util.List;
 
 public class ComputerWithAccessories extends Computer {
@@ -23,17 +24,29 @@ public class ComputerWithAccessories extends Computer {
         this.Speaker = speaker;
     }
 
+    public ComputerWithAccessories(String name, double price){
+        super(name, price);
+    }
+    @Override
     public String toString() {
-        return Computer.toString()+":"+Mouse.toString()+":"+Monitor.toString()+":"+Keyboard.toString()+":"+Speaker.toString();
+        return Computer.getName()+":"+Mouse.getClass().getSimpleName()+";"+Mouse.toString()+":"+Monitor.getClass().getSimpleName()+";"+Monitor.toString()+":"+Keyboard.getClass().getSimpleName()+";"+Keyboard.toString()+":"+Speaker.getClass().getSimpleName()+";"+Speaker.toString()+":"+Computer.AccessoryToString();
     }
-    public String getValuesToSaveToFile() {
-        String msg = "";
-        List<ComputerComponent> accessoriesNotNull = UserLogic.getCurrentlyChosenComponentsForAccessorisedComputer(this);
-        for (ComputerComponent accessory : accessoriesNotNull) {
-            msg+=accessory.getProductName()+";"+accessory.getPrice()+";"+accessory.getClass().getSimpleName()+":";
-        }
-        return msg+Computer.getValuesToSaveToFile();
+
+
+    public String getTheMouse() {
+        return Mouse.getProductName();
     }
+    public String getTheMonitor() {
+        return Monitor.getProductName();
+    }
+    public String getTheKeyboard() {
+        return Keyboard.getProductName();
+    }
+    public String getTheSpeaker() {
+        return Speaker.getProductName();
+    }
+
+
     public double getPriceObject() {
         return Price.getValue();
     }

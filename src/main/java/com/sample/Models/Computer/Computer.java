@@ -42,8 +42,13 @@ public class Computer {
         this.Price = new SimpleDoubleProperty(price);
     }
 
+
+    public String AccessoryToString() {
+        return ComputerCase.getClass().getSimpleName()+";"+ComputerCase.toString()+":"+Cooling.getClass().getSimpleName()+";"+Cooling.toString()+":"+GraphicsCard.getClass().getSimpleName()+";"+GraphicsCard.toString()+":"+StorageComponent.getClass().getSimpleName()+";"+StorageComponent.toString()+":"+Motherboard.getClass().getSimpleName()+";"+Motherboard.toString()+":"+PowerSupply.getClass().getSimpleName()+";"+PowerSupply.toString()+":"+CPU.getClass().getSimpleName()+";"+CPU.toString()+":"+Memory.getClass().getSimpleName()+";"+Memory.toString()+":"+Creator.getMail();
+    }
+
     public String toString() {
-        return Name.getValueSafe()+":"+ComputerCase.getClass().getSimpleName()+";"+ComputerCase.toString()+":"+Cooling.getClass().getSimpleName()+";"+Cooling.toString()+":"+GraphicsCard.getClass().getSimpleName()+";"+GraphicsCard.toString()+":"+StorageComponent.getClass().getSimpleName()+";"+StorageComponent.toString()+":"+Motherboard.getClass().getSimpleName()+";"+Motherboard.toString()+":"+PowerSupply.getClass().getSimpleName()+";"+PowerSupply.toString()+":"+CPU.getClass().getSimpleName()+";"+CPU.toString()+":"+Memory.getClass().getSimpleName()+";"+Memory.toString();
+        return Name.getValueSafe()+":"+ComputerCase.getClass().getSimpleName()+";"+ComputerCase.toString()+":"+Cooling.getClass().getSimpleName()+";"+Cooling.toString()+":"+GraphicsCard.getClass().getSimpleName()+";"+GraphicsCard.toString()+":"+StorageComponent.getClass().getSimpleName()+";"+StorageComponent.toString()+":"+Motherboard.getClass().getSimpleName()+";"+Motherboard.toString()+":"+PowerSupply.getClass().getSimpleName()+";"+PowerSupply.toString()+":"+CPU.getClass().getSimpleName()+";"+CPU.toString()+":"+Memory.getClass().getSimpleName()+";"+Memory.toString()+":"+Creator.getMail();
     }
 
     public String getValuesToSaveToFile() {
@@ -59,69 +64,69 @@ public class Computer {
     }
 
 
-    public String getComputerCase() {
+    public String getTheComputerCase() {
         return ComputerCase.getProductName();
     }
 
-    public String getCooling() {
+    public String getTheCooling() {
         return Cooling.getProductName();
     }
 
-    public String getGraphicsCard() {
+    public String getTheGraphicsCard() {
         return GraphicsCard.getProductName();
     }
 
-    public String getStorageComponent() {
+    public String getTheStorageComponent() {
         return StorageComponent.getProductName();
     }
 
-    public String getMotherboard() {
+    public String getTheMotherboard() {
         return Motherboard.getProductName();
     }
 
-    public String getPowerSupply() {
+    public String getThePowerSupply() {
         return PowerSupply.getProductName();
     }
 
-    public String getCPU() {
+    public String getTheCPU() {
         return CPU.getProductName();
     }
 
-    public String getMemory() {
+    public String getTheMemory() {
         return Memory.getProductName();
     }
 
-    public Case getComputerCaseObject() {
+    public Case getComputerCase() {
         return ComputerCase;
     }
 
-    public CoolingSystem getCoolingObject() {
+    public CoolingSystem getCooling() {
         return Cooling;
     }
 
-    public GraphicsCard getGraphicsCardObject() { return GraphicsCard; }
+    public GraphicsCard getGraphicsCard() { return GraphicsCard; }
 
-    public StorageComponent getStorageComponentObject() {
+    public StorageComponent getStorageComponent() {
         return StorageComponent;
     }
 
-    public Motherboard getMotherboardObject() {
+    public Motherboard getMotherboard() {
         return Motherboard;
     }
 
-    public PowerSupply getPowerSupplyObject() {
+    public PowerSupply getPowerSupply() {
         return PowerSupply;
     }
 
-    public Processor getCPUObject() {
+    public Processor getCPU() {
         return CPU;
     }
 
-    public RAM getMemoryObject() {
+    public RAM getMemory() {
         return Memory;
     }
 
-    public User getCreatorObject(){return Creator;}
+    public User getCreator(){return Creator;}
 
     public double getPrice(){return Price.getValue();}
 
@@ -177,6 +182,9 @@ public class Computer {
         } else {
             throw new ValidationException("Invalid name, make sure it is between 2 and 20 characters long.\nAllowed characters are: a-z æ øå _ - . # 1-9");
         }
+    }
+
+    public void setMouse(Mouse mouse) {
     }
 }
 

@@ -42,7 +42,7 @@ abstract public class FileSaver extends Task<Boolean> {
             path = Paths.get("src/main/java/com/sample/DAL/SavedFiles/SavedComputers/ComputersWithAccessories.txt");
             // Declaring two long fileSize variables, one before writing and one after writing. If the size is changed after writing the writing went successfully
             long fileSize = Files.size(path);
-            String contentToWrite = ((ComputerWithAccessories) dataToSave).getValuesToSaveToFile()+":"+((ComputerWithAccessories) dataToSave).getPriceObject()+"\n";
+            String contentToWrite = dataToSave.toString()+":"+((ComputerWithAccessories) dataToSave).getPriceObject()+"\n";
             Files.write(path, contentToWrite.getBytes(), StandardOpenOption.APPEND);
             long fileSizeAfter = Files.size(path);
             return fileSizeAfter>fileSize;

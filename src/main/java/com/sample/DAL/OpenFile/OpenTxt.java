@@ -1,6 +1,7 @@
 package com.sample.DAL.OpenFile;
 
 import com.sample.Models.Computer.Computer;
+import com.sample.Models.Computer.ComputerWithAccessories;
 import com.sample.Models.ComputerComponents.*;
 import com.sample.Models.Users.Admin;
 import com.sample.Models.Users.User;
@@ -11,10 +12,15 @@ import java.lang.reflect.InvocationTargetException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.security.Key;
 import java.util.ArrayList;
 import java.util.List;
 
 public class OpenTxt extends FileOpener {
+    private User loggedInUser;
+    public OpenTxt(User loggedInUser){
+        this.loggedInUser = loggedInUser;
+    }
     private final Path pathForComputers = Paths.get("src/main/java/com/sample/DAL/SavedFiles/SavedComputers/Computers.txt");
     private final Path PathForComputersWithAccessories = Paths.get("src/main/java/com/sample/DAL/SavedFiles/SavedComputers/ComputersWithAccessories.txt");
 
@@ -34,31 +40,78 @@ public class OpenTxt extends FileOpener {
             List<ComputerComponent> actualComponents = new ArrayList<>();
             while ((line = reader.readLine()) != null) {
                 components = line.split(":");
-                try {
-                    // sets the name and price of the computer, the price will always be the last element so therefore the components[components.length-1]
-                    Computer computerFromFile = new Computer(components[0], Double.parseDouble(components[components.length-1]));
-                    for (String component : components) {
-                        // checks if the component contains ; if it does create a new array with the seperated info
-                        if(component.contains(";")) {
-                            componentInfo = component.split(";");
-                            actualComponents.add(generateComponent(componentInfo));
+                if (components[components.length-2].equals(loggedInUser.getMail())){
+                    try {
+                        // sets the name and price of the computer, the price will always be the last element so therefore the components[components.length-1]
+                        Computer computerFromFile = new Computer(components[0], Double.parseDouble(components[components.length-1]));
+                        for (String component : components) {
+                            // checks if the component contains ; if it does create a new array with the seperated info
+                            if(component.contains(";")) {
+                                componentInfo = component.split(";");
+                                actualComponents.add(generateComponent(componentInfo));
+                            }
                         }
+                        // Sets the components to the computer and finally adds the computer to the computer list
+                        computerFromFile.setComputerCase((Case) actualComponents.get(0));
+                        computerFromFile.setCooling((CoolingSystem) actualComponents.get(1));
+                        computerFromFile.setGraphicsCard((GraphicsCard) actualComponents.get(2));
+                        computerFromFile.setStorageComponent((StorageComponent) actualComponents.get(3));
+                        computerFromFile.setMotherboard((Motherboard) actualComponents.get(4));
+                        computerFromFile.setPowerSupply((PowerSupply) actualComponents.get(5));
+                        computerFromFile.setCPU((Processor) actualComponents.get(6));
+                        computerFromFile.setMemory((RAM) actualComponents.get(7));
+                        allComputers.add(computerFromFile);
+                    } catch (NumberFormatException e) {
+                        e.printStackTrace();
                     }
-                    // Sets the components to the computer and finally adds the computer to the computer list
-                    computerFromFile.setComputerCase((Case) actualComponents.get(0));
-                    computerFromFile.setCooling((CoolingSystem) actualComponents.get(1));
-                    computerFromFile.setGraphicsCard((GraphicsCard) actualComponents.get(2));
-                    computerFromFile.setStorageComponent((StorageComponent) actualComponents.get(3));
-                    computerFromFile.setMotherboard((Motherboard) actualComponents.get(4));
-                    computerFromFile.setPowerSupply((PowerSupply) actualComponents.get(5));
-                    computerFromFile.setCPU((Processor) actualComponents.get(6));
-                    computerFromFile.setMemory((RAM) actualComponents.get(7));
-                    allComputers.add(computerFromFile);
-                } catch (NumberFormatException e) {
-                    e.printStackTrace();
                 }
             }
-        } catch(IOException | NullPointerException e) {
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return allComputers;
+    }
+
+    public List<ComputerWithAccessories> getSavedComputersWithAccessories() {
+        List<ComputerWithAccessories> allComputers = new ArrayList<>();
+        try (BufferedReader reader = Files.newBufferedReader(PathForComputersWithAccessories)) {
+            String line;
+            String[] components;
+            String[] componentInfo;
+            List<ComputerComponent> actualComponents = new ArrayList<>();
+            while ((line = reader.readLine()) != null) {
+                components = line.split(":");
+                if (components[components.length-2].equals(loggedInUser.getMail())){
+                    try {
+                        // sets the name and price of the computer, the price will always be the last element so therefore the components[components.length-1]
+                        ComputerWithAccessories computerFromFile = new ComputerWithAccessories(components[0], Double.parseDouble(components[components.length-1]));
+                        for (String component : components) {
+                            // checks if the component contains ; if it does create a new array with the seperated info
+                            if(component.contains(";")) {
+                                componentInfo = component.split(";");
+                                actualComponents.add(generateComponent(componentInfo));
+                            }
+                        }
+                        // Sets the components to the computer and finally adds the computer to the computer list
+                        computerFromFile.setMouse((Mouse) actualComponents.get(0));
+                        computerFromFile.setMonitor((Monitor) actualComponents.get(1));
+                        computerFromFile.setKeyboard((Keyboard) actualComponents.get(2));
+                        computerFromFile.setSpeaker((Speaker) actualComponents.get(3));
+                        computerFromFile.setComputerCase((Case) actualComponents.get(4));
+                        computerFromFile.setCooling((CoolingSystem) actualComponents.get(5));
+                        computerFromFile.setGraphicsCard((GraphicsCard) actualComponents.get(6));
+                        computerFromFile.setStorageComponent((StorageComponent) actualComponents.get(7));
+                        computerFromFile.setMotherboard((Motherboard) actualComponents.get(8));
+                        computerFromFile.setPowerSupply((PowerSupply) actualComponents.get(9));
+                        computerFromFile.setCPU((Processor) actualComponents.get(10));
+                        computerFromFile.setMemory((RAM) actualComponents.get(11));
+                        allComputers.add(computerFromFile);
+                    } catch (NumberFormatException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        } catch (IOException e) {
             e.printStackTrace();
         }
         return allComputers;
@@ -66,6 +119,14 @@ public class OpenTxt extends FileOpener {
 
     private ComputerComponent generateComponent(String[] componentInfo){
         switch (componentInfo[0]){
+            case "Mouse":
+                return generateMouse(componentInfo);
+            case "Monitor":
+                return generateMonitor(componentInfo);
+            case "Keyboard":
+                return generateKeyboard(componentInfo);
+            case "Speaker":
+                return generateSpeaker(componentInfo);
             case "Case":
                 return generateCase(componentInfo);
             case "CoolingSystem":
@@ -84,6 +145,50 @@ public class OpenTxt extends FileOpener {
                 return generateRAM(componentInfo);
         }
         return null;
+    }
+
+    private Mouse generateMouse(String[] info) {
+        boolean wireless = false;
+        try{
+            if (info[6].equals("Yes")){
+                wireless = true;
+            }
+            Mouse component = new Mouse(Double.parseDouble(info[1]),info[2], info[3],info[4], info[5], wireless);
+            return component;
+        }catch (NumberFormatException e){
+            return null;
+        }
+    }
+
+    private Monitor generateMonitor(String[] info) {
+        try{
+            Monitor component = new Monitor(Double.parseDouble(info[1]),info[2], info[3],info[4], info[5], info[6], info[7], info[8], info[9]);
+            return component;
+        }catch (NumberFormatException e){
+            return null;
+        }
+    }
+
+    private Keyboard generateKeyboard(String[] info) {
+        boolean wireless = false;
+        try{
+            if (info[6].equals("Yes")){
+                wireless = true;
+            }
+            Keyboard component = new Keyboard(Double.parseDouble(info[1]),info[2], info[3],info[4], info[5], info[6], wireless);
+            return component;
+        }catch (NumberFormatException e){
+            return null;
+        }
+    }
+
+    private Speaker generateSpeaker(String[] info) {
+        try{
+            Speaker component = new Speaker(Double.parseDouble(info[1]),info[2], info[3],info[4], info[5], info[6]);
+            return component;
+        }catch (NumberFormatException e){
+            return null;
+        }
     }
 
     private RAM generateRAM(String[] info) {

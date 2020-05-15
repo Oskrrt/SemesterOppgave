@@ -61,14 +61,14 @@ public class buildComputerController {
             Label lbl = (Label) container.lookup("#"+chosenComponents.getClass().getSimpleName());
             lbl.setText(chosenComponents.getProductName());
         }
-        if(computerBeingBuilt.getCreatorObject() == null) {
+        if(computerBeingBuilt.getCreator() == null) {
             computerBeingBuilt.setCreator(loggedInUser);
         }
 
         //System.out.println(loggedInUser.getComputerInProduction());
         //System.out.println(loggedInUser.getComputerInProduction().allFieldsSet());
 
-        if (loggedInUser.getComputerInProduction().getCreatorObject().getMail().equals(loggedInUser.getMail())) {
+        if (loggedInUser.getComputerInProduction().getCreator().getMail().equals(loggedInUser.getMail())) {
             /*if(loggedInUser.getComputerInProduction().getComputerCase() != null) {
                 Case.setText(loggedInUser.getComputerInProduction().getComputerCase().getProductName());
             } else if(loggedInUser.getComputerInProduction().getComputerCase() == null){

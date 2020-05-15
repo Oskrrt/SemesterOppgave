@@ -35,7 +35,7 @@ public class Keyboard extends ComputerComponent {
     }
 
     public String toString() {
-        return super.toString()+language.getValueSafe()+";"+isWireless.getValueSafe();
+        return super.toString()+language.getValueSafe()+isWireless.getValueSafe();
     }
 
     public String getIsWireless(){

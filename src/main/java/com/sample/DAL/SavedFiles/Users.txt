@@ -5,7 +5,3 @@ simen.renberg@hotmail.no:42c66e20cbc1106d0e84d62e1e4cf2e34920d2b3:true
 oskar.ruyter@hotmail.com:7926f46b93d3c74b83310a674961ce2d66f1d9a8:true
 admin@admin.no:7af2d10b73ab7cd8f603937f7697cb5fe432c7ff:true
 oskar_ruyter@hotmail.com:952568b8a0e329e80e61efea0b61e57be79d242f:false
-per@per.com:fb2006ce81a92810363712b83350ff57155ca859:false
-per@per.com:fd5edceda11c659d1bc9f8abec4a1fa24b62bbab:false
-per@per.com:38fb637c61e87c4abe5934e48717c840319bd523:false
-ole@ole.ole:e3c3579ecf57ab565e5d9432f617af62f59d2de2:false
