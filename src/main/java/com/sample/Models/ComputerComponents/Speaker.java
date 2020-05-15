@@ -32,7 +32,7 @@ public class Speaker extends ComputerComponent{
             super.setProductionCompany("Not selected");
             super.setProductName("Not selected");
             super.setSerialNumber("Not selected");
-            setInputType("Not selected");
+            this.setInputType("Not selected");
         }
         return super.toString()+inputType.getValueSafe();
     }

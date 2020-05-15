@@ -25,13 +25,13 @@ public class OpenTxt extends FileOpener {
     private final Path PathForComputersWithAccessories = Paths.get("src/main/java/com/sample/DAL/SavedFiles/SavedComputers/ComputersWithAccessories.txt");
 
     @Override
-    protected List<Computer> call() {
+    protected List<Computer> call() throws NumberFormatException {
         return getSavedComputers();
     }
 
 
 
-    List<Computer> getSavedComputers() {
+    List<Computer> getSavedComputers() throws NumberFormatException {
         List<Computer> allComputers = new ArrayList<>();
         try (BufferedReader reader = Files.newBufferedReader(pathForComputers)) {
             String line;
@@ -62,7 +62,7 @@ public class OpenTxt extends FileOpener {
                         computerFromFile.setMemory((RAM) actualComponents.get(7));
                         allComputers.add(computerFromFile);
                     } catch (NumberFormatException e) {
-                        throw new NumberFormatException("a file has been tampered with");
+                        return null;
                     }
                 }
             }
@@ -72,7 +72,7 @@ public class OpenTxt extends FileOpener {
         return allComputers;
     }
 
-    public List<ComputerWithAccessories> getSavedComputersWithAccessories() {
+    public List<ComputerWithAccessories> getSavedComputersWithAccessories() throws NumberFormatException {
         List<ComputerWithAccessories> allComputers = new ArrayList<>();
         try (BufferedReader reader = Files.newBufferedReader(PathForComputersWithAccessories)) {
             String line;
@@ -107,7 +107,7 @@ public class OpenTxt extends FileOpener {
                         computerFromFile.setMemory((RAM) actualComponents.get(11));
                         allComputers.add(computerFromFile);
                     } catch (NumberFormatException e) {
-                        throw new NumberFormatException("A file has been tampered with");
+                        return null;
                     }
                 }
             }

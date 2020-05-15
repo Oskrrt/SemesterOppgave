@@ -150,6 +150,7 @@ public class CoolingSystemViewController implements Initializable {
     private void handleDeleteError(WorkerStateEvent workerStateEvent) {
         Alert errorBox = new Alert(Alert.AlertType.ERROR);
         errorBox.setTitle("Something went wrong while deleting");
+        errorBox.showAndWait();
         toggleGUIDisable();
     }
 

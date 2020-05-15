@@ -9,6 +9,8 @@ import javafx.collections.ObservableList;
 import javafx.concurrent.WorkerStateEvent;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableView;
 
 import java.io.IOException;
@@ -44,18 +46,32 @@ public class myComputersController {
 
     }
     private void succeed(WorkerStateEvent e) {
-        ObservableList<Computer> info = FXCollections.observableArrayList(opener.getValue());
-        table.getItems().setAll(info);
+        if (opener.getValue() == null){
+            Label errorPlaceholder = new Label("A file has been tampered with. Your computers are not accessible.");
+            table.placeholderProperty().setValue(errorPlaceholder);
+        } else {
+            ObservableList<Computer> info = FXCollections.observableArrayList(opener.getValue());
+            table.getItems().setAll(info);
+        }
+
 
     }
 
     private void populateAccessoryTable(){
-        ObservableList<ComputerWithAccessories> info = FXCollections.observableArrayList(opener.getSavedComputersWithAccessories());
-        accessoryTable.getItems().setAll((info));
+        if (opener.getSavedComputersWithAccessories() == null){
+            Label errorPlaceholder = new Label("A file has been tampered with. Your computers are not accessible.");
+            accessoryTable.placeholderProperty().setValue(errorPlaceholder);
+        } else{
+            ObservableList<ComputerWithAccessories> info = FXCollections.observableArrayList(opener.getSavedComputersWithAccessories());
+            accessoryTable.getItems().setAll((info));
+        }
+
     }
 
     private void threadError(WorkerStateEvent e) {
         var ex = e.getSource().getException();
+        Alert errorBox = new Alert(Alert.AlertType.ERROR);
+        errorBox.setTitle(ex.getMessage());
         ex.printStackTrace();
     }
 
