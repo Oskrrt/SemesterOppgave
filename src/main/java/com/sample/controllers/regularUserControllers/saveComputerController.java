@@ -37,14 +37,14 @@ public class saveComputerController {
 
     private void placeComponentInfo() {
         List<Node> aps = container.getChildren();
-        ((Label)((AnchorPane)aps.get(0)).getChildren().get(1)).setText(computerToBeSaved.getComputerCase().getProductName());
-        ((Label)((AnchorPane)aps.get(1)).getChildren().get(1)).setText(computerToBeSaved.getMemory().getProductName());
-        ((Label)((AnchorPane)aps.get(2)).getChildren().get(1)).setText(computerToBeSaved.getCPU().getProductName());
-        ((Label)((AnchorPane)aps.get(3)).getChildren().get(1)).setText(computerToBeSaved.getCooling().getProductName());
-        ((Label)((AnchorPane)aps.get(4)).getChildren().get(1)).setText(computerToBeSaved.getMotherboard().getProductName());
-        ((Label)((AnchorPane)aps.get(5)).getChildren().get(1)).setText(computerToBeSaved.getGraphicsCard().getProductName());
-        ((Label)((AnchorPane)aps.get(6)).getChildren().get(1)).setText(computerToBeSaved.getStorageComponent().getProductName());
-        ((Label)((AnchorPane)aps.get(7)).getChildren().get(1)).setText(computerToBeSaved.getPowerSupply().getProductName());
+        ((Label)((AnchorPane)aps.get(0)).getChildren().get(1)).setText(computerToBeSaved.getComputerCaseObject().getProductName());
+        ((Label)((AnchorPane)aps.get(1)).getChildren().get(1)).setText(computerToBeSaved.getMemoryObject().getProductName());
+        ((Label)((AnchorPane)aps.get(2)).getChildren().get(1)).setText(computerToBeSaved.getCPUObject().getProductName());
+        ((Label)((AnchorPane)aps.get(3)).getChildren().get(1)).setText(computerToBeSaved.getCoolingObject().getProductName());
+        ((Label)((AnchorPane)aps.get(4)).getChildren().get(1)).setText(computerToBeSaved.getMotherboardObject().getProductName());
+        ((Label)((AnchorPane)aps.get(5)).getChildren().get(1)).setText(computerToBeSaved.getGraphicsCardObject().getProductName());
+        ((Label)((AnchorPane)aps.get(6)).getChildren().get(1)).setText(computerToBeSaved.getStorageComponentObject().getProductName());
+        ((Label)((AnchorPane)aps.get(7)).getChildren().get(1)).setText(computerToBeSaved.getPowerSupplyObject().getProductName());
         DecimalFormat df2 = new DecimalFormat("#0.00");
         ((Label)((AnchorPane)aps.get(8)).getChildren().get(1)).setText("$ "+df2.format(computerToBeSaved.getPrice()));
     }

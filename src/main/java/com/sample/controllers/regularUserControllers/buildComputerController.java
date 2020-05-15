@@ -5,7 +5,6 @@ import com.sample.BLL.UserLogic;
 import com.sample.Models.Computer.Computer;
 import com.sample.Models.ComputerComponents.*;
 import com.sample.Models.Users.User;
-import javafx.beans.property.SimpleStringProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -62,14 +61,14 @@ public class buildComputerController {
             Label lbl = (Label) container.lookup("#"+chosenComponents.getClass().getSimpleName());
             lbl.setText(chosenComponents.getProductName());
         }
-        if(computerBeingBuilt.getCreator() == null) {
+        if(computerBeingBuilt.getCreatorObject() == null) {
             computerBeingBuilt.setCreator(loggedInUser);
         }
 
         //System.out.println(loggedInUser.getComputerInProduction());
         //System.out.println(loggedInUser.getComputerInProduction().allFieldsSet());
 
-        if (loggedInUser.getComputerInProduction().getCreator().getMail().equals(loggedInUser.getMail())) {
+        if (loggedInUser.getComputerInProduction().getCreatorObject().getMail().equals(loggedInUser.getMail())) {
             /*if(loggedInUser.getComputerInProduction().getComputerCase() != null) {
                 Case.setText(loggedInUser.getComputerInProduction().getComputerCase().getProductName());
             } else if(loggedInUser.getComputerInProduction().getComputerCase() == null){

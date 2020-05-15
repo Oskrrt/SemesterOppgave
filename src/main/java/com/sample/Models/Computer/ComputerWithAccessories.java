@@ -34,7 +34,7 @@ public class ComputerWithAccessories extends Computer {
         }
         return msg+Computer.getValuesToSaveToFile();
     }
-    public double getPrice() {
+    public double getPriceObject() {
         return Price.getValue();
     }
 

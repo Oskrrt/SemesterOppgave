@@ -20,6 +20,7 @@ public class Processor extends ComputerComponent {
         this.maxFrequency = new SimpleStringProperty(maxFrequency);
     }
 
+    @Override
     public String toString() {
         return super.toString()+coreCount.getValueSafe()+";"+threadCount.getValueSafe()+";"+maxFrequency.getValueSafe();
     }

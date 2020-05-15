@@ -23,7 +23,7 @@ public class myComputersController {
     private regularUserController connector = new regularUserController();
     private OpenTxt opener;
     @FXML
-    private TableView<String> table;
+    private TableView<Computer> table;
 
     @FXML
     void initialize() {
@@ -44,17 +44,8 @@ public class myComputersController {
 
     }
     private void succeed(WorkerStateEvent e) {
-      System.out.println(opener.getValue());
-       /*ObservableList<String> info = FXCollections.observableArrayList(opener.getValue());
-        TableColumn<String, String> col = new TableColumn<>();
-        table.getColumns().addAll(col);
-        List<TableColumn<String, String>> cols = (List) table.getColumns();
-
-        cols.get(0).setCellValueFactory(data -> {
-            SimpleStringProperty s = new SimpleStringProperty(data.getValue());
-            System.out.println(s);
-            return s;
-        });*/
+        ObservableList<Computer> info = FXCollections.observableArrayList(opener.getValue());
+        table.getItems().setAll(opener.getValue());
 
        /* TableColumn<String, String> col1 = new TableColumn<>("Name");
         col1.setCellValueFactory(data-> new SimpleStringProperty("Hei du"));

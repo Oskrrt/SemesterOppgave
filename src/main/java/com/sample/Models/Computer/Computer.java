@@ -43,7 +43,7 @@ public class Computer {
     }
 
     public String toString() {
-        return Name.getValueSafe()+":"+ComputerCase.toString()+":"+Cooling.toString()+":"+GraphicsCard.toString()+":"+StorageComponent.toString()+":"+Motherboard.toString()+":"+PowerSupply.toString()+":"+CPU.toString()+":"+Memory.toString();
+        return Name.getValueSafe()+":"+ComputerCase.getClass().getSimpleName()+";"+ComputerCase.toString()+":"+Cooling.getClass().getSimpleName()+";"+Cooling.toString()+":"+GraphicsCard.getClass().getSimpleName()+";"+GraphicsCard.toString()+":"+StorageComponent.getClass().getSimpleName()+";"+StorageComponent.toString()+":"+Motherboard.getClass().getSimpleName()+";"+Motherboard.toString()+":"+PowerSupply.getClass().getSimpleName()+";"+PowerSupply.toString()+":"+CPU.getClass().getSimpleName()+";"+CPU.toString()+":"+Memory.getClass().getSimpleName()+";"+Memory.toString();
     }
 
     public String getValuesToSaveToFile() {
@@ -58,37 +58,70 @@ public class Computer {
         return true;
     }
 
-    public Case getComputerCase() {
+
+    public String getComputerCase() {
+        return ComputerCase.getProductName();
+    }
+
+    public String getCooling() {
+        return Cooling.getProductName();
+    }
+
+    public String getGraphicsCard() {
+        return GraphicsCard.getProductName();
+    }
+
+    public String getStorageComponent() {
+        return StorageComponent.getProductName();
+    }
+
+    public String getMotherboard() {
+        return Motherboard.getProductName();
+    }
+
+    public String getPowerSupply() {
+        return PowerSupply.getProductName();
+    }
+
+    public String getCPU() {
+        return CPU.getProductName();
+    }
+
+    public String getMemory() {
+        return Memory.getProductName();
+    }
+
+    public Case getComputerCaseObject() {
         return ComputerCase;
     }
 
-    public CoolingSystem getCooling() {
+    public CoolingSystem getCoolingObject() {
         return Cooling;
     }
 
-    public GraphicsCard getGraphicsCard() { return GraphicsCard; }
+    public GraphicsCard getGraphicsCardObject() { return GraphicsCard; }
 
-    public StorageComponent getStorageComponent() {
+    public StorageComponent getStorageComponentObject() {
         return StorageComponent;
     }
 
-    public Motherboard getMotherboard() {
+    public Motherboard getMotherboardObject() {
         return Motherboard;
     }
 
-    public PowerSupply getPowerSupply() {
+    public PowerSupply getPowerSupplyObject() {
         return PowerSupply;
     }
 
-    public Processor getCPU() {
+    public Processor getCPUObject() {
         return CPU;
     }
 
-    public RAM getMemory() {
+    public RAM getMemoryObject() {
         return Memory;
     }
 
-    public User getCreator(){return Creator;}
+    public User getCreatorObject(){return Creator;}
 
     public double getPrice(){return Price.getValue();}
 

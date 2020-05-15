@@ -34,16 +34,16 @@ public class saveAccessorisedComputer {
     }
     private void placeComponentInfo() {
         List<Node> aps = container.getChildren();
-        ((Label)((AnchorPane)aps.get(0)).getChildren().get(1)).setText(computerToBeSaved.getComputer().getComputerCase().getProductName());
-        ((Label)((AnchorPane)aps.get(1)).getChildren().get(1)).setText(computerToBeSaved.getComputer().getMemory().getProductName());
-        ((Label)((AnchorPane)aps.get(2)).getChildren().get(1)).setText(computerToBeSaved.getComputer().getCPU().getProductName());
-        ((Label)((AnchorPane)aps.get(3)).getChildren().get(1)).setText(computerToBeSaved.getComputer().getCooling().getProductName());
-        ((Label)((AnchorPane)aps.get(4)).getChildren().get(1)).setText(computerToBeSaved.getComputer().getMotherboard().getProductName());
-        ((Label)((AnchorPane)aps.get(5)).getChildren().get(1)).setText(computerToBeSaved.getComputer().getGraphicsCard().getProductName());
-        ((Label)((AnchorPane)aps.get(6)).getChildren().get(1)).setText(computerToBeSaved.getComputer().getStorageComponent().getProductName());
-        ((Label)((AnchorPane)aps.get(7)).getChildren().get(1)).setText(computerToBeSaved.getComputer().getPowerSupply().getProductName());
+        ((Label)((AnchorPane)aps.get(0)).getChildren().get(1)).setText(computerToBeSaved.getComputer().getComputerCaseObject().getProductName());
+        ((Label)((AnchorPane)aps.get(1)).getChildren().get(1)).setText(computerToBeSaved.getComputer().getMemoryObject().getProductName());
+        ((Label)((AnchorPane)aps.get(2)).getChildren().get(1)).setText(computerToBeSaved.getComputer().getCPUObject().getProductName());
+        ((Label)((AnchorPane)aps.get(3)).getChildren().get(1)).setText(computerToBeSaved.getComputer().getCoolingObject().getProductName());
+        ((Label)((AnchorPane)aps.get(4)).getChildren().get(1)).setText(computerToBeSaved.getComputer().getMotherboardObject().getProductName());
+        ((Label)((AnchorPane)aps.get(5)).getChildren().get(1)).setText(computerToBeSaved.getComputer().getGraphicsCardObject().getProductName());
+        ((Label)((AnchorPane)aps.get(6)).getChildren().get(1)).setText(computerToBeSaved.getComputer().getStorageComponentObject().getProductName());
+        ((Label)((AnchorPane)aps.get(7)).getChildren().get(1)).setText(computerToBeSaved.getComputer().getPowerSupplyObject().getProductName());
         DecimalFormat df2 = new DecimalFormat("#0.00");
-        ((Label)((AnchorPane)aps.get(12)).getChildren().get(1)).setText("$ "+df2.format(computerToBeSaved.getPrice()));
+        ((Label)((AnchorPane)aps.get(12)).getChildren().get(1)).setText("$ "+df2.format(computerToBeSaved.getPriceObject()));
         if(computerToBeSaved.getMonitor() != null) {
             ((Label)((AnchorPane)aps.get(8)).getChildren().get(1)).setText(computerToBeSaved.getMonitor().getProductName());
         }
