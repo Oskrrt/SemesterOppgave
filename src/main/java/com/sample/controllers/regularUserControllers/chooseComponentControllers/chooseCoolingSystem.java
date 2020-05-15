@@ -55,7 +55,6 @@ public class chooseCoolingSystem {
     @FXML
     private void startSearch(){
         querySearch.textProperty().addListener((observable, oldText, newText) -> {
-            System.out.println(newText);
             search(newText);
         });
     }

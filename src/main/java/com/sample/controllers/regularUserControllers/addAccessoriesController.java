@@ -63,11 +63,28 @@ public class addAccessoriesController {
         List<ComputerComponent> componentsNotNull = UserLogic.getCurrentlyChosenComponents(computerBeingBuilt.getComputer());
         for(ComputerComponent chosenAccessories : accessoriesNotNull) {
             AnchorPane ap = (AnchorPane) container.lookup("#ap"+chosenAccessories.getClass().getSimpleName());
-            System.out.println(chosenAccessories.getClass().getSimpleName());
             ap.setVisible(true);
             placeComponentInfo(chosenAccessories, ap);
         }
-        //System.out.println(UserLogic.calculatePriceOfComputer(computerBeingBuilt));
+        /*System.out.println(bc.clearAccessories());
+        if (bc.clearAccessories()) {
+            System.out.println("true");
+            clearGUI();
+        }*/
+    }
+
+    private void clearGUI() {
+
+        computerBeingBuilt.setKeyboard(null);
+        computerBeingBuilt.setMonitor(null);
+        computerBeingBuilt.setMouse(null);
+        computerBeingBuilt.setSpeaker(null);
+        /*System.out.println("Inne i clear");
+        for (Node child : container.getChildren()) {
+            if (child instanceof Label) {
+                ((Label) child).setText(UserLogic.getDefaultTextForLabels(child.getId()));
+            }
+        }*/
     }
 
     private void placeComponentInfo(ComputerComponent component, AnchorPane ap) {

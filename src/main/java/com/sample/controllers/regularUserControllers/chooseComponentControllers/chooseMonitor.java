@@ -4,6 +4,7 @@ import com.sample.App;
 
 
 import com.sample.DAL.OpenFile.Subtypes.OpenMonitors;
+import com.sample.Exceptions.ValidationException;
 import com.sample.Models.ComputerComponents.*;
 import com.sample.controllers.regularUserControllers.addAccessoriesController;
 import javafx.concurrent.WorkerStateEvent;
@@ -11,13 +12,16 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.Parent;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Control;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class chooseMonitor {
     private addAccessoriesController aac = new addAccessoriesController();
@@ -25,8 +29,8 @@ public class chooseMonitor {
     private GridPane gp;
     @FXML
     private Label errorLbl;
-    @FXML
-    private Label caseLabel;
+    @FXML private ChoiceBox<String> filter;
+    @FXML private TextField querySearch;
     @FXML
     void back(ActionEvent event) throws IOException {
         App.changeView("/fxml/BuildComputer/addAccessories.fxml", 0 ,0);
@@ -34,6 +38,9 @@ public class chooseMonitor {
     private OpenMonitors opener = new OpenMonitors(false);
 
     public void initialize() {
+        filter.getItems().add("Name");
+        filter.getItems().add("Serial number");
+        filter.getSelectionModel().selectFirst();
         try {
             Thread openCaseFilesThread = new Thread(opener);
             opener.setOnSucceeded(this::handleSucceed);
@@ -41,6 +48,30 @@ public class chooseMonitor {
             openCaseFilesThread.setDaemon(true);
             openCaseFilesThread.start();
         } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void startSearch(){
+        querySearch.textProperty().addListener((observable, oldText, newText) -> {
+            search(newText);
+        });
+    }
+    private void search(String query) {
+        List<Monitor> newList;
+        try{
+            List<Monitor> listToSearch = (List<Monitor>) opener.perform();
+            switch (filter.getValue()){
+                case "Name":
+                    newList = listToSearch.stream().filter(c -> c.getProductName().toLowerCase().contains(query.toLowerCase())).collect(Collectors.toList());
+                    placeComponentInfo(newList);
+                    break;
+                case "Serial number":
+                    newList = listToSearch.stream().filter(c -> c.getSerialNumber().toLowerCase().contains(query.toLowerCase())).collect(Collectors.toList());
+                    placeComponentInfo(newList);
+            }
+        } catch (IOException | ValidationException e) {
             e.printStackTrace();
         }
     }
@@ -53,11 +84,6 @@ public class chooseMonitor {
 
     private void handleSucceed(WorkerStateEvent workerStateEvent) {
         List<Monitor> allMonitors = (List<Monitor>) opener.getValue();
-        // Makes all the product containers invisible, sets each one visible later depending on whether they have a component to showcase or not
-        for (int i = 0; i < gp.getChildren().size(); i++) {
-            gp.getChildren().get(i).setVisible(false);
-            gp.getChildren().get(i).setStyle("-fx-border-color: black");
-        }
         placeComponentInfo(allMonitors);
     }
 
@@ -85,6 +111,11 @@ public class chooseMonitor {
         }
     }
     private  void placeComponentInfo(List<Monitor> monitors) {
+        // Makes all the product containers invisible, sets each one visible later depending on whether they have a component to showcase or not
+        for (int i = 0; i < gp.getChildren().size(); i++) {
+            gp.getChildren().get(i).setVisible(false);
+            gp.getChildren().get(i).setStyle("-fx-border-color: black");
+        }
         List<Node> productContainers = gp.getChildren();
         // this loop will have a lot of confusing casts because javafx's handling of Nodes vs Label etc.
         // all it does is set the values of the labels to the values of the components in the list.

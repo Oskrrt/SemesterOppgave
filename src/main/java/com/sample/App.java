@@ -21,8 +21,6 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-
-
         scene = new Scene(loadFXML("/fxml/signIn.fxml"), 500, 450);
         stage.setScene(scene);
         stage.setResizable(false);
@@ -46,8 +44,9 @@ public class App extends Application {
         return fxmlLoader.load();
     }
 
-
     public static void main(String[] args) {
         launch();
     }
+
+
 }

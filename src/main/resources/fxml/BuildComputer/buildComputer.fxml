@@ -27,7 +27,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button fx:id="logOutBtn" alignment="CENTER" onAction="#logOut" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: white; -fx-border-color: black;" text="Log out">
+            <Button fx:id="logOutBtnClear" alignment="CENTER" onAction="#logOut" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: white; -fx-border-color: black;" text="Log out">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
@@ -64,7 +64,7 @@
          </cursor>
       </Label>
       <Polyline fx:id="polyRam" fill="#2527c2" layoutX="517.0" layoutY="487.0" points="404.0, -94.0, 309.5, -285.0, 309.5, -285.0, 221.0, -285.0" stroke="#eb8c34" strokeMiterLimit="40.0" strokeType="INSIDE" strokeWidth="2.0" style="-fx-fill: none;" />
-      <Label fx:id="RAM" alignment="CENTER_RIGHT" layoutX="453.0" layoutY="172.0" onMouseClicked="#openChoiceWindow" onMouseEntered="#makeBigger" onMouseExited="#makeNormal" prefHeight="30.0" prefWidth="350.0" text="RAM">
+      <Label fx:id="RAM" alignment="CENTER_RIGHT" layoutX="398.0" layoutY="172.0" onMouseClicked="#openChoiceWindow" onMouseEntered="#makeBigger" onMouseExited="#makeNormal" prefHeight="30.0" prefWidth="405.0" text="RAM">
          <font>
             <Font size="20.0" />
          </font>
@@ -73,7 +73,7 @@
          </cursor>
       </Label>
       <Polyline fx:id="polyPowerSupply" fill="#2527c2" layoutX="527.0" layoutY="497.0" points="233.0, 114.0, 175.0, 61.0, 175.0, 61.0, -7.0, 61.0" stroke="#eb8c34" strokeMiterLimit="40.0" strokeType="INSIDE" strokeWidth="2.0" style="-fx-fill: none;" />
-      <Label fx:id="PowerSupply" alignment="CENTER_RIGHT" layoutX="360.0" layoutY="528.0" onMouseClicked="#openChoiceWindow" onMouseEntered="#makeBigger" onMouseExited="#makeNormal" prefHeight="30.0" prefWidth="326.0" text="Power supply">
+      <Label fx:id="PowerSupply" alignment="CENTER_RIGHT" layoutX="250.0" layoutY="528.0" onMouseClicked="#openChoiceWindow" onMouseEntered="#makeBigger" onMouseExited="#makeNormal" prefHeight="30.0" prefWidth="436.0" text="Power supply">
          <font>
             <Font size="20.0" />
          </font>

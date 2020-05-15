@@ -106,7 +106,19 @@ public class saveAccessorisedComputer {
     }
 
     private void succeed(WorkerStateEvent e) {
-        System.out.println("hepp "+saver.getValue());
+        if (saver.getValue()) {
+            Alert a = new Alert(Alert.AlertType.INFORMATION);
+            a.setTitle("Computer saved");
+            a.setHeaderText("Computer saved successfully!");
+            a.setContentText(null);
+            a.showAndWait();
+        } else if (!saver.getValue()) {
+            Alert a = new Alert(Alert.AlertType.ERROR);
+            a.setTitle("Error");
+            a.setHeaderText("Could not save the computer.\nPlease try again.");
+            a.setContentText(null);
+            a.showAndWait();
+        }
     }
 
 }

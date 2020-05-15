@@ -3,11 +3,9 @@ package com.sample.BLL;
 import com.sample.Models.Computer.Computer;
 import com.sample.Models.Computer.ComputerWithAccessories;
 import com.sample.Models.ComputerComponents.ComputerComponent;
-
 import java.lang.reflect.*;
 import java.util.ArrayList;
 import java.util.List;
-
 
 public class UserLogic {
 
@@ -44,13 +42,12 @@ public class UserLogic {
                 // We only want the accessories objects, so we leave the Computer and Price out for now
                 if(!methodName.equals("getComputer") && !methodName.equals("getPrice")) {
                     ComputerComponent product = (ComputerComponent) computerBeingBuilt.getClass().getMethod(methodName).invoke(computerBeingBuilt);
-                    //System.out.println(product);
                     if (product != null) {
                         products.add(product);
                     }
                 }
             } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
-                System.out.println(e.getCause());
+                e.printStackTrace();
             }
         }
         return products;
@@ -64,8 +61,38 @@ public class UserLogic {
         return price;
     }
 
-    public static void saveComputer(Computer computerToBeSaved) {
-
+    public static String getDefaultTextForLabels(String id) {
+        String defaultText = "";
+        switch (id) {
+            case "Case":
+                defaultText = "Case";
+                break;
+            case "RAM":
+                defaultText = "RAM";
+                break;
+            case "Processor":
+                defaultText = "Processor (CPU)";
+                break;
+            case "CoolingSystem":
+                defaultText = "Cooling system";
+                break;
+            case "Motherboard":
+                defaultText = "Motherboard";
+                break;
+            case "GraphicsCard":
+                defaultText = "Graphics card (GPU)";
+                break;
+            case "StorageComponent":
+                defaultText = "Storage";
+                break;
+            case "PowerSupply":
+                defaultText = "Power supply";
+                break;
+            case "lblPrice":
+                defaultText = "$ 0,00";
+                break;
+        }
+        return defaultText;
     }
 
 
