@@ -3,6 +3,7 @@ package com.sample.controllers.addedComponentControllers;
 import com.sample.App;
 import com.sample.BLL.AdminLogic;
 import com.sample.BLL.ComponentDeleter;
+import com.sample.DAL.OpenFile.Subtypes.OpenCases;
 import com.sample.Exceptions.ValidationException;
 import com.sample.DAL.OpenFile.Subtypes.OpenAddedComponents;
 import com.sample.DAL.OpenFile.Subtypes.OpenKeyboards;
@@ -18,6 +19,7 @@ import javafx.util.converter.DoubleStringConverter;
 
 import java.io.File;
 import java.io.IOException;
+import java.security.Key;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -152,8 +154,9 @@ public class KeyboardViewController {
 
     private void search(String query) {
         List<Keyboard> newList;
+        OpenAddedComponents searcher = new OpenKeyboards(false);
         try{
-            List<Keyboard> listToSearch = (List<Keyboard>) opener.perform();
+            List<Keyboard> listToSearch = (List<Keyboard>) searcher.perform();
             table.getItems().clear();
             switch (filter.getValue()){
                 case "Name":
@@ -346,7 +349,7 @@ public class KeyboardViewController {
         Keyboard selectedKeyboard = (Keyboard)cellEditEvent.getRowValue();
         File file = new File("src/main/java/com/sample/DAL/SavedFiles/NewComponents/Keyboards/"+selectedKeyboard.getProductName()+".jobj");
         try{
-            selectedKeyboard.setIsWireless(cellEditEvent.getNewValue().toString());
+            selectedKeyboard.setIsWirelessFromForm(cellEditEvent.getNewValue().toString());
             selectedKeyboard.validate();
             AdminLogic.editFile(file, selectedKeyboard);
             table.refresh();
@@ -357,7 +360,7 @@ public class KeyboardViewController {
             Alert errorBox = new Alert(Alert.AlertType.ERROR);
             errorBox.setHeaderText(e.getLocalizedMessage());
             errorBox.showAndWait();
-            selectedKeyboard.setIsWireless(originalWireless);
+            selectedKeyboard.setIsWirelessFromForm(originalWireless);
             table.refresh();
         }
     }

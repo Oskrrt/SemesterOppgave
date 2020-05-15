@@ -3,6 +3,7 @@ package com.sample.controllers.addedComponentControllers;
 import com.sample.App;
 import com.sample.BLL.AdminLogic;
 import com.sample.BLL.ComponentDeleter;
+import com.sample.DAL.OpenFile.Subtypes.OpenCases;
 import com.sample.Exceptions.ValidationException;
 import com.sample.DAL.OpenFile.Subtypes.OpenAddedComponents;
 import com.sample.DAL.OpenFile.Subtypes.OpenMotherBoards;
@@ -149,8 +150,9 @@ public class MotherboardViewController {
 
     private void search(String query) {
         List<Motherboard> newList;
+        OpenAddedComponents searcher = new OpenMotherBoards(false);
         try{
-            List<Motherboard> listToSearch = (List<Motherboard>) opener.perform();
+            List<Motherboard> listToSearch = (List<Motherboard>) searcher.perform();
             table.getItems().clear();
             switch (filter.getValue()){
                 case "Name":

@@ -3,6 +3,7 @@ package com.sample.controllers.addedComponentControllers;
 import com.sample.App;
 import com.sample.BLL.AdminLogic;
 import com.sample.BLL.ComponentDeleter;
+import com.sample.DAL.OpenFile.Subtypes.OpenCases;
 import com.sample.Exceptions.ValidationException;
 import com.sample.DAL.OpenFile.Subtypes.OpenAddedComponents;
 import com.sample.DAL.OpenFile.Subtypes.OpenCoolingSystems;
@@ -154,8 +155,9 @@ public class CoolingSystemViewController implements Initializable {
 
     private void search(String query) {
         List<CoolingSystem> newList;
+        OpenAddedComponents searcher = new OpenCoolingSystems(false);
         try{
-            List<CoolingSystem> listToSearch = (List<CoolingSystem>) opener.perform();
+            List<CoolingSystem> listToSearch = (List<CoolingSystem>) searcher.perform();
             table.getItems().clear();
             switch (filter.getValue()){
                 case "Name":

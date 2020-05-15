@@ -58,7 +58,7 @@ public class buildComputerController {
     public boolean clearAccessories() {
         return clearAccesories;
     }
-    private void clearGUI() {
+    public void clearGUI() {
         System.out.println("Inne i clear");
         for (Node child : container.getChildren()) {
             if (child instanceof Label) {

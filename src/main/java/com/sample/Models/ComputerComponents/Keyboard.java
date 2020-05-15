@@ -18,7 +18,7 @@ public class Keyboard extends ComputerComponent {
         super(price, description, productName, productionCompany, serialNumber);
         this.language = new SimpleStringProperty(language);
         this.wireless = new SimpleBooleanProperty(wireless);
-        setIsWireless();
+        setIsWirelessFromForm();
     }
 
     public String getLanguage() {
@@ -26,7 +26,7 @@ public class Keyboard extends ComputerComponent {
     }
 
     //For a more user-friendly tableview. Yes/No instead of true/false.
-    public void setIsWireless() {
+    public void setIsWirelessFromForm() {
         if (this.wireless.get()){
             this.isWireless = new SimpleStringProperty("Yes");
         } else {
@@ -34,7 +34,19 @@ public class Keyboard extends ComputerComponent {
         }
     }
 
+    public void setIsWireLess(String wireless){
+        this.isWireless.set(wireless);
+    }
+
     public String toString() {
+        if (this.getDescription() == null){
+            super.setDescription("Not selected");
+            super.setPrice(0);
+            super.setProductionCompany("Not selected");
+            super.setProductName("Not selected");
+            super.setSerialNumber("Not selected");
+            this.setIsWireLess("Not selected");
+        }
         return super.toString()+language.getValueSafe()+isWireless.getValueSafe();
     }
 
@@ -46,7 +58,7 @@ public class Keyboard extends ComputerComponent {
         this.language.set(language);
     }
 
-    public void setIsWireless(String isWireless) {
+    public void setIsWirelessFromForm(String isWireless) {
         this.isWireless.set(isWireless);
     }
 

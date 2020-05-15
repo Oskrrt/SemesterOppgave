@@ -3,6 +3,7 @@ package com.sample.controllers.addedComponentControllers;
 import com.sample.App;
 import com.sample.BLL.AdminLogic;
 import com.sample.BLL.ComponentDeleter;
+import com.sample.DAL.OpenFile.Subtypes.OpenCases;
 import com.sample.Exceptions.ValidationException;
 import com.sample.DAL.OpenFile.Subtypes.OpenAddedComponents;
 import com.sample.DAL.OpenFile.Subtypes.OpenMice;
@@ -149,8 +150,9 @@ public class MouseViewController {
 
     private void search(String query) {
         List<Mouse> newList;
+        OpenAddedComponents searcher = new OpenMice(false);
         try{
-            List<Mouse> listToSearch = (List<Mouse>) opener.perform();
+            List<Mouse> listToSearch = (List<Mouse>) searcher.perform();
             table.getItems().clear();
             switch (filter.getValue()){
                 case "Name":

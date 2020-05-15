@@ -154,8 +154,9 @@ public class caseViewController {
 
     private void search(String query) {
         List<Case> newList;
+        OpenAddedComponents searcher = new OpenCases(false);
         try{
-            List<Case> listToSearch = (List<Case>) opener.perform();
+            List<Case> listToSearch = (List<Case>) searcher.perform();
             table.getItems().clear();
             switch (filter.getValue()){
                 case "Name":

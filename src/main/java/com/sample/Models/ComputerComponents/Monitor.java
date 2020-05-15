@@ -23,6 +23,17 @@ public class Monitor extends ComputerComponent {
     }
 
     public String toString() {
+        if (this.getDescription() == null){
+            super.setDescription("Not selected");
+            super.setPrice(0);
+            super.setProductionCompany("Not selected");
+            super.setProductName("Not selected");
+            super.setSerialNumber("Not selected");
+            setDisplayType("Not selected");
+            setInches("Not selected");
+            setConnector("Not selected");
+            setResolution("Not selected");
+        }
         return super.toString()+displayType.getValueSafe()+";"+inches.getValueSafe()+";"+resolution.getValueSafe()+";"+connector.getValueSafe();
     }
 

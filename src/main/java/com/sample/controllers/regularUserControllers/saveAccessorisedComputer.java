@@ -22,6 +22,7 @@ import java.util.Optional;
 
 public class saveAccessorisedComputer {
     private regularUserController connector = new regularUserController();
+    private buildComputerController bc = new buildComputerController();
     private static addAccessoriesController aac = new addAccessoriesController();
     private static User loggedInUser = aac.getLoggedInUser();
     private ComputerWithAccessories computerToBeSaved = (ComputerWithAccessories) loggedInUser.getComputerInProduction();
@@ -92,6 +93,7 @@ public class saveAccessorisedComputer {
                 saver = new SaveTxt(computerToBeSaved);
                 Thread tr = new Thread(saver);
                 saver.setOnSucceeded(this::succeed);
+                saver.setOnFailed(this::failed);
                 tr.setDaemon(true);
                 tr.start();
             } catch (ValidationException e) {
@@ -103,6 +105,11 @@ public class saveAccessorisedComputer {
                 onClickSave(event);
             }
         });
+    }
+
+    private void failed(WorkerStateEvent workerStateEvent) {
+        var ex = workerStateEvent.getSource().getException();
+        ex.printStackTrace();
     }
 
     private void succeed(WorkerStateEvent e) {

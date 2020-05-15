@@ -3,6 +3,7 @@ package com.sample.controllers.addedComponentControllers;
 import com.sample.App;
 import com.sample.BLL.AdminLogic;
 import com.sample.BLL.ComponentDeleter;
+import com.sample.DAL.OpenFile.Subtypes.OpenCases;
 import com.sample.Exceptions.ValidationException;
 import com.sample.DAL.OpenFile.Subtypes.OpenAddedComponents;
 import com.sample.DAL.OpenFile.Subtypes.OpenStorageComponents;
@@ -151,8 +152,9 @@ public class StorageComponentViewController {
 
     private void search(String query) {
         List<StorageComponent> newList;
+        OpenAddedComponents searcher = new OpenStorageComponents(false);
         try{
-            List<StorageComponent> listToSearch = (List<StorageComponent>) opener.perform();
+            List<StorageComponent> listToSearch = (List<StorageComponent>) searcher.perform();
             table.getItems().clear();
             switch (filter.getValue()){
                 case "Name":

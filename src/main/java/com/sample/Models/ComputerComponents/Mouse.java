@@ -29,6 +29,14 @@ public class Mouse extends ComputerComponent {
     }
 
     public String toString() {
+        if (this.getDescription() == null){
+            super.setDescription("Not selected");
+            super.setPrice(0);
+            super.setProductionCompany("Not selected");
+            super.setProductName("Not selected");
+            super.setSerialNumber("Not selected");
+            setIsWireLess("Not selected");
+        }
         return super.toString()+isWireLess.getValueSafe();
     }
 

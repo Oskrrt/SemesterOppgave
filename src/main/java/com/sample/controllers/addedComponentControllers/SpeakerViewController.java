@@ -3,6 +3,7 @@ package com.sample.controllers.addedComponentControllers;
 import com.sample.App;
 import com.sample.BLL.AdminLogic;
 import com.sample.BLL.ComponentDeleter;
+import com.sample.DAL.OpenFile.Subtypes.OpenCases;
 import com.sample.Exceptions.ValidationException;
 import com.sample.DAL.OpenFile.Subtypes.OpenAddedComponents;
 import com.sample.DAL.OpenFile.Subtypes.OpenSpeakers;
@@ -151,8 +152,9 @@ public class SpeakerViewController {
 
     private void search(String query) {
         List<Speaker> newList;
+        OpenAddedComponents searcher = new OpenSpeakers(false);
         try{
-            List<Speaker> listToSearch = (List<Speaker>) opener.perform();
+            List<Speaker> listToSearch = (List<Speaker>) searcher.perform();
             table.getItems().clear();
             switch (filter.getValue()){
                 case "Name":

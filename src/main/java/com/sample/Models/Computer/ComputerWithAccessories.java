@@ -29,9 +29,28 @@ public class ComputerWithAccessories extends Computer {
     }
     @Override
     public String toString() {
+        if (Mouse == null){
+            Mouse = new Mouse(0, null, null, null, null, false);
+        } if (Monitor == null){
+            Monitor = new Monitor(0, null, null, null, null, null, null, null, null);
+
+        } if (Keyboard == null){
+            Keyboard = new Keyboard(0, null, null, null, null, null, false);
+
+        } if (Speaker == null){
+            Speaker = new Speaker(0, null, null, null, null, null);
+        }
         return Computer.getName()+":"+Mouse.getClass().getSimpleName()+";"+Mouse.toString()+":"+Monitor.getClass().getSimpleName()+";"+Monitor.toString()+":"+Keyboard.getClass().getSimpleName()+";"+Keyboard.toString()+":"+Speaker.getClass().getSimpleName()+";"+Speaker.toString()+":"+Computer.AccessoryToString();
     }
 
+//    public String getValuesToSaveToFile() {
+//        String msg = "";
+//        List<ComputerComponent> accessoriesNotNull = UserLogic.getCurrentlyChosenComponentsForAccessorisedComputer(this);
+//        for (ComputerComponent accessory : accessoriesNotNull) {
+//            msg+=accessory.getProductName()+";"+accessory.getPrice()+";"+accessory.getClass().getSimpleName()+":";
+//        }
+//        return msg+Computer.getValuesToSaveToFile();
+//    }
 
     public String getTheMouse() {
         return Mouse.getProductName();

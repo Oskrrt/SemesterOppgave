@@ -3,6 +3,7 @@ package com.sample.controllers.addedComponentControllers;
 import com.sample.App;
 import com.sample.BLL.AdminLogic;
 import com.sample.BLL.ComponentDeleter;
+import com.sample.DAL.OpenFile.Subtypes.OpenCases;
 import com.sample.Exceptions.ValidationException;
 import com.sample.DAL.OpenFile.Subtypes.OpenAddedComponents;
 import com.sample.DAL.OpenFile.Subtypes.OpenRAM;
@@ -151,8 +152,9 @@ public class RAMViewController {
 
     private void search(String query) {
         List<RAM> newList;
+        OpenAddedComponents searcher = new OpenRAM(false);
         try{
-            List<RAM> listToSearch = (List<RAM>) opener.perform();
+            List<RAM> listToSearch = (List<RAM>) searcher.perform();
             table.getItems().clear();
             switch (filter.getValue()){
                 case "Name":

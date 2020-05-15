@@ -26,6 +26,14 @@ public class Speaker extends ComputerComponent{
     }
 
     public String toString() {
+        if (this.getDescription() == null){
+            super.setDescription("Not selected");
+            super.setPrice(0);
+            super.setProductionCompany("Not selected");
+            super.setProductName("Not selected");
+            super.setSerialNumber("Not selected");
+            setInputType("Not selected");
+        }
         return super.toString()+inputType.getValueSafe();
     }
 

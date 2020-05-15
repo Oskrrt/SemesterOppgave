@@ -3,6 +3,7 @@ package com.sample.controllers.addedComponentControllers;
 import com.sample.App;
 import com.sample.BLL.AdminLogic;
 import com.sample.BLL.ComponentDeleter;
+import com.sample.DAL.OpenFile.Subtypes.OpenCases;
 import com.sample.Exceptions.ValidationException;
 import com.sample.DAL.OpenFile.Subtypes.OpenAddedComponents;
 import com.sample.DAL.OpenFile.Subtypes.OpenCPUs;
@@ -153,8 +154,9 @@ public class CPUViewController {
 
     private void search(String query) {
         List<Processor> newList;
+        OpenAddedComponents searcher = new OpenCPUs(false);
         try{
-            List<Processor> listToSearch = (List<Processor>) opener.perform();
+            List<Processor> listToSearch = (List<Processor>) searcher.perform();
             table.getItems().clear();
             switch (filter.getValue()){
                 case "Name":

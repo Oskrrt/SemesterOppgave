@@ -3,6 +3,7 @@ package com.sample.controllers.addedComponentControllers;
 import com.sample.App;
 import com.sample.BLL.AdminLogic;
 import com.sample.BLL.ComponentDeleter;
+import com.sample.DAL.OpenFile.Subtypes.OpenCases;
 import com.sample.Exceptions.ValidationException;
 import com.sample.DAL.OpenFile.Subtypes.OpenAddedComponents;
 import com.sample.DAL.OpenFile.Subtypes.OpenPowerSupplies;
@@ -153,8 +154,9 @@ public class PowerSupplyViewController {
 
     private void search(String query) {
         List<PowerSupply> newList;
+        OpenAddedComponents searcher = new OpenPowerSupplies(false);
         try{
-            List<PowerSupply> listToSearch = (List<PowerSupply>) opener.perform();
+            List<PowerSupply> listToSearch = (List<PowerSupply>) searcher.perform();
             table.getItems().clear();
             switch (filter.getValue()){
                 case "Name":

@@ -3,6 +3,7 @@ package com.sample.controllers.addedComponentControllers;
 import com.sample.App;
 import com.sample.BLL.AdminLogic;
 import com.sample.BLL.ComponentDeleter;
+import com.sample.DAL.OpenFile.Subtypes.OpenCases;
 import com.sample.Exceptions.ValidationException;
 import com.sample.DAL.OpenFile.Subtypes.OpenAddedComponents;
 import com.sample.DAL.OpenFile.Subtypes.OpenGPUs;
@@ -151,8 +152,9 @@ public class GPUViewController {
 
     private void search(String query) {
         List<GraphicsCard> newList;
+        OpenAddedComponents searcher = new OpenGPUs(false);
         try{
-            List<GraphicsCard> listToSearch = (List<GraphicsCard>) opener.perform();
+            List<GraphicsCard> listToSearch = (List<GraphicsCard>) searcher.perform();
             table.getItems().clear();
             switch (filter.getValue()){
                 case "Name":

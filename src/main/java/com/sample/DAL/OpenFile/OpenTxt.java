@@ -62,7 +62,7 @@ public class OpenTxt extends FileOpener {
                         computerFromFile.setMemory((RAM) actualComponents.get(7));
                         allComputers.add(computerFromFile);
                     } catch (NumberFormatException e) {
-                        e.printStackTrace();
+                        throw new NumberFormatException("a file has been tampered with");
                     }
                 }
             }
@@ -107,7 +107,7 @@ public class OpenTxt extends FileOpener {
                         computerFromFile.setMemory((RAM) actualComponents.get(11));
                         allComputers.add(computerFromFile);
                     } catch (NumberFormatException e) {
-                        e.printStackTrace();
+                        throw new NumberFormatException("A file has been tampered with");
                     }
                 }
             }
