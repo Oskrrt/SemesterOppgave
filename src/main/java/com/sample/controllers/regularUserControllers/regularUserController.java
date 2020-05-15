@@ -11,11 +11,7 @@ public class regularUserController {
 
     // this is basically working as a session variable
     private User loggedInUser = signInController.getLoggedInUser();
-    @FXML
-    void initialize() throws IOException {
-        System.out.println(loggedInUser.getMail());
 
-    }
     User getLoggedInUser() {
         return loggedInUser;
     }
@@ -34,7 +30,6 @@ public class regularUserController {
 
     @FXML
     void onClickHome() throws IOException {
-        System.out.println("Du trykka home");
         App.changeView("/fxml/homeScreenRegularUser.fxml",0, 0);
     }
 

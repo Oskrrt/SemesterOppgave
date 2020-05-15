@@ -42,7 +42,7 @@
             <Font size="16.0" />
          </font>
       </Label>
-      <Label fx:id="lblNotifyIfSignUpSucceeded" alignment="CENTER" layoutX="107.0" layoutY="417.0" prefHeight="25.0" prefWidth="455.0" style="-fx-alignment: center;" textFill="#47ab30" wrapText="true">
+      <Label fx:id="lblNotifyIfSignUpSucceeded" alignment="TOP_CENTER" contentDisplay="TOP" layoutX="107.0" layoutY="417.0" prefHeight="85.0" prefWidth="455.0" style="-fx-alignment: center;" textAlignment="CENTER" textFill="#47ab30" wrapText="true">
          <font>
             <Font size="18.0" />
          </font>

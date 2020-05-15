@@ -58,7 +58,7 @@ public class GraphicsCard extends ComputerComponent implements ValidateForm {
     public boolean validate() throws ValidationException {
         super.validate();
 
-        String validateMemoryCapacity = "1|2|4|8|16|32|64|128|256|512";
+        String validateMemoryCapacity = "1|2|4|8|10|11|12|14|16|24|32|64|128|256|512";
         if (Pattern.matches(validateMemoryCapacity, getMemoryCapacity())){
             String validateMemoryType = "[\\w]{3,30}";
             if (Pattern.matches(validateMemoryType, getMemoryType())){

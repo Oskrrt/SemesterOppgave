@@ -73,7 +73,7 @@ public class Processor extends ComputerComponent {
 
         String validateCoreCount = "[0-9]{1,2}";
         if(Pattern.matches(validateCoreCount, getCoreCount())){
-            String validateThreadCount = "[0-9][1,2]";
+            String validateThreadCount = "[0-9]{1,2}";
             if (Pattern.matches(validateThreadCount, getThreadCount())){
                 String validateMaxFrequency = "[0-9]+(\\.[0-9]{0,1})?$";
                 if (Pattern.matches(validateMaxFrequency, getMaxFrequency())){

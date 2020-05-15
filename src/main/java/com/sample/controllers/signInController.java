@@ -58,7 +58,6 @@ public class signInController {
         User userTryingToLogIn = LoginLogic.validateSignIn(mail, password);
         if (userTryingToLogIn != null && userTryingToLogIn.getLoggedIn()) {
             loggedInUser = userTryingToLogIn;
-            System.out.println(userTryingToLogIn.getClass());
             if (loggedInUser instanceof Admin) {
                 App.changeView("/fxml/homeScreenAdmin.fxml", 1200, 900);
             } else {
@@ -69,34 +68,4 @@ public class signInController {
         }
     }
 
-    /*public void testApi() throws MalformedURLException, UnsupportedEncodingException {
-        *//*HttpResponse <String> httpResponse = Unirest.get("<https://comppartsapi.herokuapp.com/>")
-                .asString();
-        System.out.println(httpResponse.getHeaders().get("Content-Type"));*//*
-        System.out.println(Unirest.get("https://comppartsapi.herokuapp.com/computerparts/cpu").asJson());
-        *//*HttpResponse <JsonNode> response = Unirest.get("http://httpbin.org").queryString("fruit", "apple").asJson();
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        //JsonParser jp = new JsonParser();
-        JsonElement je = JsonParser.parseString(response.getBody().toString());
-        String prettyJsonString = gson.toJson(je);
-        System.out.println(prettyJsonString);*//*
-
-        String host = "https://restcountries-v1.p.rapidapi.com/name/norge";
-        String charset = "UTF-8";
-        String x_rapid_api_host="restcountries-v1.p.rapidapi.com";
-        String key = "8cce559715mshd62100f2b2e9db5p198d5cjsna3abec073ac8";
-        String s = "Pulp";
-        String query = String.format("s=%s", URLEncoder.encode(s, charset));
-
-
-        HttpResponse<JsonNode> response = Unirest.get("https://comppartsapi.herokuapp.com/computerparts/cpu").asJson();
-
-        System.out.println(response.getBody());
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        JsonElement je = JsonParser.parseString(response.getBody().toString());
-        String prettyJsonString = gson.toJson(je);
-        System.out.println(prettyJsonString);
-
-
-    }*/
 }

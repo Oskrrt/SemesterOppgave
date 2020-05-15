@@ -87,7 +87,7 @@ public class saveAccessorisedComputer {
         Optional<String> result = dialog.showAndWait();
         result.ifPresent(name->{
             try {
-                //System.out.println(name);
+
                 computerToBeSaved.getComputer().validateName(name);
                 computerToBeSaved.getComputer().setName(name);
                 saver = new SaveTxt(computerToBeSaved);

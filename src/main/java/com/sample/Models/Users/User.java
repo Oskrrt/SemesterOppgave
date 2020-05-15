@@ -53,9 +53,9 @@ public class User {
         boolean invalidConfirmPassword = confirmPassword.isBlank() || confirmPassword.isEmpty() || !validatePassword(password);
 
         if(invalidMail && invalidMail && invalidConfirmPassword) {
-            throw new ValidationException("All of the fields are invalid");
+            throw new ValidationException("All of the fields are invalid.\nPassword must contain one number, one uppercase letter, no special characters and at least 8 characters.");
         } else if (invalidMail || invalidPassword || invalidConfirmPassword) {
-            throw new ValidationException("One of the fields is invalid");
+            throw new ValidationException("One of the fields is invalid.Password must contain one number, one uppercase letter, no special characters and at least 8 characters.");
         } else {
             if (password.equals(confirmPassword)) {
                 this.mail = mail.toLowerCase();

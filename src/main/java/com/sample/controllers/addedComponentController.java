@@ -22,11 +22,11 @@ public class addedComponentController extends adminUserController implements Ini
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         //remove comment if you need to initialize all components.
-        try {
+       /* try {
             init.initFiles();
         } catch (IOException e) {
             e.printStackTrace();
-        }
+        }*/
     }
 
     @FXML
