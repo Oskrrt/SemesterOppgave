@@ -167,6 +167,7 @@ public class OpenTxt extends FileOpener {
                 return component;
             }
         } catch (NumberFormatException | ValidationException e) {
+            e.printStackTrace();
             return null;
         }
         return null;
@@ -179,6 +180,7 @@ public class OpenTxt extends FileOpener {
                 return component;
             }
         } catch (NumberFormatException | ValidationException e) {
+            e.printStackTrace();
             return null;
         }
         return null;
@@ -195,6 +197,7 @@ public class OpenTxt extends FileOpener {
                 return component;
             }
         } catch (NumberFormatException | ValidationException e) {
+            e.printStackTrace();
             return null;
         }
         return null;
@@ -207,6 +210,7 @@ public class OpenTxt extends FileOpener {
                 return component;
             }
         } catch (NumberFormatException | ValidationException e) {
+            e.printStackTrace();
             return null;
         }
         return null;
