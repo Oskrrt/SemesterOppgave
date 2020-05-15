@@ -11,6 +11,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
+import java.text.DecimalFormat;
 
 abstract public class FileSaver extends Task<Boolean> {
     protected final Path path = Paths.get("src/main/java/com/sample/DAL/SavedFiles/Users.txt");
@@ -42,7 +43,8 @@ abstract public class FileSaver extends Task<Boolean> {
             path = Paths.get("src/main/java/com/sample/DAL/SavedFiles/SavedComputers/ComputersWithAccessories.txt");
             // Declaring two long fileSize variables, one before writing and one after writing. If the size is changed after writing the writing went successfully
             long fileSize = Files.size(path);
-            String contentToWrite = dataToSave.toString()+":"+((ComputerWithAccessories) dataToSave).getPriceObject()+"\n";
+            DecimalFormat df = new DecimalFormat("#0.00");
+            String contentToWrite = dataToSave.toString()+":"+df.format(((ComputerWithAccessories) dataToSave).getPriceObject())+"\n";
             Files.write(path, contentToWrite.getBytes(), StandardOpenOption.APPEND);
             long fileSizeAfter = Files.size(path);
             return fileSizeAfter>fileSize;
@@ -50,7 +52,8 @@ abstract public class FileSaver extends Task<Boolean> {
             path = Paths.get("src/main/java/com/sample/DAL/SavedFiles/SavedComputers/Computers.txt");
             // Declaring two long fileSize variables, one before writing and one after writing. If the size is changed after writing the writing went successfully
             long fileSize = Files.size(path);
-            String contentToWrite = dataToSave.toString()+":"+((Computer) dataToSave).getPrice()+"\n";
+            DecimalFormat df = new DecimalFormat("#0.00");
+            String contentToWrite = dataToSave.toString()+":"+df.format(((Computer) dataToSave).getPrice())+"\n";
             Files.write(path, contentToWrite.getBytes(), StandardOpenOption.APPEND);
             long fileSizeAfter = Files.size(path);
             return fileSizeAfter>fileSize;

@@ -4,11 +4,13 @@ import com.sample.BLL.InputValidation.ValidateForm;
 import com.sample.Exceptions.ValidationException;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleStringProperty;
+import javafx.fxml.FXML;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
+import java.text.DecimalFormat;
 import java.util.regex.Pattern;
 
 public class ComputerComponent  implements Serializable, ValidateForm {
@@ -53,7 +55,8 @@ public class ComputerComponent  implements Serializable, ValidateForm {
     }
 
     public String toString() {
-        return this.price.getValue()+";"+ this.description.getValueSafe()+";"+this.productName.getValueSafe()+";"+this.productionCompany.getValueSafe()+";"+this.serialNumber.getValueSafe()+";";
+        DecimalFormat df = new DecimalFormat("#0.00");
+        return df.format(this.price.getValue())+";"+ this.description.getValueSafe()+";"+this.productName.getValueSafe()+";"+this.productionCompany.getValueSafe()+";"+this.serialNumber.getValueSafe()+";";
     }
 
     public void setPrice(double price) {
@@ -112,18 +115,18 @@ public class ComputerComponent  implements Serializable, ValidateForm {
     public boolean validate() throws ValidationException {
         //any double with two decimal points
         String validatePrice = "[0-9]+(\\.[0-9][0-9]?)?";
-        if(Pattern.matches(validatePrice, String.valueOf(getPrice())) && getPrice() > 0){
+        if(Pattern.matches(validatePrice, String.valueOf(getPrice()))){
             //any character. Between 5-300 characters
-            String validateDescription = "[\\w ,.\\-_´``?=)(/&%$#\"'!'@*¨^ÆØÅæøå \\s]{5,500}";
+            String validateDescription = "[\\w ,.\\-_´``?=)(/&%$#\"'!'@*¨^ÆØÅæøå \\s]{5,500}|Not selected";
             if (Pattern.matches(validateDescription, getDescription())){
                 //any word + spaces and  between 2-50 characters. Also allows numbers and special characters.
-                String validateName = "[a-zæøåA-ZÆØÅ0-9\\-_.@*¨^`=)(/&%$#\"! ]{2,100}";
+                String validateName = "[a-zæøåA-ZÆØÅ0-9\\-_.@*¨^`=)(/&%$#\"! ]{2,100}|Not selected";
                 if(Pattern.matches(validateName, getProductName())){
                     //any word + spaces betwwen 2-30 characters. Allows numbers
-                    String validateProductionCompany = "[\\w -]{2,30}";
+                    String validateProductionCompany = "[\\w -]{2,30}|Not selected";
                     if(Pattern.matches(validateProductionCompany, getProductionCompany())){
                         //8 numbers.
-                        String validateSerialnumber = "[0-9]{8}";
+                        String validateSerialnumber = "[0-9]{8}|Not selected";
                         if(Pattern.matches(validateSerialnumber, getSerialNumber())){
                             return true;
                         } else throw new ValidationException("Serial number must be 8 numbers.");

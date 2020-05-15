@@ -86,7 +86,7 @@ public class Keyboard extends ComputerComponent {
         super.validate();
 
         //an API with all keyboard languages would be nice
-        String validateLanguage = "Norwegian|English";
+        String validateLanguage = "Norwegian|English|Not selected";
         if(Pattern.matches(validateLanguage.toLowerCase(), getLanguage().toLowerCase())){
             String validateWireless = "Yes|No";
             if (Pattern.matches(validateWireless.toLowerCase(), getIsWireless().toLowerCase())){

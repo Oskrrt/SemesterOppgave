@@ -1,5 +1,6 @@
 package com.sample.DAL.OpenFile;
 
+import com.sample.Exceptions.ValidationException;
 import com.sample.Models.Computer.Computer;
 import com.sample.Models.Computer.ComputerWithAccessories;
 import com.sample.Models.ComputerComponents.*;
@@ -48,8 +49,11 @@ public class OpenTxt extends FileOpener {
                             // checks if the component contains ; if it does create a new array with the seperated info
                             if(component.contains(";")) {
                                 componentInfo = component.split(";");
-                                actualComponents.add(generateComponent(componentInfo));
-                            }
+                                if (generateComponent(componentInfo) == null){
+                                    return null;
+                                } else {
+                                    actualComponents.add(generateComponent(componentInfo));
+                                }                            }
                         }
                         // Sets the components to the computer and finally adds the computer to the computer list
                         computerFromFile.setComputerCase((Case) actualComponents.get(0));
@@ -61,7 +65,7 @@ public class OpenTxt extends FileOpener {
                         computerFromFile.setCPU((Processor) actualComponents.get(6));
                         computerFromFile.setMemory((RAM) actualComponents.get(7));
                         allComputers.add(computerFromFile);
-                    } catch (NumberFormatException e) {
+                    } catch (Exception e) {
                         return null;
                     }
                 }
@@ -89,7 +93,11 @@ public class OpenTxt extends FileOpener {
                             // checks if the component contains ; if it does create a new array with the seperated info
                             if(component.contains(";")) {
                                 componentInfo = component.split(";");
-                                actualComponents.add(generateComponent(componentInfo));
+                                if (generateComponent(componentInfo) == null){
+                                    return null;
+                                } else {
+                                    actualComponents.add(generateComponent(componentInfo));
+                                }
                             }
                         }
                         // Sets the components to the computer and finally adds the computer to the computer list
@@ -106,7 +114,7 @@ public class OpenTxt extends FileOpener {
                         computerFromFile.setCPU((Processor) actualComponents.get(10));
                         computerFromFile.setMemory((RAM) actualComponents.get(11));
                         allComputers.add(computerFromFile);
-                    } catch (NumberFormatException e) {
+                    } catch (Exception e) {
                         return null;
                     }
                 }
@@ -154,19 +162,25 @@ public class OpenTxt extends FileOpener {
                 wireless = true;
             }
             Mouse component = new Mouse(Double.parseDouble(info[1]),info[2], info[3],info[4], info[5], wireless);
-            return component;
-        }catch (NumberFormatException e){
+            if (component.validate()){
+                return component;
+            }
+        } catch (NumberFormatException | ValidationException e) {
             return null;
         }
+        return null;
     }
 
     private Monitor generateMonitor(String[] info) {
         try{
             Monitor component = new Monitor(Double.parseDouble(info[1]),info[2], info[3],info[4], info[5], info[6], info[7], info[8], info[9]);
-            return component;
-        }catch (NumberFormatException e){
+            if (component.validate()){
+                return component;
+            }
+        } catch (NumberFormatException | ValidationException e) {
             return null;
         }
+        return null;
     }
 
     private Keyboard generateKeyboard(String[] info) {
@@ -176,92 +190,122 @@ public class OpenTxt extends FileOpener {
                 wireless = true;
             }
             Keyboard component = new Keyboard(Double.parseDouble(info[1]),info[2], info[3],info[4], info[5], info[6], wireless);
-            return component;
-        }catch (NumberFormatException e){
+            if (component.validate()){
+                return component;
+            }
+        } catch (NumberFormatException | ValidationException e) {
             return null;
         }
+        return null;
     }
 
     private Speaker generateSpeaker(String[] info) {
         try{
             Speaker component = new Speaker(Double.parseDouble(info[1]),info[2], info[3],info[4], info[5], info[6]);
-            return component;
-        }catch (NumberFormatException e){
+            if (component.validate()){
+                return component;
+            }
+        } catch (NumberFormatException | ValidationException e) {
             return null;
         }
+        return null;
     }
 
     private RAM generateRAM(String[] info) {
         try{
             RAM component = new RAM(Double.parseDouble(info[1]),info[2], info[3],info[4], info[5], info[6], info[7]);
-            return component;
-        }catch (NumberFormatException e){
+            if (component.validate()){
+                return component;
+            }
+        } catch (NumberFormatException | ValidationException e) {
             return null;
         }
+        return null;
     }
 
     private Processor generateCPU(String[] info) {
         try{
             Processor component = new Processor(Double.parseDouble(info[1]),info[2], info[3],info[4], info[5], info[6], info[7], info[8]);
-            return component;
-        }catch (NumberFormatException e){
+            if (component.validate()){
+                return component;
+            }
+        } catch (NumberFormatException | ValidationException e) {
             return null;
         }
+        return null;
     }
 
     private PowerSupply generatePowerSupply(String[] info) {
         try{
             PowerSupply component = new PowerSupply(Double.parseDouble(info[1]),info[2], info[3],info[4], info[5], info[6], info[7], info[8]);
-            return component;
-        }catch (NumberFormatException e){
+            if (component.validate()){
+                return component;
+            }
+        } catch (NumberFormatException | ValidationException e) {
             return null;
         }
+        return null;
     }
 
     private Motherboard generateMotherboard(String[] info) {
         try{
             Motherboard component = new Motherboard(Double.parseDouble(info[1]),info[2], info[3],info[4], info[5], info[6],info[7], info[8], info[9], info[10], info[11], info[12], info[13], info[14], info[15]);
-            return component;
-        }catch (NumberFormatException e){
+            if (component.validate()){
+                return component;
+            }
+        } catch (NumberFormatException | ValidationException e) {
             return null;
         }
+        return null;
     }
 
     private GraphicsCard generateGPU(String[] info) {
         try{
             GraphicsCard component = new GraphicsCard(Double.parseDouble(info[1]),info[2], info[3],info[4], info[5], info[6], info[7]);
-            return component;
-        }catch (NumberFormatException e){
+            if (component.validate()){
+                return component;
+            }
+        } catch (NumberFormatException | ValidationException e) {
             return null;
         }
+        return null;
     }
 
     private StorageComponent generateStorage(String[] info) {
         try{
             StorageComponent component = new StorageComponent(Double.parseDouble(info[1]),info[2], info[3],info[4], info[5], info[6]);
-            return component;
-        }catch (NumberFormatException e){
+            if (component.validate()){
+                return component;
+            }
+        } catch (NumberFormatException | ValidationException e) {
             return null;
         }
+        return null;
     }
 
     private CoolingSystem generateCooling(String[] info) {
         try{
             CoolingSystem component = new CoolingSystem(info[6],info[7],Double.parseDouble(info[1]),info[2],info[3], info[4], info[5]);
-            return component;
-        } catch (NumberFormatException e){
+            if (component.validate()){
+                return component;
+            }
+        } catch (NumberFormatException | ValidationException e) {
             return null;
         }
+        return null;
     }
 
     private Case generateCase(String[] info) {
 
         try {
             Case component = new Case(info[6], info[7], info[8], info[9], info[10], Double.parseDouble(info[1]), info[2], info[3],  info[4],  info[5]);
-            return component;
-        } catch (NumberFormatException e) {
+            if (component.validate()){
+                return component;
+            }
+        } catch (NumberFormatException | ValidationException e) {
             return null;
         }
+        return null;
     }
 
     public User getUserTryingToLogIn(String mail) {

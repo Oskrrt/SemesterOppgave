@@ -95,13 +95,13 @@ public class Monitor extends ComputerComponent {
     public boolean validate() throws ValidationException {
         super.validate();
 
-        String validateDisplayType = "LCD|CRT|LED|OLED|Plasma";
+        String validateDisplayType = "LCD|CRT|LED|OLED|Plasma|Not selected";
         if(Pattern.matches(validateDisplayType, getDisplayType())){
-            String validateInches = "[0-9]{1,2}";
+            String validateInches = "[0-9]{1,2}|Not selected";
             if (Pattern.matches(validateInches, getInches())){
-                String validateResolution = "[a-zæøåA-ZÆØÅ0-9]{2,6}";
+                String validateResolution = "[a-zæøåA-ZÆØÅ0-9]{2,6}|Not selected";
                 if (Pattern.matches(validateResolution, getResolution())){
-                    String validateConnector = "SCART|VGA|DVI|SDI|HDMI|DisplayPort|Mini-DVI|RCA";
+                    String validateConnector = "SCART|VGA|DVI|SDI|HDMI|DisplayPort|Mini-DVI|RCA|Not selected";
                     if (Pattern.matches(validateConnector, getConnector())){
                         return true;
                     } else throw new ValidationException("Only SCART/VGA/DVI/SDI/HDMI/DisplayPort/Mini-DVI and RCA are currently allowed");

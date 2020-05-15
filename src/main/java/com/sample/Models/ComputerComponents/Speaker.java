@@ -53,7 +53,7 @@ public class Speaker extends ComputerComponent{
     public boolean validate() throws ValidationException {
         super.validate();
 
-        String validateInputType = "AUX|USB-C|USB-B|USB-A|Bluetooth|";
+        String validateInputType = "AUX|USB-C|USB-B|USB-A|Bluetooth|Not selected";
         if(Pattern.matches(validateInputType, getInputType())){
             return true;
         } else throw new ValidationException("Only AUX/USB-C/USB-B/USB-A and Bluetooth are currently allowed");

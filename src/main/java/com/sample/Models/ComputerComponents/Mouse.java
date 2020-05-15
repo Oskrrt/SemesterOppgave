@@ -69,7 +69,7 @@ public class Mouse extends ComputerComponent {
     @Override
     public boolean validate() throws ValidationException {
         super.validate();
-        String validateWireless = "Yes|No";
+        String validateWireless = "Yes|No|Not selected";
         if (Pattern.matches(validateWireless.toLowerCase(), getIsWireless().toLowerCase())){
             return true;
 
