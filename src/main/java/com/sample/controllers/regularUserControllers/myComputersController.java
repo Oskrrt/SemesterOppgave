@@ -25,8 +25,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class myComputersController {
-    @FXML private TextField regularSearch;
-    @FXML private TextField accessorySearch;
+
     private regularUserController connector = new regularUserController();
     private OpenTxt opener;
     @FXML
@@ -101,35 +100,4 @@ public class myComputersController {
         connector.onClickMyComputers();
     }
 
-
-    private void searchRegular(String query) {
-        List<Computer> newList;
-        OpenTxt searcher = new OpenTxt(connector.getLoggedInUser());
-        List<Computer> listToSearch = searcher.getSavedComputers();
-        table.getItems().clear();
-        newList = listToSearch.stream().filter(c -> c.getName().toLowerCase().contains(query.toLowerCase())).collect(Collectors.toList());
-        table.getItems().addAll(newList);
-    }
-
-    private void searchAccessory(String query) {
-        List<ComputerWithAccessories> newList;
-        OpenTxt searcher = new OpenTxt(connector.getLoggedInUser());
-        List<ComputerWithAccessories> listToSearch = searcher.getSavedComputersWithAccessories();
-        accessoryTable.getItems().clear();
-        newList = listToSearch.stream().filter(c -> c.getName().toLowerCase().contains(query.toLowerCase())).collect(Collectors.toList());
-        accessoryTable.getItems().addAll(newList);
-    }
-
-
-    public void startRegularSearch(MouseEvent mouseEvent) {
-        regularSearch.textProperty().addListener((observable, oldText, newText) -> {
-            searchRegular(newText);
-        });
-    }
-
-    public void startAccessorySearch(MouseEvent mouseEvent) {
-        accessorySearch.textProperty().addListener((observable, oldText, newText) -> {
-            searchAccessory(newText);
-        });
-    }
 }
