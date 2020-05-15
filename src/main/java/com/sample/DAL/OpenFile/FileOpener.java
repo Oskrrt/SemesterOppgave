@@ -19,23 +19,4 @@ import java.util.List;
 public abstract class FileOpener extends Task<List<Computer>> {
 
 
-/*
-    List<String> getComputerInfo() {
-        List<String> computerInfo = new ArrayList<>();
-        try (BufferedReader reader = Files.newBufferedReader(pathForComputers)) {
-            String line;
-            String[] componentInfo;
-            List<ComputerComponent> actualComponents = new ArrayList<>();
-            while ((line = reader.readLine()) != null) {
-                componentInfo = line.split(":");
-                for (String component : componentInfo) {
-                    computerInfo.add(component);
-                }
-            }
-        } catch(IOException | NullPointerException e) {
-            e.printStackTrace();
-        }
-        return computerInfo;
-    }
-*/
 }

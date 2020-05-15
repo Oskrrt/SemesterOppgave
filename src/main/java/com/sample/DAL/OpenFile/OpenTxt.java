@@ -53,7 +53,8 @@ public class OpenTxt extends FileOpener {
                                     return null;
                                 } else {
                                     actualComponents.add(generateComponent(componentInfo));
-                                }                            }
+                                }
+                            }
                         }
                         // Sets the components to the computer and finally adds the computer to the computer list
                         computerFromFile.setComputerCase((Case) actualComponents.get(0));
