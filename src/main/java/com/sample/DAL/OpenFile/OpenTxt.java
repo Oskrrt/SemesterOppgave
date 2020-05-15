@@ -32,7 +32,7 @@ public class OpenTxt extends FileOpener {
 
 
 
-    List<Computer> getSavedComputers() throws NumberFormatException {
+    public List<Computer> getSavedComputers() throws NumberFormatException {
         List<Computer> allComputers = new ArrayList<>();
         try (BufferedReader reader = Files.newBufferedReader(pathForComputers)) {
             String line;

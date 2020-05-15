@@ -6,6 +6,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.cell.PropertyValueFactory?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
@@ -173,5 +174,7 @@
       </TableView>
       <Label layoutX="61.0" layoutY="515.0" text="Computers with accessories" />
       <Label layoutX="61.0" layoutY="138.0" text="Computers without accessories" />
+      <TextField fx:id="regularSearch" layoutX="971.0" layoutY="133.0" onMouseClicked="#startRegularSearch" promptText="Search name..." />
+      <TextField fx:id="accessorySearch" layoutX="971.0" layoutY="519.0" onMouseClicked="#startAccessorySearch" promptText="Search name..." />
    </children>
 </AnchorPane>
